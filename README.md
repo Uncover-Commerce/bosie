@@ -97,3 +97,13 @@ Ensure that you follow the list of [theme store requirements](https://shopify.de
 ## License
 
 Copyright (c) 2021-present Shopify Inc. See [LICENSE](/LICENSE.md) for further details.
+
+## Break Points
+Desktop 750 >
+Full Width 990 >
+
+## Fonts
+Root is set to 10px
+
+## Class Structure
+.section > .container > .wrapper > 'content classes'
