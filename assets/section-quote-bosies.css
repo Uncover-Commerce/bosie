@@ -1,0 +1,31 @@
+.quote-container-b{
+    text-align: center;
+    padding-left: 2.35rem;
+    padding-right: 2.35rem;
+    @media screen and (min-width: 990px) {
+    padding-left: 27rem;
+    padding-right: 27rem;
+    }
+}
+
+.quote-header-b {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    @media screen and (min-width: 750px) {
+        font-size: 1.6rem;
+    }
+  }
+
+.quote-text-b{
+    text-align: center;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 103.4%;
+    margin: 2rem 0 2rem 0;
+    letter-spacing: -0.8px;
+    @media screen and (min-width: 750px) {
+        margin: 3rem 0 3rem 0;
+        font-size: 4rem;
+    }
+}
