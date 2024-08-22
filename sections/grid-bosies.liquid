@@ -1,0 +1,185 @@
+{{ 'section-grid-bosies.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-section {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="grid-container-b">
+    <div class="grid-column-b">
+      {% assign first_block = section.blocks | first %}
+      {% case first_block.type %}
+        {% when 'image' %}
+          <div class="image-wrapper-b">
+            {% if first_block.settings.image %}
+              <img
+                src="{{ first_block.settings.image | image_url }}"
+                alt="{{ first_block.settings.alt_text }}"
+                height="auto"
+                width="auto"
+              >
+            {% endif %}
+          </div>
+        {% when 'content' %}
+          <div class="content-wrapper-b">
+            {% if first_block.settings.title %}
+              <h2>{{ first_block.settings.title }}</h2>
+            {% endif %}
+            {% if first_block.settings.rich_text %}
+              <div class="grid-text-b">
+                {{ first_block.settings.rich_text }}
+              </div>
+            {% endif %}
+            {% if first_block.settings.button_link %}
+              <a href="{{ first_block.settings.button_link }}" class="button">
+                {{ first_block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+      {% endcase %}
+    </div>
+
+    <div class="grid-column-b">
+      {% for block in section.blocks offset: 1 %}
+        {% case block.type %}
+          {% when 'image' %}
+            <div class="image-wrapper-b">
+              {% if block.settings.image %}
+                <img
+                  src="{{ block.settings.image | image_url }}"
+                  alt="{{ block.settings.image.alt }}"
+                  height="auto"
+                  width="auto"
+                >
+              {% endif %}
+            </div>
+          {% when 'content' %}
+            <div class="content-wrapper-b">
+              {% if block.settings.title %}
+                <h2>{{ block.settings.title }}</h2>
+              {% endif %}
+              {% if block.settings.rich_text %}
+                <div class="grid-text-b">
+                  {{ block.settings.rich_text }}
+                </div>
+              {% endif %}
+              {% if block.settings.button_link %}
+                <a
+                  href="{{ block.settings.button_link }}"
+                  class="button {% if block.settings.button_background %}button--primary{%else%}button--secondary{% endif %}"
+                >
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Grid",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.grid-text-b.settings.full_width.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Enter your title"
+        },
+        {
+          "type": "richtext",
+          "id": "rich_text",
+          "label": "Rich Text",
+          "default": "<p>Enter your text here</p>"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Click Here"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_background",
+          "default": false,
+          "label": "Button Background"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Grid",
+      "category": "Custom"
+    }
+  ],
+  "max_blocks": 3
+}
+{% endschema %}
