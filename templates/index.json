@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "image_banner": {
@@ -136,12 +145,94 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "column_cta_bosies_JhGeby": {
+      "type": "column-cta-bosies",
+      "blocks": {
+        "column_7VjFLf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
+            "title": "Title",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        },
+        "column_FYceUJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bosieskyeslipover.jpg",
+            "title": "Column Title",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        },
+        "column_aTPLaq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/queenievestputty2.jpg",
+            "title": "Column Title",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_7VjFLf",
+        "column_FYceUJ",
+        "column_aTPLaq"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "trust_banner_bosies_Jcwkik": {
+      "type": "trust-banner-bosies",
+      "blocks": {
+        "block_jh4kBq": {
+          "type": "block",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping"
+          }
+        },
+        "block_UB8cFd": {
+          "type": "block",
+          "settings": {
+            "icon": "check_mark",
+            "text": "Default text"
+          }
+        },
+        "block_yfz83N": {
+          "type": "block",
+          "settings": {
+            "icon": "check_mark",
+            "text": "Default text"
+          }
+        }
+      },
+      "block_order": [
+        "block_jh4kBq",
+        "block_UB8cFd",
+        "block_yfz83N"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "rich_text_fei78D",
-    "image_banner_HgBD9M"
+    "image_banner_HgBD9M",
+    "column_cta_bosies_JhGeby",
+    "trust_banner_bosies_Jcwkik"
   ]
 }
