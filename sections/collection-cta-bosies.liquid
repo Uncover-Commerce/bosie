@@ -1,0 +1,372 @@
+{% schema %}
+{
+  "name": "Collection Call to Action",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text_block",
+      "name": "Image Text Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_one",
+          "label": "First Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_two",
+          "label": "Second Image"
+        },
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Text",
+          "default": "This is your text here."
+        },
+        {
+          "type": "url",
+          "id": "block_link",
+          "label": "Link URL",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "View Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Call to Action",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="collection-cta-container {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      {% for block in section.blocks %}
+        {% if block.type == 'image_text_block' %}
+          <div class="carousel-item">
+            <div class="collection-cta-wrapper">
+              <div class="collection-cta-image">
+                {% if block.settings.image_one %}
+                  <img
+                    src="{{ block.settings.image_one | img_url: 'medium' }}"
+                    alt="First Image"
+                    height="auto"
+                    width="auto"
+                  >
+                {% endif %}
+              </div>
+              <div class="collection-cta-text-image">
+                {% if block.settings.image_two %}
+                  <img
+                    src="{{ block.settings.image_two | img_url: 'medium' }}"
+                    alt="Second Image"
+                    height="auto"
+                    width="auto"
+                  >
+                {% endif %}
+                <p>{{ block.settings.block_text }}</p>
+                {% if block.settings.block_link and block.settings.link_text %}
+                  <a href="{{ block.settings.block_link }}" class="custom-link">{{ block.settings.link_text }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.blocks.size > 1 %}
+      <div class="collection-cta-navigation">
+        <!-- Navigation buttons -->
+        <div class="collection-cta-buttons">
+          <div class="carousel-btn carousel-btn-prev" id="prevBtn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="20" fill="white"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5439 18.4561L14.4561 17.5439L6.91217 10L14.4561 2.45608L13.5439 1.54392L5.08783 10L13.5439 18.4561Z" fill="#2A3B4E"/>
+            </svg>
+          </div>
+          <div class="carousel-btn carousel-btn-next" id="nextBtn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="20" fill="white"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.45609 1.54391L5.54392 2.45608L13.0878 10L5.54392 17.5439L6.45609 18.4561L14.9122 10L6.45609 1.54391Z" fill="#2A3B4E"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Progress bar -->
+        <div class="collection-ctw-progress-bar">
+          <div class="carousel-progress-bar">
+            <div class="carousel-progress-fill" id="progressFill">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  /* Carousel container */
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px; /* Space for controls below */
+  }
+
+  /* Carousel track */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  /* Individual carousel items */
+  .carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Carousel controls container */
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align controls to the left */
+    gap: 10px; /* Space between buttons and progress bar */
+    margin-top: 10px;
+  }
+
+  /* Navigation buttons */
+  .collection-cta-buttons {
+    display: flex;
+  }
+
+  .carousel-btn {
+    height: 20px;
+  }
+
+  /* Progress bar */
+  .collection-cta-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5rem 20rem 0 20rem;
+  }
+
+  .collection-ctw-progress-bar {
+    flex-grow: 1;
+    margin: 0 8px;
+  }
+
+  .carousel-progress-bar {
+    flex-grow: 1; /* Allow progress bar to fill remaining space */
+    height: 1px;
+    background-color: #0000001a;
+    position: relative;
+  }
+
+  .carousel-progress-fill {
+    min-width: 1px; /* Ensure the fill bar has a minimum width to prevent display: none */
+    height: 100%;
+    background-color: #000000;
+    transition: width 0.3s ease;
+  }
+
+  /* Additional styling */
+  .collection-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5rem;
+    height: 100%;
+    @media screen and (min-width: 750px) {
+      flex-direction: row;
+    }
+  }
+
+  .collection-cta-text-image p {
+    text-align: center;
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 103.4%; /* 46.53px */
+    letter-spacing: -0.9px;
+  }
+
+  .collection-cta-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5.2rem;
+    @media screen and (min-width: 750px) {
+      width: 50%;
+      margin-bottom: 0;
+    }
+  }
+
+  .collection-cta-image img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .collection-cta-text-image {
+    @media screen and (min-width: 750px) {
+      width: 50%;
+    }
+  }
+
+  .collection-cta-text-image img {
+    width: 200px;
+    object-fit: contain;
+  }
+
+  .custom-link {
+    text-transform: uppercase;
+    padding: 10px 0px;
+    text-decoration: none;
+    border-bottom: 1px solid #2a3b4e;
+    color: #2a3b4e;
+    display: inline-block;
+  }
+
+  .custom-link:hover {
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.getElementById('nextBtn');
+    const prevButton = document.getElementById('prevBtn');
+    const progressFill = document.getElementById('progressFill');
+    let currentIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let isThrottled = false; // To prevent rapid clicks
+
+    // Function to update the carousel position and progress bar
+    function updateCarousel() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+
+      // Update progress bar fill width based on the current slide index
+      const progressPercentage = ((currentIndex + 1) / slides.length) * 100;
+      progressFill.style.width = `${progressPercentage}%`;
+    }
+
+    // Function to handle the next button click
+    function handleNextButtonClick() {
+      if (isThrottled) return; // Prevent multiple rapid clicks
+      isThrottled = true;
+
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Loop back to the start
+      }
+      updateCarousel();
+
+      // Throttle button clicks
+      setTimeout(() => {
+        isThrottled = false;
+      }, 500);
+    }
+
+    // Function to handle the previous button click
+    function handlePrevButtonClick() {
+      if (isThrottled) return; // Prevent multiple rapid clicks
+      isThrottled = true;
+
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = slides.length - 1; // Loop back to the end
+      }
+      updateCarousel();
+
+      // Throttle button clicks
+      setTimeout(() => {
+        isThrottled = false;
+      }, 500);
+    }
+
+    // Event listeners for buttons
+    nextButton.addEventListener('click', handleNextButtonClick);
+    prevButton.addEventListener('click', handlePrevButtonClick);
+
+    // Touch event listeners for swipe functionality
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diffX = currentX - startX;
+
+      if (diffX > 50) {
+        handlePrevButtonClick(); // Swipe right to go to the previous slide
+        isDragging = false;
+      } else if (diffX < -50) {
+        handleNextButtonClick(); // Swipe left to go to the next slide
+        isDragging = false;
+      }
+    });
+
+    // Reset dragging state on touch end and touch cancel
+    track.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    track.addEventListener('touchcancel', () => {
+      isDragging = false;
+    });
+
+    // Update carousel when the window is resized
+    window.addEventListener('resize', updateCarousel);
+
+    // Initialize the carousel
+    updateCarousel();
+  });
+</script>
