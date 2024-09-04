@@ -35,8 +35,27 @@
 
 @media screen and (min-width: 750px) {
   .footer__content-top .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
     row-gap: 6rem;
     margin-bottom: 0;
+  }
+
+  .footer-block.grid__item {
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Make the second element span 2 columns */
+  .footer-block.grid__item:nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .footer__content-bottom-wrapper {
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }
 
@@ -283,6 +302,7 @@
 @media screen and (min-width: 750px) {
   .footer__payment {
     margin-top: 1.5rem;
+    width: 35%;
   }
 }
 
@@ -297,7 +317,10 @@
 
 @media screen and (min-width: 750px) {
   .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
-    text-align: right;
+    text-align: left;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -454,18 +477,18 @@
 }
 
 .policies {
-  display: inline;
+  @media screen and (min-width: 750px) {
+    display: flex;
+    width: 30%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 }
 
 .policies li {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.policies li::before {
-  content: '\00B7';
-  padding: 0 0.8rem;
 }
 
 .policies li a {
