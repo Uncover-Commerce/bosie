@@ -16,6 +16,38 @@
   src: url('assets/StromaItalic.woff2') format('woff2');
 }
 
+
+@font-face {
+font-family:"proxima-nova-wide";
+src:url("https://use.typekit.net/af/568007/0000000000000000774e079f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/568007/0000000000000000774e079f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/568007/0000000000000000774e079f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"proxima-nova-wide";
+src:url("https://use.typekit.net/af/3cfecb/0000000000000000774e07a0/30/l?subset_id=2&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/3cfecb/0000000000000000774e07a0/30/d?subset_id=2&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/3cfecb/0000000000000000774e07a0/30/a?subset_id=2&fvd=n5&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:500;font-stretch:normal;
+}
+
+@font-face {
+font-family:"hanken-grotesk";
+src:url("https://use.typekit.net/af/02579f/0000000000000000774d1dbf/30/l?subset_id=2&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/02579f/0000000000000000774d1dbf/30/d?subset_id=2&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/02579f/0000000000000000774d1dbf/30/a?subset_id=2&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"hanken-grotesk";
+src:url("https://use.typekit.net/af/d1b13e/0000000000000000774d1dc5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/d1b13e/0000000000000000774d1dc5/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/d1b13e/0000000000000000774d1dc5/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"hanken-grotesk";
+src:url("https://use.typekit.net/af/ef7f6b/0000000000000000774d1dc9/30/l?subset_id=2&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/ef7f6b/0000000000000000774d1dc9/30/d?subset_id=2&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/ef7f6b/0000000000000000774d1dc9/30/a?subset_id=2&fvd=n5&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:500;font-stretch:normal;
+}
+
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -2258,6 +2290,12 @@ input[type='checkbox'] {
   margin: 0;
   letter-spacing: 0.1rem;
   min-height: 3.8rem;
+  text-transform: uppercase;
+  font-family: var(--font-menu-sub);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 103.4%;
+  letter-spacing: 0.036rem;
 }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
