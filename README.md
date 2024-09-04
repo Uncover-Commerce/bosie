@@ -123,3 +123,5 @@ font-style: normal; (edited)
 ## Class Structure
 .section > .container > .wrapper > 'content classes'
 
+## Colours
+Scheme 1 is the primary schema for the default colour styles. DO NOT CHANGE
