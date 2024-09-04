@@ -3,8 +3,8 @@
 
   Usage:
   {% render 'header-mega-menu' %}
-{% endcomment %}
-
+  {% endcomment %}
+  <hr class="nav-hr-b" />
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
@@ -92,3 +92,5 @@
     {%- endfor -%}
   </ul>
 </nav>
+  <hr class="nav-hr-b" />
+
