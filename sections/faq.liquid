@@ -1,0 +1,215 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="faq-section {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <h2 class="faq-title">{{ section.settings.title }}</h2>
+
+  {% for block in section.blocks %}
+    {% if block.type == 'faq' %}
+      <div class="faq-item" {{ block.shopify_attributes }}>
+        <h3 class="faq-question {% if block.settings.open %}active{% endif %}">
+          {{ block.settings.question }}
+          <svg
+            class="faq-chevron"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </h3>
+        <div class="faq-answer {% if block.settings.open %}active{% endif %}">
+          <div class="faq-answer-inner">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your question?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer goes here.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .faq-section {
+    /* existing styles */
+  }
+
+  .faq-title {
+    font-size: 3.2rem;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid #1c2936;
+    margin: 0;
+  }
+
+  .faq-item {
+    position: relative;
+  }
+
+  .faq-question {
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2.4rem;
+    padding: 3.2rem 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(28, 41, 54, 0.1);
+  }
+
+  .faq-question.active {
+    border-bottom-color: transparent;
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .faq-answer.active {
+    opacity: 1;
+    border-bottom: 1px solid rgba(28, 41, 54, 0.1);
+  }
+
+  .faq-answer-inner p {
+    margin-top: 0;
+    margin-bottom: 4.8rem;
+  }
+
+  .faq-chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .faq-question.active .faq-chevron {
+    transform: rotate(90deg);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      var answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', function () {
+        var isOpen = this.classList.toggle('active');
+        answer.classList.toggle('active');
+
+        if (isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0px';
+        }
+
+        // Close other open FAQs
+        faqItems.forEach(function (otherItem) {
+          if (otherItem !== item) {
+            var otherQuestion = otherItem.querySelector('.faq-question');
+            var otherAnswer = otherItem.querySelector('.faq-answer');
+            otherQuestion.classList.remove('active');
+            otherAnswer.classList.remove('active');
+            otherAnswer.style.maxHeight = '0px';
+          }
+        });
+      });
+    });
+  });
+</script>

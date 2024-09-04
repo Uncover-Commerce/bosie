@@ -113,13 +113,6 @@ font-weight: 500; (medium)
 font-weight: 700; (bold)
 font-style: normal;
 
-MENU / SUBHEADING
-Proxima Nova Wide:
-font-family: proxima-nova-wide, sans-serif;
-font-weight: 400; (regular)
-font-weight: 500; (medium)
-font-style: normal; (edited) 
-
 ## Class Structure
 .section > .container > .wrapper > 'content classes'
 
