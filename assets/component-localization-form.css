@@ -15,7 +15,7 @@
 
 .localization-form:only-child .button,
 .localization-form:only-child .localization-form__select {
-  margin: 1rem 1rem 0.5rem;
+  /* margin: 1rem 1rem 0.5rem; */
   flex-grow: 1;
 }
 
@@ -65,15 +65,15 @@
 .localization-form__select {
   border-radius: var(--inputs-radius-outset);
   position: relative;
-  margin-bottom: 1.5rem;
-  padding-left: 1rem;
+  /* margin-bottom: 1.5rem; */
+  /* padding-left: 1rem; */
   text-align: left;
   min-height: calc(4rem + var(--inputs-border-width) * 2);
   min-width: calc(7rem + var(--inputs-border-width) * 2);
 }
 
 .disclosure__button.localization-form__select {
-  padding: calc(2rem + var(--inputs-border-width));
+  /* padding: calc(2rem + var(--inputs-border-width)); */
   background: rgb(var(--color-background));
 }
 
@@ -94,6 +94,7 @@
   width: 100%;
   padding-right: 4rem;
   padding-bottom: 1.5rem;
+  padding-left: 0;
 }
 
 .disclosure .localization-form__select {
@@ -118,7 +119,7 @@
   cursor: pointer;
   display: flex;
   height: 4rem;
-  padding: 0 1.5rem 0 1.5rem;
+  /* padding: 0 1.5rem 0 1.5rem; */
   font-size: 1.3rem;
   background-color: transparent;
 }
