@@ -25,6 +25,28 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Temp styles */
+  .footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer__wordmark {
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0.1;
+  }
+
+  .footer__wordmark img {
+    max-width: 100%;
+    height: auto;
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -154,8 +176,8 @@
                       {%- endif -%}
                     </div>
                   {%- when 'svg' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                      <img src="assets/bosie-stamp.svg" height="auto" width="auto">
+                    <div class="">
+                      <img src="{{ 'bosie-stamp.svg' | asset_url }}" height="auto" width="auto">
                     </div>
                   {%- when 'social_currency' -%}
                     <div class="footer-block__details-content footer-block__social-currency">
@@ -179,6 +201,9 @@
                     </div>
                   {%- when 'newsletter' -%}
                     <div class="footer-block__newsletter">
+                      {%- if block.settings.newsletter_heading != blank -%}
+                        <p class="footer-newsletter_heading inline-richtext">{{ block.settings.newsletter_heading }}</p>
+                      {%- endif -%}
                       {%- if block.settings.subtext != blank -%}
                         <p class="footer-block__heading inline-richtext">{{ block.settings.subtext }}</p>
                       {%- endif -%}
@@ -246,12 +271,6 @@
           </div>
         {%- endif -%}
       </div>
-
-      {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-        <div class="footer__follow-on-shop">
-          {{ shop | login_button: action: 'follow' }}
-        </div>
-      {%- endif -%}
     {%- endunless -%}
   {%- endif -%}
 
@@ -266,7 +285,10 @@
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
-        <small class="copyright__content">Design by Studio Form | Build by Uncover</small>
+        <small class="copyright__content studios"
+          >Design by <a href="https://form-digital.com/uncv">Studio Form</a> | Build by
+          <a href="https://uncovercommerce.com/">Uncover</a></small
+        >
       </div>
 
       {%- if section.settings.payment_enable -%}
@@ -296,6 +318,10 @@
         </ul>
       {%- endif -%}
     </div>
+  </div>
+
+  <div class="footer__wordmark">
+    <img src="{{ 'bosies-wordmark.svg' | asset_url }}" alt="Bosies Wordmark" height="auto" width="auto">
   </div>
 </footer>
 
@@ -447,7 +473,7 @@
       "settings": [
         {
           "type": "inline_richtext",
-          "id": "heading",
+          "id": "newsletter_heading",
           "default": "Subscribe to our emails",
           "label": "Newsletter heading"
         },

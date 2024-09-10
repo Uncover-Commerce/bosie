@@ -7,10 +7,21 @@
   position: relative;
 }
 
+.footer-newsletter_heading{
+  text-align: left;
+  margin-top: 0;
+  margin-right: 3rem;
+  margin-bottom: 2.4rem;
+  font-family: var(--font-heading-family-light);
+  font-size: 2.7rem;
+  line-height: 103%; /* 27.81px */
+  letter-spacing: -0.54px;
+}
+
 @media screen and (min-width: 750px) {
   .newsletter-form {
     align-items: flex-start;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     max-width: 36rem;
   }
 }
