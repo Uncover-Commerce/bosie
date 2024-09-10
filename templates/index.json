@@ -56,7 +56,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "",
+        "collection": "shetland-collection",
         "products_to_show": 10,
         "columns_desktop": 4,
         "full_width": false,
@@ -253,6 +253,41 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
+    },
+    "collection_cta_bosies_PFpQDR": {
+      "type": "collection-cta-bosies",
+      "blocks": {
+        "image_text_block_GRcFbn": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
+            "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "block_text": "This is your text here.",
+            "block_link": "\/",
+            "link_text": "View Collection"
+          }
+        },
+        "image_text_block_P7xkE7": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify:\/\/shop_images\/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
+            "image_two": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland2.jpg",
+            "block_text": "This is your text here.",
+            "block_link": "\/",
+            "link_text": "View Collection"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_GRcFbn",
+        "image_text_block_P7xkE7"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -262,6 +297,7 @@
     "rich_text_fei78D",
     "image_banner_HgBD9M",
     "column_cta_bosies_JhGeby",
-    "trust_banner_bosies_Jcwkik"
+    "trust_banner_bosies_Jcwkik",
+    "collection_cta_bosies_PFpQDR"
   ]
 }
