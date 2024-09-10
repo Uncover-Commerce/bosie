@@ -1266,3 +1266,26 @@ class BulkAdd extends HTMLElement {
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
+
+
+
+// Mega Menu 
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItems = document.querySelectorAll('.menu-item.has-dropdown');
+
+  menuItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      const megaMenu = this.querySelector('.mega-menu');
+      if (megaMenu) {
+        megaMenu.style.display = 'block';
+      }
+    });
+
+    item.addEventListener('mouseleave', function() {
+      const megaMenu = this.querySelector('.mega-menu');
+      if (megaMenu) {
+        megaMenu.style.display = 'none';
+      }
+    });
+  });
+});
