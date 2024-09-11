@@ -1,6 +1,9 @@
 {% schema %}
 {
-  "name": "Collection Call to Action",
+  "name": "Call to Action Bosies",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
       "type": "color_scheme",
@@ -51,10 +54,31 @@
           "label": "Second Image"
         },
         {
+          "type": "select",
+          "id": "content_type",
+          "label": "Content Type",
+          "options": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "image",
+              "label": "Image"
+            }
+          ],
+          "default": "text"
+        },
+        {
           "type": "text",
           "id": "block_text",
           "label": "Text",
           "default": "This is your text here."
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Content Image"
         },
         {
           "type": "url",
@@ -73,7 +97,7 @@
   ],
   "presets": [
     {
-      "name": "Collection Call to Action",
+      "name": "Call to Action Bosies",
       "category": "Custom"
     }
   ]
@@ -90,7 +114,7 @@
               <div class="collection-cta-image">
                 {% if block.settings.image_one %}
                   <img
-                    src="{{ block.settings.image_one | img_url: 'medium' }}"
+                    src="{{ block.settings.image_one | img_url: 'large' }}"
                     alt="First Image"
                     height="auto"
                     width="auto"
@@ -100,13 +124,23 @@
               <div class="collection-cta-text-image">
                 {% if block.settings.image_two %}
                   <img
-                    src="{{ block.settings.image_two | img_url: 'medium' }}"
+                    src="{{ block.settings.image_two | img_url: 'large' }}"
                     alt="Second Image"
                     height="auto"
                     width="auto"
                   >
                 {% endif %}
-                <p>{{ block.settings.block_text }}</p>
+                {% if block.settings.content_type == 'text' %}
+                  <p>{{ block.settings.block_text }}</p>
+                {% elsif block.settings.content_type == 'image' and block.settings.block_image %}
+                  <img
+                    src="{{ block.settings.block_image | img_url: 'large' }}"
+                    alt="Second Image"
+                    height="auto"
+                    width="auto"
+                    class="cta-image-option"
+                  >
+                {% endif %}
                 {% if block.settings.block_link and block.settings.link_text %}
                   <a href="{{ block.settings.block_link }}" class="custom-link">{{ block.settings.link_text }}</a>
                 {% endif %}
@@ -122,13 +156,13 @@
         <div class="collection-cta-buttons">
           <div class="carousel-btn carousel-btn-prev" id="prevBtn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="20" height="20" fill="white"/>
+              <rect width="20" height="20"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5439 18.4561L14.4561 17.5439L6.91217 10L14.4561 2.45608L13.5439 1.54392L5.08783 10L13.5439 18.4561Z" fill="#2A3B4E"/>
             </svg>
           </div>
           <div class="carousel-btn carousel-btn-next" id="nextBtn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="20" height="20" fill="white"/>
+              <rect width="20" height="20"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M6.45609 1.54391L5.54392 2.45608L13.0878 10L5.54392 17.5439L6.45609 18.4561L14.9122 10L6.45609 1.54391Z" fill="#2A3B4E"/>
             </svg>
           </div>
@@ -188,7 +222,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5rem 20rem 0 20rem;
+    @media screen and (min-width: 750px) {
+      margin: 5rem 20rem 0 20rem;
+    }
   }
 
   .collection-ctw-progress-bar {
@@ -225,6 +261,7 @@
   }
 
   .collection-cta-text-image p {
+    font-family: var(--font-heading-family-light);
     text-align: center;
     font-size: 4.5rem;
     font-style: normal;
@@ -246,12 +283,21 @@
   .collection-cta-image img {
     width: 100%;
     object-fit: contain;
+    max-height: 800px;
   }
 
   .collection-cta-text-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @media screen and (min-width: 750px) {
       width: 50%;
     }
+  }
+
+  .cta-image-option {
+    margin-top: 2.8rem;
+    margin-bottom: 4rem;
   }
 
   .collection-cta-text-image img {
