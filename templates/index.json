@@ -86,76 +86,6 @@
         "padding_bottom": 36
       }
     },
-    "rich_text_fei78D": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_BkfbKG": {
-          "type": "heading",
-          "settings": {
-            "heading": "Shaped by the Sea",
-            "heading_size": "h2"
-          }
-        },
-        "heading_GKDpzj": {
-          "type": "heading",
-          "settings": {
-            "heading": "'Bosie' is a word, common in North Scotland, meaning 'hug' or 'cuddle' in our old Scots language, Doric. It has long been our favority Doric word due to its phonetic quaintness, but we believe it describes our knitwear perfectly.",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_BkfbKG",
-        "heading_GKDpzj"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "image_banner_HgBD9M": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_CCFwJM": {
-          "type": "heading",
-          "settings": {
-            "heading": "The perfect gift for any occasion",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_PmNNTy": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP GIFT VOUCHERS",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_CCFwJM",
-        "buttons_PmNNTy"
-      ],
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "column_cta_bosies_JhGeby": {
       "type": "column-cta-bosies",
       "blocks": {
@@ -163,7 +93,7 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
-            "title": "Title",
+            "title": "Mens",
             "link_text": "View Collection",
             "link": ""
           }
@@ -172,16 +102,7 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/bosieskyeslipover.jpg",
-            "title": "Column Title",
-            "link_text": "View Collection",
-            "link": ""
-          }
-        },
-        "column_aTPLaq": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/queenievestputty2.jpg",
-            "title": "Column Title",
+            "title": "Womens",
             "link_text": "View Collection",
             "link": ""
           }
@@ -189,12 +110,11 @@
       },
       "block_order": [
         "column_7VjFLf",
-        "column_FYceUJ",
-        "column_aTPLaq"
+        "column_FYceUJ"
       ],
       "settings": {
         "color_scheme": "background-1",
-        "full_width": true,
+        "full_width": false,
         "padding_top": 40,
         "padding_bottom": 52
       }
@@ -276,8 +196,6 @@
     "image_banner",
     "quote_bosies_C3VXgd",
     "featured_collection_Rq3Ymp",
-    "rich_text_fei78D",
-    "image_banner_HgBD9M",
     "column_cta_bosies_JhGeby",
     "trust_banner_bosies_Jcwkik",
     "collection_cta_bosies_PFpQDR"
