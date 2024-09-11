@@ -2814,7 +2814,8 @@ details[open] > .header__submenu {
   font-weight: 500;
   width: 100%;
   display: flex;
-  border: 0;
+    border-top: solid 0px #EEECE6;
+    border-bottom: solid 0px #EEECE6;
   justify-content: center;
   @media screen and (min-width: 990px) {
     border-top: solid 1px #EEECE6;
