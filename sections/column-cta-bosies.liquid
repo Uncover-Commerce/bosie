@@ -18,7 +18,7 @@
   {% for block in section.blocks %}
     <div class="column-cta-column-b columns-{{ section.blocks.size }}">
       <img
-        src="{{ block.settings.image | img_url: 'medium' }}"
+        src="{{ block.settings.image | img_url: 'large' }}"
         alt="{{ block.settings.title }}"
         height="auto"
         width="auto"
@@ -26,7 +26,7 @@
       >
       <div class="column-cta-wrapper-b">
         <h3>{{ block.settings.title }}</h3>
-        <p>{{ block.settings.link_text }}</p>
+        <a>{{ block.settings.link_text }}</a>
       </div>
     </div>
   {% endfor %}
@@ -34,7 +34,10 @@
 
 {% schema %}
 {
-  "name": "Custom Columns Section",
+  "name": "Custom Columns Bosies",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
       "type": "color_scheme",
@@ -101,8 +104,8 @@
   ],
   "presets": [
     {
-      "name": "Custom Columns Section",
-      "category": "Custom"
+      "name": "Custom Columns Bosies",
+      "category": "Image"
     }
   ],
   "max_blocks": 3
