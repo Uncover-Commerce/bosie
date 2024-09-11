@@ -36,6 +36,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
@@ -127,6 +128,7 @@
           "settings": {
             "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
             "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "content_type": "text",
             "block_text": "This is your text here.",
             "block_link": "\/",
             "link_text": "View Collection"
@@ -137,6 +139,7 @@
           "settings": {
             "image_one": "shopify:\/\/shop_images\/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
             "image_two": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland2.jpg",
+            "content_type": "text",
             "block_text": "This is your text here.",
             "block_link": "\/",
             "link_text": "View Collection"
