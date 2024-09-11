@@ -52,10 +52,24 @@
             "caption_2": "",
             "link_2": ""
           }
+        },
+        "menu_UcYjX8": {
+          "type": "menu",
+          "settings": {
+            "title": "Mens",
+            "linklist": "mens",
+            "image_1": "shopify:\/\/shop_images\/medgreyshetlandsweater.jpg",
+            "caption_1": "Sweaters",
+            "link_1": "shopify:\/\/collections\/shetland-collection",
+            "image_2": "shopify:\/\/shop_images\/bluetoonshetland.jpg",
+            "caption_2": "Cardigans",
+            "link_2": ""
+          }
         }
       },
       "block_order": [
-        "menu_AXaVre"
+        "menu_AXaVre",
+        "menu_UcYjX8"
       ],
       "settings": {
         "logo_position": "top-center",
