@@ -17,10 +17,34 @@
     justify-self: start;
     margin-left: -1.2rem;
   }
-  .inverted-nav {
-  background-color: rgba(255, 255, 255, 0.9);
+  .inverted-navigation {
+  background-color: rgba(0, 0, 0, 0.5);
   }
-}
+
+  .inverted-body {
+    position: relative;
+    top: -4.0rem;
+    @media screen and (min-width: 990px) {
+      top: -15rem;
+    }
+
+  }
+
+  .invert-icons {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  .invert-text {
+    color: white !important;
+  }
+
+  .invert-background {
+      background-color: #F9F7F4 !important;
+    & > * {
+      background-color: #F9F7F4 !important;
+
+    }
+  }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -194,11 +218,6 @@ position: relative;
   }
 }
 
-
-
-
-
-
 .main-menu {
   list-style: none;
   padding: 0;
@@ -314,7 +333,7 @@ position: relative;
   endfor
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header {% if template.name == 'index' %} class="inverted-navigation" {% endif %} data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -326,8 +345,9 @@ position: relative;
     if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
       assign localization_forms = true
     endif
-  -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+    -%}
+    <div class="header-wrapper-bosie">
+  <header id="header-id" class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
@@ -476,7 +496,7 @@ position: relative;
       </a>
     </div>
   </header>
-
+  </div>
     {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
@@ -569,6 +589,7 @@ position: relative;
       } else if (scrollTop <= this.headerBounds.top) {
         this.header.classList.remove('scrolled-past-header');
         requestAnimationFrame(this.reset.bind(this));
+        invertNav();
       }
 
       this.currentScrollTop = scrollTop;
@@ -578,13 +599,15 @@ position: relative;
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
       this.closeMenuDisclosure();
-      this.closeSearchModal();
+                  this.closeSearchModal();
+                  invertNav();
     }
 
     reveal() {
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.add('shopify-section-header-sticky', 'animate');
-      this.header.classList.remove('shopify-section-header-hidden');
+                  this.header.classList.remove('shopify-section-header-hidden');
+                  removeInvertedNav();
     }
 
     reset() {
@@ -604,6 +627,121 @@ position: relative;
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+/*
+Navigation Inversion
+*/
+
+
+   // Set the initial state of the navigation on home page 
+  //if inverted-navigation class is present, make navigation transparent
+  if (document.querySelector('.inverted-navigation')) {
+      
+      document.getElementById('MainContent').classList.add('inverted-body');
+
+      // search text color
+      document.querySelector('.search-text-b').classList.add('invert-text');
+
+      // menu text color white 
+      document.querySelectorAll('.header__menu-item').forEach((item) => {
+        item.classList.add('invert-text');
+      });   
+      
+      // filter the svgs to make theme white
+      document.querySelector('.header__heading-logo').classList.add('invert-icons');
+
+      //search icon
+      document.querySelector('.icon-search').classList.add('invert-icons');
+
+      document.querySelectorAll('.header__icon').forEach((icon) => {
+        icon.classList.add('invert-icons');
+      });
+
+      document.querySelectorAll('.chevron-nav').forEach((icon) => {
+        icon.classList.add('invert-icons');
+      });
+  }
+
+
+
+
+  function invertNav(){
+    //if inverted-navigation class is present, make navigation transparent
+  if (document.querySelector('.inverted-navigation')) {
+console.log("Invert Nav TRIGGERED")
+// search text color
+document.querySelector('.search-text-b').classList.add('invert-text');
+
+// menu text color white 
+document.querySelectorAll('.header__menu-item').forEach((item) => {
+  item.classList.add('invert-text');
+});   
+
+// filter the svgs to make theme white
+document.querySelector('.header__heading-logo').classList.add('invert-icons');
+
+//search icon
+document.querySelector('.icon-search').classList.add('invert-icons');
+
+document.querySelectorAll('.header__icon').forEach((icon) => {
+  icon.classList.add('invert-icons');
+});
+
+document.querySelectorAll('.chevron-nav').forEach((icon) => {
+  icon.classList.add('invert-icons');
+});
+
+
+//Added inverted background to navigation - this
+document.querySelector('.inverted-navigation').classList.remove('invert-background');
+}
+}
+
+
+
+
+
+
+
+function removeInvertedNav(){
+
+  
+    //if inverted-navigation class is present, make navigation transparent
+  if (document.querySelector('.inverted-navigation')) {
+console.log("Invert Nav REMOVED")
+// search text color
+document.querySelector('.search-text-b').classList.remove('invert-text');
+
+// menu text color white 
+document.querySelectorAll('.header__menu-item').forEach((item) => {
+  item.classList.remove('invert-text');
+});   
+
+// filter the svgs to make theme white
+document.querySelector('.header__heading-logo').classList.remove('invert-icons');
+
+//search icon
+document.querySelector('.icon-search').classList.remove('invert-icons');
+
+document.querySelectorAll('.header__icon').forEach((icon) => {
+  icon.classList.remove('invert-icons');
+});
+
+document.querySelectorAll('.chevron-nav').forEach((icon) => {
+  icon.classList.remove('invert-icons');
+});
+
+
+
+//remove inverted background to navigation 
+document.querySelector('.inverted-navigation').classList.add('invert-background');
+
+}
+  }
+
+
+
+ 
 {% endjavascript %}
 
 <script type="application/ld+json">
