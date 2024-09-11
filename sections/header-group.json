@@ -37,6 +37,26 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "menu_AXaVre": {
+          "type": "menu",
+          "settings": {
+            "title": "Collections",
+            "linklist": "collections",
+            "image_1": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland.jpg",
+            "logo_1": "shopify:\/\/shop_images\/blue-mogganes.svg",
+            "caption_1": "",
+            "link_1": "shopify:\/\/collections\/blue-mogganer-®",
+            "image_2": "shopify:\/\/shop_images\/oatmilkshetlandsweater1.jpg",
+            "logo_2": "shopify:\/\/shop_images\/harley-of-scotland.svg",
+            "caption_2": "",
+            "link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_AXaVre"
+      ],
       "settings": {
         "logo_position": "top-center",
         "menu": "main-menu",
