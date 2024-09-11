@@ -58,34 +58,6 @@
         "padding_bottom": 52
       }
     },
-    "featured_collection_Rq3Ymp": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "shetland-collection",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "column_cta_bosies_JhGeby": {
       "type": "column-cta-bosies",
       "blocks": {
@@ -114,6 +86,69 @@
       ],
       "settings": {
         "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_collection_Rq3Ymp": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "shetland-collection",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_cta_bosies_PFpQDR": {
+      "type": "collection-cta-bosies",
+      "blocks": {
+        "image_text_block_GRcFbn": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
+            "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "block_text": "This is your text here.",
+            "block_link": "\/",
+            "link_text": "View Collection"
+          }
+        },
+        "image_text_block_P7xkE7": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify:\/\/shop_images\/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
+            "image_two": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland2.jpg",
+            "block_text": "This is your text here.",
+            "block_link": "\/",
+            "link_text": "View Collection"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_GRcFbn",
+        "image_text_block_P7xkE7"
+      ],
+      "settings": {
+        "color_scheme": "",
         "full_width": false,
         "padding_top": 40,
         "padding_bottom": 52
@@ -155,49 +190,14 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
-    },
-    "collection_cta_bosies_PFpQDR": {
-      "type": "collection-cta-bosies",
-      "blocks": {
-        "image_text_block_GRcFbn": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
-            "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
-            "block_text": "This is your text here.",
-            "block_link": "\/",
-            "link_text": "View Collection"
-          }
-        },
-        "image_text_block_P7xkE7": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify:\/\/shop_images\/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
-            "image_two": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland2.jpg",
-            "block_text": "This is your text here.",
-            "block_link": "\/",
-            "link_text": "View Collection"
-          }
-        }
-      },
-      "block_order": [
-        "image_text_block_GRcFbn",
-        "image_text_block_P7xkE7"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "full_width": false,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
     "image_banner",
     "quote_bosies_C3VXgd",
-    "featured_collection_Rq3Ymp",
     "column_cta_bosies_JhGeby",
-    "trust_banner_bosies_Jcwkik",
-    "collection_cta_bosies_PFpQDR"
+    "featured_collection_Rq3Ymp",
+    "collection_cta_bosies_PFpQDR",
+    "trust_banner_bosies_Jcwkik"
   ]
 }
