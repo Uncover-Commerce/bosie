@@ -176,8 +176,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 2.2rem;
   }
 
   .page-width--narrow {
@@ -2592,14 +2593,15 @@ input[type='checkbox'] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 2.2rem;
+  width: 2.2rem;
   padding: 0;
 }
 
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  margin-left: 2rem;
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2654,6 +2656,11 @@ menu-drawer + .header__search {
   letter-spacing:0.1px;
   font-size: 1rem;
   color: #1C2936;
+  margin-left: 1.4rem;
+  display: none;
+  @media screen and (min-width: 990px) {
+    display: inline-block;
+  }
 
 }
 .header--top-center > .header__search {
@@ -2758,6 +2765,9 @@ details[open] .modal-overlay::after {
   opacity: 1;
   transform: scale(1);
   transition: transform 150ms ease, opacity 150ms ease;
+    @media screen and (min-width: 990px) {
+    display: none;
+    }
 }
 
 details:not([open]) > .header__icon--menu .icon-close,
@@ -2797,18 +2807,21 @@ details[open] > .header__submenu {
 
 /* Header menu */
 .header__inline-menu {
-  margin-left: -1.2rem;
   grid-area: navigation;
   display: none;
   text-transform: uppercase;
   font-family: var(--font-menu-sub);
   font-weight: 500;
   width: 100%;
+  display: flex;
+    border-top: solid 0px #EEECE6;
+    border-bottom: solid 0px #EEECE6;
+  justify-content: center;
+  @media screen and (min-width: 990px) {
     border-top: solid 1px #EEECE6;
     border-bottom: solid 1px #EEECE6;
-    margin-top: 2.2rem;
-    display: flex;
-    justify-content: center;
+  }
+
 }
 
 .header--top-center .header__inline-menu,
@@ -2817,6 +2830,9 @@ details[open] > .header__submenu {
   padding: 0
 }
 
+.list-menu__inline {
+  display: none;
+}
 @media screen and (min-width: 990px) {
   .header__inline-menu {
   }
@@ -2827,6 +2843,7 @@ details[open] > .header__submenu {
 
   .header--top-center .header__inline-menu > .list-menu--inline {
     justify-content: center;
+    display: flex;
   }
 
   .header--middle-left .header__inline-menu {
@@ -3644,12 +3661,5 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
-}
-
-.nav-hr-b {
-  height: 0.05rem;
-  border: 1px solid #EEECE6;
-  margin: 0;
-  width: 100%;
 }
 

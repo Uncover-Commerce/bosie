@@ -1,5 +1,10 @@
-
-<nav class="header__inline-menu">
+<nav
+  class="
+    header__inline-menu {% if template.name == 'index' %}
+      invert-background
+    {% endif %}
+  "
+>
   <ul class="list-menu list-menu--inline" role="list">
     {% for link in section.settings.menu.links %}
       {% assign mega_menu = false %}
@@ -12,6 +17,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                class="chevron-nav"
                 height="10px"
                 width="10px"
                 version="1.1"
@@ -84,4 +90,3 @@
     {% endfor %}
   </ul>
 </nav>
-
