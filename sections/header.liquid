@@ -82,7 +82,9 @@
   align-content: center;
   justify-content: center;
   left: 0;
-  background: rgb(var(--color-background));/*TODO use color scheme*/
+  background: rgb(var(--color-background));
+  border-top: solid 1px #EEECE6;
+
 }
 
 .mega-menu-list:hover .mega-menu-wrapper{
@@ -359,15 +361,6 @@ position: relative;
       {%- endif -%}
     {%- endif -%}
 
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
@@ -398,7 +391,6 @@ position: relative;
         </h1>
       {%- endif -%}
     {%- endif -%}
-    <div class="nav-hr-b"></div>
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -477,6 +469,18 @@ position: relative;
       </a>
     </div>
   </header>
+
+    {%- liquid
+      if section.settings.menu != blank
+        if section.settings.menu_type_desktop == 'dropdown'
+          render 'header-dropdown-menu'
+        elsif section.settings.menu_type_desktop != 'drawer'
+          render 'header-mega-menu'
+        endif
+      endif
+    %}
+
+
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
