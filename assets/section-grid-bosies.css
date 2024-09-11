@@ -38,7 +38,14 @@
 }
 
 .grid-text-b p{
-  margin: 0 0 3.4rem 0;
+  margin: 0 17rem 3.4rem 0;
+  color: #32331E;
+  font-family:  var(--font-body-family);
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 142%; /* 24.14px */
+  letter-spacing: 0.17px;
 }
 
 @media (min-width: 750px) {
