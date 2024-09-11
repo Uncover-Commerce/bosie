@@ -48,6 +48,16 @@
         "show_text_below": false
       }
     },
+    "quote_bosies_C3VXgd": {
+      "type": "quote-bosies",
+      "settings": {
+        "quote_title": "Shaped by the sea",
+        "quote_text": "‘Bosie’ is a word, common in Northern Scotland, meaning 'hug' or 'cuddle' in our old Scots language, Doric. It has long been our favourite Doric word due to its phonetic quaintness, but we believe it describes our knitwear perfectly.",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_collection_Rq3Ymp": {
       "type": "featured-collection",
       "settings": {
@@ -73,34 +83,6 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Recent Arrivals",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "shetland-collection",
-        "products_to_show": 12,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "background-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
         "padding_bottom": 36
       }
     },
@@ -292,8 +274,8 @@
   },
   "order": [
     "image_banner",
+    "quote_bosies_C3VXgd",
     "featured_collection_Rq3Ymp",
-    "featured_collection",
     "rich_text_fei78D",
     "image_banner_HgBD9M",
     "column_cta_bosies_JhGeby",
