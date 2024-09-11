@@ -74,12 +74,26 @@
   }
   
 .column-cta-column-b h3{
-    font-size: 4.2rem;
-    margin: 0;
+    color: #FEFFF4;
+    text-align: center;
+    font-family: var(--font-heading-family-light);
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 45px */
+    letter-spacing: -0.9px;
+    margin: 0 0 3.2rem 0;
 }
 
-.column-cta-column-b p{
+.column-cta-column-b a{
+    color: #F9F7F4;
+    font-family: var(--font-body-family);
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 103.4%; /* 13.442px */
+    letter-spacing: 0.13px;
     text-transform: uppercase;
-    padding-bottom: 1.6rem;
-    border-bottom: 1px solid;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid #F0EEEA;
 }
