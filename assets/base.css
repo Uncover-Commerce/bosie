@@ -176,8 +176,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .page-width--narrow {
@@ -2592,14 +2592,15 @@ input[type='checkbox'] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 2.2rem;
+  width: 2.2rem;
   padding: 0;
 }
 
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  margin-left: 2rem;
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2760,6 +2761,11 @@ details[open] .modal-overlay::after {
   transition: transform 150ms ease, opacity 150ms ease;
 }
 
+.icon-hamburger {
+@media screen and (min-width: 990px) {
+display: none;
+}
+}
 details:not([open]) > .header__icon--menu .icon-close,
 details[open] > .header__icon--menu .icon-hamburger {
   visibility: hidden;
@@ -2817,6 +2823,9 @@ details[open] > .header__submenu {
   padding: 0
 }
 
+.list-menu__inline {
+  display: none;
+}
 @media screen and (min-width: 990px) {
   .header__inline-menu {
   }
@@ -2827,6 +2836,7 @@ details[open] > .header__submenu {
 
   .header--top-center .header__inline-menu > .list-menu--inline {
     justify-content: center;
+    display: flex;
   }
 
   .header--middle-left .header__inline-menu {

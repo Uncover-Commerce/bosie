@@ -17,6 +17,10 @@
     justify-self: start;
     margin-left: -1.2rem;
   }
+  .inverted-nav {
+  background-color: rgba(255, 255, 255, 0.9);
+  }
+}
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -43,10 +47,13 @@
   }
 
   .list-menu--inline {
+    display: none;
+flex-wrap: wrap;
+        @media screen and (min-width: 990px) {
     display: inline-flex;
-    flex-wrap: wrap;
   }
 
+  }
   summary.list-menu__item {
     padding-right: 2.7rem;
   }
