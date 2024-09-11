@@ -18,16 +18,18 @@
     margin-left: -1.2rem;
   }
   .inverted-navigation {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0);
+  & > * {
+    background-color: rgba(0, 0, 0, 0);
+  }
   }
 
   .inverted-body {
     position: relative;
-    top: -4.0rem;
+    top: -40px;
     @media screen and (min-width: 990px) {
-      top: -15rem;
+      top: -150px;
     }
-
   }
 
   .invert-icons {
@@ -38,7 +40,7 @@
     color: white !important;
   }
 
-  .invert-background {
+  .fill-inverted-background {
       background-color: #F9F7F4 !important;
     & > * {
       background-color: #F9F7F4 !important;
@@ -333,7 +335,7 @@ position: relative;
   endfor
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header {% if template.name == 'index' %} class="inverted-navigation" {% endif %} data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -346,7 +348,7 @@ position: relative;
       assign localization_forms = true
     endif
     -%}
-    <div class="header-wrapper-bosie">
+    <div class="header-wrapper-bosie {% if template.name == 'index' %} inverted-navigation {% endif %}">
   <header id="header-id" class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- liquid
       if section.settings.menu != blank
@@ -496,7 +498,7 @@ position: relative;
       </a>
     </div>
   </header>
-  </div>
+  
     {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
@@ -506,7 +508,7 @@ position: relative;
         endif
       endif
     %}
-
+  </div>
 
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
@@ -638,6 +640,7 @@ Navigation Inversion
   if (document.querySelector('.inverted-navigation')) {
       
       document.getElementById('MainContent').classList.add('inverted-body');
+      document.querySelector('.header-wrapper ').classList.add('inverted-navigation');
 
       // search text color
       document.querySelector('.search-text-b').classList.add('invert-text');
@@ -693,7 +696,7 @@ document.querySelectorAll('.chevron-nav').forEach((icon) => {
 
 
 //Added inverted background to navigation - this
-document.querySelector('.inverted-navigation').classList.remove('invert-background');
+document.querySelector('.header-wrapper-bosie').classList.remove('fill-inverted-background');
 }
 }
 
@@ -734,7 +737,7 @@ document.querySelectorAll('.chevron-nav').forEach((icon) => {
 
 
 //remove inverted background to navigation 
-document.querySelector('.inverted-navigation').classList.add('invert-background');
+document.querySelector('.header-wrapper-bosie').classList.add('fill-inverted-background');
 
 }
   }
