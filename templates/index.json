@@ -190,6 +190,49 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
+    },
+    "column_cta_bosies_wKVRqp": {
+      "type": "column-cta-bosies",
+      "blocks": {
+        "column_6PEjQW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/kellygreenshetland3.jpg",
+            "title": "Winter Collection",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        },
+        "column_iwzptJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "title": "Summer Collection",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        },
+        "column_g78RqW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/atlanticsprayblueshetland2.jpg",
+            "title": "Holiday Collection",
+            "link_text": "View Collection",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_6PEjQW",
+        "column_iwzptJ",
+        "column_g78RqW"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -198,6 +241,7 @@
     "column_cta_bosies_JhGeby",
     "featured_collection_Rq3Ymp",
     "collection_cta_bosies_PFpQDR",
-    "trust_banner_bosies_Jcwkik"
+    "trust_banner_bosies_Jcwkik",
+    "column_cta_bosies_wKVRqp"
   ]
 }
