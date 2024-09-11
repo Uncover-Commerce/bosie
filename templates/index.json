@@ -154,43 +154,6 @@
         "padding_bottom": 52
       }
     },
-    "trust_banner_bosies_Jcwkik": {
-      "type": "trust-banner-bosies",
-      "blocks": {
-        "block_jh4kBq": {
-          "type": "block",
-          "settings": {
-            "icon": "truck",
-            "text": "Free Shipping"
-          }
-        },
-        "block_UB8cFd": {
-          "type": "block",
-          "settings": {
-            "icon": "check_mark",
-            "text": "Default text"
-          }
-        },
-        "block_yfz83N": {
-          "type": "block",
-          "settings": {
-            "icon": "check_mark",
-            "text": "Default text"
-          }
-        }
-      },
-      "block_order": [
-        "block_jh4kBq",
-        "block_UB8cFd",
-        "block_yfz83N"
-      ],
-      "settings": {
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
     "column_cta_bosies_wKVRqp": {
       "type": "column-cta-bosies",
       "blocks": {
@@ -233,6 +196,66 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "column_cta_bosies_3nCed9": {
+      "type": "column-cta-bosies",
+      "blocks": {
+        "column_LAjnHe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/royalvioletshetland2.jpg",
+            "title": "The perfect gift \u2028for any occasion",
+            "link_text": "Shop Gift Vouchers",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_LAjnHe"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "trust_banner_bosies_Jcwkik": {
+      "type": "trust-banner-bosies",
+      "blocks": {
+        "block_jh4kBq": {
+          "type": "block",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping"
+          }
+        },
+        "block_UB8cFd": {
+          "type": "block",
+          "settings": {
+            "icon": "check_mark",
+            "text": "Default text"
+          }
+        },
+        "block_yfz83N": {
+          "type": "block",
+          "settings": {
+            "icon": "check_mark",
+            "text": "Default text"
+          }
+        }
+      },
+      "block_order": [
+        "block_jh4kBq",
+        "block_UB8cFd",
+        "block_yfz83N"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
     }
   },
   "order": [
@@ -241,7 +264,8 @@
     "column_cta_bosies_JhGeby",
     "featured_collection_Rq3Ymp",
     "collection_cta_bosies_PFpQDR",
-    "trust_banner_bosies_Jcwkik",
-    "column_cta_bosies_wKVRqp"
+    "column_cta_bosies_wKVRqp",
+    "column_cta_bosies_3nCed9",
+    "trust_banner_bosies_Jcwkik"
   ]
 }
