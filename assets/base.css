@@ -2837,6 +2837,9 @@ details[open] > .header__submenu {
   padding: 2.2rem 2.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
+  svg {
+    margin-left: 0.8rem;
+  }
 }
 
 .header__menu-item:hover {
