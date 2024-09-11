@@ -220,6 +220,44 @@
         "padding_bottom": 0
       }
     },
+    "grid_bosies_Kh6hX8": {
+      "type": "grid-bosies",
+      "blocks": {
+        "image_PMTXrY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Little_Bosie_Shaggy_Navy_Shetland_1.jpg"
+          }
+        },
+        "image_6rfehf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/strawberrypink3_c6d90dd8-d549-4e96-8fbe-6b6efe4bdc47.jpg"
+          }
+        },
+        "content_cxA3PL": {
+          "type": "content",
+          "settings": {
+            "title": "Little Bosie",
+            "rich_text": "<p>Lorem ipsum dolor sit amet consectetur. Ipsum et risus bibendum lectus. Arcu ut sollicitudin tortor odio aenean velit ultrices. Aliquet sollicitudin integer cursus sagittis cras et lorem congue in. <\/p>",
+            "button_link": "\/",
+            "button_text": "Shop the range",
+            "button_background": false
+          }
+        }
+      },
+      "block_order": [
+        "image_PMTXrY",
+        "image_6rfehf",
+        "content_cxA3PL"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "trust_banner_bosies_Jcwkik": {
       "type": "trust-banner-bosies",
       "blocks": {
@@ -266,6 +304,7 @@
     "collection_cta_bosies_PFpQDR",
     "column_cta_bosies_wKVRqp",
     "column_cta_bosies_3nCed9",
+    "grid_bosies_Kh6hX8",
     "trust_banner_bosies_Jcwkik"
   ]
 }
