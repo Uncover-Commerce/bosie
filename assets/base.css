@@ -150,6 +150,11 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-right: 3rem;
 }
 
+
+  .header.page-width,
+  .utility-bar__grid.page-width {
+    padding: 2.2rem 3.2rem;
+  }
 @media screen and (min-width: 750px) {
   .page-width {
     padding: 0 5rem;
@@ -157,8 +162,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
   .header.page-width,
   .utility-bar__grid.page-width {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+    padding: 2.2rem 3.2rem;
   }
 
   .page-width--narrow {
@@ -2601,9 +2605,21 @@ input[type='checkbox'] {
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  margin-left: 1.2rem;
+  @media screen and (min-width: 990px) {
+  margin-left: 2rem;
+display: none;
+}
+
+}
+.header__icon--account {
+
+    margin-left: 1.2rem;
+  @media screen and (min-width: 990px) {
   margin-left: 2rem;
 }
 
+}
 .header__icon--menu[aria-expanded='true']::before {
   content: '';
   top: 100%;

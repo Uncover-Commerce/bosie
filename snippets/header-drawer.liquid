@@ -20,6 +20,90 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
+            <ul class="list-menu list-menu--inline" role="list">
+              {% for link in section.settings.menu.links %}
+                {% assign mega_menu = false %}
+                {% for block in section.blocks %}
+                  {% if block.settings.title == link.title %}
+                    {% assign mega_menu = true %}
+                    <li class="mega-menu-list">
+                      <a href="#" class="header__menu-item list-menu__item link link--text focus-inset">
+                        {{ link.title }}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          class="chevron-nav"
+                          height="10px"
+                          width="10px"
+                          version="1.1"
+                          id="Layer_1"
+                          viewBox="0 0 407.437 407.437"
+                          xml:space="preserve"
+                        >
+                          <polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 "/>
+                        </svg>
+                      </a>
+                      <div class="mega-menu-wrapper">
+                        <div class="mega-menu-row">
+                          {% for child_link in block.settings.linklist.links -%}
+                            {% assign reminder = forloop.index | modulo: 2 %}
+                            {% if reminder == 1 %}
+                              <div class="mega-menu-column">
+                            {% endif %}
+                            <div class="menu-item-inner">
+                              <h3>{{ child_link.title }}</h3>
+                              <ul>
+                                {% for sub_child_link in child_link.links %}
+                                  <li>
+                                    <a href="{{ sub_child_link.url }}">{{ sub_child_link.title }}</a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                            {% if reminder == 0 %}
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                          <div class="mega-menu-column mega-menu-image">
+                            <div class="image-grid">
+                              {% for i in (1..4) %}
+                                {% assign image = 'image_' | append: i %}
+                                {% assign logo = 'logo_' | append: i %}
+                                {% assign caption = 'caption_' | append: i %}
+                                {% assign link = 'link_' | append: i %}
+                                {% if block.settings[image] != blank %}
+                                  <div class="image-box">
+                                    <a href="{{ block.settings[link] }}">
+                                      <div class="img-product-meta">
+                                        <img src="{{block.settings[image] | img_url: '500x'}}" alt="image">
+                                      </div>
+                                      <div class="caption-logo">
+                                        {% if block.settings[logo] != blank %}
+                                          <img src="{{block.settings[logo] | img_url: '500x'}}">
+                                        {% else %}
+                                          <p class="caption-text">{{ block.settings[caption] }}</p>
+                                        {% endif %}
+                                      </div>
+                                    </a>
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+                {% if mega_menu == false %}
+                  <li>
+                    <a href="{{link.url}}" class="header__menu-item list-menu__item link link--text focus-inset ">
+                      {{- link.title -}}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li>
