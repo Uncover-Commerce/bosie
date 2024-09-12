@@ -1,0 +1,209 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="meet-the-team page-width">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="description">
+    {{ section.settings.description }}
+  </div>
+  <div class="team-members">
+    {% for block in section.blocks %}
+      {% if block.type == 'team_member' %}
+        <div class="team-member" {{ block.shopify_attributes }}>
+          <div class="image-container">
+            {% if block.settings.image %}
+              {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: block.settings.name }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+          <h3>{{ block.settings.name }}</h3>
+          <p>{{ block.settings.position }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Meet the Team",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Meet the Team"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description",
+      "default": "<p>Provide your customers with an introduction to your team.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Member Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Member Position",
+          "default": "Job Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meet the Team",
+      "blocks": [
+        {
+          "type": "team_member"
+        },
+        {
+          "type": "team_member"
+        },
+        {
+          "type": "team_member"
+        },
+        {
+          "type": "team_member"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .meet-the-team {
+  }
+
+  .meet-the-team h2 {
+    text-align: center;
+    color: #1c2936;
+    text-align: center;
+    font-family: var(--font-heading-family-light);
+    font-size: 6.2rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 103.4%; /* 64.108px */
+    letter-spacing: -0.62px;
+    margin-bottom: 2.4rem;
+  }
+
+  .meet-the-team .description {
+    color: #1c2936;
+    text-align: center;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    margin: 0 30rem 12rem 30rem;
+  }
+
+  .team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .team-member {
+    flex-basis: calc(25% - 0.5rem);
+  }
+
+  .team-member .image-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 130%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-member img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .team-member h3 {
+    color: #1c2936;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: -0.36px;
+    margin: 0.8rem 0;
+  }
+
+  .team-member p {
+    font-family: var(--font-heading-family-light);
+    color: #1c2936;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%; /* 16.8px */
+    letter-spacing: -0.28px;
+  }
+
+  @media (max-width: 1024px) {
+    .team-member {
+      flex-basis: calc(25% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-member {
+      flex-basis: calc(25% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .team-member {
+      flex-basis: calc(50% - 0.5rem);
+    }
+    .team-member img {
+      max-height: 210px;
+    }
+    .team-member .image-container {
+      padding-bottom: 120%;
+    }
+    .meet-the-team .description {
+      margin: 0 2rem 8rem 2rem;
+    }
+    .meet-the-team h2 {
+      font-size: 4rem;
+    }
+  }
+</style>
