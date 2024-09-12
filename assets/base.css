@@ -2622,7 +2622,7 @@ display: none;
 
 }
 .header__icon--menu[aria-expanded='true']::before {
-  content: '';
+  /*content: '';*/
   top: 100%;
   left: 0;
   height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
@@ -3679,4 +3679,3 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
-

@@ -85,7 +85,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-  padding: 3rem 0;
+
+  border-top: 1px solid #EEECE6;
 }
 
 .menu-drawer__inner-submenu {
@@ -99,14 +100,16 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__menu-item {
-  padding: 1.1rem 3rem;
+  padding: 2rem 1.6rem;
   text-decoration: none;
   font-size: 1.8rem;
+  display: flex; 
+  justify-content: space-between;
 }
-
+/*
 .menu-drawer summary.menu-drawer__menu-item {
-  padding-right: 5.2rem;
-}
+  padding-right: 0;
+}*/
 
 .menu-drawer__menu-item--active,
 .menu-drawer__menu-item:focus,
@@ -150,16 +153,21 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__close-button {
   margin-top: 1.5rem;
-  padding: 1.2rem 2.6rem 1.2rem 3rem;
+  padding: 1.2rem 2.6rem 1.2rem 1.6rem;
   text-decoration: none;
   display: flex;
   align-items: center;
   font-size: 1.4rem;
   width: 100%;
   background-color: transparent;
-  font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   text-align: left;
+  font-family: var(--font-menu-sub);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  svg {
+    margin-right: 0.8rem;
+  }
 }
 
 .menu-drawer__close-button .icon-arrow {
