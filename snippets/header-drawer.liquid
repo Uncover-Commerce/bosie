@@ -3,8 +3,7 @@
 
   Usage:
   {% render 'header-drawer' %}
-  {% endcomment %}
-
+{% endcomment %}
 
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -37,7 +36,7 @@
                   {% endif %}
 
                   {% if has_submenu %}
-                    <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                    <details class="top-level-link" id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                       <summary
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
@@ -52,9 +51,12 @@
                       >
                         <div class="menu-drawer__inner-submenu">
                           <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                            {% render 'icon-arrow' %}
-                            {{ link.title | escape }}
+                            {% render 'icon-caret-back-bosie' %}
+                            back
                           </button>
+                          <div class="menu-drawer__submenu-header">
+                            <h1 class="section-heading-sub-title">{{ link.title | escape }}</h1>
+                          </div>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {% if mega_menu %}
                               {% for block in section.blocks %}
@@ -62,7 +64,7 @@
                                   {% for child_link in block.settings.linklist.links -%}
                                     <li>
                                       <h3 class="menu-drawer__sub-heading">{{ child_link.title | escape }}</h3>
-                                      <ul class="menu-drawer__sub-menu list-menu" role="list">
+                                      <ul class="sub-menu-ul menu-drawer__sub-menu list-menu" role="list">
                                         {%- for sub_child_link in child_link.links -%}
                                           <li>
                                             <a
@@ -117,16 +119,15 @@
                 </li>
               {%- endfor -%}
             </ul>
-                        <localization-form >
-                          {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-                          <div class="mobile-localisation-wrapper">
-                            {% render 'icon-globe-bosie' %}
-                            {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-                            {% render 'icon-caret-down-bosie' %}
-                            </div>
-                          {%- endform -%}
-                        </localization-form>
-
+            <localization-form>
+              {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+                <div class="mobile-localisation-wrapper">
+                  {% render 'icon-globe-bosie' %}
+                  {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                  {% render 'icon-caret-down-bosie' %}
+                </div>
+              {%- endform -%}
+            </localization-form>
           </nav>
 
           {% comment %}
@@ -137,4 +138,3 @@
     </div>
   </details>
 </header-drawer>
-
