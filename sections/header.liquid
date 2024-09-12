@@ -85,9 +85,17 @@ flex-wrap: wrap;
   }
 
   .list-menu__item {
+    font-family: var(--font-menu-sub);
+    text-transform: uppercase;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     line-height: calc(1 + 0.3 / var(--font-body-scale));
+    border-bottom: 1px solid #EEECE6;
+    @media screen and (min-width: 990px) {
+    border-bottom: 0px solid #EEECE6;
+    }
+
   }
 
   .list-menu__item--link {

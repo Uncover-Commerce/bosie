@@ -85,7 +85,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-  padding: 3rem 0;
+
+  border-top: 1px solid #EEECE6;
 }
 
 .menu-drawer__inner-submenu {
@@ -99,14 +100,16 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__menu-item {
-  padding: 1.1rem 3rem;
+  padding: 2rem 1.6rem;
   text-decoration: none;
   font-size: 1.8rem;
+  display: flex; 
+  justify-content: space-between;
 }
-
+/*
 .menu-drawer summary.menu-drawer__menu-item {
-  padding-right: 5.2rem;
-}
+  padding-right: 0;
+}*/
 
 .menu-drawer__menu-item--active,
 .menu-drawer__menu-item:focus,

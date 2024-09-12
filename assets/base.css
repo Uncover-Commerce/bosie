@@ -3679,4 +3679,26 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+/* Mobile navigation */
 
+.mobile-localisation-wrapper {
+  display: flex;
+  align-items:center;
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2.7rem 1.6rem;
+  .disclosure .localization-form__select {
+    padding: 0;
+  }
+
+  .globe-language {
+    margin-right: 0.95rem;
+  }
+  .caret-down-bosie {
+    margin-left: 0.85rem;
+  }
+}
+
+/* End Mobile navigation */{}
