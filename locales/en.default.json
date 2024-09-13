@@ -240,7 +240,7 @@
         "other": "{{ count }} results found for “{{ terms }}”"
       },
       "title": "Search results",
-      "search_for": "Search for “{{ terms }}”",
+      "search_for": "Search all results for “{{ terms }}”",
       "suggestions": "Suggestions",
       "pages": "Pages"
     },

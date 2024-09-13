@@ -1,5 +1,13 @@
 .search__input.field__input {
   padding-right: 9.8rem;
+  background-color: #F3F1EF;
+  border-radius:0.4rem;
+  border: 1px solid #CDCECE;
+  > * {
+
+  border-radius:0.4rem;
+  border: 1px solid #CDCECE;
+  }
 }
 
 .search__button {
