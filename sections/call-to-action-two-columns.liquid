@@ -1,0 +1,253 @@
+{% schema %}
+{
+  "name": "Custom Content Section",
+  "tag": "section",
+  "class": "custom-content-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "default": false,
+      "label": "Reverse layout on mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Your subtitle here"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Your title here"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text content"
+        },
+        {
+          "type": "url",
+          "id": "section_link",
+          "label": "Section link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Content",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="custom-content-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} {% if section.settings.reverse_layout %}reverse-layout{% endif %}">
+  <div class="custom-content-wrapper {% unless section.settings.full_width %}page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %}">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image' %}
+          <div class="custom-content-image" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | img_url: '1000x' | img_tag: '', 'custom-content-img' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+        {% when 'content' %}
+          <div class="custom-content-text-wrapper" {{ block.shopify_attributes }}>
+            <div class="custom-content-text">
+              {% if block.settings.subtitle != blank %}
+                <h3 class="custom-content-subtitle">{{ block.settings.subtitle }}</h3>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h2 class="custom-content-title">{{ block.settings.title }}</h2>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="custom-content-richtext">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+              {% if block.settings.link_url != blank and block.settings.link_text != blank %}
+                <a href="{{ block.settings.link_url }}" class="custom-content-link">{{ block.settings.link_text }}</a>
+              {% endif %}
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .custom-content-section {
+    padding: 1rem 0;
+  }
+  .custom-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .custom-content-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    @media (min-width: 750px) {
+      max-height: 810px;
+      width: 50%;
+      order: 1;
+    }
+  }
+  .custom-content-img {
+    max-height: 430px;
+    width: 100%;
+    @media (min-width: 750px) {
+      max-height: 810px;
+    }
+  }
+  .custom-content-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 6rem 0rem 8rem 0;
+    @media (min-width: 750px) {
+      text-align: left;
+      padding: 0 12rem;
+      width: 50%;
+      order: 2;
+    }
+    width: 100%;
+  }
+  .reverse-layout .custom-content-wrapper {
+    flex-direction: row-reverse;
+  }
+  @media (max-width: 749px) {
+    .reverse-layout .custom-content-wrapper {
+      flex-direction: column;
+    }
+    .reverse-layout .custom-content-image {
+      order: 1;
+    }
+    .reverse-layout .custom-content-text-wrapper {
+      order: 2;
+    }
+  }
+  .custom-content-title {
+    color: #1c2936;
+    font-family: var(--font-heading-family-light);
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 103.4%; /* 74.448px */
+    letter-spacing: -0.72px;
+    margin-top: 0;
+    margin-bottom: 1.6rem;
+    @media (min-width: 750px) {
+      font-size: 7.2rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .custom-content-subtitle {
+    color: #2a3b4e;
+    font-family: var(--font-body-family);
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 103.4%; /* 17.578px */
+    letter-spacing: 3.06px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 3.3rem;
+    @media (min-width: 750px) {
+      font-size: 1.7rem;
+      margin-bottom: 2.9rem;
+    }
+  }
+  .custom-content-richtext {
+    color: #1c2936;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+  }
+  .custom-content-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .custom-content-link:hover {
+    background-color: #000;
+    color: #fff;
+  }
+</style>
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
