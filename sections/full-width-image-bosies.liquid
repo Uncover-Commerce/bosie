@@ -1,0 +1,225 @@
+{% schema %}
+{
+  "name": "Full Width Image",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Image Opacity",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section Height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtitle",
+      "name": "Subtitle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Width Image",
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "richtext"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .full-width-image {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .full-width-image--small {
+    height: 25vh;
+  }
+
+  .full-width-image--medium {
+    height: 50vh;
+  }
+
+  .full-width-image--large {
+    height: 100vh;
+  }
+
+  .full-width-image__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .full-width-image__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .full-width-image__subtitle {
+    text-align: center;
+    -webkit-text-stroke-width: 0.25;
+    -webkit-text-stroke-color: #2a3b4e;
+    font-family: var(--font-menu-sub);
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 103.4%; /* 17.578px */
+    letter-spacing: 3.06px;
+    text-transform: uppercase;
+  }
+
+  .full-width-image__title {
+    text-align: center;
+    font-family: var(--font-heading-family-light);
+    font-size: 6.2rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 103.4%; /* 64.108px */
+    letter-spacing: -0.62px;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .full-width-image__text {
+    text-align: center;
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    max-width: 50rem;
+    margin-bottom: 3rem;
+  }
+</style>
+
+<div
+  class="full-width-image color-{{ section.settings.color_scheme }} full-width-image--{{ section.settings.section_height }}"
+  style="background-image: url('{{ section.settings.background_image | img_url: 'master' }}');"
+>
+  <div
+    class="full-width-image__overlay"
+    style="opacity: {{ section.settings.image_opacity | divided_by: 100.0 }};"
+  >
+    &nbsp;
+  </div>
+  <div class="full-width-image__content">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'subtitle' %}
+          <div class="full-width-image__subtitle">{{ block.settings.subtitle }}</div>
+        {% when 'title' %}
+          <h2 class="full-width-image__title">{{ block.settings.title }}</h2>
+        {% when 'richtext' %}
+          <div class="full-width-image__text">{{ block.settings.text }}</div>
+        {% when 'button' %}
+          <a href="{{ block.settings.button_link }}" class="button">
+            {{- block.settings.button_label -}}
+          </a>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
