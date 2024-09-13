@@ -242,7 +242,7 @@ flex-wrap: wrap;
    
 .mega-menu-row {
   display: flex;
-  width: calc(1400px - 75px); 
+  width: calc(var(--page-width) - 8rem); 
   justify-content: space-between;
   padding: 20px;
 }
@@ -250,10 +250,11 @@ flex-wrap: wrap;
 
 .mega-menu-column {
   display: flex;
+  width: 100%;
 }
 
 .menu-item-inner {
-  width: 26rem; 
+  width: calc(50% - 3.7rem);
   h3 {
     margin-bottom: 2.8rem;
     color: #1C2936;
