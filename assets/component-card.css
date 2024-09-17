@@ -265,8 +265,9 @@
 
 @media screen and (min-width: 750px) {
   .card__information {
-    padding-bottom: 1.7rem;
-    padding-top: 1.7rem;
+    /* Changes to basline code */
+    padding-bottom: 5.2rem;
+    padding-top: 2.3rem;
   }
 }
 

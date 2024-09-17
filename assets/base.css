@@ -3680,3 +3680,26 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* Product Card Styles */
+.standard-style{
+  color: #2A3B4E;
+  font-family: var(--font-heading-family-light);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 103.4%; /* 18.612px */
+  letter-spacing: -0.18px;
+  @media screen and (min-width: 750px) {
+    color: #1C2936;
+    font-size: 2rem;
+    letter-spacing: -0.2px;
+  }
+}
+
+.mobile-facets__details.js-filter.medium-hide.large-up-hide {
+  display: block !important;
+}
+facet-filters-form.facets.small-hide {
+  display: none !important;
+}
