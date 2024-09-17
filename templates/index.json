@@ -45,7 +45,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
-        "video": "shopify:\/\/files\/videos\/5575052-hd_1920_1080_30fps.mp4",
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7dd7991b1de7403abece900e2cca1040.mp4",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
