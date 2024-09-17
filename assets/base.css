@@ -1,19 +1,19 @@
 /* Custom Fonts */
 @font-face {
   font-family: "StromaLightItalic";
-  src: url('assets/StromaLightItalic.woff2') format('woff2');
+  src: url('StromaLightItalic.woff2') format('woff2');
 }
 @font-face {
   font-family: "StromaLight";
-  src: url('assets/StromaLight.woff2') format('woff2');
+  src: url('StromaLight.woff2') format('woff2');
 }
 @font-face {
   font-family: "StromaRegular";
-  src: url('assets/StromaRegular.woff2') format('woff2');
+  src: url('StromaRegular.woff2') format('woff2');
 }
 @font-face {
   font-family: "StromaItalic";
-  src: url('assets/StromaItalic.woff2') format('woff2');
+  src: url('StromaItalic.woff2') format('woff2');
 }
 
 
@@ -329,7 +329,7 @@ h5,
 
 
 .hxxl {
-  font-size: clamp(calc(var(--font-heading-scale) * 5.6rem), 14vw, calc(var(--font-heading-scale) * 7.2rem));
+  font-size: clamp(calc(var(--font-heading-scale) * 6rem), 14vw, calc(var(--font-heading-scale) * 8rem));
   line-height: 1.1;
 }
 

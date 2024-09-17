@@ -51,6 +51,15 @@
   height: 100vh;
 }
 
+.bosie-banner-home {
+
+  .button--secondary {
+    padding: 3.1rem 7rem;
+    font-size: 11px;
+    font-family: var(--font-menu-sub);
+  }
+}
+
 @media screen and (max-width: 749px) {
   .banner--small.banner--mobile-bottom:not(.banner--adapt) .banner__media,
   .banner--small.banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt) > .banner__media {
@@ -76,7 +85,7 @@
   }
 
   .banner--large:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
-    min-height: 39rem;
+    min-height: 78rem;
   }
 }
 
@@ -113,7 +122,7 @@
   }
 
   .banner__content.banner__content--middle-left {
-    align-items: center;
+   /* align-items: center;*/
     justify-content: flex-start;
   }
 
@@ -134,7 +143,7 @@
 
   .banner__content.banner__content--bottom-center {
     align-items: flex-end;
-    justify-content: center;
+ /*   justify-content: center;*/
   }
 
   .banner__content.banner__content--bottom-right {
@@ -230,6 +239,9 @@
 
   .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box {
     background: transparent;
+    position: absolute;
+    bottom: 0;
+
   }
 
   .banner:not(.banner--mobile-bottom) .banner__box {
@@ -237,7 +249,6 @@
     border-radius: 0;
     box-shadow: none;
   }
-
   .banner:not(.banner--mobile-bottom) .button--secondary {
     --alpha-button-background: 0;
   }
@@ -272,7 +283,7 @@
   position: relative;
   width: 100%;
   align-items: center;
-  justify-content: center;
+ /* justify-content: center;*/
   z-index: 2;
 }
 
@@ -318,7 +329,7 @@
 
   .banner__content--bottom-center {
     align-items: flex-end;
-    justify-content: center;
+  /*  justify-content: center;*/
   }
 
   .banner__content--bottom-right {
@@ -434,6 +445,7 @@
 }
 
 .banner__heading {
+  font-family: var(--font-heading-family-light);
   margin-bottom: 0;
 }
 
