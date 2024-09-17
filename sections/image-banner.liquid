@@ -85,9 +85,8 @@
         loop
         muted
         playsinline
-        poster="{{ section.settings.image | img_url: '2048x' }}"
       >
-        <source src="{{ section.settings.video | file_url }}" type="video/mp4">
+        <source src="{{ section.settings.video }}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -207,7 +206,7 @@
       "label": "t:sections.image-banner.settings.image_2.label"
       },
        {
-      "type": "video",
+      "type": "url",
       "id": "video",
       "label": "Background Video",
       "info": "Uploads a video to be used as the background. If left blank, the image will be used instead."
