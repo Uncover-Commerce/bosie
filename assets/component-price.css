@@ -3,6 +3,12 @@
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   color: rgb(var(--color-foreground));
+  color: #1C2936;
+  font-feature-settings: 'calt' off;
+  font-family: var(--font-heading-family-light);
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.32px;
 }
 
 .price > * {
