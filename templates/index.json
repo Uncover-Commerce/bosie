@@ -12,6 +12,13 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
+        "subtitle_eHFi7b": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Made in Scotland",
+            "subtitle_size": "medium"
+          }
+        },
         "heading": {
           "type": "heading",
           "settings": {
@@ -32,6 +39,7 @@
         }
       },
       "block_order": [
+        "subtitle_eHFi7b",
         "heading",
         "button"
       ],
@@ -41,7 +49,7 @@
         "image_height": "large",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "color_scheme": "inverse",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
