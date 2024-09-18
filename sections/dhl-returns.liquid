@@ -1,0 +1,42 @@
+{% schema %}
+{
+  "name": "DHL Returns Uncover",
+  "settings": [],
+  "presets": [
+    {
+      "name": "DHL Returns Uncover",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .dhl-returns-iframe iframe {
+    width: 100%;
+    height: 600px; /* Adjust height if necessary */
+    border: none;
+  }
+
+  @media (min-width: 750px) {
+    .dhl-returns-iframe iframe {
+      height: 550px;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .dhl-returns-iframe iframe {
+      height: 550px;
+      min-width: 990px; /* Set minimum width */
+    }
+  }
+</style>
+
+<div class="dhl-returns-iframe page-width">
+  <iframe
+    name="dhlexpresscommerce_returns"
+    src="https://returns.dhlexpresscommerce.com/?id=a7e19819ebf84e9da6eabcacf60921b2&amp;embed=true"
+    frameborder="0"
+  >
+  </iframe>
+</div>
