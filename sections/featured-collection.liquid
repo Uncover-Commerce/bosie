@@ -36,9 +36,12 @@
             padding-bottom: {{ section.settings.padding_bottom }}px;
           }
           }
-          .card {
-          padding-inline: 8px;
-          }
+  .card {
+    padding-inline: 2.5px;
+    @media screen and (min-width: 750px) {
+      padding-inline: 8px;
+    }
+  }
 
   .slider-buttons {
     display: flex;

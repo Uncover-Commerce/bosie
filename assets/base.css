@@ -1115,7 +1115,8 @@ summary::-webkit-details-marker {
 
   .slider--tablet.grid--peek.grid--1-col-tablet-down .grid__item,
   .slider--mobile.grid--peek.grid--1-col-tablet-down .grid__item {
-    width: calc(100% - var(--grid-mobile-horizontal-spacing) - 3rem);
+    width: 90%; /* feature slider width */
+    /* width: calc(100% - var(--grid-mobile-horizontal-spacing) - 3rem); */
   }
 }
 
