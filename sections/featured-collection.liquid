@@ -25,16 +25,51 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        }
+
+        @media screen and (min-width: 750px) {
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          }
+          }
+          .card {
+          padding-inline: 8px;
+          }
+
+          .slider-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+  .slider-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .slider-progress {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #e0e0e0;
+    margin: 0 10px;
+    position: relative;
+  }
+
+  .slider-progress-bar {
+    height: 100%;
+    background-color: #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
   }
 {%- endstyle -%}
 
@@ -86,7 +121,10 @@
       {%- endif -%}
     </div>
 
-    <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <slider-component
+      class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-products-to-show="{{ products_to_display }}"
+    >
       <ul
         id="Slider-{{ section.id }}"
         data-id="{{ section.id }}"
@@ -147,7 +185,7 @@
         {%- endfor -%}
       </ul>
       {%- if show_mobile_slider or show_desktop_slider -%}
-        <div class="slider-buttons">
+        <div class="slider-buttons" id="Slider-{{ section.id }}">
           <button
             type="button"
             class="slider-button slider-button--prev"
@@ -157,11 +195,8 @@
           >
             {% render 'icon-caret' %}
           </button>
-          <div class="slider-counter caption">
-            <span class="slider-counter--current">1</span>
-            <span aria-hidden="true"> / </span>
-            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-            <span class="slider-counter--total">{{ products_to_display }}</span>
+          <div class="slider-progress">
+            <div class="slider-progress-bar"></div>
           </div>
           <button
             type="button"
@@ -498,3 +533,74 @@
   ]
 }
 {% endschema %}
+{% javascript %}
+  class SliderProgress {
+    constructor(sliderId) {
+      this.slider = document.getElementById(sliderId);
+      if (!this.slider) {
+        console.error(`Slider with id ${sliderId} not found`);
+        return;
+      }
+      this.progressBar = this.slider.querySelector('.slider-progress-bar');
+      if (!this.progressBar) {
+        console.error(`Progress bar not found in slider ${sliderId}`);
+        return;
+      }
+      this.totalSlides = parseInt(this.slider.dataset.productsToShow, 10) || 1;
+      this.currentSlide = 1;
+
+      this.init();
+    }
+
+    init() {
+      this.updateProgressBar();
+      this.attachEventListeners();
+    }
+
+    updateProgressBar() {
+      if (this.progressBar) {
+        const progress = (this.currentSlide / this.totalSlides) * 100;
+        this.progressBar.style.width = `${progress}%`;
+      }
+    }
+
+    attachEventListeners() {
+      const prevButton = this.slider.querySelector('.slider-button--prev');
+      const nextButton = this.slider.querySelector('.slider-button--next');
+
+      if (prevButton) {
+        prevButton.addEventListener('click', () => this.goToPrevSlide());
+      }
+      if (nextButton) {
+        nextButton.addEventListener('click', () => this.goToNextSlide());
+      }
+    }
+
+    goToPrevSlide() {
+      if (this.currentSlide > 1) {
+        this.currentSlide--;
+        this.updateProgressBar();
+      }
+    }
+
+    goToNextSlide() {
+      if (this.currentSlide < this.totalSlides) {
+        this.currentSlide++;
+        this.updateProgressBar();
+      }
+    }
+
+    setCurrentSlide(slideNumber) {
+      this.currentSlide = Math.max(1, Math.min(slideNumber, this.totalSlides));
+      this.updateProgressBar();
+    }
+  }
+
+  // Usage
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliders = document.querySelectorAll('[id^="Slider-"]');
+    sliders.forEach((slider) => {
+      new SliderProgress(slider.id);
+    });
+  });
+{% endjavascript %}
