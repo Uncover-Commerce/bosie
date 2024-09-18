@@ -37,3 +37,39 @@
     grid-column-gap: 2rem;
   }
 }
+
+.bosies-field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bosie_field__label{
+  color: #1C2936;
+  font-family: var(--font-menu-sub);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 13.2px */
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.bosie_field__input{
+  border-radius: 4px;
+  border: 1px solid #1C2936;
+  opacity: 0.2;
+  background: #D9D9D9;
+  padding:1.8rem 0 1.8rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.bosie_contact__button{
+  display: flex;
+  justify-content: space-around;
+}
+
+.button_bosie{
+  padding: 2rem 5.6rem;
+}
