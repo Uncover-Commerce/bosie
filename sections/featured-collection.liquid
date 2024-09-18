@@ -40,7 +40,7 @@
           padding-inline: 8px;
           }
 
-          .slider-buttons {
+  .slider-buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,10 +57,11 @@
 
   .slider-progress {
     flex-grow: 1;
-    height: 4px;
+    height: 1px;
     background-color: #e0e0e0;
     margin: 0 10px;
     position: relative;
+    overflow: hidden; /* Added this line */
   }
 
   .slider-progress-bar {
@@ -70,6 +71,7 @@
     left: 0;
     top: 0;
     transition: width 0.3s ease;
+    width: 0; /* Added this line */
   }
 {%- endstyle -%}
 
@@ -195,9 +197,7 @@
           >
             {% render 'icon-caret' %}
           </button>
-          <div class="slider-progress">
-            <div class="slider-progress-bar"></div>
-          </div>
+
           <button
             type="button"
             class="slider-button slider-button--next"
@@ -207,6 +207,9 @@
           >
             {% render 'icon-caret' %}
           </button>
+          <div class="slider-progress">
+            <div class="slider-progress-bar">&nbsp;</div>
+          </div>
         </div>
       {%- endif -%}
     </slider-component>
@@ -535,15 +538,11 @@
 {% endschema %}
 {% javascript %}
   class SliderProgress {
-    constructor(sliderId) {
-      this.slider = document.getElementById(sliderId);
-      if (!this.slider) {
-        console.error(`Slider with id ${sliderId} not found`);
-        return;
-      }
+    constructor(sliderElement) {
+      this.slider = sliderElement;
       this.progressBar = this.slider.querySelector('.slider-progress-bar');
       if (!this.progressBar) {
-        console.error(`Progress bar not found in slider ${sliderId}`);
+        console.error('Progress bar not found in slider');
         return;
       }
       this.totalSlides = parseInt(this.slider.dataset.productsToShow, 10) || 1;
@@ -553,6 +552,7 @@
     }
 
     init() {
+      this.progressBar.style.width = '0%';
       this.updateProgressBar();
       this.attachEventListeners();
     }
@@ -574,6 +574,16 @@
       if (nextButton) {
         nextButton.addEventListener('click', () => this.goToNextSlide());
       }
+
+      // Listen for slide change events (including swipe)
+      this.slider.addEventListener('slider:slide-change', (event) => {
+        this.setCurrentSlide(event.detail.currentSlide);
+      });
+
+      // Listen for swipe events
+      this.slider.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+      this.slider.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+      this.slider.addEventListener('touchend', (e) => this.handleTouchEnd(e));
     }
 
     goToPrevSlide() {
@@ -594,13 +604,41 @@
       this.currentSlide = Math.max(1, Math.min(slideNumber, this.totalSlides));
       this.updateProgressBar();
     }
+
+    // Swipe handling
+    handleTouchStart(e) {
+      this.touchStartX = e.touches[0].clientX;
+    }
+
+    handleTouchMove(e) {
+      if (!this.touchStartX) {
+        return;
+      }
+      this.touchEndX = e.touches[0].clientX;
+    }
+
+    handleTouchEnd(e) {
+      if (!this.touchStartX || !this.touchEndX) {
+        return;
+      }
+      const diff = this.touchStartX - this.touchEndX;
+      if (diff > 50) {
+        // Swipe left
+        this.goToNextSlide();
+      } else if (diff < -50) {
+        // Swipe right
+        this.goToPrevSlide();
+      }
+      this.touchStartX = null;
+      this.touchEndX = null;
+    }
   }
 
   // Usage
   document.addEventListener('DOMContentLoaded', () => {
-    const sliders = document.querySelectorAll('[id^="Slider-"]');
+    const sliders = document.querySelectorAll('slider-component');
     sliders.forEach((slider) => {
-      new SliderProgress(slider.id);
+      new SliderProgress(slider);
     });
   });
 {% endjavascript %}
