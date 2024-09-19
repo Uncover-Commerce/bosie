@@ -315,6 +315,11 @@ slider-component.slider-component-full-width {
   display: flex;
   align-items: center;
   justify-content: center;
+
+ @media screen and (min-width: 750px) {
+  max-width: 973px;
+  margin: 0 auto;
+ }
 }
 
 @media screen and (min-width: 990px) {
@@ -374,4 +379,17 @@ slider-component.slider-component-full-width {
 
 .slider-button--prev:not([disabled]):hover .icon {
   transform: rotate(90deg) scale(1.1);
+}
+
+/* PDP */
+
+@media screen and (min-width: 990px) {
+  .product--stacked .product__media-item {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .product__media-list {
+    gap: 0;
+  }
 }
