@@ -1293,8 +1293,8 @@ a.product__text {
 }
 
 .product-media-container.constrain-height.media-fit-contain {
-  --contained-width: calc(var(--constrained-height) * var(--aspect-ratio));
-  width: min(var(--contained-width), 100%);
+  /*--contained-width: calc(var(--constrained-height) * var(--aspect-ratio));*/
+/*  width: min(var(--contained-width), 100%);*/
 }
 
 .product-media-container .media {
