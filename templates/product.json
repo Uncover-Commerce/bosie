@@ -9,6 +9,16 @@
 */
 {
   "sections": {
+    "breadcrumb_p8njEh": {
+      "type": "breadcrumb",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -34,11 +44,6 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
-          }
-        },
-        "globo_product_option_app_block_WgQxPg": {
-          "type": "shopify:\/\/apps\/globo-product-option\/blocks\/app-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
-          "settings": {
           }
         },
         "quantity_selector": {
@@ -103,7 +108,6 @@
         "caption",
         "price",
         "variant_picker",
-        "globo_product_option_app_block_WgQxPg",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
@@ -124,7 +128,7 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 12
       }
     },
@@ -154,6 +158,7 @@
     }
   },
   "order": [
+    "breadcrumb_p8njEh",
     "main",
     "1726744981f13b1ff5",
     "related-products"
