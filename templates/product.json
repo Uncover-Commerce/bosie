@@ -36,6 +36,11 @@
             "swatch_shape": "circle"
           }
         },
+        "globo_product_option_app_block_WgQxPg": {
+          "type": "shopify:\/\/apps\/globo-product-option\/blocks\/app-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+          "settings": {
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -98,6 +103,7 @@
         "caption",
         "price",
         "variant_picker",
+        "globo_product_option_app_block_WgQxPg",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
@@ -122,6 +128,12 @@
         "padding_bottom": 12
       }
     },
+    "1726744981f13b1ff5": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -143,6 +155,7 @@
   },
   "order": [
     "main",
+    "1726744981f13b1ff5",
     "related-products"
   ]
 }
