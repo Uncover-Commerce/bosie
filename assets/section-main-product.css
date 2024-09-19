@@ -223,8 +223,15 @@ product-info {
 
 .product__info-container .product-form,
 .product__info-container .product__description,
-.product__info-container .icon-with-text {
+.product__info-container {
   margin: 2.5rem 0;
+}
+
+.icon-with-text{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 2rem 0 5rem 0;
 }
 
 .product__text {
@@ -246,6 +253,16 @@ a.product__text {
   margin-bottom: 1.5rem;
 }
 
+.product__title h1{
+  color: #2A3B4E;
+  font-family: var(--font-heading-family-light);
+  font-size: 3.7rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%; /* 40.7px */
+  letter-spacing: -0.74px;
+}
+
 .product__title > * {
   margin: 0;
 }
@@ -262,9 +279,11 @@ a.product__text {
   margin-top: 0;
 }
 
+/* Removed
 .product__accordion .accordion__content {
   padding: 0 1rem;
 }
+*/
 
 .product .price .badge {
   margin-bottom: 0.5rem;
@@ -1227,9 +1246,9 @@ a.product__text {
 }
 
 .icon-with-text--vertical .icon {
-  min-height: var(--icon-size);
-  min-width: var(--icon-size);
-  margin-right: var(--icon-spacing);
+  min-height: 1.6rem;
+  min-width:1.6rem;
+  margin-right: 0.7rem;
 }
 
 .icon-with-text img {
@@ -1256,6 +1275,13 @@ a.product__text {
 .icon-with-text__item {
   display: flex;
   align-items: center;
+  color: #202726;
+  font-family: var(--font-body-family);
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 163.4%; /* 17.974px */
+  letter-spacing: -0.11px;
 }
 
 .icon-with-text--horizontal .icon-with-text__item {
@@ -1264,7 +1290,7 @@ a.product__text {
 }
 
 .icon-with-text--vertical .icon-with-text__item {
-  margin-bottom: var(--icon-size);
+  margin-bottom: 0.5rem;
 }
 
 /* SKU block */
@@ -1475,4 +1501,25 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* Custom Styles */
+.product_tags_bosies{
+  padding: 3px 4px;
+  gap: 10px;
+  background: rgba(227, 224, 220, 0.61);
+  color: #1C2936; 
+  text-align: center;
+  font-family: var(--font-menu-sub);
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%; /* 8.272px */
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+}
+
+/* Remove Product Colour Swatches */
+.product-form__input--swatch{
+  display: none !important;
 }

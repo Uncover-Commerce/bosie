@@ -22,8 +22,8 @@
 .accordion {
   margin-top: 2.5rem;
   margin-bottom: 0;
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-top: 0.1rem solid #1C2936;
+  border-bottom: 0.1rem solid #1C2936;
 }
 
 .accordion__title {
@@ -32,6 +32,14 @@
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  color: #1C2936;
+  font-family: var(--font-menu-sub);
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%; /* 11.374px */
+  letter-spacing: 0.11px;
+  text-transform: uppercase;
 }
 
 .accordion .icon-accordion {
@@ -50,7 +58,13 @@
   margin-bottom: 1.5rem;
   word-break: break-word;
   overflow-x: auto;
-  padding: 0 0.6rem;
+  color: #3C4140;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 18px */
+  letter-spacing: 0.12px;
 }
 
 .accordion__content img {
