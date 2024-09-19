@@ -58,12 +58,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "mpo_multiple_product_options_app_block_LzXGi7": {
-          "type": "shopify:\/\/apps\/mpo-multiple-product-options\/blocks\/app-block\/edee1b5f-81e2-4f09-8399-b789f80c532d",
-          "settings": {
-            "product": "{{product}}"
-          }
-        },
         "icon_with_text_aPFVTh": {
           "type": "icon-with-text",
           "settings": {
@@ -119,7 +113,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "mpo_multiple_product_options_app_block_LzXGi7",
         "icon_with_text_aPFVTh",
         "description",
         "collapsible-row-0",
@@ -130,7 +123,7 @@
         "enable_sticky_info": true,
         "color_scheme": "accent-2",
         "media_size": "large",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "contain",
         "gallery_layout": "stacked",
         "media_position": "left",
