@@ -1266,6 +1266,15 @@ input.mobile-facets__checkbox {
   border-bottom: 1px solid #EEECE6;
 }
 
+.bosie-mobile-facets__details[open] .mobile-facets__arrow{
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.bosie-mobile-facets__details .mobile-facets__arrow {
+  transition: transform 0.3s ease;
+}
+
 .bosie-mobile-facets__summary{
   display: flex;
     padding: 2.2rem 2.6rem;
