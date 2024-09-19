@@ -89,6 +89,31 @@
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
+              {%- when 'tag' -%}
+                {% assign product_date = product.published_at | date: '%s' %}
+                {% assign current_date = 'now' | date: '%s' %}
+                {% assign difference_seconds = current_date | minus: product_date %}
+                {% assign difference_days = difference_seconds | divided_by: 86400 %}
+
+                {% if difference_days < block.settings.new_in_days %}
+                  <span class="product_tags_bosies">New</span>
+                {% endif %}
+
+                {% assign total_inventory = 0 %}
+                {% assign inventory_policy_deny = true %}
+
+                {% for variant in product.variants %}
+                  {% assign total_inventory = total_inventory | plus: variant.inventory_quantity %}
+                  {% if variant.inventory_policy != 'deny' %}
+                    {% assign inventory_policy_deny = false %}
+                  {% endif %}
+                {% endfor %}
+
+                {% if total_inventory <= block.settings.stock_threshold and inventory_policy_deny %}
+                  {% if total_inventory > 0 %}
+                    <span class="product_tags_bosies">Last few remaining</span>
+                  {% endif %}
+                {% endif %}
               {%- when 'text' -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -219,7 +244,7 @@
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
+                        <h2 class="accordion__title inline-richtext">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
@@ -228,6 +253,7 @@
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
+                      {{ block.settings.custom_liquid }}
                     </div>
                   </details>
                 </div>
@@ -767,6 +793,23 @@
       "limit": 1
     },
     {
+      "type": "tag",
+      "name": "Tag",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "number",
+          "id": "new_in_days",
+          "label": "How many days since published should 'New' tag be displayed?"
+        },
+        {
+          "type": "number",
+          "id": "stock_threshold",
+          "label": "What is the stock threshold for 'Low Stock' tag?"
+        }
+      ]
+    },
+    {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
@@ -1139,6 +1182,18 @@
             {
               "value": "washing",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            },
+            {
+              "value": "globe",
+              "label": "Globe Bosies"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery Bosies"
+            },
+            {
+              "value": "gift",
+              "label": "Gift Bosies"
             }
           ],
           "default": "check_mark",
@@ -1148,6 +1203,12 @@
           "type": "richtext",
           "id": "content",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+        },
+        {
+          "type": "liquid",
+          "label": "Content by Liquid",
+          "id": "custom_liquid",
+          "info": "Accept HTML and custom Liquid."
         },
         {
           "type": "page",
@@ -1384,6 +1445,18 @@
             {
               "value": "washing",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            },
+            {
+              "value": "globe",
+              "label": "Globe Bosies"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery Bosies"
+            },
+            {
+              "value": "gift",
+              "label": "Gift Bosies"
             }
           ],
           "default": "price_tag",
@@ -1660,6 +1733,18 @@
             {
               "value": "washing",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            },
+            {
+              "value": "globe",
+              "label": "Globe Bosies"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery Bosies"
+            },
+            {
+              "value": "gift",
+              "label": "Gift Bosies"
             }
           ],
           "default": "heart",
@@ -1856,6 +1941,18 @@
             {
               "value": "washing",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            },
+            {
+              "value": "globe",
+              "label": "Globe Bosies"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery Bosies"
+            },
+            {
+              "value": "gift",
+              "label": "Gift Bosies"
             }
           ],
           "default": "return",
@@ -2052,6 +2149,18 @@
             {
               "value": "washing",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            },
+            {
+              "value": "globe",
+              "label": "Globe Bosies"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery Bosies"
+            },
+            {
+              "value": "gift",
+              "label": "Gift Bosies"
             }
           ],
           "default": "truck",
