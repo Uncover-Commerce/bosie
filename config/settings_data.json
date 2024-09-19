@@ -151,6 +151,12 @@
         "settings": {
           "customCssGCW": ""
         }
+      },
+      "13019466082614940324": {
+        "type": "shopify:\/\/apps\/product-colors-linkify\/blocks\/app-embed-block\/1fdc741b-f4ed-4b8c-aee7-aa5e4ad76aa8",
+        "disabled": false,
+        "settings": {
+        }
       }
     },
     "color_schemes": {
