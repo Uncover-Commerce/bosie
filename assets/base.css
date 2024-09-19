@@ -157,7 +157,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 
   .header.page-width {
-        padding: 2.2rem 3.2rem;
+        padding: 2.2rem 1rem;
 
   }
 @media screen and (min-width: 750px) {
@@ -181,8 +181,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 4rem;
-    padding-right: 4rem;
+    /*padding-left: 4rem;
+    padding-right: 4rem;*/
     padding-bottom: 2.2rem;
   }
 
@@ -2160,7 +2160,7 @@ input[type='checkbox'] {
 .utility-bar__grid .list-social {
   justify-content: flex-start;
   align-content: center;
-  margin-left: -1.2rem;
+  /* margin-left: -1.2rem; */
   grid-area: social-icons;
 }
 
