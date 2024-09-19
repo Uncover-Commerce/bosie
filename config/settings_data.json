@@ -145,15 +145,14 @@
 
     ],
     "blocks": {
-      "4571859552318407796": {
-        "type": "shopify:\/\/apps\/glo-color-swatch\/blocks\/app-embed-block\/4394f710-096c-4021-bbde-8ebb26057c11",
-        "disabled": false,
-        "settings": {
-          "customCssGCW": ""
-        }
-      },
       "13019466082614940324": {
         "type": "shopify:\/\/apps\/product-colors-linkify\/blocks\/app-embed-block\/1fdc741b-f4ed-4b8c-aee7-aa5e4ad76aa8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "7998386962760986038": {
+        "type": "shopify:\/\/apps\/mpo-multiple-product-options\/blocks\/app-embed\/edee1b5f-81e2-4f09-8399-b789f80c532d",
         "disabled": false,
         "settings": {
         }
