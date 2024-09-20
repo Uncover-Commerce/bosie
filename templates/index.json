@@ -174,8 +174,9 @@
           "settings": {
             "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
             "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
-            "content_type": "text",
+            "content_type": "image",
             "block_text": "This is your text here.",
+            "block_image": "shopify:\/\/shop_images\/harley-of-scotland.svg",
             "block_link": "\/",
             "link_text": "View Collection"
           }
