@@ -15,9 +15,33 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "faq_CJDqYx": {
+      "type": "faq",
+      "blocks": {
+        "faq_38PeVC": {
+          "type": "faq",
+          "settings": {
+            "question": "Where can I buy Bosie?",
+            "answer": "<p>Please contact sales@harleyofscotland.com for stockists in your area.<\/p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_38PeVC"
+      ],
+      "settings": {
+        "title": "Stockists",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "faq_CJDqYx"
   ]
 }
