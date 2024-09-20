@@ -2575,7 +2575,9 @@ input[type='checkbox'] {
 }
 
 .header__icon {
+  display: flex;
   color: rgb(var(--color-foreground));
+  text-decoration: none;
 }
 
 .header__icon span {
