@@ -129,7 +129,7 @@ font-display:auto;font-style:normal;font-weight:500;font-stretch:normal;
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0.8rem;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -162,7 +162,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 2.4rem;
   }
 
 
