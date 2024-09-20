@@ -177,13 +177,13 @@
       },
       "inverse": {
         "settings": {
-          "background": "#242833",
+          "background": "#2a3b4e",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
-          "button_label": "#000000",
+          "button_label": "#ffffff",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#ffffff"
         }
       },
       "accent-1": {
