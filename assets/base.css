@@ -2708,7 +2708,16 @@ details[open] > .search-modal {
   opacity: 1;
   animation: animateMenuOpen var(--duration-default) ease;
       position: absolute;
+    top: 70px;
+/* tablet */
+@media screen and (min-width: 768px) {
+  top: 70px;
+}
+
+/* desktop */
+@media screen and (min-width: 990px) {
     top: 140px;
+  }
 
 }
 
@@ -2784,7 +2793,7 @@ details[open] .modal-overlay::after {
 /* Header menu drawer */
 .header__icon--menu .icon {
   display: block;
-  position: absolute;
+  position: relative;
   opacity: 1;
   transform: scale(1);
   transition: transform 150ms ease, opacity 150ms ease;
