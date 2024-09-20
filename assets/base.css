@@ -2678,9 +2678,9 @@ menu-drawer + .header__search {
   font-size: 1rem;
   color: #1C2936;
   margin-left: 1.4rem;
-  display: none;
+  display: none !important;
   @media screen and (min-width: 990px) {
-    display: inline-block;
+    display:  flex !important;
   }
 
 }
