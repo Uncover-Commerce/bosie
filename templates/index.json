@@ -197,10 +197,10 @@
         "image_text_block_P7xkE7"
       ],
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "full_width": false,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "column_cta_bosies_wKVRqp": {
