@@ -70,18 +70,13 @@
             "heading_3": ""
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Description",
             "icon": "none",
             "content": "",
-            "custom_liquid": "",
+            "custom_liquid": "{{product.description}}",
             "page": ""
           }
         },
@@ -114,7 +109,6 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
-        "description",
         "collapsible-row-0",
         "collapsible_tab_3y9PKE",
         "collapsible-row-3"
