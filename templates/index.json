@@ -114,7 +114,7 @@
             "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
             "title": "Mens",
             "link_text": "View Collection",
-            "link": ""
+            "link": "shopify:\/\/collections\/mens"
           }
         },
         "column_FYceUJ": {
@@ -123,7 +123,7 @@
             "image": "shopify:\/\/shop_images\/bosieskyeslipover.jpg",
             "title": "Womens",
             "link_text": "View Collection",
-            "link": ""
+            "link": "shopify:\/\/collections\/womens"
           }
         }
       },
@@ -134,7 +134,7 @@
       "settings": {
         "color_scheme": "background-1",
         "full_width": false,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 52
       }
     },
