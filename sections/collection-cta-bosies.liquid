@@ -104,8 +104,22 @@
 }
 {% endschema %}
 
-<div class="collection-cta-container {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
-  <div class="carousel-wrapper">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="collection-cta-container {% unless section.settings.full_width %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="carousel-wrapper page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %}">
     <div class="carousel-track">
       {% for block in section.blocks %}
         {% if block.type == 'image_text_block' %}
