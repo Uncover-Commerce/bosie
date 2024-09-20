@@ -58,6 +58,43 @@
         "show_text_below": false
       }
     },
+    "trust_banner_bosies_LDCmM3": {
+      "type": "trust-banner-bosies",
+      "blocks": {
+        "block_n9CGYt": {
+          "type": "block",
+          "settings": {
+            "icon": "globe",
+            "text": "International shipping available"
+          }
+        },
+        "block_meVpgm": {
+          "type": "block",
+          "settings": {
+            "icon": "delivery",
+            "text": "Shipping within 3-5 days"
+          }
+        },
+        "block_4DGMJN": {
+          "type": "block",
+          "settings": {
+            "icon": "gift",
+            "text": "Gift vouchers available"
+          }
+        }
+      },
+      "block_order": [
+        "block_n9CGYt",
+        "block_meVpgm",
+        "block_4DGMJN"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "quote_bosies_C3VXgd": {
       "type": "quote-bosies",
       "settings": {
@@ -310,6 +347,7 @@
   },
   "order": [
     "image_banner",
+    "trust_banner_bosies_LDCmM3",
     "quote_bosies_C3VXgd",
     "column_cta_bosies_JhGeby",
     "featured_collection_Rq3Ymp",
