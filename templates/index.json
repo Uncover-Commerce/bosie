@@ -90,7 +90,7 @@
       ],
       "settings": {
         "full_width": true,
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -101,8 +101,8 @@
         "quote_title": "Shaped by the sea",
         "quote_text": "‘Bosie’ is a word, common in Northern Scotland, meaning 'hug' or 'cuddle' in our old Scots language, Doric. It has long been our favourite Doric word due to its phonetic quaintness, but we believe it describes our knitwear perfectly.",
         "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 100,
+        "padding_bottom": 92
       }
     },
     "column_cta_bosies_JhGeby": {

@@ -166,13 +166,13 @@
       },
       "background-2": {
         "settings": {
-          "background": "#2a3b4e",
+          "background": "#eeece6",
           "background_gradient": "",
-          "text": "#f9f7f4",
-          "button": "#121212",
+          "text": "#2a3b4e",
+          "button": "#2a3b4e",
           "button_label": "#f3f3f3",
-          "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "secondary_button_label": "#2a3b4e",
+          "shadow": "#2a3b4e"
         }
       },
       "inverse": {
