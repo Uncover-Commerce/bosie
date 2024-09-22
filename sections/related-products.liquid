@@ -50,26 +50,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto;
+      margin: 0 2rem;
       @media screen and (min-width: 750px) {
         display: none;
       }
     }
 
     .slider-indicator {
-      position: relative;
-      width: 30rem;
-      height: 3px;
-      background-color: rgba(var(--color-foreground), 0.2);
-      padding-inline: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 2px;
+      overflow: hidden;
     }
-    .slider-indicator__line {
-      position: absolute;
-      left: 0;
-      top: 0;
+
+    .slider-indicator__segment {
+      flex: 1;
       height: 100%;
+      background-color: rgba(var(--color-foreground), 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-indicator__segment.active {
       background-color: rgba(var(--color-foreground), 0.8);
-      transition: transform 0.3s ease;
     }
 
     .slider-controls {
@@ -144,12 +148,15 @@
             <button class="slider-control slider-control--prev" aria-label="Previous slide">
               {% render 'icon-caret' %}
             </button>
+
             <button class="slider-control slider-control--next" aria-label="Next slide">
               {% render 'icon-caret' %}
             </button>
           </div>
           <div class="slider-indicator" aria-hidden="true">
-            <div class="slider-indicator__line">&nbsp;</div>
+            {% for i in (1..section.settings.products_to_show) %}
+              <div class="slider-indicator__segment" data-index="{{ forloop.index0 }}">&nbsp;</div>
+            {% endfor %}
           </div>
         </div>
       {% endif %}
@@ -371,12 +378,11 @@
   if ({{ section.settings.enable_slider | json }}) {
     function initializeSlider() {
       const slider = document.querySelector('.related-products__slider');
-      const indicatorContainer = document.querySelector('.slider-indicator');
-      const indicatorLine = document.querySelector('.slider-indicator__line');
+      const indicatorSegments = document.querySelectorAll('.slider-indicator__segment');
       const prevButton = document.querySelector('.slider-control--prev');
       const nextButton = document.querySelector('.slider-control--next');
       
-      if (!slider || !indicatorContainer || !indicatorLine || !prevButton || !nextButton) {
+      if (!slider || indicatorSegments.length === 0 || !prevButton || !nextButton) {
         console.error('Slider elements not found');
         return;
       }
@@ -390,28 +396,18 @@
 
       function updateIndicator() {
         const scrollPosition = slider.scrollLeft;
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        if (maxScroll <= 0) return; // Avoid division by zero
-
-        // Calculate the number of visible slides
         const slideWidth = slides[0].offsetWidth;
-        const visibleSlides = Math.ceil(slider.clientWidth / slideWidth);
-        
-        // Calculate the total number of "scroll positions"
-        const totalScrollPositions = slides.length - visibleSlides + 1;
-        
-        // Calculate which "scroll position" we're currently at
-        const currentScrollPosition = Math.round(scrollPosition / (maxScroll / (totalScrollPositions - 1)));
-        
-        // Calculate the indicator width and position
-        const indicatorWidth = (visibleSlides / slides.length) * 100;
-        const maxTranslation = 100 - indicatorWidth;
-        const indicatorPosition = (currentScrollPosition / (totalScrollPositions - 1)) * maxTranslation;
+        const currentIndex = Math.round(scrollPosition / slideWidth);
 
-        indicatorLine.style.width = `${indicatorWidth}%`;
-        indicatorLine.style.transform = `translateX(${indicatorPosition}%)`;
+        indicatorSegments.forEach((segment, index) => {
+          if (index <= currentIndex) {
+            segment.classList.add('active');
+          } else {
+            segment.classList.remove('active');
+          }
+        });
 
-        console.log(`Scroll position ${currentScrollPosition + 1} of ${totalScrollPositions}`);
+        console.log(`Current slide: ${currentIndex + 1} of ${slides.length}`);
       }
 
       function scrollToSlide(index) {
@@ -441,8 +437,9 @@
       prevButton.addEventListener('click', handlePrevClick);
       nextButton.addEventListener('click', handleNextClick);
 
-      // Log total number of slides
-      console.log(`Total number of slides: ${slides.length}`);
+      indicatorSegments.forEach((segment, index) => {
+        segment.addEventListener('click', () => scrollToSlide(index));
+      });
 
       // Update periodically to catch any missed updates
       setInterval(updateIndicator, 100);
