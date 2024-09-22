@@ -18,6 +18,50 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.enable_slider %}
+    .related-products__slider {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .related-products__slider::-webkit-scrollbar {
+      display: none;
+    }
+    .related-products__slider .grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+    .related-products__slider .grid__item {
+      flex: 0 0 {{ 100.0 | divided_by: section.settings.columns_desktop }}%;
+      max-width: {{ 100.0 | divided_by: section.settings.columns_desktop }}%;
+      scroll-snap-align: start;
+    }
+    @media screen and (max-width: 749px) {
+      .related-products__slider .grid__item {
+        flex: 0 0 {{ 100.0 | divided_by: section.settings.columns_mobile }}%;
+        max-width: {{ 100.0 | divided_by: section.settings.columns_mobile }}%;
+      }
+    }
+
+    .slider-indicator {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      background-color: rgba(var(--color-foreground), 0.2);
+      margin-top: 1rem;
+    }
+    .slider-indicator__line {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: rgba(var(--color-foreground), 0.8);
+      transition: transform 0.3s ease;
+    }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -31,26 +75,33 @@
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
+      <div class="{% if section.settings.enable_slider %}related-products__slider{% endif %}">
+        <ul
+          class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      </div>
+      {% if section.settings.enable_slider %}
+        <div class="slider-indicator" aria-hidden="true">
+          <div class="slider-indicator__line">&nbsp;</div>
+        </div>
+      {% endif %}
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
@@ -254,7 +305,90 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "default": false,
+      "label": "Enable horizontal slider"
     }
   ]
 }
 {% endschema %}
+
+<script>
+  if ({{ section.settings.enable_slider | json }}) {
+    function initializeSlider() {
+      const slider = document.querySelector('.related-products__slider');
+      const indicatorContainer = document.querySelector('.slider-indicator');
+      const indicatorLine = document.querySelector('.slider-indicator__line');
+      
+      if (!slider || !indicatorContainer || !indicatorLine) {
+        console.error('Slider, indicator container, or indicator line not found');
+        return;
+      }
+
+      const slides = slider.querySelectorAll('.grid__item');
+
+      if (slides.length === 0) {
+        console.error('No slides found');
+        return;
+      }
+
+      function updateIndicator() {
+        const scrollPosition = slider.scrollLeft;
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        if (maxScroll <= 0) return; // Avoid division by zero
+
+        const scrollPercentage = (scrollPosition / maxScroll) * 100;
+        const slideIndex = Math.round(scrollPercentage / (100 / (slides.length - 1)));
+        const indicatorPercentage = (slideIndex / (slides.length - 1)) * 100;
+
+        indicatorLine.style.transform = `translateX(${indicatorPercentage}%)`;
+
+        console.log(`Slide ${slideIndex + 1} of ${slides.length} is now in view`);
+      }
+
+      // Set the width of the indicator line
+      function setIndicatorWidth() {
+        indicatorLine.style.width = `${100 / slides.length}%`;
+      }
+
+      // Initial setup
+      setIndicatorWidth();
+      updateIndicator();
+
+      // Update on scroll
+      slider.addEventListener('scroll', updateIndicator);
+
+      // Update on window resize
+      window.addEventListener('resize', () => {
+        setIndicatorWidth();
+        updateIndicator();
+      });
+
+      // Log total number of slides
+      console.log(`Total number of slides: ${slides.length}`);
+
+      // Update periodically to catch any missed updates
+      setInterval(updateIndicator, 100);
+    }
+
+    // Create a MutationObserver instance
+    const observer = new MutationObserver((mutations) => {
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          const slider = document.querySelector('.related-products__slider');
+          if (slider) {
+            observer.disconnect(); // Stop observing once we find the slider
+            initializeSlider();
+            break;
+          }
+        }
+      }
+    });
+
+    // Start observing the document with the configured parameters
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+</script>
