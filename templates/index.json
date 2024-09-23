@@ -30,7 +30,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -44,8 +44,8 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
-        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7dd7991b1de7403abece900e2cca1040.mp4",
+        "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
+        "video": "https://cdn.shopify.com/videos/c/o/v/7dd7991b1de7403abece900e2cca1040.mp4",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
@@ -111,19 +111,19 @@
         "column_7VjFLf": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/20230616_Bosie_15_0005.jpg",
+            "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
             "title": "Mens",
             "link_text": "View Collection",
-            "link": "shopify:\/\/collections\/mens"
+            "link": "shopify://collections/mens"
           }
         },
         "column_FYceUJ": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/bosieskyeslipover.jpg",
+            "image": "shopify://shop_images/bosieskyeslipover.jpg",
             "title": "Womens",
             "link_text": "View Collection",
-            "link": "shopify:\/\/collections\/womens"
+            "link": "shopify://collections/womens"
           }
         }
       },
@@ -156,7 +156,7 @@
         "color_scheme": "",
         "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
@@ -172,23 +172,23 @@
         "image_text_block_GRcFbn": {
           "type": "image_text_block",
           "settings": {
-            "image_one": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg",
-            "image_two": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "image_one": "shopify://shop_images/shamrockshakegreenshetland2.jpg",
+            "image_two": "shopify://shop_images/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
             "content_type": "image",
             "block_text": "This is your text here.",
-            "block_image": "shopify:\/\/shop_images\/harley-of-scotland.svg",
-            "block_link": "\/",
+            "block_image": "shopify://shop_images/harley-of-scotland.svg",
+            "block_link": "/",
             "link_text": "View Collection"
           }
         },
         "image_text_block_P7xkE7": {
           "type": "image_text_block",
           "settings": {
-            "image_one": "shopify:\/\/shop_images\/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
-            "image_two": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland2.jpg",
+            "image_one": "shopify://shop_images/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
+            "image_two": "shopify://shop_images/strawberrysherbetpinkshetland2.jpg",
             "content_type": "text",
             "block_text": "This is your text here.",
-            "block_link": "\/",
+            "block_link": "/",
             "link_text": "View Collection"
           }
         }
@@ -210,7 +210,7 @@
         "column_6PEjQW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/kellygreenshetland3.jpg",
+            "image": "shopify://shop_images/kellygreenshetland3.jpg",
             "title": "Winter Collection",
             "link_text": "View Collection",
             "link": ""
@@ -219,7 +219,7 @@
         "column_iwzptJ": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
+            "image": "shopify://shop_images/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
             "title": "Summer Collection",
             "link_text": "View Collection",
             "link": ""
@@ -228,7 +228,7 @@
         "column_g78RqW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/atlanticsprayblueshetland2.jpg",
+            "image": "shopify://shop_images/atlanticsprayblueshetland2.jpg",
             "title": "Holiday Collection",
             "link_text": "View Collection",
             "link": ""
@@ -253,8 +253,8 @@
         "column_LAjnHe": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/royalvioletshetland2.jpg",
-            "title": "The perfect gift \u2028for any occasion",
+            "image": "shopify://shop_images/royalvioletshetland2.jpg",
+            "title": "The perfect gift  for any occasion",
             "link_text": "Shop Gift Vouchers",
             "link": ""
           }
@@ -276,21 +276,21 @@
         "image_PMTXrY": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/shamrockshakegreenshetland2.jpg"
+            "image": "shopify://shop_images/shamrockshakegreenshetland2.jpg"
           }
         },
         "image_6rfehf": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/strawberrypink3_c6d90dd8-d549-4e96-8fbe-6b6efe4bdc47.jpg"
+            "image": "shopify://shop_images/strawberrypink3_c6d90dd8-d549-4e96-8fbe-6b6efe4bdc47.jpg"
           }
         },
         "content_cxA3PL": {
           "type": "content",
           "settings": {
             "title": "Little Bosie",
-            "rich_text": "<p>Lorem ipsum dolor sit amet consectetur. Ipsum et risus bibendum lectus. Arcu ut sollicitudin tortor odio aenean velit ultrices. Aliquet sollicitudin integer cursus sagittis cras et lorem congue in. <\/p>",
-            "button_link": "\/",
+            "rich_text": "<p>Lorem ipsum dolor sit amet consectetur. Ipsum et risus bibendum lectus. Arcu ut sollicitudin tortor odio aenean velit ultrices. Aliquet sollicitudin integer cursus sagittis cras et lorem congue in. </p>",
+            "button_link": "/",
             "button_text": "Shop the range",
             "button_background": false
           }
