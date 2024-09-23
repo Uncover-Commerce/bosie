@@ -12,7 +12,7 @@
     "breadcrumb_p8njEh": {
       "type": "breadcrumb",
       "settings": {
-        "color_scheme": "accent-2",
+        "color_scheme": "background-1",
         "padding_top": 12,
         "padding_bottom": 12,
         "padding_top_mobile": 0,
@@ -115,7 +115,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "accent-2",
+        "color_scheme": "background-1",
         "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "contain",
@@ -150,7 +150,8 @@
         "show_rating": false,
         "columns_mobile": "1",
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "enable_slider": false
       }
     }
   },
