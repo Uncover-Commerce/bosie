@@ -363,3 +363,26 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
+
+//New Javascript for opening the facets in a smooth and seductive way.
+document.addEventListener('DOMContentLoaded', () => {
+  const filterDetails = document.querySelectorAll('.bosie-mobile-facets__details');
+
+  filterDetails.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        const items = detail.querySelectorAll('.mobile-facets__item');
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('fade-in');
+          }, index * 50); // 50ms delay between each item
+        });
+      } else {
+        const items = detail.querySelectorAll('.mobile-facets__item');
+        items.forEach((item) => {
+          item.classList.remove('fade-in');
+        });
+      }
+    });
+  });
+});
