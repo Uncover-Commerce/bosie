@@ -39,6 +39,13 @@
           "settings": {
           }
         },
+        "popup_nCnAEg": {
+          "type": "popup",
+          "settings": {
+            "text": "Pop-up link text",
+            "page": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -93,7 +100,7 @@
         "collapsible-row-3": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Colour\/Design Story",
+            "heading": "Colour/Design Story",
             "icon": "none",
             "content": "",
             "custom_liquid": "",
@@ -105,6 +112,7 @@
         "title",
         "caption",
         "price",
+        "popup_nCnAEg",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
