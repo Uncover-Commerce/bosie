@@ -1523,3 +1523,66 @@ a.product__text {
 .product-form__input--swatch{
   display: none !important;
 }
+
+.custom_color_name {
+  color: #1c2936;
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%; /* 11.374px */
+  letter-spacing: -0.11px;
+}
+
+.custom_color_name span {
+  color: #4f6763;
+}
+
+.custom_variant_colour_list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom_variant_colour_item {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1.5rem;
+  position: relative;
+}
+
+.custom_variant_colour_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #e2ded8;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.custom_variant_colour_item.current_colour::after {
+  content: '';
+  position: absolute;
+  top: -0.25rem;
+  left: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  border: 1px solid #000;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

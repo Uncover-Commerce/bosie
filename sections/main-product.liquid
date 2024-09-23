@@ -55,87 +55,88 @@
   }
 
   .size-guide {
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: left;
-            width: -webkit-fill-available;
-            width: -moz-available;
-            font-family: var(--font-menu-sub);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-            color: var(--color-foreground);
-        }
-        th {
-            color: white;
-            font-weight: normal;
-        }
-        tr:nth-child(even) {
-            background-color: #F3F1EF;
-        }
-        tr:nth-child(1)  {
-            background-color: #1c2939;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
-        .toggle {
-            position: relative;
-            display: inline-block;
-            width: 117px;
-            height: 50px;
-            margin: 2rem 0;
-        }
-        .toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        .slider-toggle {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #F3F1EF;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider-toggle:before {
-            position: absolute;
-            content: "";
-            height: 42px;
-            width: 60px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        input:checked + .slider-toggle {
-            background-color: #F3F1EF;
-        }
-        input:checked + .slider-toggle:before {
-            transform: translateX(52px);
-        }
-        .toggle-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
-        }
-        .in {
-            left: 2.6rem;
-        }
-        .cm {
-            right: 2rem;
-        }
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    font-family: var(--font-menu-sub);
+  }
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    color: var(--color-foreground);
+  }
+  th {
+    color: white;
+    font-weight: normal;
+  }
+  tr:nth-child(even) {
+    background-color: #f3f1ef;
+  }
+  tr:nth-child(1) {
+    background-color: #1c2939;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 117px;
+    height: 50px;
+    margin: 2rem 0;
+  }
+  .toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider-toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f3f1ef;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .slider-toggle:before {
+    position: absolute;
+    content: '';
+    height: 42px;
+    width: 60px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  input:checked + .slider-toggle {
+    background-color: #f3f1ef;
+  }
+  input:checked + .slider-toggle:before {
+    transform: translateX(52px);
+  }
+  .toggle-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  .in {
+    left: 2.6rem;
+  }
+  .cm {
+    right: 2rem;
+  }
 {% endstyle %}
 
 <product-info
@@ -423,70 +424,6 @@
                     {% endif %}
                   {% endfor %}
                 </div>
-                <style>
-                  .custom_color_name {
-                    color: #1c2936;
-                    font-family: var(--font-body-family);
-                    font-size: 11px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 103.4%; /* 11.374px */
-                    letter-spacing: -0.11px;
-                  }
-
-                  .custom_color_name span {
-                    color: #4f6763;
-                  }
-
-                  .custom_variant_colour_list {
-                    display: flex;
-                    list-style-type: none;
-                    padding: 0;
-                  }
-
-                  .custom_variant_colour_item {
-                    width: 3rem;
-                    height: 3rem;
-                    margin-right: 1.5rem;
-                    position: relative;
-                  }
-
-                  .custom_variant_colour_link {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50%;
-                    border: 1px solid #e2ded8;
-                    cursor: pointer;
-                    text-decoration: none;
-                    position: relative;
-                    z-index: 1;
-                  }
-
-                  .custom_variant_colour_item.current_colour::after {
-                    content: '';
-                    position: absolute;
-                    top: -0.25rem;
-                    left: -0.25rem;
-                    right: -0.25rem;
-                    bottom: -0.25rem;
-                    border: 1px solid #000;
-                    border-radius: 50%;
-                    z-index: 0;
-                  }
-
-                  .sr-only {
-                    position: absolute;
-                    width: 1px;
-                    height: 1px;
-                    padding: 0;
-                    margin: -1px;
-                    overflow: hidden;
-                    clip: rect(0, 0, 0, 0);
-                    white-space: nowrap;
-                    border-width: 0;
-                  }
-                </style>
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -594,9 +531,9 @@
                                   {{ 'products.product.price.regular_price' | t }}
                                 </dt>
                                 <dd>
-                                  < class="variant-item__old-price">
+                                  <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                    </>
+                                  </s>
                                 </dd>
                               </dl>
                             {%- endif -%}
@@ -636,7 +573,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                  ር 
+                                  </s>
                                 </dd>
                                 <dt class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
@@ -984,7 +921,7 @@
           </div>
         </div>
       </modal-dialog>
-    {%- endfor -%} 
+    {%- endfor -%}
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
