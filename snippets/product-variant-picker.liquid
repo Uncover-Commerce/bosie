@@ -8,6 +8,7 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
+
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
@@ -85,6 +86,8 @@
       {%- endif -%}
     {%- endfor -%}
 
-    <script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
+    <script type="application/json" data-selected-variant>
+      {{ product.selected_or_first_available_variant | json }}
+    </script>
   </variant-selects>
 {%- endunless -%}

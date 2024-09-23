@@ -1,3 +1,60 @@
+{% style %}
+  .size-guide-link {
+    position: absolute;
+    right: 0;
+    font-size: 1.1rem;
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-body-family);
+  }
+  .size-guide-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider-size-guide {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .slider-size-guide:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider-size-guide {
+    background-color: #2196f3;
+  }
+  input:checked + .slider-size-guide:before {
+    transform: translateX(26px);
+  }
+{% endstyle %}
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -333,9 +390,9 @@
                                   {{ 'products.product.price.regular_price' | t }}
                                 </dt>
                                 <dd>
-                                  <s class="variant-item__old-price">
+                                  < class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                  </s>
+                                    </>
                                 </dd>
                               </dl>
                             {%- endif -%}
@@ -375,7 +432,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                  </s>
+                                  ር 
                                 </dd>
                                 <dt class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
@@ -474,11 +531,16 @@
                 >
                   <button
                     id="ProductPopup-{{ block.id }}"
-                    class="product-popup-modal__button link"
+                    class="product-popup-modal__button link size-guide-link"
                     type="button"
                     aria-haspopup="dialog"
                   >
                     {{ block.settings.text | default: block.settings.page.title | escape }}
+                    {% if product.metafields.custom['size-guide'] %}
+                      <a href="{{ product.metafields.custom.size-guide | escape }}" class="size-guide-link"
+                        >Size Guide</a
+                      >
+                    {% endif %}
                   </button>
                 </modal-opener>
               {%- when 'share' -%}
@@ -718,7 +780,7 @@
           </div>
         </div>
       </modal-dialog>
-    {%- endfor -%}
+    {%- endfor -%} 
 
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
@@ -2363,3 +2425,59 @@
   ]
 }
 {% endschema %}
+
+{% javascript %}
+  function initSizeGuide() {
+    const table = document.querySelector('.size-guide');
+    const toggleContainer = document.getElementById('toggleContainer');
+
+    // Create toggle switch
+    toggleContainer.innerHTML = `
+          <label class="switch">
+              <input type="checkbox" id="unitToggle">
+              <span class="slider-size-guide">&nbsp;</span>
+          </label>
+          <span id="unitLabel">Show in Centimeters</span>
+      `;
+
+    const unitToggle = document.getElementById('unitToggle');
+    const unitLabel = document.getElementById('unitLabel');
+
+    function convertToInches(cm) {
+      return (cm / 2.54).toFixed(1);
+    }
+
+    function updateTable(showInches) {
+      const rows = table.querySelectorAll('tr');
+      rows.forEach((row, rowIndex) => {
+        if (rowIndex === 0) return; // Skip header row
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, cellIndex) => {
+          if (cellIndex === 0) return; // Skip first column
+          const value = parseFloat(cell.getAttribute('data-cm') || cell.textContent);
+          const displayValue = showInches ? convertToInches(value) : value;
+          cell.textContent = `${displayValue}${showInches ? '"' : 'cm'}`;
+        });
+      });
+    }
+
+    // Store original cm values as data attributes
+    const cells = table.querySelectorAll('td');
+    cells.forEach((cell) => {
+      if (!isNaN(parseFloat(cell.textContent))) {
+        cell.setAttribute('data-cm', cell.textContent);
+      }
+    });
+
+    unitToggle.addEventListener('change', function () {
+      updateTable(this.checked);
+      unitLabel.textContent = this.checked ? 'Show in Inches' : 'Show in Centimeters';
+    });
+
+    // Initial table setup
+    updateTable(false);
+  }
+
+  // Initialize the size guide
+  document.addEventListener('DOMContentLoaded', initSizeGuide);
+{% endjavascript %}
