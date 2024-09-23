@@ -42,8 +42,8 @@
         "popup_nCnAEg": {
           "type": "popup",
           "settings": {
-            "text": "Pop-up link text",
-            "page": ""
+            "text": "Size Guide ›",
+            "page": "{{ product.metafields.custom.size_guide.value }}"
           }
         },
         "variant_picker": {
