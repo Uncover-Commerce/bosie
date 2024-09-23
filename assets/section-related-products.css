@@ -5,3 +5,12 @@
 .related-products__heading {
   margin: 0 0 3rem;
 }
+
+.slider-indicator__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(var(--color-foreground), 0.8);
+  transition: transform 0.3s ease;
+}

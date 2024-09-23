@@ -18,6 +18,95 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.enable_slider %}
+    .related-products__slider {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .related-products__slider::-webkit-scrollbar {
+      display: none;
+    }
+    .related-products__slider .grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+    .related-products__slider .grid__item {
+      flex: 0 0 {{ 100.0 | divided_by: section.settings.columns_desktop }}%;
+      max-width: {{ 100.0 | divided_by: section.settings.columns_desktop }}%;
+      scroll-snap-align: start;
+    }
+    @media screen and (max-width: 749px) {
+      .related-products__slider .grid__item {
+        flex: 0 0 {{ 100.0 | divided_by: section.settings.columns_mobile }}%;
+        max-width: {{ 100.0 | divided_by: section.settings.columns_mobile }}%;
+      }
+    }
+
+    .slider-controls-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 2rem;
+      @media screen and (min-width: 750px) {
+        display: none;
+      }
+    }
+
+    .slider-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 2px;
+      overflow: hidden;
+    }
+
+    .slider-indicator__segment {
+      flex: 1;
+      height: 100%;
+      background-color: rgba(var(--color-foreground), 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-indicator__segment.active {
+      background-color: rgba(var(--color-foreground), 0.8);
+    }
+
+    .slider-controls {
+      display: flex;
+    }
+
+    .slider-control {
+      background: none;
+      color: rgba(var(--color-foreground), 0.75);
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      transition: all 0.2s ease-in-out;
+      height: 3rem;
+      width: 3rem;
+    }
+
+    .slider-control:hover {
+      background-color: rgba(var(--color-foreground), 0.06);
+      color: rgb(var(--color-foreground));
+    }
+
+    .slider-control--prev .icon {
+      transform: rotate(90deg);
+    }
+
+    .slider-control--next .icon {
+      transform: rotate(-90deg);
+    }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -31,26 +120,46 @@
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
+      <div class="{% if section.settings.enable_slider %}related-products__slider{% endif %}">
+        <ul
+          class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      </div>
+      {% if section.settings.enable_slider %}
+        <div class="slider-controls-container">
+          <div class="slider-controls">
+            <button class="slider-control slider-control--prev" aria-label="Previous slide">
+              {% render 'icon-caret' %}
+            </button>
+
+            <button class="slider-control slider-control--next" aria-label="Next slide">
+              {% render 'icon-caret' %}
+            </button>
+          </div>
+          <div class="slider-indicator" aria-hidden="true">
+            {% for i in (1..section.settings.products_to_show) %}
+              <div class="slider-indicator__segment" data-index="{{ forloop.index0 }}">&nbsp;</div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
@@ -254,7 +363,103 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "default": false,
+      "label": "Enable horizontal slider"
     }
   ]
 }
 {% endschema %}
+
+<script>
+  if ({{ section.settings.enable_slider | json }}) {
+    function initializeSlider() {
+      const slider = document.querySelector('.related-products__slider');
+      const indicatorSegments = document.querySelectorAll('.slider-indicator__segment');
+      const prevButton = document.querySelector('.slider-control--prev');
+      const nextButton = document.querySelector('.slider-control--next');
+      
+      if (!slider || indicatorSegments.length === 0 || !prevButton || !nextButton) {
+        console.error('Slider elements not found');
+        return;
+      }
+
+      const slides = slider.querySelectorAll('.grid__item');
+
+      if (slides.length === 0) {
+        console.error('No slides found');
+        return;
+      }
+
+      function updateIndicator() {
+        const scrollPosition = slider.scrollLeft;
+        const slideWidth = slides[0].offsetWidth;
+        const currentIndex = Math.round(scrollPosition / slideWidth);
+
+        indicatorSegments.forEach((segment, index) => {
+          if (index <= currentIndex) {
+            segment.classList.add('active');
+          } else {
+            segment.classList.remove('active');
+          }
+        });
+
+        console.log(`Current slide: ${currentIndex + 1} of ${slides.length}`);
+      }
+
+      function scrollToSlide(index) {
+        const slideWidth = slides[0].offsetWidth;
+        slider.scrollTo({
+          left: index * slideWidth,
+          behavior: 'smooth'
+        });
+      }
+
+      function handlePrevClick() {
+        const currentIndex = Math.round(slider.scrollLeft / slides[0].offsetWidth);
+        scrollToSlide(Math.max(currentIndex - 1, 0));
+      }
+
+      function handleNextClick() {
+        const currentIndex = Math.round(slider.scrollLeft / slides[0].offsetWidth);
+        scrollToSlide(Math.min(currentIndex + 1, slides.length - 1));
+      }
+
+      // Initial setup
+      updateIndicator();
+
+      // Event listeners
+      slider.addEventListener('scroll', updateIndicator);
+      window.addEventListener('resize', updateIndicator);
+      prevButton.addEventListener('click', handlePrevClick);
+      nextButton.addEventListener('click', handleNextClick);
+
+      indicatorSegments.forEach((segment, index) => {
+        segment.addEventListener('click', () => scrollToSlide(index));
+      });
+
+      // Update periodically to catch any missed updates
+      setInterval(updateIndicator, 100);
+    }
+
+    // Create a MutationObserver instance
+    const observer = new MutationObserver((mutations) => {
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList') {
+          const slider = document.querySelector('.related-products__slider');
+          if (slider) {
+            observer.disconnect(); // Stop observing once we find the slider
+            initializeSlider();
+            break;
+          }
+        }
+      }
+    });
+
+    // Start observing the document with the configured parameters
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+</script>

@@ -12,7 +12,7 @@
     "breadcrumb_p8njEh": {
       "type": "breadcrumb",
       "settings": {
-        "color_scheme": "accent-2",
+        "color_scheme": "background-1",
         "padding_top": 12,
         "padding_bottom": 12,
         "padding_top_mobile": 0,
@@ -62,17 +62,12 @@
           "type": "icon-with-text",
           "settings": {
             "layout": "vertical",
-            "icon_1": "heart",
-            "heading_1": "Heading",
-            "icon_2": "return",
-            "heading_2": "Heading",
+            "icon_1": "delivery",
+            "heading_1": "Delivery 3-5 days",
+            "icon_2": "globe",
+            "heading_2": "International Shipping Available",
             "icon_3": "truck",
             "heading_3": ""
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
           }
         },
         "collapsible-row-0": {
@@ -81,7 +76,7 @@
             "heading": "Description",
             "icon": "none",
             "content": "",
-            "custom_liquid": "",
+            "custom_liquid": "{{product.description}}",
             "page": ""
           }
         },
@@ -114,14 +109,13 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
-        "description",
         "collapsible-row-0",
         "collapsible_tab_3y9PKE",
         "collapsible-row-3"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "accent-2",
+        "color_scheme": "background-1",
         "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "contain",
@@ -156,7 +150,8 @@
         "show_rating": false,
         "columns_mobile": "1",
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "enable_slider": false
       }
     }
   },

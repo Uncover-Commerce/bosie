@@ -23,6 +23,7 @@
           <use href="#icon-close">
         </svg>
       </span>
+      <span class="search-text-b">Search</span>
     </summary>
     <div
       class="search-modal modal__content gradient"
@@ -96,5 +97,16 @@
       </div>
     </div>
   </details>
-  <a class="search-text-b">Search</a>
 </details-modal>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchText = document.querySelector('.search-text-b');
+    const detailsElement = document.querySelector('details');
+
+    searchText.addEventListener('click', function (event) {
+      event.preventDefault();
+      detailsElement.open = !detailsElement.open;
+    });
+  });
+</script>
