@@ -226,6 +226,127 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
+              {%- when 'custom_varrient' -%}
+                <div>
+                  {% comment %} Loop through all metaobject entries (LIMIT: 50 entries) {% endcomment %}
+                  {% for object in shop.metaobjects.product_colour.values %}
+                    {% assign found_product_match = false %}
+
+                    {% comment %} Check if current product is related to metafield entry {% endcomment %}
+                    {% for colorProduct in object.product.value %}
+                      {% if colorProduct.id == product.id %}
+                        {% assign found_product_match = true %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if found_product_match %}
+                      {% comment %} Find the color of the current product {% endcomment %}
+                      {% assign current_color = '' %}
+                      {% for option in product.options_with_values %}
+                        {% if option.name == 'Color' or option.name == 'Colour' %}
+                          {% assign current_color = option.selected_value %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+
+                      <p class="custom_color_name">
+                        Colour: <span>{{ current_color }}</span>
+                      </p>
+                      <ul class="custom_variant_colour_list">
+                        {% comment %} Loop through each product from product list of this metafield and display color swatch with link to this product {% endcomment %}
+                        {% for colorProduct in object.product.value %}
+                          {% assign swatch_displayed = false %}
+                          {% for option in colorProduct.options_with_values %}
+                            {% for value in option.values %}
+                              {% if value.swatch and swatch_displayed == false %}
+                                <li class="custom_variant_colour_item {% if colorProduct.id == product.id %}current_colour{% endif %}">
+                                  <a
+                                    class="custom_variant_colour_link"
+                                    href="{{ colorProduct.url }}"
+                                    style="background-color: {{ value.swatch.color }};"
+                                  >
+                                    <span class="sr-only">{{ value.title }}</span>
+                                  </a>
+                                </li>
+                                {% assign swatch_displayed = true %}
+                                {% break %}
+                              {% endif %}
+                            {% endfor %}
+                            {% if swatch_displayed %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endfor %}
+                      </ul>
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <style>
+                  .custom_color_name {
+                    color: #1c2936;
+                    font-family: var(--font-body-family);
+                    font-size: 11px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 103.4%; /* 11.374px */
+                    letter-spacing: -0.11px;
+                  }
+
+                  .custom_color_name span {
+                    color: #4f6763;
+                  }
+
+                  .custom_variant_colour_list {
+                    display: flex;
+                    list-style-type: none;
+                    padding: 0;
+                  }
+
+                  .custom_variant_colour_item {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-right: 1.5rem;
+                    position: relative;
+                  }
+
+                  .custom_variant_colour_link {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 1px solid #e2ded8;
+                    cursor: pointer;
+                    text-decoration: none;
+                    position: relative;
+                    z-index: 1;
+                  }
+
+                  .custom_variant_colour_item.current_colour::after {
+                    content: '';
+                    position: absolute;
+                    top: -0.25rem;
+                    left: -0.25rem;
+                    right: -0.25rem;
+                    bottom: -0.25rem;
+                    border: 1px solid #000;
+                    border-radius: 50%;
+                    z-index: 0;
+                  }
+
+                  .sr-only {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border-width: 0;
+                  }
+                </style>
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -812,6 +933,11 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "custom_varrient",
+      "name": "Custom Varrient",
       "limit": 1
     },
     {
