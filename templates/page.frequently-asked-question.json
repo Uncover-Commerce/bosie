@@ -92,10 +92,70 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "faq_JWXGDx": {
+      "type": "faq",
+      "blocks": {
+        "faq_x76QGn": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I place an order?",
+            "answer": "<p>To add an item to your cart, select your desired product on the Bosie store, choose any options like size or colour, and click \"Add to Cart.\" You can then review your cart by clicking the cart icon, where you’ll be able to adjust quantities or remove items if needed. Once you're ready, click \"Checkout\" to start the process.</p><p>At checkout, simply enter your email, shipping address, and payment details. Double-check your order to make sure everything is correct, then click \"Place Order.\" You’ll receive a confirmation both on-screen and via email with all your order details and next steps.</p>",
+            "open": false
+          }
+        },
+        "faq_pBnhDF": {
+          "type": "faq",
+          "settings": {
+            "question": "What payment methods do you accept?",
+            "answer": "<p>We accept various payment methods which can be selected at checkout. </p>",
+            "open": false
+          }
+        },
+        "faq_YQzwJy": {
+          "type": "faq",
+          "settings": {
+            "question": "Is my payment information secure?",
+            "answer": "<p>Yes, your payment information is completely secure when shopping at Bosie. Our store is powered by Shopify, which uses industry-leading security measures, including SSL encryption, to protect your data during checkout. Shopify is PCI DSS (Payment Card Industry Data Security Standard) compliant, ensuring that your payment details are handled with the highest level of security. Additionally, we do not store your payment information on our servers, providing an extra layer of protection. You can shop with confidence knowing your data is safe and secure with us.</p>",
+            "open": false
+          }
+        },
+        "faq_DyPph3": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I modify or cancel my order after it has been placed?",
+            "answer": "<p>No, because of the way our system works you cannot cancel or modify an order, however you can return them for refund.</p>",
+            "open": false
+          }
+        },
+        "faq_PR7CMn": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer gift cards or certificates?",
+            "answer": "<p>Yes, you can view our gift card options here. </p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_x76QGn",
+        "faq_pBnhDF",
+        "faq_YQzwJy",
+        "faq_DyPph3",
+        "faq_PR7CMn"
+      ],
+      "settings": {
+        "title": "Ordering and Payment",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "faq_CJDqYx"
+    "faq_CJDqYx",
+    "faq_JWXGDx"
   ]
 }
