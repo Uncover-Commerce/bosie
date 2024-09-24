@@ -260,6 +260,79 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "faq_JTnaWw": {
+      "type": "faq",
+      "blocks": {
+        "faq_CYXeNa": {
+          "type": "faq",
+          "settings": {
+            "question": "How does the brushing service affect the texture and appearance of the knitwear?",
+            "answer": "<p><strong>BRUSHING LEVELS</strong></p><p><strong>Shaggy</strong> – This classic Shaggy finish involves brushing the garment twice, resulting in a slightly fuzzy texture that gives a subtly thicker 'handle' to the piece. This option is available for Harley of Scotland and Bosie Luxury Shetlands.</p><p><strong>Triple Brushed</strong> – Brushed three times for a highly fuzzy effect, this finish gives the garment a cloud-like appearance, with individual stitches becoming more obscured. Suitable for Harley of Scotland and Bosie Luxury Shetlands.</p><p><strong>Quad Shaggy</strong> – Brushed four times for an ultra-brushed effect, bordering on a felted look, this finish results in a slightly more structured garment. We never exceed four brushings, as the increased brushing also softens the yarn's color, creating an airbrushed effect. Applies to Harley of Scotland and Bosie Luxury Shetlands only.</p><p><strong>Great Bear Shaggy</strong> – A unique brushing technique available exclusively for North Sea Shetlands. Due to their 4-ply thickness, they are brushed twice in a specialized way, resulting in an exaggerated brushed effect.</p><p><strong>Multiple Garments</strong> – If you're purchasing multiple items, please specify in the 'additional comments' section at checkout which garments you'd like brushed.</p><p><strong>Important Note</strong> – <em>We do not brush Voe True Everest or Sherpa Shetlands, as they do not respond well to this process.</em></p>",
+            "open": false
+          }
+        },
+        "faq_tUWpNz": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return an item after it has been brushed?",
+            "answer": "<p>No, brushing a garment irrevocably changes the garment from that of our standard inventory. Please do not order a brushed shetland if you do not know if you will be keeping the item or you are unsure you like the brushed effect. Most people who buy brushed have experience of brushed items and know they like the effect. In the case of being unsure it is best to buy plain unbrushed, which you can then return for refund if needed. You will be asked to agree to this via a checkbox prior to order completion.</p>",
+            "open": false
+          }
+        },
+        "faq_xhE64p": {
+          "type": "faq",
+          "settings": {
+            "question": "Why can't I return an item after it has been brushed?",
+            "answer": "<p>Brushing is a service of labour and unique brushing tools which cannot be recouped once expended. Each thistle (yes we brush them with real giant thistles) must be maintained and frequently replaced to ensure the integrity of the brushing which is a labour intensive and time consuming procedure. Therefore both the brushed garment and the brushing service is completely non refundable if the item is returned.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_CYXeNa",
+        "faq_tUWpNz",
+        "faq_xhE64p"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "faq_LLkhC7": {
+      "type": "faq",
+      "blocks": {
+        "faq_BnEepD": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I contact customer support?",
+            "answer": "<p>You can phone us Monday to Friday between 1pm and 4pm or for a quicker reply email us at orders@bosie.co for current order enquiries or enquiries@bosie.co for general enquiries.</p>",
+            "open": false
+          }
+        },
+        "faq_kFnn48": {
+          "type": "faq",
+          "settings": {
+            "question": "What are your customer service hours?",
+            "answer": "<p>Email 8-4 Monday to Friday</p><p>Telephone 1-4 Monday to Friday</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_BnEepD",
+        "faq_kFnn48"
+      ],
+      "settings": {
+        "title": "Contact and Support",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -267,6 +340,8 @@
     "faq_CJDqYx",
     "faq_JWXGDx",
     "faq_B7y8dU",
-    "faq_VRAWFL"
+    "faq_VRAWFL",
+    "faq_JTnaWw",
+    "faq_LLkhC7"
   ]
 }
