@@ -1,10 +1,50 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_4DMFyC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_APxdnc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact us",
+            "heading_size": "h0"
+          }
+        },
+        "text_jxL7cj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You can get in touch with us by filling out the form below or  by calling us on 07496 453083 between 1pm and 4pm GMT Monday to Friday. During busy periods it may be quicker to email enquiries@bosie.co or orders@bosie.co if its about a current order.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_APxdnc",
+        "text_jxL7cj"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 80
       }
     },
     "form": {
@@ -20,6 +60,7 @@
   },
   "order": [
     "main",
+    "rich_text_4DMFyC",
     "form"
   ]
 }
