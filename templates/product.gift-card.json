@@ -1,0 +1,172 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb_p8njEh": {
+      "type": "breadcrumb",
+      "settings": {
+        "color_scheme": "background-1",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "popup_nCnAEg": {
+          "type": "popup",
+          "settings": {
+            "text": "Size Guide ›",
+            "page": "{{ product.metafields.custom.size_guide.value }}"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "icon_with_text_aPFVTh": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "delivery",
+            "heading_1": "Delivery 3-5 days",
+            "icon_2": "globe",
+            "heading_2": "International Shipping Available",
+            "icon_3": "truck",
+            "heading_3": ""
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "content": "",
+            "custom_liquid": "{{product.description}}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_3y9PKE": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Material & Care",
+            "icon": "none",
+            "content": "",
+            "custom_liquid": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Colour/Design Story",
+            "icon": "none",
+            "content": "",
+            "custom_liquid": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "caption",
+        "price",
+        "popup_nCnAEg",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "icon_with_text_aPFVTh",
+        "collapsible-row-0",
+        "collapsible_tab_3y9PKE",
+        "collapsible-row-3"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "media_size": "large",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    },
+    "1726744981f13b1ff5": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h1",
+        "products_to_show": 6,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 28,
+        "enable_slider": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_p8njEh",
+    "main",
+    "1726744981f13b1ff5",
+    "related-products"
+  ]
+}
