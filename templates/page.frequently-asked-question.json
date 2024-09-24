@@ -151,11 +151,71 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "faq_B7y8dU": {
+      "type": "faq",
+      "blocks": {
+        "faq_hrqhPY": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you ship to?",
+            "answer": "<p>Worldwide.</p>",
+            "open": false
+          }
+        },
+        "faq_ytJPLz": {
+          "type": "faq",
+          "settings": {
+            "question": "How much does shipping cost?",
+            "answer": "<p>This is calculated automatically upon checkout so you will be able to see the amount just prior to purchase completion.</p>",
+            "open": false
+          }
+        },
+        "faq_VGpWcN": {
+          "type": "faq",
+          "settings": {
+            "question": "How long will it take for my order to arrive?",
+            "answer": "<p>TBD</p>",
+            "open": false
+          }
+        },
+        "faq_86nwca": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I track my order?",
+            "answer": "<p>Yes click on the tracking number you were sent with your order confirmation.</p>",
+            "open": false
+          }
+        },
+        "faq_XNUm4w": {
+          "type": "faq",
+          "settings": {
+            "question": "What should I do if my order is delayed or lost?",
+            "answer": "<p>Click on the tracking number to see the order status. All deliveries are strictly recorded. If the item has not been recorded as delivered and is lost please contact us on  orders@bosie.co and we will chase it up for you.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_hrqhPY",
+        "faq_ytJPLz",
+        "faq_VGpWcN",
+        "faq_86nwca",
+        "faq_XNUm4w"
+      ],
+      "settings": {
+        "title": "Shipping and Delivery",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "faq_CJDqYx",
-    "faq_JWXGDx"
+    "faq_JWXGDx",
+    "faq_B7y8dU"
   ]
 }
