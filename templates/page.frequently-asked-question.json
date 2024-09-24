@@ -22,17 +22,71 @@
         "faq_38PeVC": {
           "type": "faq",
           "settings": {
-            "question": "Where can I buy Bosie?",
-            "answer": "<p>Please contact sales@harleyofscotland.com for stockists in your area.<\/p>",
+            "question": "What types of knitwear do you offer?",
+            "answer": "<p>Sweaters, cardigans, slipovers, hats, scarves, gloves. Mainly sweaters.</p>",
+            "open": false
+          }
+        },
+        "faq_xVthRR": {
+          "type": "faq",
+          "settings": {
+            "question": "What materials are used in your knitwear?",
+            "answer": "<p>All natural fibres consisting mainly of pure lambswool, pure cashmere, merino, geelong lambswooL and Shetland quality lambswool. We also offer pure undyed virgin wools including various British breeds and the authentic Shetland Voe sheep’s wool.</p>",
+            "open": false
+          }
+        },
+        "faq_7ca9Wq": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I determine the right size for me?",
+            "answer": "<p>Use the size charts shown in the description of the applicable item.</p>",
+            "open": false
+          }
+        },
+        "faq_p4H3Ak": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer custom or made-to-order items?",
+            "answer": "<p>No, we used to have a period in the year where you could do this for our Shetlands but unfortunately the great demand for our items became too large to be able to continue with the logistics of this. To compensate we now offer a huge colour range all throughout the year.</p>",
+            "open": false
+          }
+        },
+        "faq_G9rqc7": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for my Scottish knitwear?",
+            "answer": "<p>Our knitwear can be dry cleaned, which is ultimately what we recommend.</p><p>If you prefer to wash at home, please hand wash only in cool to hand-warm water in a wool friendly detergent such as Woolite or Stergene (in the measurements specified on the bottle). Dry flat and gently reshape whilst still damp.</p><p>Please note wool does not need to be washed as much, because it naturally resists moisture and bacteria. </p><p><strong>Remember…</strong></p><p><em>- Never machine wash</em></p><p><em>- Never hand wash in hot water</em></p><p><em>- Never wash in biological or non-wool detergent</em></p>",
+            "open": false
+          }
+        },
+        "faq_AAPViz": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you have a physical store I can visit?",
+            "answer": "<p>No, sorry to keep the costs down and enable a better price for our customers around the world we only sell directly online.</p>",
+            "open": false
+          }
+        },
+        "faq_KwKbMH": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I see fabric samples before making a purchase?",
+            "answer": "<p>No unfortunately due to our items being knitted there are not fabric samples we can cut off and provide.</p>",
             "open": false
           }
         }
       },
       "block_order": [
-        "faq_38PeVC"
+        "faq_38PeVC",
+        "faq_xVthRR",
+        "faq_7ca9Wq",
+        "faq_p4H3Ak",
+        "faq_G9rqc7",
+        "faq_AAPViz",
+        "faq_KwKbMH"
       ],
       "settings": {
-        "title": "Stockists",
+        "title": "General",
         "color_scheme": "",
         "full_width": false,
         "padding_top": 40,
