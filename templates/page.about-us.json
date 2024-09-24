@@ -11,13 +11,126 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "call_to_action_two_columns_Y7LCEA": {
+      "type": "call-to-action-two-columns",
+      "blocks": {
+        "image_Y8n8FY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+          }
+        },
+        "content_JNaMMA": {
+          "type": "content",
+          "settings": {
+            "subtitle": "sub heading",
+            "title": "Our Story",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
+            "section_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Y8n8FY",
+        "content_JNaMMA"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "reverse_layout": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "call_to_action_two_columns_hY4ePA": {
+      "type": "call-to-action-two-columns",
+      "blocks": {
+        "content_tyHna8": {
+          "type": "content",
+          "settings": {
+            "subtitle": "sub heading",
+            "title": "Our Story",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
+            "section_link": ""
+          }
+        },
+        "image_RLLPag": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "content_tyHna8",
+        "image_RLLPag"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "reverse_layout": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "meet_the_team_bosies_MQqWqp": {
+      "type": "meet-the-team-bosies",
+      "blocks": {
+        "team_member_UQTnbJ": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/navy_brushed_shetland_wool_beanie_hat_lambswool.jpg",
+            "name": "John Doe",
+            "position": "Job Title"
+          }
+        },
+        "team_member_gpWX74": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/sea_pearl_brushed_shetland_wool_beanie_hat_lambswool.jpg",
+            "name": "John Doe",
+            "position": "Job Title"
+          }
+        },
+        "team_member_dGwaLR": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/ugie_pearl_brushed_shetland_wool_beanie_hat_lambswool.jpg",
+            "name": "John Doe",
+            "position": "Job Title"
+          }
+        },
+        "team_member_MKygan": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/jaffa_orange_brushed_shetland_wool_beanie_hat_lambswool2.jpg",
+            "name": "John Doe",
+            "position": "Job Title"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_UQTnbJ",
+        "team_member_gpWX74",
+        "team_member_dGwaLR",
+        "team_member_MKygan"
+      ],
+      "settings": {
+        "title": "Meet the Team",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "call_to_action_two_columns_Y7LCEA",
+    "call_to_action_two_columns_hY4ePA",
+    "meet_the_team_bosies_MQqWqp"
   ]
 }
