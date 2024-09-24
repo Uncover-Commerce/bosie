@@ -210,12 +210,63 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "faq_VRAWFL": {
+      "type": "faq",
+      "blocks": {
+        "faq_9e9PCq": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>You may return your purchase of stock goods within 14 days of recorded receipt of goods by notifying Bosie Knitwear by email to orders@bosie.co within this period and then posting to the address stated below WITHIN another 14 days of notifying us. The returned merchandise must be in new, unused, and unworn condition with garment tags still attached and in good condition. The garments must also not have any unpleasant aroma. Note: if you fail to take reasonable  care of the goods Bosie Knitwear reserve the right not to accept their return. Bosie Knitwear will refund your purchase price to you in full within 2 working days of the receipt of your returned and inspected goods. Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
+            "open": false
+          }
+        },
+        "faq_8V4rzf": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I return an item?",
+            "answer": "<p>TBD</p>",
+            "open": false
+          }
+        },
+        "faq_AyUbnt": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I exchange an item for a different size or colour?",
+            "answer": "<p>We do not offer exchanges but you can return and reorder with a reduced rate of shipping.</p>",
+            "open": false
+          }
+        },
+        "faq_V7HYgW": {
+          "type": "faq",
+          "settings": {
+            "question": "What should I do if I receive a defective or incorrect item?",
+            "answer": "<p>We have strict quality control methods prior to shipment but we do request that all customers check their items immediately upon receipt and any damaged or flawed goods should be communicated to us with a photograph within two days of receipt and returned directly to us without delay and while the garment is new. We must receive the item back so we can inspect the issue to avoid any other occurrences. In the case of an item being received new and with a fault we will refund return shipping immediately upon receipt of the faulty item and we will then also refund the order in full or replace depending on the customers choice. Please note we can clearly identify and distinguish when an item has been deliberately damaged or stretched due to too small a fit and when there is a genuine fault in the knitting.</p><p>If you receive the incorrect item the customer must immediately send us an image of the incorrect item still in its packaging with labels attached to orders@bosie.co. Upon receipt of the image and item, we will immediately post out the correct item.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_9e9PCq",
+        "faq_8V4rzf",
+        "faq_AyUbnt",
+        "faq_V7HYgW"
+      ],
+      "settings": {
+        "title": "Returns and Exchanges",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "faq_CJDqYx",
     "faq_JWXGDx",
-    "faq_B7y8dU"
+    "faq_B7y8dU",
+    "faq_VRAWFL"
   ]
 }
