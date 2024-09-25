@@ -138,6 +138,15 @@
   .cm {
     right: 2rem;
   }
+
+  /* ACCORDION STYLES */
+
+  .accordion details[open] summary span {
+    display: none;
+  }
+  .accordion details[open] summary::after {
+    content: '-';
+  }
 {% endstyle %}
 
 <product-info
@@ -450,7 +459,7 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {% render 'icon-caret' %}
+                      <span>+</span>
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
@@ -2643,4 +2652,21 @@
 
   // Initialize the size guide
   document.addEventListener('DOMContentLoaded', initSizeGuide);
+
+  //Accordion + to - toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    const accordions = document.querySelectorAll('.product__accordion.accordion details');
+
+    accordions.forEach((details) => {
+      const summary = details.querySelector('summary');
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        } else {
+          details.setAttribute('open', '');
+        }
+      });
+    });
+  });
 {% endjavascript %}
