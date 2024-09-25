@@ -1,5 +1,3 @@
-{{ 'section-trust-banner-bosies.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -14,7 +12,10 @@
   }
 {%- endstyle -%}
 
-<div class="trust-banner-container-b {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+<div
+  id="trust-banner-{{ section.id }}"
+  class="trust-banner-container-b {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}"
+>
   <div class="trust-banner-wrapper-b">
     {% for block in section.blocks %}
       <div class="trust-banner-item-b">
@@ -282,15 +283,70 @@
 }
 {% endschema %}
 
-{% javascript %}
-  document.addEventListener('DOMContentLoaded', function () {
-    const wrapper = document.querySelector('.trust-banner-wrapper-b');
-    const items = document.querySelectorAll('.trust-banner-item-b');
-    let currentIndex = 0;
-    let directionForward = true; // Start by scrolling forward
-    let startX = 0; // Starting X coordinate for touch
-    let isDragging = false;
-    let intervalId = null;
+{% stylesheet %}
+  /* Default styles for mobile devices (below 750px) */
+  .trust-banner-container-b {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .trust-banner-wrapper-b {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .trust-banner-item-b {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trust-banner-item-b p {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .trust-banner-item-b .icon-trust-banner {
+    fill: rgb(var(--color-foreground));
+  }
+
+  .trust-banner-item-b svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Styles for devices with a minimum width of 750px */
+  @media (min-width: 750px) {
+    .trust-banner-container-b {
+      overflow: visible;
+    }
+
+    .trust-banner-wrapper-b {
+      display: flex;
+      justify-content: center;
+      transform: none; /* Disable transform for scrolling */
+    }
+
+    .trust-banner-item-b {
+      min-width: auto; /* Allow blocks to take natural width */
+      margin: 0 3rem 0 3rem;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+    var wrapper = document.querySelector('#trust-banner-' + sectionId + ' .trust-banner-wrapper-b');
+    var items = wrapper.querySelectorAll('.trust-banner-item-b');
+    var currentIndex = 0;
+    var directionForward = true;
+    var startX = 0;
+    var isDragging = false;
+    var intervalId = null;
 
     function scrollToNext() {
       if (window.innerWidth < 750) {
@@ -298,14 +354,14 @@
           if (currentIndex < items.length - 1) {
             currentIndex++;
           } else {
-            directionForward = false; // Reverse direction when reaching the last item
+            directionForward = false;
             currentIndex--;
           }
         } else {
           if (currentIndex > 0) {
             currentIndex--;
           } else {
-            directionForward = true; // Switch back to forward direction at the first item
+            directionForward = true;
             currentIndex++;
           }
         }
@@ -319,36 +375,32 @@
 
     function startAutoScroll() {
       if (intervalId) {
-        clearInterval(intervalId); // Clear existing interval
+        clearInterval(intervalId);
       }
       if (window.innerWidth < 750) {
         intervalId = setInterval(scrollToNext, 3000);
       } else {
-        wrapper.style.transform = 'none'; // Reset the transform on larger screens
+        wrapper.style.transform = 'none';
       }
     }
 
-    // Handle touch start event
     wrapper.addEventListener('touchstart', function (e) {
       startX = e.touches[0].clientX;
       isDragging = true;
     });
 
-    // Handle touch move event
     wrapper.addEventListener('touchmove', function (e) {
       if (!isDragging) return;
 
-      const currentX = e.touches[0].clientX;
-      const diffX = startX - currentX;
+      var currentX = e.touches[0].clientX;
+      var diffX = startX - currentX;
 
       if (diffX > 50 && currentIndex < items.length - 1) {
-        // Swiped left (next block)
         currentIndex++;
         directionForward = true;
         isDragging = false;
         updateTransform();
       } else if (diffX < -50 && currentIndex > 0) {
-        // Swiped right (previous block)
         currentIndex--;
         directionForward = false;
         isDragging = false;
@@ -356,20 +408,16 @@
       }
     });
 
-    // Handle touch end event
     wrapper.addEventListener('touchend', function () {
       isDragging = false;
     });
 
-    // Start automatic scrolling when the document is ready
     startAutoScroll();
 
-    // Adjust the behavior on window resize
     window.addEventListener('resize', function () {
-      // Recalculate and reset everything based on new window size
       currentIndex = 0;
       directionForward = true;
       startAutoScroll();
     });
-  });
-{% endjavascript %}
+  })();
+</script>
