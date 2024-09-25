@@ -87,8 +87,9 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-
   border-top: 1px solid #EEECE6;
+  min-height: 120vh;
+  overflow-y: scroll;
 }
 
 .menu-drawer__inner-submenu {
