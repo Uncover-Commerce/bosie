@@ -40,6 +40,9 @@
 
   .invert-text {
     color: white !important;
+    &::after {
+      background-color: #fff !important;
+    }
   }
 
   .fill-inverted-background {
@@ -238,6 +241,7 @@ flex-wrap: wrap;
   border-top: solid 1px #EEECE6;
 
 }
+/* Menu item underline */
 .list-menu {
   .header__menu-item::after {
     content: '';
@@ -247,11 +251,15 @@ flex-wrap: wrap;
     bottom: -0.2rem;
     left: 0;
     background-color: rgb(var(--color-foreground));
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out; 
+    
 }
 
 .header__menu-item:hover::after {
     width: 100%;
+    &.inverted-underline:hover::after {
+      background-color: #fff !important;
+    }
 }
 
 }
@@ -792,6 +800,10 @@ Navigation Inversion
 
       //search icon
       document.querySelector('.icon-search').classList.add('invert-icons');
+
+      // navigation underline
+      document.querySelector('.header__menu-item').classList.add('inverted-underline');
+
 
       document.querySelectorAll('.header__icon').forEach((icon) => {
         icon.classList.add('invert-icons');
