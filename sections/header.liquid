@@ -233,11 +233,29 @@ flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   left: 0;
+  top: 14.1rem;
   background: rgb(var(--color-background));
   border-top: solid 1px #EEECE6;
 
 }
+.list-menu {
+  .header__menu-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.3rem;
+    bottom: -0.2rem;
+    left: 0;
+    background-color: rgb(var(--color-foreground));
+    transition: width 0.3s ease-in-out;
+}
 
+.header__menu-item:hover::after {
+    width: 100%;
+}
+
+}
+ 
 .mega-menu-list:hover .mega-menu-wrapper{
   display: flex;
    }
