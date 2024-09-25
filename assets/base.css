@@ -1604,7 +1604,7 @@ details[open] > .share-button__fallback {
 .share-button__fallback .field__input:-webkit-autofill {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.1rem;
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  /* box-shadow: 0 0 0 0.1rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3); */
 }
 
 .share-button__fallback .field__input {
@@ -1706,7 +1706,7 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.field:hover.field:after,
+/* .field:hover.field:after,
 .select:hover.select:after,
 .select__select:hover.select__select:after,
 .customer .field:hover.field:after,
@@ -1716,7 +1716,7 @@ details[open] > .share-button__fallback {
     rgba(var(--color-foreground), var(--inputs-border-opacity));
   outline: 0;
   border-radius: 0.4rem;
-};
+}; */
 
 .field__input:focus-visible,
 .select__select:focus-visible,
