@@ -48,33 +48,32 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 0;
+    padding: 0 1rem;
   }
 
   .slider-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    /* padding: 5px; */
   }
 
   .slider-progress {
-    flex-grow: 1;
+    display: flex;
+    width: 100%;
     height: 1px;
     background-color: #e0e0e0;
-    margin: 0 10px;
-    position: relative;
-    overflow: hidden; /* Added this line */
+    margin: 10px 0;
   }
 
-  .slider-progress-bar {
+  .progress-segment {
     height: 100%;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
+
+  .progress-segment.active {
     background-color: #000000;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: width 0.3s ease;
-    width: 0; /* Added this line */
   }
 {%- endstyle -%}
 
@@ -211,7 +210,7 @@
             {% render 'icon-caret' %}
           </button>
           <div class="slider-progress">
-            <div class="slider-progress-bar">&nbsp;</div>
+            <!-- Progress segments will be dynamically added here -->
           </div>
         </div>
       {%- endif -%}
@@ -543,7 +542,7 @@
   class SliderProgress {
     constructor(sliderElement) {
       this.slider = sliderElement;
-      this.progressBar = this.slider.querySelector('.slider-progress-bar');
+      this.progressBar = this.slider.querySelector('.slider-progress');
       if (!this.progressBar) {
         console.error('Progress bar not found in slider');
         return;
@@ -555,16 +554,36 @@
     }
 
     init() {
-      this.progressBar.style.width = '0%';
+      this.createProgressSegments();
       this.updateProgressBar();
       this.attachEventListeners();
+      this.addSlideIndexes();
+      this.logCurrentSlide();
+    }
+
+    createProgressSegments() {
+      const progressContainer = this.slider.querySelector('.slider-progress');
+      progressContainer.innerHTML = ''; // Clear existing content
+
+      for (let i = 0; i < this.totalSlides; i++) {
+        const segment = document.createElement('div');
+        segment.classList.add('progress-segment');
+        segment.style.width = `${100 / this.totalSlides}%`;
+        segment.innerHTML = '&nbsp;'; // Add non-breaking space
+        progressContainer.appendChild(segment);
+      }
+
+      this.progressSegments = progressContainer.querySelectorAll('.progress-segment');
     }
 
     updateProgressBar() {
-      if (this.progressBar) {
-        const progress = (this.currentSlide / this.totalSlides) * 100;
-        this.progressBar.style.width = `${progress}%`;
-      }
+      this.progressSegments.forEach((segment, index) => {
+        if (index < this.currentSlide) {
+          segment.classList.add('active');
+        } else {
+          segment.classList.remove('active');
+        }
+      });
     }
 
     attachEventListeners() {
@@ -587,6 +606,41 @@
       this.slider.addEventListener('touchstart', (e) => this.handleTouchStart(e));
       this.slider.addEventListener('touchmove', (e) => this.handleTouchMove(e));
       this.slider.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+
+      // Add intersection observer to detect visible slides
+      this.setupIntersectionObserver();
+    }
+
+    addSlideIndexes() {
+      const slides = this.slider.querySelectorAll('.slider__slide');
+      slides.forEach((slide, index) => {
+        slide.dataset.slideIndex = index + 1;
+      });
+    }
+
+    setupIntersectionObserver() {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const slideIndex = entry.target.dataset.slideIndex;
+            this.setCurrentSlide(parseInt(slideIndex, 10));
+            this.logCurrentSlide();
+          }
+        });
+      }, options);
+
+      const slides = this.slider.querySelectorAll('.slider__slide');
+      slides.forEach((slide) => observer.observe(slide));
+    }
+
+    logCurrentSlide() {
+      console.log(`Current slide in view: ${this.currentSlide}`);
     }
 
     goToPrevSlide() {
@@ -606,6 +660,7 @@
     setCurrentSlide(slideNumber) {
       this.currentSlide = Math.max(1, Math.min(slideNumber, this.totalSlides));
       this.updateProgressBar();
+      this.logCurrentSlide();
     }
 
     // Swipe handling
