@@ -138,6 +138,22 @@
   .cm {
     right: 2rem;
   }
+  .brushing-header {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brushing-header p {
+    font-size: 11px;
+    color: #1b2a36;
+  }
+  .brushing-link {
+    text-decoration: underline;
+  }
+  .brushing-footer {
+    text-align: left;
+  }
 {% endstyle %}
 
 <product-info
@@ -427,7 +443,27 @@
                 </div>
 
               {%- when 'brushing_service' -%}
-                <p>Brushing Service</p>
+                <div>
+                  {% comment %} Brushing header {% endcomment %}
+                  <div class="brushing-header">
+                    {% if block.settings.header != blank %}
+                      <p>{{ block.settings.header }}*</p>
+                    {% endif %}
+                    {% if block.settings.popup_label != blank %}
+                      <p class="brushing-link">{{ block.settings.popup_label }}</p>
+                    {% endif %}
+                  </div>
+
+                  {% comment %} Brushing dropdown {% endcomment %}
+                  <div>TODO: Dropdown</div>
+
+                  {% comment %} Brushing footer {% endcomment %}
+                  {% if block.settings.footer_label != blank %}
+                    <div class="brushing-footer">
+                      <p class="brushing-link">{{ block.settings.footer_label }}</p>
+                    </div>
+                  {% endif %}
+                </div>
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -1029,7 +1065,27 @@
     {
       "type": "brushing_service",
       "name": "Brushing Service",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Heading",
+          "default": "Brushing Service"
+        },
+        {
+          "type": "text",
+          "id": "popup_label",
+          "label": "Popup label",
+          "default": "Brushing Level guide ›"
+        },
+        {
+          "type": "text",
+          "id": "footer_label",
+          "label": "Footer label",
+          "default": "Please note by adding this service this product cant be returned"
+        }
+      ]
     },
     {
       "type": "sku",
