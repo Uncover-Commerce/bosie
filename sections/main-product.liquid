@@ -2597,6 +2597,24 @@
 {% endschema %}
 
 {% javascript %}
+  //Accordion + to - toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    const accordions = document.querySelectorAll('.product__accordion.accordion details');
+
+    accordions.forEach((details) => {
+      const summary = details.querySelector('summary');
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        } else {
+          details.setAttribute('open', '');
+        }
+      });
+    });
+  });
+
+  // Size guide toggle
   function initSizeGuide() {
     const table = document.querySelector('.size-guide');
     const toggleContainer = document.getElementById('toggleContainer');
@@ -2652,21 +2670,4 @@
 
   // Initialize the size guide
   document.addEventListener('DOMContentLoaded', initSizeGuide);
-
-  //Accordion + to - toggle
-  document.addEventListener('DOMContentLoaded', function () {
-    const accordions = document.querySelectorAll('.product__accordion.accordion details');
-
-    accordions.forEach((details) => {
-      const summary = details.querySelector('summary');
-      summary.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (details.hasAttribute('open')) {
-          details.removeAttribute('open');
-        } else {
-          details.setAttribute('open', '');
-        }
-      });
-    });
-  });
 {% endjavascript %}
