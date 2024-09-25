@@ -668,26 +668,32 @@
                     </volume-pricing>
                   {%- endif -%}
                 </div>
+
               {%- when 'popup' -%}
-                <modal-opener
-                  class="product-popup-modal__opener quick-add-hidden"
-                  data-modal="#PopupModal-{{ block.id }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <button
-                    id="ProductPopup-{{ block.id }}"
-                    class="product-popup-modal__button link size-guide-link"
-                    type="button"
-                    aria-haspopup="dialog"
-                  >
-                    {{ block.settings.text | default: block.settings.page.title | escape }}
-                    {% if product.metafields.custom['size-guide'] %}
-                      <a href="{{ product.metafields.custom.size-guide | escape }}" class="size-guide-link"
-                        >Size Guide</a
+                {% if product.metafields.custom.size_guide != blank %}
+                  {% assign size_guide_page = pages[product.metafields.custom.size_guide] %}
+                  {% if size_guide_page != blank %}
+                    <modal-opener
+                      class="product-popup-modal__opener quick-add-hidden"
+                      data-modal="#PopupModal-{{ block.id }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      <button
+                        id="ProductPopup-{{ block.id }}"
+                        class="product-popup-modal__button link size-guide-link"
+                        type="button"
+                        aria-haspopup="dialog"
                       >
-                    {% endif %}
-                  </button>
-                </modal-opener>
+                        {{ block.settings.text | default: block.settings.page.title | escape }}
+                        {% if product.metafields.custom['size-guide'] %}
+                          <a href="{{ product.metafields.custom.size-guide | escape }}" class="size-guide-link"
+                            >Size Guide</a
+                          >
+                        {% endif %}
+                      </button>
+                    </modal-opener>
+                  {% endif %}
+                {% endif %}
               {%- when 'share' -%}
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
