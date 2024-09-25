@@ -17,16 +17,26 @@
 <div class="column-cta-container-b {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
   {% for block in section.blocks %}
     <div class="column-cta-column-b columns-{{ section.blocks.size }}">
-      <img
-        src="{{ block.settings.image | img_url: 'large' }}"
-        alt="{{ block.settings.title }}"
-        height="auto"
-        width="auto"
-        class="column-cta-image-b"
-      >
+      {% if section.blocks.size = 1 %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1440 }}"
+          alt="{{ block.settings.title }}"
+          height="auto"
+          width="auto"
+          class="column-cta-image-b"
+        >
+      {% else %}
+        <img
+          src="{{ block.settings.image | image_url: width: 800 }}"
+          alt="{{ block.settings.title }}"
+          height="auto"
+          width="auto"
+          class="column-cta-image-b"
+        >
+      {% endif %}
       <div class="column-cta-wrapper-b">
         <h3>{{ block.settings.title }}</h3>
-        <a>{{ block.settings.link_text }}</a>
+        <a href="{{ block.settings.url }}">{{ block.settings.link_text }}</a>
       </div>
     </div>
   {% endfor %}
