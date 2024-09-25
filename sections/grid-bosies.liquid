@@ -1,5 +1,3 @@
-{{ 'section-grid-bosies.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -14,37 +12,46 @@
   }
 {%- endstyle -%}
 
-<div class="custom-section {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+<div class="custom-section{% unless section.settings.full_width %} page-width{% endunless %}{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
   <div class="grid-container-b">
     <div class="grid-column-b">
       {% assign first_block = section.blocks | first %}
       {% case first_block.type %}
         {% when 'image' %}
           <div class="image-wrapper-b">
-            {% if first_block.settings.image %}
-              <img
-                src="{{ first_block.settings.image | image_url }}"
-                alt="{{ first_block.settings.alt_text }}"
-                height="auto"
-                width="auto"
-              >
-            {% endif %}
+            {%- if first_block.settings.image != blank -%}
+              {{
+                first_block.settings.image
+                | image_url: width: 1500
+                | image_tag:
+                  loading: 'lazy',
+                  width: first_block.settings.image.width,
+                  height: first_block.settings.image.height,
+                  alt: first_block.settings.image.alt
+                | escape
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
           </div>
         {% when 'content' %}
           <div class="content-wrapper-b">
-            {% if first_block.settings.title %}
-              <h2>{{ first_block.settings.title }}</h2>
-            {% endif %}
-            {% if first_block.settings.rich_text %}
+            {%- if first_block.settings.title != blank -%}
+              <h2>{{ first_block.settings.title | escape }}</h2>
+            {%- endif -%}
+            {%- if first_block.settings.rich_text != blank -%}
               <div class="grid-text-b">
                 {{ first_block.settings.rich_text }}
               </div>
-            {% endif %}
-            {% if first_block.settings.button_link %}
-              <a href="{{ first_block.settings.button_link }}" class="button">
-                {{ first_block.settings.button_text }}
+            {%- endif -%}
+            {%- if first_block.settings.button_link != blank and first_block.settings.button_text != blank -%}
+              <a
+                href="{{ first_block.settings.button_link }}"
+                class="button{% if first_block.settings.button_background %} button--primary{% else %} button--secondary{% endif %}"
+              >
+                {{ first_block.settings.button_text | escape }}
               </a>
-            {% endif %}
+            {%- endif -%}
           </div>
       {% endcase %}
     </div>
@@ -54,33 +61,39 @@
         {% case block.type %}
           {% when 'image' %}
             <div class="image-wrapper-b">
-              {% if block.settings.image %}
-                <img
-                  src="{{ block.settings.image | image_url }}"
-                  alt="{{ block.settings.image.alt }}"
-                  height="auto"
-                  width="auto"
-                >
-              {% endif %}
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1500
+                  | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.image.width,
+                    height: block.settings.image.height,
+                    alt: block.settings.image.alt
+                  | escape
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
             </div>
           {% when 'content' %}
             <div class="content-wrapper-b">
-              {% if block.settings.title %}
-                <h2>{{ block.settings.title }}</h2>
-              {% endif %}
-              {% if block.settings.rich_text %}
+              {%- if block.settings.title != blank -%}
+                <h2>{{ block.settings.title | escape }}</h2>
+              {%- endif -%}
+              {%- if block.settings.rich_text != blank -%}
                 <div class="grid-text-b">
                   {{ block.settings.rich_text }}
                 </div>
-              {% endif %}
-              {% if block.settings.button_link %}
+              {%- endif -%}
+              {%- if block.settings.button_link != blank and block.settings.button_text != blank -%}
                 <a
                   href="{{ block.settings.button_link }}"
-                  class="button {% if block.settings.button_background %}button--primary{%else%}button--secondary{% endif %}"
+                  class="button{% if block.settings.button_background %} button--primary{% else %} button--secondary{% endif %}"
                 >
-                  {{ block.settings.button_text }}
+                  {{ block.settings.button_text | escape }}
                 </a>
-              {% endif %}
+              {%- endif -%}
             </div>
         {% endcase %}
       {% endfor %}
@@ -114,7 +127,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Padding Top",
+      "label": "t:sections.all.padding.padding_top",
       "default": 40
     },
     {
@@ -124,7 +137,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Padding Bottom",
+      "label": "t:sections.all.padding.padding_bottom",
       "default": 52
     }
   ],
@@ -136,7 +149,7 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.image-with-text.blocks.image.settings.image.label"
         }
       ]
     },
@@ -147,32 +160,31 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
+          "label": "t:sections.image-with-text.blocks.text.settings.title.label",
           "default": "Enter your title"
         },
         {
           "type": "richtext",
           "id": "rich_text",
-          "label": "Rich Text",
+          "label": "t:sections.image-with-text.blocks.text.settings.text.label",
           "default": "<p>Enter your text here</p>"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button Link",
-          "default": "/"
+          "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Button Text",
+          "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
           "default": "Click Here"
         },
         {
           "type": "checkbox",
           "id": "button_background",
           "default": false,
-          "label": "Button Background"
+          "label": "t:sections.image-with-text.blocks.button.settings.button_style_secondary.label"
         }
       ]
     }
@@ -180,9 +192,84 @@
   "presets": [
     {
       "name": "Image with Text Bosies",
-      "category": "Custom"
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "image"
+        }
+      ]
     }
   ],
   "max_blocks": 3
 }
 {% endschema %}
+
+{% stylesheet %}
+  .custom-section .grid-container-b {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custom-section .grid-column-b {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custom-section .image-wrapper-b img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .custom-section .content-wrapper-b h2 {
+    margin: 0;
+    font-size: calc(var(--font-heading-scale) * 3.5rem);
+  }
+
+  .content-wrapper-b {
+    margin: 4rem 0;
+  }
+
+  .custom-section .content-wrapper-b .grid-text-b {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+  }
+
+  .grid-text-b p {
+    margin: 0.6rem 0 3.4rem 0;
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-body-family);
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.42;
+    letter-spacing: 0.17px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-section .grid-container-b {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .custom-section .grid-column-b {
+      justify-content: space-evenly;
+    }
+
+    .content-wrapper-b {
+      margin: 0;
+    }
+
+    .grid-text-b p {
+      margin-right: 17rem;
+    }
+  }
+{% endstylesheet %}
