@@ -39,8 +39,10 @@
   }
 
   .invert-icons {
-    filter: brightness(0) invert(1) !important;
-  }
+
+  filter: brightness(0) invert(1) !important;
+
+}
 
   .invert-text {
     color: white !important;
@@ -810,10 +812,13 @@ Navigation Inversion
       // navigation underline
       document.querySelector('.header__menu-item').classList.add('inverted-underline');
 
+      // account icon
+      document.querySelector('.icon-account').classList.add('invert-icons');
 
-      document.querySelectorAll('.header__icon').forEach((icon) => {
-        icon.classList.add('invert-icons');
-      });
+      //cart icon
+      document.querySelector('.icon-cart').classList.add('invert-icons');
+
+    
 
       document.querySelectorAll('.chevron-nav').forEach((icon) => {
         icon.classList.add('invert-icons');
@@ -841,9 +846,12 @@ document.querySelector('.header__heading-logo').classList.add('invert-icons');
 //search icon
 document.querySelector('.icon-search').classList.add('invert-icons');
 
-document.querySelectorAll('.header__icon').forEach((icon) => {
-  icon.classList.add('invert-icons');
-});
+// account icon
+document.querySelector('.icon-account').classList.add('invert-icons');
+
+//cart icon
+document.querySelector('.icon-cart').classList.add('invert-icons');
+
 
 document.querySelectorAll('.chevron-nav').forEach((icon) => {
   icon.classList.add('invert-icons');
@@ -880,9 +888,11 @@ document.querySelector('.header__heading-logo').classList.remove('invert-icons')
 //search icon
 document.querySelector('.icon-search').classList.remove('invert-icons');
 
-document.querySelectorAll('.header__icon').forEach((icon) => {
-  icon.classList.remove('invert-icons');
-});
+// account icon
+document.querySelector('.icon-account').classList.remove('invert-icons');
+
+//cart icon
+document.querySelector('.icon-cart').classList.remove('invert-icons');
 
 document.querySelectorAll('.chevron-nav').forEach((icon) => {
   icon.classList.remove('invert-icons');
