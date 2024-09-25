@@ -148,7 +148,7 @@
       "settings": {
         "heading": "You may also like",
         "heading_size": "h1",
-        "products_to_show": 6,
+        "products_to_show": 8,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
