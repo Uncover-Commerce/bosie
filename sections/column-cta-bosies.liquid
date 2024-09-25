@@ -12,58 +12,29 @@
   }
 {%- endstyle -%}
 
-<div
-  class="column-cta-container-b {% unless section.settings.full_width %}page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}"
-  style="{% if section.settings.background_color %}background-color: {{ section.settings.background_color }};{% endif %}"
->
+<div class="column-cta-container-b {% unless section.settings.full_width %} page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
   {% for block in section.blocks %}
-    {% assign column_width = 100 | divided_by: section.blocks.size %}
-    <div class="column-cta-column-b columns-{{ section.blocks.size }}" {{ block.shopify_attributes }}>
+    <div class="column-cta-column-b columns-{{ section.blocks.size }}">
       {% if section.blocks.size == 1 %}
-        {% assign image_width = 2880 %}
-      {% elsif section.blocks.size == 2 %}
-        {% assign image_width = 1920 %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1440 }}"
+          alt="{{ block.settings.title }}"
+          height="auto"
+          width="auto"
+          class="column-cta-image-b"
+        >
       {% else %}
-        {% assign image_width = 1440 %}
+        <img
+          src="{{ block.settings.image | image_url: width: 800 }}"
+          alt="{{ block.settings.title }}"
+          height="auto"
+          width="auto"
+          class="column-cta-image-b"
+        >
       {% endif %}
-
-      <div class="column-cta-image-wrapper-b" style="padding-bottom: {{ section.settings.image_ratio }}%;">
-        {% if block.settings.image != blank %}
-          {% assign image_height = image_width | divided_by: section.settings.image_ratio | round %}
-          {% assign image_widths = '375,550,750,1100,1500,2200,3000' | split: ',' %}
-          <img
-            class="column-cta-image-b"
-            src="{{ block.settings.image | image_url: width: image_width }}"
-            srcset="
-              {%- for width in image_widths -%}
-                {{ block.settings.image | image_url: width: width }} {{ width }}w{% unless forloop.last %}, {% endunless %}
-              {%- endfor -%}
-            "
-            sizes="(min-width: 750px) {{ column_width }}vw, 100vw"
-            loading="lazy"
-            width="{{ image_width }}"
-            height="{{ image_height }}"
-            alt="{{ block.settings.image.alt | escape }}"
-          >
-        {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg column-cta-image-b', image_width, image_height }}
-        {% endif %}
-      </div>
       <div class="column-cta-wrapper-b">
-        {% if block.settings.title != blank %}
-          <h3 class="h2">{{ block.settings.title | escape }}</h3>
-        {% endif %}
-        {% if block.settings.text != blank %}
-          <div class="rte">{{ block.settings.text }}</div>
-        {% endif %}
-        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-          <a
-            href="{{ block.settings.button_link }}"
-            class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
-          >
-            {{ block.settings.button_label | escape }}
-          </a>
-        {% endif %}
+        <h3>{{ block.settings.title }}</h3>
+        <a href="{{ block.settings.url }}">{{ block.settings.link_text }}</a>
       </div>
     </div>
   {% endfor %}
@@ -72,8 +43,6 @@
 {% schema %}
 {
   "name": "Custom Columns Bosies",
-  "tag": "section",
-  "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
@@ -82,13 +51,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "transparent"
+      "default": "scheme-1"
     },
     {
       "type": "checkbox",
@@ -115,16 +78,6 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 52
-    },
-    {
-      "type": "range",
-      "id": "image_ratio",
-      "min": 0.5,
-      "max": 1.5,
-      "step": 0.1,
-      "unit": "",
-      "label": "Image aspect ratio",
-      "default": 1.0
     }
   ],
   "blocks": [
@@ -140,31 +93,19 @@
         {
           "type": "text",
           "id": "title",
-          "default": "Column title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-          "label": "Text"
+          "label": "Title",
+          "default": "Column Title"
         },
         {
           "type": "text",
-          "id": "button_label",
-          "default": "Button label",
-          "label": "Button label"
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "View Collection"
         },
         {
           "type": "url",
-          "id": "button_link",
-          "label": "Button link"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary",
-          "default": false,
-          "label": "Use secondary button style"
+          "id": "link",
+          "label": "Link"
         }
       ]
     }
@@ -172,97 +113,118 @@
   "presets": [
     {
       "name": "Custom Columns Bosies",
-      "blocks": [
-        {
-          "type": "column"
-        },
-        {
-          "type": "column"
-        },
-        {
-          "type": "column"
-        }
-      ]
+      "category": "Image"
     }
   ],
   "max_blocks": 3
 }
 {% endschema %}
+
 {% stylesheet %}
+  /*Column container */
   .column-cta-container-b {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: column;
+    @media screen and (min-width: 750px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
+  /* For columns 1-6 this decides how much space each column can take up */
+  .columns-1 {
+    width: 100%;
+    height: 780px;
+  }
+
+  /* Styles for when there are TWO COLUMNS */
+  .columns-2 {
+    width: 100%;
+    height: 500px;
+    @media screen and (min-width: 750px) {
+      width: calc(50% - 8px);
+      height: 1000px;
+    }
+  }
+
+  .columns-2.column-cta-column-b h3 {
+    @media screen and (min-width: 750px) {
+      font-size: 7.2rem;
+    }
+  }
+
+  /* Styles for when there are THREE COLUMNS */
+  .columns-3 {
+    width: 100%;
+    height: 500px;
+    @media screen and (min-width: 750px) {
+      width: calc(33.33% - 10.66px);
+      height: 600px;
+    }
+  }
+
+  .columns-3.column-cta-column-b h3 {
+    @media screen and (min-width: 750px) {
+      font-size: 4.5rem;
+    }
+  }
+
+  /* These are the styles for the columns */
   .column-cta-column-b {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .columns-2 {
-      width: calc(50% - 10px);
-    }
-
-    .columns-3 {
-      width: calc(33.33% - 13.33px);
-    }
-  }
-
-  .column-cta-image-wrapper-b {
     position: relative;
-    width: 100%;
     overflow: hidden;
+    margin-bottom: 1rem;
   }
 
   .column-cta-image-b {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 3s ease; /* Add transition for smooth zoom effect */
+  }
+
+  /* Add hover effect for zoom */
+  .column-cta-column-b:hover .column-cta-image-b {
+    transform: scale(1.05); /* Zoom in by 10% on hover */
+  }
+
+  .column-cta-wrapper-b {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .column-cta-column-b:hover .column-cta-image-b {
-    transform: scale(1.05);
-  }
-
-  .column-cta-wrapper-b {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
-  .column-cta-wrapper-b h3 {
-    margin-top: 0;
-    font-size: 24px;
+  .column-cta-column-b h3 {
+    color: #fefff4;
+    text-align: center;
+    font-family: var(--font-heading-family-light);
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 45px */
+    letter-spacing: -0.9px;
+    margin: 0 0 3.2rem 0;
   }
 
-  .column-cta-wrapper-b .rte {
-    margin-bottom: 20px;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
+  .column-cta-column-b a {
+    color: #f9f7f4;
+    font-family: var(--font-body-family);
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 103.4%; /* 13.442px */
+    letter-spacing: 0.13px;
+    text-transform: uppercase;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid #f0eeea;
     text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-
-  .button--primary {
-    background-color: #000;
-    color: #fff;
-  }
-
-  .button--secondary {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
-  }
-
-  .button:hover {
-    opacity: 0.8;
   }
 {% endstylesheet %}
