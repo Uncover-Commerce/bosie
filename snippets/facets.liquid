@@ -233,8 +233,7 @@
     <details class="">
       <summary class="bosie-mobile-facets__summary">
         <span class="mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}">
-          {% render 'icon-filter' %}
-          <span class="mobile-facets__open-label button-label medium-hide large-up-hide">
+          <span class="mobile-facets__open-label button-label bosie-label medium-hide large-up-hide">
             {%- if enable_filtering and enable_sorting -%}
               {{ 'products.facets.filter_and_sort' | t }}
             {%- elsif enable_filtering -%}
@@ -243,6 +242,7 @@
               {{ 'products.facets.sort_button' | t }}
             {%- endif -%}
           </span>
+          <span class="mobile-facets__arrow">{% render 'icon-chevron' %}</span>
         </span>
         <span tabindex="0" class="mobile-facets__close">{%- render 'icon-close' -%}</span>
       </summary>
