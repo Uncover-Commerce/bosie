@@ -42,7 +42,7 @@
       ],
       "settings": {
         "color_scheme": "",
-        "full_width": true,
+        "full_width": false,
         "reverse_layout": false,
         "padding_top": 40,
         "padding_bottom": 52
@@ -73,9 +73,9 @@
       ],
       "settings": {
         "color_scheme": "",
-        "full_width": true,
+        "full_width": false,
         "reverse_layout": true,
-        "padding_top": 40,
+        "padding_top": 28,
         "padding_bottom": 52
       }
     },
