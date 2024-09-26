@@ -62,6 +62,11 @@ if (!customElements.get('product-form')) {
               this.error = true;
               return;
             } else if (!this.cart) {
+              const brushingProduct = document.getElementById('brushing-product');
+              if (brushingProduct != null && brushingProduct.dataset.price != undefined) {
+                this.handleBrushingProduct(brushingProduct);
+                return;
+              }
               window.location = window.routes.cart_url;
               return;
             }
@@ -97,6 +102,33 @@ if (!customElements.get('product-form')) {
             if (this.cart && this.cart.classList.contains('is-empty')) this.cart.classList.remove('is-empty');
             if (!this.error) this.submitButton.removeAttribute('aria-disabled');
             this.querySelector('.loading__spinner').classList.add('hidden');
+          });
+      }
+
+      handleBrushingProduct(brushingProduct) {
+        let quantity = 1;
+        if (document.querySelector('.quantity__input') != null) {
+          quantity = document.querySelector('.quantity__input').value;
+        }
+
+        const additionalProductData = {
+          id: brushingProduct.dataset.id,
+          quantity: quantity,
+        };
+
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(additionalProductData),
+        })
+          .then((additionalResponse) => additionalResponse.json())
+          .then(() => {
+            window.location = window.routes.cart_url;
+          })
+          .catch((error) => {
+            console.error('Error adding additional product:', error);
           });
       }
 
