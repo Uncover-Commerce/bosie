@@ -120,49 +120,51 @@
 
 <div class="collection-cta-container {% unless section.settings.full_width %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
   <div class="carousel-wrapper page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %}">
-    <div class="carousel-track">
-      {% for block in section.blocks %}
-        {% if block.type == 'image_text_block' %}
-          <div class="carousel-item">
-            <div class="collection-cta-wrapper">
-              <div class="collection-cta-image">
-                {% if block.settings.image_one %}
-                  <img
-                    src="{{ block.settings.image_one | img_url: 'large' }}"
-                    alt="First Image"
-                    height="auto"
-                    width="auto"
-                  >
-                {% endif %}
-              </div>
-              <div class="collection-cta-text-image">
-                {% if block.settings.image_two %}
-                  <img
-                    src="{{ block.settings.image_two | img_url: 'large' }}"
-                    alt="Second Image"
-                    height="auto"
-                    width="auto"
-                  >
-                {% endif %}
-                {% if block.settings.content_type == 'text' %}
-                  <p>{{ block.settings.block_text }}</p>
-                {% elsif block.settings.content_type == 'image' and block.settings.block_image %}
-                  <img
-                    src="{{ block.settings.block_image | img_url: 'large' }}"
-                    alt="Second Image"
-                    height="auto"
-                    width="auto"
-                    class="cta-image-option"
-                  >
-                {% endif %}
-                {% if block.settings.block_link and block.settings.link_text %}
-                  <a href="{{ block.settings.block_link }}" class="custom-link">{{ block.settings.link_text }}</a>
-                {% endif %}
+    <div class="carousel-mask">
+      <div class="carousel-track">
+        {% for block in section.blocks %}
+          {% if block.type == 'image_text_block' %}
+            <div class="carousel-item">
+              <div class="collection-cta-wrapper">
+                <div class="collection-cta-image">
+                  {% if block.settings.image_one %}
+                    <img
+                      src="{{ block.settings.image_one | img_url: 'large' }}"
+                      alt="First Image"
+                      height="auto"
+                      width="auto"
+                    >
+                  {% endif %}
+                </div>
+                <div class="collection-cta-text-image">
+                  {% if block.settings.image_two %}
+                    <img
+                      src="{{ block.settings.image_two | img_url: 'large' }}"
+                      alt="Second Image"
+                      height="auto"
+                      width="auto"
+                    >
+                  {% endif %}
+                  {% if block.settings.content_type == 'text' %}
+                    <p>{{ block.settings.block_text }}</p>
+                  {% elsif block.settings.content_type == 'image' and block.settings.block_image %}
+                    <img
+                      src="{{ block.settings.block_image | img_url: 'large' }}"
+                      alt="Second Image"
+                      height="auto"
+                      width="auto"
+                      class="cta-image-option"
+                    >
+                  {% endif %}
+                  {% if block.settings.block_link and block.settings.link_text %}
+                    <a href="{{ block.settings.block_link }}" class="custom-link">{{ block.settings.link_text }}</a>
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
-        {% endif %}
-      {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
     {% if section.blocks.size > 1 %}
       <div class="collection-cta-navigation">
@@ -192,7 +194,7 @@
   </div>
 </div>
 
-<style>
+{% stylesheet %}
   /* Carousel container */
   .carousel-wrapper {
     position: relative;
@@ -201,15 +203,22 @@
     margin-bottom: 20px; /* Space for controls below */
   }
 
+  .carousel-mask {
+    width: 100%;
+    overflow: hidden;
+  }
+
   /* Carousel track */
   .carousel-track {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
   }
 
   /* Individual carousel items */
   .carousel-item {
-    min-width: 100%;
+    flex: 0 0 100%;
+    width: 100%;
     box-sizing: border-box;
   }
 
@@ -332,7 +341,7 @@
 
   .custom-link:hover {
   }
-</style>
+{% endstylesheet %}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -342,11 +351,9 @@
     const prevButton = document.getElementById('prevBtn');
     const progressFill = document.getElementById('progressFill');
     let currentIndex = 0;
-    let isDragging = false;
-    let startX = 0;
-    let isThrottled = false; // To prevent rapid clicks
+    let startX, startY, diffX, diffY;
+    let isThrottled = false;
 
-    // Function to update the carousel position and progress bar
     function updateCarousel() {
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
@@ -356,7 +363,6 @@
       progressFill.style.width = `${progressPercentage}%`;
     }
 
-    // Function to handle the next button click
     function handleNextButtonClick() {
       if (isThrottled) return; // Prevent multiple rapid clicks
       isThrottled = true;
@@ -374,7 +380,6 @@
       }, 500);
     }
 
-    // Function to handle the previous button click
     function handlePrevButtonClick() {
       if (isThrottled) return; // Prevent multiple rapid clicks
       isThrottled = true;
@@ -396,33 +401,39 @@
     nextButton.addEventListener('click', handleNextButtonClick);
     prevButton.addEventListener('click', handlePrevButtonClick);
 
-    // Touch event listeners for swipe functionality
+    // Improved touch event handling
     track.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
-      isDragging = true;
-    });
+      startY = e.touches[0].clientY;
+      diffX = 0;
+      diffY = 0;
+    }, { passive: true });
 
     track.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const currentX = e.touches[0].clientX;
-      const diffX = currentX - startX;
-
-      if (diffX > 50) {
-        handlePrevButtonClick(); // Swipe right to go to the previous slide
-        isDragging = false;
-      } else if (diffX < -50) {
-        handleNextButtonClick(); // Swipe left to go to the next slide
-        isDragging = false;
+      if (e.touches.length > 1) {
+        return; // Ignore multi-touch
       }
-    });
+      diffX = e.touches[0].clientX - startX;
+      diffY = e.touches[0].clientY - startY;
+      
+      // Prevent vertical scrolling when swiping horizontally
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
 
-    // Reset dragging state on touch end and touch cancel
-    track.addEventListener('touchend', () => {
-      isDragging = false;
-    });
+    track.addEventListener('touchend', (e) => {
+      const threshold = 50; // Minimum distance to trigger swipe
+      const restraint = 100; // Maximum vertical distance allowed
+      const allowedTime = 300; // Maximum time allowed for swipe
 
-    track.addEventListener('touchcancel', () => {
-      isDragging = false;
+      if (Math.abs(diffX) > threshold && Math.abs(diffY) < restraint) {
+        if (diffX > 0) {
+          handlePrevButtonClick();
+        } else {
+          handleNextButtonClick();
+        }
+      }
     });
 
     // Update carousel when the window is resized

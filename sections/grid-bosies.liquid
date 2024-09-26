@@ -12,7 +12,11 @@
   }
 {%- endstyle -%}
 
-<div class="custom-section{% unless section.settings.full_width %} page-width{% endunless %}{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+<div
+  class="custom-section{% unless section.settings.full_width %} page-width{% endunless %}{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}"
+  role="region"
+  aria-label="{{ section.settings.section_title | escape }}"
+>
   <div class="grid-container-b">
     <div class="grid-column-b">
       {% assign first_block = section.blocks | first %}
@@ -28,16 +32,16 @@
                   width: first_block.settings.image.width,
                   height: first_block.settings.image.height,
                   alt: first_block.settings.image.alt
-                | escape
+                | default: 'Decorative image'
               }}
             {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg', 'aria-hidden="true"' }}
             {%- endif -%}
           </div>
         {% when 'content' %}
           <div class="content-wrapper-b">
             {%- if first_block.settings.title != blank -%}
-              <h2>{{ first_block.settings.title | escape }}</h2>
+              <h2 class="section-heading">{{ first_block.settings.title | escape }}</h2>
             {%- endif -%}
             {%- if first_block.settings.rich_text != blank -%}
               <div class="grid-text-b">
@@ -48,6 +52,7 @@
               <a
                 href="{{ first_block.settings.button_link }}"
                 class="button{% if first_block.settings.button_background %} button--primary{% else %} button--secondary{% endif %}"
+                aria-label="{{ first_block.settings.button_text | escape }}"
               >
                 {{ first_block.settings.button_text | escape }}
               </a>
@@ -70,16 +75,16 @@
                     width: block.settings.image.width,
                     height: block.settings.image.height,
                     alt: block.settings.image.alt
-                  | escape
+                  | default: 'Decorative image'
                 }}
               {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg', 'aria-hidden="true"' }}
               {%- endif -%}
             </div>
           {% when 'content' %}
             <div class="content-wrapper-b">
               {%- if block.settings.title != blank -%}
-                <h2>{{ block.settings.title | escape }}</h2>
+                <h3 class="section-subheading">{{ block.settings.title | escape }}</h3>
               {%- endif -%}
               {%- if block.settings.rich_text != blank -%}
                 <div class="grid-text-b">
@@ -89,7 +94,8 @@
               {%- if block.settings.button_link != blank and block.settings.button_text != blank -%}
                 <a
                   href="{{ block.settings.button_link }}"
-                  class="button{% if block.settings.button_background %} button--primary{% else %} button--secondary{% endif %}"
+                  class="bosie-button"
+                  aria-label="{{ block.settings.button_text | escape }}"
                 >
                   {{ block.settings.button_text | escape }}
                 </a>
@@ -160,31 +166,25 @@
         {
           "type": "text",
           "id": "title",
-          "label": "t:sections.image-with-text.blocks.text.settings.title.label",
+          "label": "Title",
           "default": "Enter your title"
         },
         {
           "type": "richtext",
           "id": "rich_text",
-          "label": "t:sections.image-with-text.blocks.text.settings.text.label",
+          "label": "Main Content",
           "default": "<p>Enter your text here</p>"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+          "label": "URL"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+          "label": "Button Text",
           "default": "Click Here"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_background",
-          "default": false,
-          "label": "t:sections.image-with-text.blocks.button.settings.button_style_secondary.label"
         }
       ]
     }
@@ -210,10 +210,21 @@
 {% endschema %}
 
 {% stylesheet %}
+  .custom-section {
+    --grid-gap-mobile: 2rem;
+    --grid-gap-tablet: 4rem;
+    --grid-gap-desktop: 9rem;
+    --content-margin: 4rem 0;
+    --heading-font-size: calc(var(--font-heading-scale) * 3.5rem);
+    --text-font-size: 1.7rem;
+    --button-padding: 2.5rem 3.2rem;
+    --button-font-size: 1.3rem;
+  }
+
   .custom-section .grid-container-b {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--grid-gap-mobile);
   }
 
   .custom-section .grid-column-b {
@@ -228,17 +239,18 @@
     display: block;
   }
 
-  .custom-section .content-wrapper-b h2 {
+  .custom-section .content-wrapper-b {
+    margin: var(--content-margin);
+  }
+
+  .custom-section .section-heading,
+  .custom-section .section-subheading {
     margin: 0;
-    font-size: calc(var(--font-heading-scale) * 3.5rem);
+    font-size: var(--heading-font-size);
   }
 
-  .content-wrapper-b {
-    margin: 4rem 0;
-  }
-
-  .custom-section .content-wrapper-b .grid-text-b {
-    font-size: 1.7rem;
+  .custom-section .grid-text-b {
+    font-size: var(--text-font-size);
     margin-bottom: 15px;
   }
 
@@ -246,26 +258,43 @@
     margin: 0.6rem 0 3.4rem 0;
     color: rgb(var(--color-foreground));
     font-family: var(--font-body-family);
-    font-size: 1.7rem;
+    font-size: var(--text-font-size);
     font-style: normal;
     font-weight: 300;
     line-height: 1.42;
     letter-spacing: 0.17px;
   }
 
+  .bosie-button {
+    padding: var(--button-padding);
+    border: 1px solid #000;
+    color: #2a3b4e;
+    font-family: var(--font-menu-sub);
+    font-size: var(--button-font-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 103.4%;
+    letter-spacing: 0.13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+
   @media screen and (min-width: 750px) {
     .custom-section .grid-container-b {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: var(--grid-gap-tablet);
     }
 
     .custom-section .grid-column-b {
       justify-content: space-evenly;
     }
+  }
 
-    .content-wrapper-b {
-      margin: 0;
+  @media screen and (min-width: 990px) {
+    .custom-section .grid-container-b {
+      gap: var(--grid-gap-desktop);
     }
 
     .grid-text-b p {
