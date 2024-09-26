@@ -12,39 +12,41 @@
   }
 {%- endstyle -%}
 
-<div class="faq-section {% unless section.settings.full_width %}page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
-  <h2 class="faq-title">{{ section.settings.title }}</h2>
+<div class="{% unless section.settings.full_width %}page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="faq-section">
+    <h2 class="faq-title">{{ section.settings.title | escape }}</h2>
 
-  {% for block in section.blocks %}
-    {% if block.type == 'faq' %}
-      <details
-        class="faq-item"
-        {{ block.shopify_attributes }}
-        {% if block.settings.open %}
-          open
-        {% endif %}
-      >
-        <summary class="faq-question">
-          {{ block.settings.question }}
-          <svg
-            class="faq-chevron"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </summary>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            {{ block.settings.answer }}
+    {% for block in section.blocks %}
+      {% if block.type == 'faq' %}
+        <details
+          class="faq-item"
+          {{ block.shopify_attributes }}
+          {% if block.settings.open %}
+            open
+          {% endif %}
+        >
+          <summary class="faq-question">
+            {{ block.settings.question }}
+            <svg
+              class="faq-chevron"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              {{ block.settings.answer }}
+            </div>
           </div>
-        </div>
-      </details>
-    {% endif %}
-  {% endfor %}
+        </details>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
@@ -131,7 +133,13 @@
 
 <style>
   .faq-section {
-    /* existing styles */
+    @media screen and (min-width: 750px) {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    @media screen and (min-width: 990px) {
+      padding-left: 25rem;
+    padding-right: 25rem;
   }
 
   .faq-title {
@@ -167,7 +175,7 @@
   }
 
   .faq-chevron {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Adjusted to match accordion speed */
   }
 
   .faq-item[open] .faq-chevron {
@@ -176,12 +184,15 @@
 
   .faq-answer {
     overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Kept at 0.3s */
+    max-height: 0;
   }
 
   .faq-answer-inner {
     padding-bottom: 3.2rem;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Kept at 0.3s */
+    padding-block-end: 3.2rem;
   }
 
   .faq-item[open] .faq-answer-inner {
@@ -202,3 +213,158 @@
     margin-bottom: 0;
   }
 </style>
+
+{% stylesheet %}
+  .faq-section {
+    @media screen and (min-width: 750px) {
+      padding-inline: 2.5rem;
+    }
+    @media screen and (min-width: 990px) {
+      padding-inline: 25rem;
+    }
+  }
+
+  .faq-title {
+    font-size: 3.2rem;
+    padding-block-end: 2.4rem;
+    border-block-end: 1px solid rgb(var(--color-foreground));
+    margin: 0;
+  }
+
+  .faq-item {
+    border-block-end: 1px solid rgba(var(--color-foreground), 0.1);
+  }
+
+  .faq-question {
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    font-size: 2.4rem;
+    padding-block: 3.2rem;
+    margin: 0;
+    list-style: none;
+    color: rgb(var(--color-foreground));
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+    text-align: left;
+  }
+
+  .faq-question .icon-chevron-right {
+    transition: transform var(--duration-default) ease;
+  }
+
+  .faq-item[open] .faq-question .icon-chevron-right {
+    transform: rotate(90deg);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* Kept at 0.3s */
+    max-height: 0;
+  }
+
+  .faq-answer-inner {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Kept at 0.3s */
+    padding-block-end: 3.2rem;
+  }
+
+  .faq-item[open] .faq-answer-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .faq-chevron {
+    transition: transform 0.3s ease; /* Adjusted to match accordion speed */
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(90deg);
+  }
+
+  .faq-answer-inner p {
+    margin-block-start: 0;
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    color: rgb(var(--color-foreground));
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .faq-answer-inner p:last-child {
+    margin-block-end: 0;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const summary = item.querySelector('.faq-question');
+      const content = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+      const chevron = item.querySelector('.faq-chevron');
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const isOpen = item.hasAttribute('open');
+
+        // Close all other items
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item && otherItem.hasAttribute('open')) {
+            closeItem(otherItem);
+          }
+        });
+
+        if (isOpen) {
+          closeItem(item);
+        } else {
+          openItem(item);
+        }
+      });
+    });
+
+    function openItem(item) {
+      const content = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+      const chevron = item.querySelector('.faq-chevron');
+
+      item.setAttribute('open', '');
+      content.style.maxHeight = inner.offsetHeight + 'px';
+      chevron.style.transform = 'rotate(90deg)';
+
+      // Trigger reflow to ensure transition works
+      content.offsetHeight;
+
+      inner.style.opacity = '1';
+      inner.style.transform = 'translateY(0)';
+    }
+
+    function closeItem(item) {
+      const content = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+      const chevron = item.querySelector('.faq-chevron');
+
+      content.style.maxHeight = '0px';
+      inner.style.opacity = '0';
+      inner.style.transform = 'translateY(-10px)';
+      chevron.style.transform = 'rotate(0deg)';
+
+      // Remove the 'open' attribute after transition
+      content.addEventListener(
+        'transitionend',
+        () => {
+          item.removeAttribute('open');
+        },
+        { once: true }
+      );
+    }
+  });
+{% endjavascript %}
