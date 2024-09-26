@@ -22,6 +22,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "tag_jVkQ4U": {
+          "type": "tag",
+          "settings": {
+            "new_in_days": 100,
+            "stock_threshold": 1000
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -114,6 +121,7 @@
         }
       },
       "block_order": [
+        "tag_jVkQ4U",
         "title",
         "caption",
         "price",
