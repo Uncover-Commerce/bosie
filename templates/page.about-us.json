@@ -20,12 +20,6 @@
     "call_to_action_two_columns_Y7LCEA": {
       "type": "call-to-action-two-columns",
       "blocks": {
-        "image_Y8n8FY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
-          }
-        },
         "content_JNaMMA": {
           "type": "content",
           "settings": {
@@ -34,11 +28,17 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
             "section_link": ""
           }
+        },
+        "image_Y8n8FY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+          }
         }
       },
       "block_order": [
-        "image_Y8n8FY",
-        "content_JNaMMA"
+        "content_JNaMMA",
+        "image_Y8n8FY"
       ],
       "settings": {
         "color_scheme": "",
