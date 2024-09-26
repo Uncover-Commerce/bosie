@@ -952,9 +952,9 @@ summary::-webkit-details-marker {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
     padding: 1.2rem 0;
-    &:nth-child(1) {
+    /* &:nth-child(1) {
       padding-top: 0;
-    }
+    } too generic */
   
   }
 }
