@@ -154,6 +154,8 @@
   .brushing-footer {
     text-align: left;
     font-weight: 500;
+    font-size: 11px;
+    margin-top: 15px;
   }
   .dropdown-button {
     border: 1px solid #1b2a36;
@@ -164,7 +166,8 @@
     text-transform: uppercase;
     cursor: pointer;
   }
-  .dropdown-button p {
+  .dropdown-button p,
+  .brushing-footer p {
     padding-top: 2px;
     margin: 0px;
   }
@@ -196,6 +199,10 @@
     position: absolute;
     z-index: 1000;
     width: 100%;
+  }
+  .dropdown-active-footer {
+    background-color: #e9cdc5;
+    padding: 16px 30px;
   }
 {% endstyle %}
 

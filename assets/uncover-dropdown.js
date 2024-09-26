@@ -34,6 +34,7 @@ class UncoverDropdown extends HTMLElement {
     let mainContainer = selectOption.parentElement.parentElement;
     let dropdownTItle = mainContainer.querySelector('#dropdown-title');
     let dropdownArrow = mainContainer.querySelector('#dropdown-arrow');
+    let brushingFooter = document.querySelector('.brushing-footer');
 
     if (dropdownArrow.querySelector('p') != null) {
       dropdownArrow.querySelector('p').remove();
@@ -45,8 +46,14 @@ class UncoverDropdown extends HTMLElement {
       let newPrice = document.createElement('p');
       newPrice.textContent = optionPrice;
       dropdownArrow.appendChild(newPrice);
+      if (brushingFooter != null) {
+        brushingFooter.classList.add('dropdown-active-footer');
+      }
     } else {
       dropdownArrow.querySelector('svg').style.display = 'block';
+      if (brushingFooter != null) {
+        brushingFooter.classList.remove('dropdown-active-footer');
+      }
     }
 
     //Update main option price and title
