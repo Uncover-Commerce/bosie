@@ -247,6 +247,7 @@
 
 <div id="cart-currency-format" data-format="{{ shop.money_format }}"></div>
 <div id="cart-currency-symbol" data-symbol="{{ cart.currency.symbol }}"></div>
+<div id="product-price" data-price="{{ product.price }}"></div>
 
 <product-info
   id="MainProduct-{{ section.id }}"
@@ -565,7 +566,7 @@
                       </div>
                       <div class="dropdown-content hidden-dropdown">
                         {% comment %} DEFAULT OPTION {% endcomment %}
-                        <div class="select-button selector-variant-1" data-title="NO BRUSHING">
+                        <div class="select-button selector-variant-1" data-title="NO BRUSHING" data-reset="true">
                           <p>NO BRUSHING</p>
                           <p>£N/A</p>
                         </div>
