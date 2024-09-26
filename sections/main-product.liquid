@@ -204,6 +204,44 @@
     background-color: #e9cdc5;
     padding: 16px 30px;
   }
+  .brushing-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure modal is on top */
+  }
+
+  .brushing-modal {
+    width: 70%;
+    height: 70%;
+    background-color: white; /* Modal background */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brushing-exit-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .brushing-modal-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100% - 40px);
+    margin-top: 20px;
+    padding-right: 40px;
+  }
 {% endstyle %}
 
 <product-info
@@ -1087,6 +1125,35 @@
       {{ product | structured_data }}
     </script>
   </div>
+
+  {% for block in section.blocks %}
+    {% if block.type == 'brushing_service' %}
+      {% assign brushing_product = product.metafields.custom.brushing_service.value %}
+      {% if brushing_product != blank and brushing_product.description != blank %}
+        {% comment %} Brushing modal {% endcomment %}
+        <brushing-modal class="brushing-modal-wrapper hidden">
+          <div class="brushing-modal">
+            <div class="brushing-exit-button">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="20" height="20" fill="white"/>
+                <path d="M10.9122 10L17.5271 3.38501L16.615 2.47284L9.99999 9.08783L3.38501 2.47285L2.47284 3.38502L9.08782 10L2.47284 16.615L3.38501 17.5271L9.99999 10.9122L16.615 17.5272L17.5271 16.615L10.9122 10Z" fill="#2A3B4E"/>
+              </svg>
+            </div>
+
+            <div class="brushing-modal-content">
+              {{ brushing_product.description }}
+            </div>
+          </div>
+        </brushing-modal>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 </product-info>
 
 {% schema %}

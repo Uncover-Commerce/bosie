@@ -1,4 +1,3 @@
-console.log('Uncover dropdown!');
 class UncoverDropdown extends HTMLElement {
   constructor() {
     super();
@@ -94,4 +93,40 @@ class UncoverDropdown extends HTMLElement {
   }
 }
 
+class BrushingModal extends HTMLElement {
+  constructor() {
+    super();
+    this.btnEventListeners();
+  }
+
+  btnEventListeners() {
+    const { modalExitButton, modalTriggetBtn } = this.modalComponents();
+
+    modalExitButton.addEventListener('click', () => {
+      this.closeModal();
+    });
+
+    modalTriggetBtn.addEventListener('click', () => {
+      this.openModal();
+    });
+  }
+
+  closeModal() {
+    this.classList.add('hidden');
+  }
+
+  openModal() {
+    this.classList.remove('hidden');
+  }
+
+  modalComponents() {
+    const modalContainer = this.querySelector('.brushing-modal');
+    const modalExitButton = this.querySelector('.brushing-exit-button');
+    const modalTriggetBtn = document.querySelector('.brushing-link');
+
+    return { modalContainer, modalExitButton, modalTriggetBtn };
+  }
+}
+
+customElements.define('brushing-modal', BrushingModal);
 customElements.define('uncover-dropdown', UncoverDropdown);
