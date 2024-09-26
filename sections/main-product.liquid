@@ -596,7 +596,7 @@
                             data-title="{{ brushing_product.title }}"
                             data-price="{{ brushing_product.price | money }}"
                             data-rawPrice="{{ brushing_product.price }}"
-                            data-product="{{ brushing_product.id }}"
+                            data-product="{{ brushing_product.selected_or_first_available_variant.id }}"
                           >
                             <p>{{ brushing_product.title }}</p>
                             <p>+ {{ brushing_product.price | money }}</p>
