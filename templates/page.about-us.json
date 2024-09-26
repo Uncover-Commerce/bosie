@@ -20,6 +20,12 @@
     "call_to_action_two_columns_Y7LCEA": {
       "type": "call-to-action-two-columns",
       "blocks": {
+        "image_Y8n8FY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+          }
+        },
         "content_JNaMMA": {
           "type": "content",
           "settings": {
@@ -28,17 +34,11 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
             "section_link": ""
           }
-        },
-        "image_Y8n8FY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
-          }
         }
       },
       "block_order": [
-        "content_JNaMMA",
-        "image_Y8n8FY"
+        "image_Y8n8FY",
+        "content_JNaMMA"
       ],
       "settings": {
         "color_scheme": "",
@@ -75,7 +75,7 @@
         "color_scheme": "",
         "full_width": false,
         "reverse_layout": true,
-        "padding_top": 28,
+        "padding_top": 44,
         "padding_bottom": 52
       }
     },
@@ -125,12 +125,48 @@
         "title": "Meet the Team",
         "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>"
       }
+    },
+    "full_width_image_bosies_4UJNfr": {
+      "type": "full-width-image-bosies",
+      "blocks": {
+        "title_8gdCMJ": {
+          "type": "title",
+          "settings": {
+            "title": "Hello"
+          }
+        },
+        "richtext_CGafqp": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Is it me your looking for</p>"
+          }
+        },
+        "button_hEUqwV": {
+          "type": "button",
+          "settings": {
+            "button_label": "I can see it in your eyes",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_8gdCMJ",
+        "richtext_CGafqp",
+        "button_hEUqwV"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/olivegreenmenshetlandshaggycardigan.jpg",
+        "image_opacity": 100,
+        "section_height": "large",
+        "color_scheme": "accent-1"
+      }
     }
   },
   "order": [
     "main",
     "call_to_action_two_columns_Y7LCEA",
     "call_to_action_two_columns_hY4ePA",
-    "meet_the_team_bosies_MQqWqp"
+    "meet_the_team_bosies_MQqWqp",
+    "full_width_image_bosies_4UJNfr"
   ]
 }
