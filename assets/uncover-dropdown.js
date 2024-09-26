@@ -51,11 +51,11 @@ class UncoverDropdown extends HTMLElement {
       if (brushingFooter != null) {
         brushingFooter.classList.add('dropdown-active-footer');
       }
-
       brushingProduct.dataset.price = optionRawPrice;
       brushingProduct.dataset.id = optionID;
       brushingProduct.dataset.note = `${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`;
 
+      this.updateProductNote(`${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`);
       this.updateProductPrice(optionRawPrice);
     } else {
       dropdownArrow.querySelector('svg').style.display = 'block';
@@ -63,6 +63,13 @@ class UncoverDropdown extends HTMLElement {
       brushingProduct.dataset.price = '';
       brushingProduct.dataset.id = '';
       brushingProduct.dataset.note = '';
+
+      const { productForm } = this.dropdownComponents();
+      if (productForm != null) {
+        if (productForm.querySelector('#product-brush-note') != null) {
+          productForm.querySelector('#product-brush-note').remove();
+        }
+      }
 
       this.updateProductPrice(null);
 
@@ -128,11 +135,27 @@ class UncoverDropdown extends HTMLElement {
     });
   }
 
+  updateProductNote(productNote) {
+    const { productForm } = this.dropdownComponents();
+    if (productForm != null) {
+      if (productForm.querySelector('#product-brush-note') != null) {
+        productForm.querySelector('#product-brush-note').remove();
+      }
+
+      let newProductInput = document.createElement('input');
+      newProductInput.type = 'hidden';
+      newProductInput.name = 'properties[Brushing]';
+      newProductInput.id = 'product-brush-note';
+      newProductInput.value = productNote;
+      productForm.appendChild(newProductInput);
+    }
+  }
+
   dropdownComponents() {
     const dropdownButtons = this.querySelectorAll('.dropdown-button');
     const allDropdownContent = this.querySelectorAll('.dropdown-content');
     const selectbuttons = this.querySelectorAll('.select-button');
-    const productForm = document.querySelector('.product-form');
+    const productForm = document.querySelector('.product-form').querySelector('form');
     const currencyFormat = document.getElementById('cart-currency-format').getAttribute('data-format');
     const brushingProduct = this.querySelector('#brushing-product');
     const currencySymbol = document.querySelector('#cart-currency-symbol').getAttribute('data-symbol');
