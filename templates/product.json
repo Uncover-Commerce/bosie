@@ -126,7 +126,7 @@
         "color_scheme": "background-1",
         "media_size": "large",
         "constrain_to_viewport": false,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "hover",
