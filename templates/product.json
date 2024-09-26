@@ -39,13 +39,6 @@
           "settings": {
           }
         },
-        "popup_nCnAEg": {
-          "type": "popup",
-          "settings": {
-            "text": "Size Guide ›",
-            "page": "{{ product.metafields.custom.size_guide.value }}"
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -111,13 +104,19 @@
             "custom_liquid": "",
             "page": ""
           }
+        },
+        "popup_nCnAEg": {
+          "type": "popup",
+          "settings": {
+            "text": "Size Guide ›",
+            "page": "{{ product.metafields.custom.size_guide.value }}"
+          }
         }
       },
       "block_order": [
         "title",
         "caption",
         "price",
-        "popup_nCnAEg",
         "variant_picker",
         "custom_varrient_YeYrm4",
         "quantity_selector",
@@ -125,7 +124,8 @@
         "icon_with_text_aPFVTh",
         "collapsible-row-0",
         "collapsible_tab_3y9PKE",
-        "collapsible-row-3"
+        "collapsible-row-3",
+        "popup_nCnAEg"
       ],
       "settings": {
         "enable_sticky_info": true,
