@@ -19,33 +19,50 @@
   }
   .inverted-navigation {
   background-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s ease-in-out;
   & > * {
     background-color: rgba(0, 0, 0, 0);
+    transition: all 0.3s ease-in-out;
+
   }
   }
 
   .inverted-body {
     position: relative;
     top: -100px;
-    margin-bottom: 100px;
+    margin-bottom: -100px;
+
     @media screen and (min-width: 990px) {
       top: -150px;
-      margin-bottom: 150px;
+      margin-bottom: -150px;
     }
   }
 
   .invert-icons {
-    filter: brightness(0) invert(1) !important;
-  }
+
+  filter: brightness(0) invert(1) !important;
+
+}
 
   .invert-text {
     color: white !important;
+    &::after {
+      background-color: #fff !important;
+    }
   }
 
   .fill-inverted-background {
-      background-color: #F9F7F4 !important;
+    position: relative;
+
+    -webkit-appearance: none !important;
+      background-color: rgb(249,247,244) !important;
+      transition: all 0.3s ease-in-out;
+
     & > * {
-      background-color: #F9F7F4 !important;
+      position: relative;
+
+      -webkit-appearance: none !important;
+      background-color: rgb(249,247,244) !important;
 
     }
   }
@@ -233,26 +250,34 @@ flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   left: 0;
+  {% comment %} top: 14.1rem; {% endcomment %}
   background: rgb(var(--color-background));
   border-top: solid 1px #EEECE6;
 
 }
-.mega-menu-list {
+/* Menu item underline */
+.list-menu {
+  .header__menu-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.3rem;
+    bottom: -0.2rem;
+    left: 0;
+    background-color: rgb(var(--color-foreground));
+    transition: width 0.3s ease-in-out; 
+    
+}
+
+.header__menu-item:hover::after {
+    width: 100%;
+    &.inverted-underline:hover::after {
+      background-color: #fff !important;
+    }
+}
 
 }
-   .mega-menu-list::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #007bff;
-            transition: width 0.3s ease;
-        }
-       .mega-menu-list:hover::after {
-            width: 100%;
-        }
+ 
 .mega-menu-list:hover .mega-menu-wrapper{
   display: flex;
    }
@@ -269,7 +294,6 @@ flex-wrap: wrap;
 .mega-menu-column {
   display: flex;
   width: 100%;
-  text-transform: capitalize;
 }
 
 .menu-item-inner {
@@ -773,107 +797,90 @@ Navigation Inversion
    // Set the initial state of the navigation on home page 
   //if inverted-navigation class is present, make navigation transparent
   if (document.querySelector('.inverted-navigation')) {
-      
-      document.getElementById('MainContent').classList.add('inverted-body');
-      document.querySelector('.header-wrapper ').classList.add('inverted-navigation');
-
-      // search text color
-      document.querySelector('.search-text-b').classList.add('invert-text');
-
-      // menu text color white 
-      document.querySelectorAll('.header__menu-item').forEach((item) => {
-        item.classList.add('invert-text');
-      });   
-      
-      // filter the svgs to make theme white
-      document.querySelector('.header__heading-logo').classList.add('invert-icons');
-
-      //search icon
-      document.querySelector('.icon-search').classList.add('invert-icons');
-
-      document.querySelectorAll('.header__icon').forEach((icon) => {
-        icon.classList.add('invert-icons');
-      });
-
-      document.querySelectorAll('.chevron-nav').forEach((icon) => {
-        icon.classList.add('invert-icons');
-      });
+    setInvertedNavigation(true);
   }
 
+  function setInvertedNavigation(isInverted) {
+    const elements = {
+      mainContent: document.getElementById('MainContent'),
+      headerWrapper: document.querySelector('.header-wrapper'),
+      searchText: document.querySelector('.search-text-b'),
+      menuItems: document.querySelectorAll('.header__menu-item'),
+      headerLogo: document.querySelector('.header__heading-logo'),
+      headerIcons: document.querySelectorAll('.header__icon svg'),
+      accountIcon: document.querySelector('.icon-account'),
+      cartIcon: document.querySelector('.icon-cart'),
+      chevronNavs: document.querySelectorAll('.chevron-nav'),
+      headerWrapperBosie: document.querySelector('.header-wrapper-bosie')
+    };
 
+    const classActions = {
+      add: ['inverted-body', 'inverted-navigation', 'invert-text', 'invert-icons', 'inverted-underline'],
+      remove: ['fill-inverted-background']
+    };
 
+    if (isInverted) {
+      elements.mainContent.classList.add(classActions.add[0]);
+      elements.headerWrapper.classList.add(classActions.add[1]);
+      elements.searchText.classList.add(classActions.add[2]);
+      elements.menuItems.forEach(item => item.classList.add(classActions.add[2]));
+      addClassToSVG(elements.headerLogo, classActions.add[3]);
+      elements.headerIcons.forEach(icon => addClassToSVG(icon, classActions.add[3]));
+      elements.menuItems[0].classList.add(classActions.add[4]);
+      addClassToSVG(elements.accountIcon, classActions.add[3]);
+      addClassToSVG(elements.cartIcon, classActions.add[3]);
+      elements.chevronNavs.forEach(icon => addClassToSVG(icon, classActions.add[3]));
+      elements.headerWrapperBosie.classList.remove(classActions.remove[0]);
+    } else {
+      elements.mainContent.classList.remove(classActions.add[0]);
+      elements.headerWrapper.classList.remove(classActions.add[1]);
+      elements.searchText.classList.remove(classActions.add[2]);
+      elements.menuItems.forEach(item => item.classList.remove(classActions.add[2]));
+      removeClassFromSVG(elements.headerLogo, classActions.add[3]);
+      elements.headerIcons.forEach(icon => removeClassFromSVG(icon, classActions.add[3]));
+      elements.menuItems[0].classList.remove(classActions.add[4]);
+      removeClassFromSVG(elements.accountIcon, classActions.add[3]);
+      removeClassFromSVG(elements.cartIcon, classActions.add[3]);
+      elements.chevronNavs.forEach(icon => removeClassFromSVG(icon, classActions.add[3]));
+      elements.headerWrapperBosie.classList.add(classActions.remove[0]);
+    }
+  }
 
-  function invertNav(){
-    //if inverted-navigation class is present, make navigation transparent
-  if (document.querySelector('.inverted-navigation')) {
+  function addClassToSVG(element, className) {
+    if (element && element.classList) {
+      element.classList.add(className);
+    } else if (element && element.setAttribute) {
+      const classes = (element.getAttribute('class') || '').split(' ');
+      if (!classes.includes(className)) {
+        classes.push(className);
+        element.setAttribute('class', classes.join(' '));
+      }
+    }
+  }
 
-// search text color
-document.querySelector('.search-text-b').classList.add('invert-text');
+  function removeClassFromSVG(element, className) {
+    if (element && element.classList) {
+      element.classList.remove(className);
+    } else if (element && element.setAttribute) {
+      const classes = (element.getAttribute('class') || '').split(' ');
+      const index = classes.indexOf(className);
+      if (index !== -1) {
+        classes.splice(index, 1);
+        element.setAttribute('class', classes.join(' '));
+      }
+    }
+  }
 
-// menu text color white 
-document.querySelectorAll('.header__menu-item').forEach((item) => {
-  item.classList.add('invert-text');
-});   
+  function invertNav() {
+    if (document.querySelector('.inverted-navigation')) {
+      setInvertedNavigation(true);
+    }
+  }
 
-// filter the svgs to make theme white
-document.querySelector('.header__heading-logo').classList.add('invert-icons');
-
-//search icon
-document.querySelector('.icon-search').classList.add('invert-icons');
-
-document.querySelectorAll('.header__icon').forEach((icon) => {
-  icon.classList.add('invert-icons');
-});
-
-document.querySelectorAll('.chevron-nav').forEach((icon) => {
-  icon.classList.add('invert-icons');
-});
-
-
-//Added inverted background to navigation - this
-document.querySelector('.header-wrapper-bosie').classList.remove('fill-inverted-background');
-}
-}
-
-
-
-
-
-
-
-function removeInvertedNav(){
-
-  
-    //if inverted-navigation class is present, make navigation transparent
-  if (document.querySelector('.inverted-navigation')) {
-// search text color
-document.querySelector('.search-text-b').classList.remove('invert-text');
-
-// menu text color white 
-document.querySelectorAll('.header__menu-item').forEach((item) => {
-  item.classList.remove('invert-text');
-});   
-
-// filter the svgs to make theme white
-document.querySelector('.header__heading-logo').classList.remove('invert-icons');
-
-//search icon
-document.querySelector('.icon-search').classList.remove('invert-icons');
-
-document.querySelectorAll('.header__icon').forEach((icon) => {
-  icon.classList.remove('invert-icons');
-});
-
-document.querySelectorAll('.chevron-nav').forEach((icon) => {
-  icon.classList.remove('invert-icons');
-});
-
-
-
-//remove inverted background to navigation 
-document.querySelector('.header-wrapper-bosie').classList.add('fill-inverted-background');
-
-}
+  function removeInvertedNav() {
+    if (document.querySelector('.inverted-navigation')) {
+      setInvertedNavigation(false);
+    }
   }
 
 
