@@ -129,6 +129,12 @@
     "full_width_image_bosies_4UJNfr": {
       "type": "full-width-image-bosies",
       "blocks": {
+        "subtitle_TE9pta": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Lion Richie"
+          }
+        },
         "title_8gdCMJ": {
           "type": "title",
           "settings": {
@@ -150,6 +156,7 @@
         }
       },
       "block_order": [
+        "subtitle_TE9pta",
         "title_8gdCMJ",
         "richtext_CGafqp",
         "button_hEUqwV"
