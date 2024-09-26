@@ -55,8 +55,17 @@ class UncoverDropdown extends HTMLElement {
       brushingProduct.dataset.price = optionRawPrice;
       brushingProduct.dataset.id = optionID;
       brushingProduct.dataset.note = `${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`;
+
+      this.updateProductPrice(optionRawPrice);
     } else {
       dropdownArrow.querySelector('svg').style.display = 'block';
+
+      brushingProduct.dataset.price = '';
+      brushingProduct.dataset.id = '';
+      brushingProduct.dataset.note = '';
+
+      this.updateProductPrice(null);
+
       if (brushingFooter != null) {
         brushingFooter.classList.remove('dropdown-active-footer');
       }
@@ -64,10 +73,32 @@ class UncoverDropdown extends HTMLElement {
 
     //Update main option price and title
     dropdownTItle.textContent = optionTitle;
-    console.log(selectOption);
 
     //Close dropdown
     this.hideAllDropdowns();
+  }
+
+  updateProductPrice(price) {
+    const { productPrice, currencyFormat } = this.dropdownComponents();
+    const priceElements = document.querySelectorAll('.price-item--regular');
+
+    if (price == null) {
+      priceElements.forEach((price) => {
+        price.textContent = formatMoney(productPrice, currencyFormat);
+      });
+      return;
+    }
+
+    let currentPrice = this.removeCurrencyFormat(productPrice);
+    currentPrice = this.removeDotsAndCommas(currentPrice);
+    let variantPrice = this.removeCurrencyFormat(price);
+
+    let totalPrice = Number(currentPrice) + Number(variantPrice);
+    totalPrice = formatMoney(totalPrice, currencyFormat);
+
+    priceElements.forEach((price) => {
+      price.textContent = totalPrice;
+    });
   }
 
   toggleDropdownNavigation(dropdownButton) {
@@ -79,8 +110,14 @@ class UncoverDropdown extends HTMLElement {
     // }
 
     contentContainer.classList.toggle('hidden-dropdown');
+  }
 
-    console.log('Toggle dropdown navigation!');
+  removeCurrencyFormat(value) {
+    return value.replace(/[^\d.]/g, '');
+  }
+
+  removeDotsAndCommas(value) {
+    return value.replace(/[.,]/g, '');
   }
 
   hideAllDropdowns() {
@@ -98,8 +135,19 @@ class UncoverDropdown extends HTMLElement {
     const productForm = document.querySelector('.product-form');
     const currencyFormat = document.getElementById('cart-currency-format').getAttribute('data-format');
     const brushingProduct = this.querySelector('#brushing-product');
+    const currencySymbol = document.querySelector('#cart-currency-symbol').getAttribute('data-symbol');
+    const productPrice = document.querySelector('#product-price').getAttribute('data-price');
 
-    return { dropdownButtons, allDropdownContent, selectbuttons, productForm, brushingProduct, currencyFormat };
+    return {
+      dropdownButtons,
+      allDropdownContent,
+      selectbuttons,
+      productForm,
+      brushingProduct,
+      currencyFormat,
+      currencySymbol,
+      productPrice,
+    };
   }
 }
 
