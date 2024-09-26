@@ -153,6 +153,49 @@
   }
   .brushing-footer {
     text-align: left;
+    font-weight: 500;
+  }
+  .dropdown-button {
+    border: 1px solid #1b2a36;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .dropdown-button p {
+    padding-top: 2px;
+    margin: 0px;
+  }
+  .select-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .select-button p {
+    margin: 0;
+    padding: 0;
+  }
+  .selector-variant-1 {
+    background-color: #eeece6;
+  }
+  .selector-variant-2 {
+    background-color: #e3e3e0;
+  }
+  .hidden-dropdown {
+    display: none;
+  }
+  .dropdown-container {
+    position: relative;
+  }
+  .dropdown-content {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
   }
 {% endstyle %}
 
@@ -199,6 +242,7 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'uncover-dropdown.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -443,27 +487,76 @@
                 </div>
 
               {%- when 'brushing_service' -%}
-                <div>
-                  {% comment %} Brushing header {% endcomment %}
-                  <div class="brushing-header">
-                    {% if block.settings.header != blank %}
-                      <p>{{ block.settings.header }}*</p>
-                    {% endif %}
-                    {% if block.settings.popup_label != blank %}
-                      <p class="brushing-link">{{ block.settings.popup_label }}</p>
+                {% assign brushing_product = product.metafields.custom.brushing_service.value %}
+                {% if brushing_product != blank %}
+                  <div>
+                    {% comment %} Brushing header {% endcomment %}
+                    <div class="brushing-header">
+                      {% if block.settings.header != blank %}
+                        <p>{{ block.settings.header }}*</p>
+                      {% endif %}
+                      {% if block.settings.popup_label != blank %}
+                        <p class="brushing-link">{{ block.settings.popup_label }}</p>
+                      {% endif %}
+                    </div>
+
+                    {% comment %} Brushing dropdown {% endcomment %}
+                    <uncover-dropdown class="dropdown-container">
+                      <div class="dropdown-button">
+                        <p id="dropdown-title">Please select...</p>
+                        <div id="dropdown-arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512">
+                            <path
+                              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="dropdown-content hidden-dropdown">
+                        {% comment %} DEFAULT OPTION {% endcomment %}
+                        <div class="select-button selector-variant-1" data-title="NO BRUSHING">
+                          <p>NO BRUSHING</p>
+                          <p>N/A£</p>
+                        </div>
+
+                        {% if brushing_product.variants.size > 1 %}
+                          {% for variant in brushing_product.variants %}
+                            {% assign mod_value = forloop.index | modulo: 2 %}
+                            {% if mod_value == 0 %}
+                              {% assign variant_class = 'selector-variant-1' %}
+                            {% else %}
+                              {% assign variant_class = 'selector-variant-2' %}
+                            {% endif %}
+                            <div
+                              class="select-button {{ variant_class }}"
+                              data-title="{{ variant.title }}"
+                              data-price="{{ variant.price | money }}"
+                            >
+                              <p>{{ variant.title }}</p>
+                              <p>+ {{ variant.price | money }}</p>
+                            </div>
+                          {% endfor %}
+                        {% else %}
+                          <div
+                            class="select-button selector-variant-2"
+                            data-title="{{ brushing_product.title }}"
+                            data-price="{{ brushing_product.price | money }}"
+                            data-rawPrice="{{ brushing_product.price }}"
+                          >
+                            <p>{{ brushing_product.title }}</p>
+                            <p>+ {{ brushing_product.price | money }}</p>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </uncover-dropdown>
+
+                    {% comment %} Brushing footer {% endcomment %}
+                    {% if block.settings.footer_label != blank %}
+                      <div class="brushing-footer">
+                        <p class="brushing-link">{{ block.settings.footer_label }}</p>
+                      </div>
                     {% endif %}
                   </div>
-
-                  {% comment %} Brushing dropdown {% endcomment %}
-                  <div>TODO: Dropdown</div>
-
-                  {% comment %} Brushing footer {% endcomment %}
-                  {% if block.settings.footer_label != blank %}
-                    <div class="brushing-footer">
-                      <p class="brushing-link">{{ block.settings.footer_label }}</p>
-                    </div>
-                  {% endif %}
-                </div>
+                {% endif %}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
