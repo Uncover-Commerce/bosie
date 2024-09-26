@@ -53,6 +53,11 @@
             "swatch_shape": "circle"
           }
         },
+        "custom_varrient_YeYrm4": {
+          "type": "custom_varrient",
+          "settings": {
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -114,6 +119,7 @@
         "price",
         "popup_nCnAEg",
         "variant_picker",
+        "custom_varrient_YeYrm4",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
