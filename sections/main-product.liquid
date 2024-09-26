@@ -245,6 +245,9 @@
   }
 {% endstyle %}
 
+<div id="cart-currency-format" data-format="{{ shop.money_format }}"></div>
+<div id="cart-currency-symbol" data-symbol="{{ cart.currency.symbol }}"></div>
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -548,6 +551,9 @@
 
                     {% comment %} Brushing dropdown {% endcomment %}
                     <uncover-dropdown class="dropdown-container">
+                      <div
+                        id="brushing-product"
+                      ></div>
                       <div class="dropdown-button">
                         <p id="dropdown-title">Please select...</p>
                         <div id="dropdown-arrow">
@@ -561,7 +567,7 @@
                         {% comment %} DEFAULT OPTION {% endcomment %}
                         <div class="select-button selector-variant-1" data-title="NO BRUSHING">
                           <p>NO BRUSHING</p>
-                          <p>N/A£</p>
+                          <p>£N/A</p>
                         </div>
 
                         {% if brushing_product.variants.size > 1 %}
@@ -576,6 +582,8 @@
                               class="select-button {{ variant_class }}"
                               data-title="{{ variant.title }}"
                               data-price="{{ variant.price | money }}"
+                              data-product="{{ variant.id }}"
+                              data-rawPrice="{{ variant.price }}"
                             >
                               <p>{{ variant.title }}</p>
                               <p>+ {{ variant.price | money }}</p>
@@ -587,6 +595,7 @@
                             data-title="{{ brushing_product.title }}"
                             data-price="{{ brushing_product.price | money }}"
                             data-rawPrice="{{ brushing_product.price }}"
+                            data-product="{{ brushing_product.id }}"
                           >
                             <p>{{ brushing_product.title }}</p>
                             <p>+ {{ brushing_product.price | money }}</p>

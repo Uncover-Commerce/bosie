@@ -27,8 +27,11 @@ class UncoverDropdown extends HTMLElement {
   }
 
   selectDropdownOption(selectOption) {
+    const { brushingProduct, currencyFormat } = this.dropdownComponents();
     let optionTitle = selectOption.dataset.title;
     let optionPrice = selectOption.dataset.price;
+    let optionID = selectOption.dataset.product;
+    let optionRawPrice = selectOption.dataset.rawprice;
 
     let mainContainer = selectOption.parentElement.parentElement;
     let dropdownTItle = mainContainer.querySelector('#dropdown-title');
@@ -48,6 +51,10 @@ class UncoverDropdown extends HTMLElement {
       if (brushingFooter != null) {
         brushingFooter.classList.add('dropdown-active-footer');
       }
+
+      brushingProduct.dataset.price = optionRawPrice;
+      brushingProduct.dataset.id = optionID;
+      brushingProduct.dataset.note = `${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`;
     } else {
       dropdownArrow.querySelector('svg').style.display = 'block';
       if (brushingFooter != null) {
@@ -88,8 +95,11 @@ class UncoverDropdown extends HTMLElement {
     const dropdownButtons = this.querySelectorAll('.dropdown-button');
     const allDropdownContent = this.querySelectorAll('.dropdown-content');
     const selectbuttons = this.querySelectorAll('.select-button');
+    const productForm = document.querySelector('.product-form');
+    const currencyFormat = document.getElementById('cart-currency-format').getAttribute('data-format');
+    const brushingProduct = this.querySelector('#brushing-product');
 
-    return { dropdownButtons, allDropdownContent, selectbuttons };
+    return { dropdownButtons, allDropdownContent, selectbuttons, productForm, brushingProduct, currencyFormat };
   }
 }
 
