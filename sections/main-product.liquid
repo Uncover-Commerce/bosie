@@ -65,10 +65,13 @@
     width: -moz-available;
     font-family: var(--font-menu-sub);
     text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.55px;
     }
     .dimensions-title {
       font-family: var(--font-body-family);
       font-weight: bold;
+      margin: 0;
     }
   .modal-opener {
     position: absolute;
@@ -80,23 +83,22 @@
   }
   th,
   td {
-    border: 1px solid #ddd;
-    padding: 12px;
+    border: 1px solid #8E949B;
+    padding: 1.6rem;
     text-align: left;
     color: var(--color-foreground);
   }
   th {
     color: white;
     font-weight: normal;
+    background-color: #1c2939;
   }
   tr:nth-child(even) {
-    background-color: #f3f1ef;
+  background: #F3F1EF;
   }
-  tr:nth-child(1) {
-    background-color: #1c2939;
-    color: white;
-    font-weight: bold;
+  tr:nth-child(3) {
     text-align: center;
+    background-color: #F9F7F4;
   }
   .toggle {
     position: relative;
@@ -117,20 +119,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f3f1ef;
+    height: 3.7rem;
+    background: #F3F1EF;
     transition: 0.4s;
-    border-radius: 34px;
+    border: 1px solid #D9D9D9;
+    border-radius: 150px;
   }
   .slider-toggle:before {
     position: absolute;
     content: '';
-    height: 42px;
-    width: 60px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
+    height: 3.7rem;
+    width: 6.6rem;
+    left: 0px;
+    bottom: 0px;
+    background-color: #D9D9D9;
     transition: 0.4s;
-    border-radius: 34px;
+    border-radius: 150px;
   }
   input:checked + .slider-toggle {
     background-color: #f3f1ef;
@@ -140,14 +144,14 @@
   }
   .toggle-text {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     font-size: 14px;
     font-weight: bold;
     color: #333;
   }
   .in {
-    left: 2.6rem;
+    left: 2rem;
   }
   .cm {
     right: 2rem;
@@ -2333,8 +2337,8 @@
           <label class="toggle ">
             <input type="checkbox" type="checkbox" id="unitToggle">
           <span class="slider-toggle slider-size-guide"></span>
-          <span class="toggle-text in">CM</span>
           <span class="toggle-text cm">IN</span>
+          <span class="toggle-text in">CM</span>
       </label>
       `;
 
