@@ -878,7 +878,7 @@ a.product__text {
 
 .product-popup-modal__content-info {
   padding-right: 4.4rem;
-  h2{
+  .popup-title {
     @media screen and (min-width: 750px) {
     font-size: 3.2rem;
   }
