@@ -65,7 +65,11 @@
     width: -moz-available;
     font-family: var(--font-menu-sub);
     text-transform: uppercase;
-  }
+    }
+    .dimensions-title {
+      font-family: var(--font-body-family);
+      font-weight: bold;
+    }
   .modal-opener {
     position: absolute;
     top: -0.6rem;
@@ -941,7 +945,7 @@
             {% render 'icon-close' %}
           </button>
           <div class="product-popup-modal__content-info">
-            <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+            <h1 class="h2 popup-title">{{ block.settings.page.title | escape }}</h1>
             {{ block.settings.page.content }}
           </div>
         </div>
@@ -2325,7 +2329,7 @@
 
     // Create toggle switch
     toggleContainer.innerHTML = `
-       <h4>Dimensions shown in:</h4> 
+       <h4 class="dimensions-title">Dimensions shown in:</h4> 
           <label class="toggle ">
             <input type="checkbox" type="checkbox" id="unitToggle">
           <span class="slider-toggle slider-size-guide"></span>
