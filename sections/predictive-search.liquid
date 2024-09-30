@@ -14,7 +14,8 @@
     {%- endif -%}
     {%- if first_column_results_size > 0 -%}
       <div class="predictive-search__result-group">
-    {%- endif -%}
+      {%- endif -%}
+
     {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
       <div>
         <h2 id="predictive-search-queries" class="predictive-search__heading text-body caption-with-letter-spacing">
@@ -144,7 +145,7 @@
                   >
                     {%- if product.featured_media != blank -%}
                       <img
-                        class="predictive-search__image"
+                        class="{%- if first_column_results_size < 1 -%}no-suggestions-bosie &nbsp;{%- endif -%} predictive-search__image"
                         src="{{ product.featured_media | image_url: width: 225 }}"
                         alt="{{ product.featured_media.alt | escape }}"
                         width="225"
