@@ -4,10 +4,45 @@ class CartRemoveButton extends HTMLElement {
 
     this.addEventListener('click', (event) => {
       event.preventDefault();
-      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
-      cartItems.updateQuantity(this.dataset.index, 0);
+      removeNewItemsFromCart(this.dataset.product);
     });
   }
+}
+
+// Function to remove specific items from the cart
+function removeNewItemsFromCart(id) {
+  fetch('/cart.js')
+    .then((res) => res.json())
+    .then((data) => {
+      const updates = {};
+      const products = data.items;
+      const filteredProducts = products.filter((p) => {
+        if (p.properties.preset === id) {
+          return p;
+        }
+      });
+      filteredProducts.forEach((product) => {
+        updates[product.variant_id] = 0;
+      });
+
+      performTheUpdateToRemoveFromCart(updates);
+    })
+    .catch((err) => console.error(err));
+}
+
+function performTheUpdateToRemoveFromCart(updateDate) {
+  fetch('/cart/update.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ updates: { ...updateDate } }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      location.reload();
+    })
+    .catch((error) => console.error('Error updating cart:', error));
 }
 
 customElements.define('cart-remove-button', CartRemoveButton);
@@ -15,6 +50,7 @@ customElements.define('cart-remove-button', CartRemoveButton);
 class CartItems extends HTMLElement {
   constructor() {
     super();
+
     this.lineItemStatusElement =
       document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
 
@@ -143,6 +179,33 @@ class CartItems extends HTMLElement {
     ];
   }
 
+  updateCartItemQuantity(lineItemId, newQuantity) {
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: JSON.stringify({
+        id: lineItemId,
+        quantity: newQuantity,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error updating cart');
+        }
+        return response.json();
+      })
+      .then((cart) => {
+        console.log('Cart updated successfully:', cart);
+        // Optionally, update the cart UI here with the new cart data
+      })
+      .catch((error) => {
+        console.error('Failed to update cart:', error);
+      });
+  }
+
   updateQuantity(line, quantity, name, variantId) {
     this.enableLoading(line);
 
@@ -161,6 +224,16 @@ class CartItems extends HTMLElement {
         const parsedState = JSON.parse(state);
         const quantityElement =
           document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
+
+        if (quantityElement.dataset.brushing != null) {
+          console.log(parsedState);
+
+          console.log(quantity);
+          console.log(quantityElement.dataset.brushing);
+          console.log('TODO: UPDATE QUANTITY OF BRUSHING PRODUCT');
+          this.updateCartItemQuantity(quantityElement.dataset.brushing, quantity);
+        }
+
         const items = document.querySelectorAll('.cart-item');
 
         if (parsedState.errors) {

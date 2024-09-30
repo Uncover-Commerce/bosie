@@ -324,6 +324,8 @@
     >
   {%- endif -%}
 
+  {% render 'uniqueid', product: product %}
+
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -414,6 +416,7 @@
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
@@ -1166,6 +1169,28 @@
     {% endif %}
   {% endfor %}
 </product-info>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    let allUniqueIDS = document.querySelectorAll('.presetId');
+    let uniqueID = `{{ product.id }}${makeid(10)}`;
+    allUniqueIDS.forEach((inputField) => {
+      inputField.value = uniqueID;
+    });
+  });
+
+  function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+</script>
 
 {% schema %}
 {

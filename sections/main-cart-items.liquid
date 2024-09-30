@@ -25,7 +25,10 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+<cart-items
+  id="cart-items"
+  class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}"
+>
   <div class="page-width">
     <div class="title-wrapper-with-link">
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
@@ -79,7 +82,11 @@
 
               <tbody>
                 {%- for item in cart.items -%}
-                  <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+                  <tr
+                    class="cart-item"
+                    id="CartItem-{{ item.index | plus: 1 }}"
+                    data-index="{{ item.index | plus: 1 }}"
+                  >
                     <td class="cart-item__media">
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -98,6 +105,25 @@
                     </td>
 
                     <td class="cart-item__details">
+                      Cart item ID: {{ item.key }}
+
+                      {% assign related_product = item.product.metafields.custom.brushing_service.value %}
+                      {% if related_product != blank %}
+                        Related product: {{ related_product.id }}
+
+                        {% comment %} SEARCHING FOR RELATED PRODUCT {% endcomment %}
+                        {% for related_item in cart.items %}
+                          {% if related_item.properties.Product == item.title %}
+                            {% assign brushing_price = related_item.price | times: item.quantity %}
+                            {% assign raw_brushing_price = related_item.price %}
+                            {% assign brushing_product_key = related_item.key %}
+                            {% assign related_product_index = related_item.index | plus: 1 %}
+                            {% assign related_product_preset = related_item.properties.preset %}
+                            Related product key: {{ brushing_product_key }}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+
                       {%- if settings.show_vendor -%}
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
@@ -110,7 +136,11 @@
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
                           <s class="cart-item__old-price product-option">
-                            {{- item.original_price | money -}}
+                            {% if brushing_price != blank %}
+                              {{- item.original_price | plus: brushing_price | money -}}
+                            {% else %}
+                              {{- item.original_price | money -}}
+                            {% endif %}
                           </s>
                           <span class="visually-hidden">
                             {{ 'products.product.price.sale_price' | t }}
@@ -121,7 +151,11 @@
                         </div>
                       {%- else -%}
                         <div class="product-option">
-                          {{ item.original_price | money }}
+                          {% if brushing_price != blank %}
+                            {{- item.original_price | plus: raw_brushing_price | money -}}
+                          {% else %}
+                            {{ item.original_price | money }}
+                          {% endif %}
                         </div>
                       {%- endif -%}
 
@@ -134,7 +168,13 @@
                             {%- for option in item.options_with_values -%}
                               <div class="product-option">
                                 <dt>{{ option.name }}:</dt>
-                                <dd>{{ option.value }}</dd>
+                                <dd
+                                  {% if option.name == 'Product' %}
+                                    id="related-product-title"
+                                  {% endif %}
+                                >
+                                  {{ option.value }}
+                                </dd>
                               </div>
                             {%- endfor -%}
                           {%- endif -%}
@@ -144,7 +184,11 @@
                             {%- if property.last != blank and property_first_char != '_' -%}
                               <div class="product-option">
                                 <dt>{{ property.first }}:</dt>
-                                <dd>
+                                <dd
+                                  {% if property.first == 'Product' %}
+                                    id="related-product-title"
+                                  {% endif %}
+                                >
                                   {%- if property.last contains '/uploads/' -%}
                                     <a href="{{ property.last }}" class="link" target="_blank">
                                       {{ property.last | split: '/' | last }}
@@ -181,19 +225,31 @@
                             </dt>
                             <dd>
                               <s class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
+                                {% if brushing_price != blank %}
+                                  {{- item.original_price | plus: brushing_price | money -}}
+                                {% else %}
+                                  {{- item.original_price | money -}}
+                                {% endif %}
                               </s>
                             </dd>
                             <dt class="visually-hidden">
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {{ item.final_line_price | money }}
+                              {% if brushing_price != blank %}
+                                {{- item.final_line_price | plus: brushing_price | money -}}
+                              {% else %}
+                                {{- item.final_line_price | money -}}
+                              {% endif %}
                             </dd>
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {{ item.original_line_price | money }}
+                            {% if brushing_price != blank %}
+                              {{- item.original_line_price | plus: brushing_price | money -}}
+                            {% else %}
+                              {{- item.original_line_price | money -}}
+                            {% endif %}
                           </span>
                         {%- endif -%}
 
@@ -241,7 +297,11 @@
                               </button>
                             {%- endif -%}
                             <quantity-input class="quantity cart-quantity">
-                              <button class="quantity__button" name="minus" type="button">
+                              <button
+                                class="quantity__button"
+                                name="minus"
+                                type="button"
+                              >
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
                                 </span>
@@ -253,6 +313,9 @@
                                 type="number"
                                 name="updates[]"
                                 value="{{ item.quantity }}"
+                                {% if related_product_preset != blank %}
+                                  data-brushing="{{ brushing_product_key }}"
+                                {% endif %}
                                 {% # theme-check-disable %}
                                 data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                                 min="0"
@@ -266,7 +329,11 @@
                                 id="Quantity-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
                               >
-                              <button class="quantity__button" name="plus" type="button">
+                              <button
+                                class="quantity__button"
+                                name="plus"
+                                type="button"
+                              >
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
                                 </span>
@@ -276,10 +343,13 @@
                           </div>
                           <cart-remove-button
                             id="Remove-{{ item.index | plus: 1 }}"
+                            data-product="{{ item.properties.preset }}"
                             data-index="{{ item.index | plus: 1 }}"
+                            {% if related_product_preset != blank %}
+                              data-related-product="{{ related_product_preset }}"
+                            {% endif %}
                           >
                             <a
-                              href="{{ item.url_to_remove }}"
                               class="button button--tertiary"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
@@ -404,12 +474,20 @@
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {{ item.final_line_price | money }}
+                              {% if brushing_price != blank %}
+                                {{ item.final_line_price | plus: brushing_price | money }}
+                              {% else %}
+                                {{ item.final_line_price | money }}
+                              {% endif %}
                             </dd>
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {{ item.original_line_price | money }}
+                            {% if brushing_price != blank %}
+                              {{- item.original_line_price | plus: brushing_price | money -}}
+                            {% else %}
+                              {{- item.original_line_price | money -}}
+                            {% endif %}
                           </span>
                         {%- endif -%}
 

@@ -64,7 +64,7 @@ if (!customElements.get('product-form')) {
             } else if (!this.cart) {
               const brushingProduct = document.getElementById('brushing-product');
               if (brushingProduct != null && brushingProduct.dataset.price != undefined) {
-                this.handleBrushingProduct(brushingProduct);
+                this.handleBrushingProduct(brushingProduct, response.title);
                 return;
               }
               window.location = window.routes.cart_url;
@@ -105,7 +105,9 @@ if (!customElements.get('product-form')) {
           });
       }
 
-      handleBrushingProduct(brushingProduct) {
+      handleBrushingProduct(brushingProduct, referenceTitle) {
+        const presetId = document.querySelector('.presetId').value;
+
         let quantity = 1;
         if (document.querySelector('.quantity__input') != null) {
           quantity = document.querySelector('.quantity__input').value;
@@ -114,6 +116,10 @@ if (!customElements.get('product-form')) {
         const additionalProductData = {
           id: brushingProduct.dataset.id,
           quantity: quantity,
+          properties: {
+            preset: presetId,
+            Product: referenceTitle,
+          },
         };
 
         fetch(window.Shopify.routes.root + 'cart/add.js', {
