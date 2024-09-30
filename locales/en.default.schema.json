@@ -1223,6 +1223,10 @@
           "options__4": {
             "label": "Large"
           },
+                    "options__5": {
+            "label": "Hero"
+          },
+
           "info": "For best results, use an image with a 3:2 aspect ratio. [Learn more](https:\/\/help.shopify.com\/manual\/shopify-admin\/productivity-tools\/image-editor#understanding-image-aspect-ratio)"
         },
         "desktop_content_position": {
