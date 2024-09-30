@@ -558,7 +558,7 @@
       this.updateProgressBar();
       this.attachEventListeners();
       this.addSlideIndexes();
-      this.logCurrentSlide();
+      
     }
 
     createProgressSegments() {
@@ -630,7 +630,7 @@
           if (entry.isIntersecting) {
             const slideIndex = entry.target.dataset.slideIndex;
             this.setCurrentSlide(parseInt(slideIndex, 10));
-            this.logCurrentSlide();
+            
           }
         });
       }, options);
@@ -639,9 +639,6 @@
       slides.forEach((slide) => observer.observe(slide));
     }
 
-    logCurrentSlide() {
-      console.log(`Current slide in view: ${this.currentSlide}`);
-    }
 
     goToPrevSlide() {
       if (this.currentSlide > 1) {
@@ -660,7 +657,7 @@
     setCurrentSlide(slideNumber) {
       this.currentSlide = Math.max(1, Math.min(slideNumber, this.totalSlides));
       this.updateProgressBar();
-      this.logCurrentSlide();
+      
     }
 
     // Swipe handling
