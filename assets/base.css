@@ -1178,7 +1178,7 @@ summary::-webkit-details-marker {
 .media > img {
   object-fit: cover;
   object-position: center center;
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ /* transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); flashing on scroll php TODO: revise this*/
 }
 
 .media--square {
