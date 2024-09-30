@@ -41,6 +41,10 @@
     text-align: center;
     pointer-events: none;
     opacity: 0.1;
+    @media screen and (max-width: 750px){
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 
   .footer__wordmark img {
@@ -193,7 +197,9 @@
                               <h2 class="footer-block__heading inline-richtext">
                                 {{ block.settings.location_heading }}
                               </h2>
-                              {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                              <div class="footer-block__country-localization">
+                                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                              </div>
                             </div>
                           {%- endform -%}
                         </localization-form>
@@ -215,7 +221,7 @@
                               id="NewsletterForm--{{ section.id }}"
                               type="email"
                               name="contact[email]"
-                              class="field__input"
+                              class="field__input footer-newsletter-form__input"
                               value="{{ form.email }}"
                               aria-required="true"
                               autocorrect="off"
