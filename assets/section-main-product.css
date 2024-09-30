@@ -341,6 +341,7 @@ a.product__text {
 
 .product__tax {
   margin-top: -1.4rem;
+  display: none;
 }
 
 .product--no-media .share-button {
