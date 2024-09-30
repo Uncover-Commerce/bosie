@@ -210,6 +210,7 @@ product-info {
 .shopify-payment-button__button {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
+  min-height: 6rem;/*custom button height bosie TODO: Can button heights be set in customiser */
 }
 
 /* Product info */
