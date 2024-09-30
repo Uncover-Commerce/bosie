@@ -23,7 +23,7 @@ variant-selects {
 }
 
 :is(.product-form__input--pill, .product-form__input--swatch) .form__label {
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.1rem;
 }
 
 .product-form__input input[type='radio'] {
@@ -63,10 +63,15 @@ variant-selects {
   color: rgba(var(--color-foreground));
   border-radius: var(--variant-pills-radius);
   color: rgb(var(--color-foreground));
-  display: inline-block;
-  margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+/*  margin: 0.7rem 0.5rem 0.2rem 0;*/
+/*  padding: 1rem 2rem;*/
+
+  min-width: 4rem;
+  min-height: 4rem;
+  font-size: 1.1rem;
   letter-spacing: 0.1rem;
   line-height: 1;
   text-align: center;
