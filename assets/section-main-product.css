@@ -258,11 +258,15 @@ a.product__text {
 .product__title h1{
   color: #2A3B4E;
   font-family: var(--font-heading-family-light);
-  font-size: 3.7rem;
+  font-size: 3.1rem;
   font-style: normal;
   font-weight: 300;
   line-height: 110%; /* 40.7px */
   letter-spacing: -0.74px;
+    @media screen and (min-width: 750px) {
+  font-size: 3.7rem;
+    
+    }
 }
 
 .product__title > * {
