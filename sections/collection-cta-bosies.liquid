@@ -118,8 +118,8 @@
   }
 {%- endstyle -%}
 
-<div class="collection-cta-container {% unless section.settings.full_width %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
-  <div class="carousel-wrapper page-width{% endunless %} {% if section.settings.full_width %}content-container--full-width{% endif %}">
+<div class="collection-cta-container {% unless section.settings.full_width %} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}{% endunless %}">
+  <div class="carousel-wrapper page-width{% if section.settings.full_width %} content-container--full-width{% endif %}">
     <div class="carousel-mask">
       <div class="carousel-track">
         {% for block in section.blocks %}
@@ -157,7 +157,13 @@
                     >
                   {% endif %}
                   {% if block.settings.block_link and block.settings.link_text %}
-                    <a href="{{ block.settings.block_link }}" class="custom-link">{{ block.settings.link_text }}</a>
+                    <a
+                      href="{{ block.settings.block_link }}"
+                      class="custom-link"
+                      data-text="{{ block.settings.link_text }}"
+                    >
+                      <span>{{- block.settings.link_text -}}</span>
+                    </a>
                   {% endif %}
                 </div>
               </div>
@@ -262,6 +268,14 @@
     position: relative;
   }
 
+  .carousel-btn-prev {
+    padding-right: 0.5rem;
+  }
+
+  .carousel-btn-next {
+    padding-left: 0.5rem;
+  }
+
   .carousel-progress-fill {
     min-width: 1px; /* Ensure the fill bar has a minimum width to prevent display: none */
     height: 100%;
@@ -276,10 +290,13 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
     height: 100%;
     @media screen and (min-width: 750px) {
       flex-direction: row;
+      padding-right: 3rem;
+      padding-left: 3rem;
+      padding-bottom: 0rem;
     }
   }
 
@@ -291,6 +308,8 @@
     font-weight: 450;
     line-height: 103.4%; /* 46.53px */
     letter-spacing: -0.9px;
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
 
   .collection-cta-image {
@@ -300,13 +319,17 @@
     @media screen and (min-width: 750px) {
       width: 50%;
       margin-bottom: 0;
+      margin-left: 2rem;
     }
   }
 
   .collection-cta-image img {
     width: 100%;
     object-fit: contain;
-    max-height: 800px;
+    max-height: 400px;
+    @media screen and (min-width: 750px) {
+      max-height: 800px;
+    }
   }
 
   .collection-cta-text-image {
@@ -321,12 +344,18 @@
   .cta-image-option {
     margin-top: 2.8rem;
     margin-bottom: 4rem;
-    width: 26rem !important;
-    filter: brightness(0) saturate(100%)
+
+    filter: brightness(0) saturate(100%);
   }
 
   .collection-cta-text-image img {
-    width: 20rem;
+    width: 20rem !important;
+    @media screen and (min-width: 750px) {
+      width: 23rem !important;
+    }
+    @media screen and (min-width: 990px) {
+      width: 26rem !important;
+    }
     object-fit: contain;
   }
 
@@ -334,12 +363,50 @@
     text-transform: uppercase;
     padding: 10px 0px;
     text-decoration: none;
-    border-bottom: 1px solid #2a3b4e;
     color: #2a3b4e;
     display: inline-block;
+    position: relative;
+    transition: all 0.1s ease;
+    perspective: 1000px;
   }
 
-  .custom-link:hover {
+  .custom-link::before,
+  .custom-link::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+    border-bottom: 1px solid #2a3b4e;
+  }
+
+  .custom-link::before {
+    transform: rotateX(0deg);
+    z-index: 2;
+  }
+
+  .custom-link::after {
+    transform: rotateX(-90deg) translateY(50%);
+    transform-origin: bottom center;
+    z-index: 1;
+  }
+
+  .custom-link:hover::before {
+    transform: rotateX(90deg) translateY(-50%);
+    transform-origin: top center;
+  }
+
+  .custom-link:hover::after {
+    transform: rotateX(0deg) translateY(0);
+  }
+
+  .custom-link span {
+    opacity: 0;
   }
 {% endstylesheet %}
 
@@ -402,25 +469,33 @@
     prevButton.addEventListener('click', handlePrevButtonClick);
 
     // Improved touch event handling
-    track.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      diffX = 0;
-      diffY = 0;
-    }, { passive: true });
+    track.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        diffX = 0;
+        diffY = 0;
+      },
+      { passive: true }
+    );
 
-    track.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 1) {
-        return; // Ignore multi-touch
-      }
-      diffX = e.touches[0].clientX - startX;
-      diffY = e.touches[0].clientY - startY;
-      
-      // Prevent vertical scrolling when swiping horizontally
-      if (Math.abs(diffX) > Math.abs(diffY)) {
-        e.preventDefault();
-      }
-    }, { passive: false });
+    track.addEventListener(
+      'touchmove',
+      (e) => {
+        if (e.touches.length > 1) {
+          return; // Ignore multi-touch
+        }
+        diffX = e.touches[0].clientX - startX;
+        diffY = e.touches[0].clientY - startY;
+
+        // Prevent vertical scrolling when swiping horizontally
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
 
     track.addEventListener('touchend', (e) => {
       const threshold = 50; // Minimum distance to trigger swipe
