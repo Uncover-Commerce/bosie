@@ -1,19 +1,19 @@
 /* Custom Fonts */
 @font-face {
   font-family: "StromaLightItalic";
-  src: url('StromaLightItalic.woff2') format('woff2');
+  src: url('StromaLightItalic.woff2') format('woff2'), url('StromaLightItalic.woff') format('woff');
 }
 @font-face {
   font-family: "StromaLight";
-  src: url('StromaLight.woff2') format('woff2');
+  src: url('StromaLight.woff2') format('woff2'), url('StromaLight.woff') format('woff');
 }
 @font-face {
   font-family: "StromaRegular";
-  src: url('StromaRegular.woff2') format('woff2');
+  src: url('StromaRegular.woff2') format('woff2'), url('StromaRegular.woff') format('woff');
 }
 @font-face {
   font-family: "StromaItalic";
-  src: url('StromaItalic.woff2') format('woff2');
+  src: url('StromaItalic.woff2') format('woff2'), url('StromaItalic.woff') format('woff');
 }
 
 
