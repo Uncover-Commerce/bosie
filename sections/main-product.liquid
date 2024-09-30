@@ -2362,7 +2362,7 @@
   // Function to move the element
   function moveMediaWrapper() {
     const mediaWrapper = document.querySelector('.product__media-wrapper');
-    const priceElement = document.querySelector('#price-template--23386312507706__main'); // Using the specific price element ID
+    const priceElement = document.querySelector(`[id^="price-"][id$="__main"]`); // Using the specific price element ID
     const productInfoWrapper = document.querySelector('.product__info-wrapper');
     if (!mediaWrapper || !priceElement || !productInfoWrapper) return; // Exit if elements are not found
 
