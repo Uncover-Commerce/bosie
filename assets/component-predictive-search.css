@@ -165,6 +165,9 @@ predictive-search[loading] .predictive-search {
   > * {
     margin: 0;
   }
+  .price .price-item--regular {
+    font-size: 1.4rem;
+  }
 }
 predictive-search .spinner {
   width: 1.5rem;
@@ -252,9 +255,12 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 
 .predictive-search__item-heading {
   margin-top: 1.8rem;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 110%;
   min-height: 6rem;
+  &.h5 {
+    font-size: 1.8rem;
+  }
 }
 
 .predictive-search__item-query-result *:not(mark) {
@@ -274,7 +280,7 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 
 .predictive-search__item .price {
   color: rgba(var(--color-foreground), 0.7);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .predictive-search__item-vendor + .predictive-search__item-heading,
