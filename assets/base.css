@@ -3051,18 +3051,22 @@ details-disclosure > details {
 }
 
 .badge {
-  border: 1px solid transparent;
-  border-radius: var(--badge-corner-radius);
   display: inline-block;
-  font-size: 1.2rem;
   letter-spacing: 0.1rem;
   line-height: 1;
-  padding: 0.5rem 1.3rem 0.6rem 1.3rem;
+  word-break: break-word; 
+  padding: 3px 4px;
+  gap: 10px;
+  background: #e3e0dc9c;
+  color: #1c2936;
   text-align: center;
-  background-color: rgb(var(--color-badge-background));
-  border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
-  color: rgb(var(--color-badge-foreground));
-  word-break: break-word;
+  font-family: var(--font-menu-sub);
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%;
+  letter-spacing: .32px;
+  text-transform: uppercase;
 }
 
 .gradient {
@@ -3751,4 +3755,69 @@ details-disclosure > details {
 }
 facet-filters-form.facets.small-hide {
   display: none !important;
+}
+
+/* POLICY PAGES */
+.shopify-policy__container{
+  max-width:70rem;
+}
+
+.shopify-policy__title{
+  padding-top: 6rem;
+  padding-bottom:5rem;
+  @media screen and (min-width: 990px) {
+    padding-top: 11rem;
+    padding-bottom:10rem;
+  }
+}
+
+.shopify-policy__body{
+  padding-bottom: 16rem;
+}
+/*
+.shopify-policy__body p strong{
+  color: #1C2936;
+  font-family: var(--font-heading-family-light);
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: -0.64px;
+}
+
+.shopify-policy__body p:last-child strong:last-child {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+}
+
+.shopify-policy__body p:has(strong) {
+  margin-top: 4.8rem;
+}
+*/
+
+.shopify-policy__body h1,
+.shopify-policy__body h2,
+.shopify-policy__body h3,
+.shopify-policy__body h4,
+.shopify-policy__body h5,
+.shopify-policy__body h6 {
+  margin-top:  4.8rem; /* Adjust this value as needed */
+}
+
+.shopify-policy__body p{
+  color: #1C2936;
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+/* RICH TEXT CHANGES */
+.rich-text__text{
+font-family: var(--font-body-family);
+font-style: normal;
+font-size: 1.4rem;
+font-weight: 400;
+line-height: 150%; /* 21px */
 }
