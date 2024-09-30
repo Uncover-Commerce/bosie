@@ -12,7 +12,7 @@
   }
 {%- endstyle -%}
 
-<section class="meet-the-team page-width">
+<section class="meet-the-team page-width section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
   <h2>{{ section.settings.title }}</h2>
   <div class="description">
     {{ section.settings.description }}
@@ -51,6 +51,32 @@
       "id": "description",
       "label": "Section Description",
       "default": "<p>Provide your customers with an introduction to your team.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
     }
   ],
   "blocks": [
@@ -107,7 +133,6 @@
 
   .meet-the-team h2 {
     text-align: center;
-    color: #1c2936;
     text-align: center;
     font-family: var(--font-heading-family-light);
     font-size: 6.2rem;
@@ -119,7 +144,6 @@
   }
 
   .meet-the-team .description {
-    color: #1c2936;
     text-align: center;
     font-family: var(--font-body-family);
     font-size: 1.4rem;
@@ -132,18 +156,19 @@
   .team-members {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin: -1rem; /* Negative margin to counteract item margins */
   }
 
   .team-member {
-    flex-basis: calc(50% - 0.5rem);
+    flex-basis: calc(50% - 2rem);
+    margin: 1rem;
   }
 
   .team-member .image-container {
     width: 100%;
     height: 0;
-    padding-bottom: 120%;
+    padding-bottom: 133.33%; /* 3:4 aspect ratio (75% * 4/3) */
     position: relative;
     overflow: hidden;
   }
@@ -153,12 +178,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 210px;
+    height: 100%;
     object-fit: cover;
   }
 
   .team-member h2 {
-    color: #1c2936;
     font-size: 4rem;
     font-style: normal;
     font-weight: 300;
@@ -169,7 +193,6 @@
 
   .team-member p {
     font-family: var(--font-heading-family-light);
-    color: #1c2936;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 300;
@@ -179,19 +202,29 @@
 
   @media (min-width: 750px) {
     .team-member {
-      flex-basis: calc(25% - 0.5rem);
+      flex-basis: calc(25% - 2rem);
+      margin: 1rem;
     }
     .team-member img {
-      max-height: 400px;
+      max-height: none; /* Remove the max-height constraint */
     }
     .team-member .image-container {
-      padding-bottom: 130%;
+      padding-bottom: 133.33%; /* Keep the same aspect ratio for larger screens */
     }
     .meet-the-team .description {
-      margin: 0 30rem 12rem 30rem;
+      margin: 0 10rem 8rem 10rem;
     }
     .meet-the-team h2 {
       font-size: 6.2rem;
+    }
+  }
+
+  @media (min-width: 990px) {
+    .team-members {
+      justify-content: flex-start;
+    }
+    .meet-the-team .description {
+      margin: 0 30rem 12rem 30rem;
     }
   }
 </style>
