@@ -22,7 +22,7 @@
   .newsletter-form {
     align-items: flex-start;
     /* margin: 0 auto; */
-    max-width: 36rem;
+    max-width: 50rem;
   }
 }
 
@@ -79,4 +79,32 @@
 
 .newsletter-form__button .icon {
   width: 1.5rem;
+}
+
+/* CUSTOM FORM STYLES */
+
+.footer-newsletter-form__input{
+  background-color: rgba(217, 217, 217, 0.1);
+}
+
+#Subscribe svg{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(273deg) brightness(103%) contrast(103%);
+}
+
+#NewsletterForm--sections--23308163612986__footer label{
+  color: #fff;
+}
+
+.footer .newsletter-form .field__label {
+  color: #FFF;
+  font-family: var(--font-menu-sub);
+  font-size: 9px;
+  font-style: normal;
+  text-transform: uppercase;
+  top: calc(1.5rem + var(--inputs-border-width));
+}
+
+.newsletter-form .field__label {
+  /* Your custom styles here */
+  color: #fff;
 }

@@ -214,7 +214,10 @@
 }
 
 .newsletter-form__field-wrapper {
-  max-width: 36rem;
+  max-width: 50rem;
+  @media screen and (min-width: 990px){
+    max-width: 31rem;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -360,6 +363,7 @@
 
 .footer-block__details-content {
   /* margin-bottom: 4rem; */
+  line-height: 103.4%;
 }
 
 @media screen and (min-width: 750px) {
@@ -411,7 +415,7 @@
 
 @media screen and (max-width: 989px) {
   .footer-block__details-content .list-menu__item--link {
-    padding-top: 1rem;
+    padding-top: 0rem;
     padding-bottom: 1rem;
   }
 }
@@ -568,4 +572,9 @@
 
 .studios a{
   color: rgba(249, 247, 244, 0.56);
+}
+
+.footer-block__country-localization .disclosure button{
+  padding-top:0;
+  text-decoration: underline;
 }

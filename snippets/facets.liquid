@@ -231,9 +231,9 @@
       {%- render 'loading-spinner' -%}
     </div>
     <details class="">
-      <summary class="bosie-mobile-facets__summary">
+      <summary class="bosie-mobile-facets__filter">
         <span class="mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}">
-          <span class="mobile-facets__open-label button-label bosie-label medium-hide large-up-hide">
+          <span class=" bosie-label">
             {%- if enable_filtering and enable_sorting -%}
               {{ 'products.facets.filter_and_sort' | t }}
             {%- elsif enable_filtering -%}
@@ -251,7 +251,12 @@
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
-                <h2 class="mobile-facets__heading medium-hide large-up-hide">
+                <h2
+                  class="
+                    mobile-facets__heading
+                    large-up-hide
+                  "
+                >
                   {%- if enable_filtering and enable_sorting -%}
                     {{ 'products.facets.filter_and_sort' | t }}
                   {%- elsif enable_filtering -%}
@@ -496,7 +501,15 @@
                   </div>
                 </details>
               {%- endif -%}
-
+              <div class="mobile-facets__footer-count">
+                {%- if results.results_count -%}
+                  {{ results.results_count }} results found for "{{ results.terms }}"
+                {%- elsif results.products_count == results.all_products_count -%}
+                  {{ results.products_count }} products
+                {%- else -%}
+                  {{ results.products_count }} Matching Products
+                {%- endif -%}
+              </div>
               <div class="mobile-facets__footer">
                 <facet-remove class="mobile-facets__clear-wrapper">
                   <a href="{{ results_url }}" class="mobile-facets__clear underlined-link">
