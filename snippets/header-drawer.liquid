@@ -128,18 +128,6 @@
                 </div>
               {%- endform -%}
             </localization-form>
-            <div class="search-container">
-              <form action="{{ routes.search_url }}" method="get" role="search" class="search">
-                <input
-                  name="q"
-                  value="{{ search.terms | escape }}"
-                  placeholder="Search products..."
-                  class="search__input search-input"
-                  aria-label="{{ 'general.search.placeholder' | t }}"
-                >
-                {% render 'icon-search-bosie' %}
-              </form>
-            </div>
             <a href="/account" class="login-button-bosie">{% render 'icon-account-login' %}account Login</a>
           </nav>
 
