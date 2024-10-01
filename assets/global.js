@@ -455,6 +455,10 @@ class MenuDrawer extends HTMLElement {
     const parentMenuElement = detailsElement.closest('.has-submenu');
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (window.location.pathname === '/') {
+    window.setInvertedNavigation(false);
+    }
+
 
     function addTrapFocus() {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
@@ -479,14 +483,17 @@ class MenuDrawer extends HTMLElement {
       }, 100);
     }
   }
+  
 
   openMenuDrawer(summaryElement) {
+
     setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     });
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
+
   }
 
   closeMenuDrawer(event, elementToFocus = false) {
@@ -505,7 +512,14 @@ class MenuDrawer extends HTMLElement {
     this.closeAnimation(this.mainDetailsToggle);
 
     if (event instanceof KeyboardEvent) elementToFocus?.setAttribute('aria-expanded', false);
+   console.log('close menu drawer');
+   //only if on the home page
+   if (window.location.pathname === '/') {
+    window.setInvertedNavigation(true);
+   }
+
   }
+
 
   onFocusOut() {
     setTimeout(() => {
@@ -517,6 +531,7 @@ class MenuDrawer extends HTMLElement {
   onCloseButtonClick(event) {
     const detailsElement = event.currentTarget.closest('details');
     this.closeSubmenu(detailsElement);
+    console.log('sub menu');
   }
 
   closeSubmenu(detailsElement) {
@@ -550,6 +565,14 @@ class MenuDrawer extends HTMLElement {
 
     window.requestAnimationFrame(handleAnimation);
   }
+}
+
+// Check if setInvertedNavigation is available
+if (typeof window.setInvertedNavigation === 'function') {
+  // Remove inverted-navigation class
+  window.setInvertedNavigation(false);
+} else {
+  console.warn('setInvertedNavigation function is not available');
 }
 
 customElements.define('menu-drawer', MenuDrawer);
