@@ -23,7 +23,7 @@
           "type": "heading",
           "settings": {
             "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading_size": "hxxl"
           }
         },
         "button": {
