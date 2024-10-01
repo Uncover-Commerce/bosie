@@ -98,7 +98,7 @@
             "content": "",
             "custom_liquid": "{{product.description}}",
             "page": "",
-            "open_by_default": false
+            "open_by_default": true
           }
         },
         "collapsible_tab_3y9PKE": {
