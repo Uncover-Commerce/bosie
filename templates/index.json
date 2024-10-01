@@ -43,6 +43,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
         "video": "",
@@ -56,6 +57,54 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
+      }
+    },
+    "image_banner_3nnQby": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_MRgxgU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_DAyzLC": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_WTEHPi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_MRgxgU",
+        "text_DAyzLC",
+        "buttons_WTEHPi"
+      ],
+      "settings": {
+        "video": "https://cdn.shopify.com/videos/c/o/v/7dd7991b1de7403abece900e2cca1040.mp4",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "trust_banner_bosies_LDCmM3": {
@@ -353,6 +402,7 @@
   },
   "order": [
     "image_banner",
+    "image_banner_3nnQby",
     "trust_banner_bosies_LDCmM3",
     "quote_bosies_C3VXgd",
     "column_cta_bosies_JhGeby",
