@@ -114,7 +114,7 @@
             "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
             "title": "Mens",
             "link_text": "View Collection",
-            "link": "shopify://collections/mens",
+            "link": "shopify://collections/all-mens",
             "overlay_opacity": 50
           }
         },
