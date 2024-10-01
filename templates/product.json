@@ -16,7 +16,7 @@
         "padding_top": 12,
         "padding_bottom": 12,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 40
+        "padding_bottom_mobile": 0
       }
     },
     "main": {
@@ -97,7 +97,8 @@
             "icon": "none",
             "content": "",
             "custom_liquid": "{{product.description}}",
-            "page": ""
+            "page": "",
+            "open_by_default": false
           }
         },
         "collapsible_tab_3y9PKE": {
@@ -107,7 +108,8 @@
             "icon": "none",
             "content": "",
             "custom_liquid": "",
-            "page": ""
+            "page": "",
+            "open_by_default": false
           }
         },
         "collapsible-row-3": {
@@ -117,7 +119,8 @@
             "icon": "none",
             "content": "",
             "custom_liquid": "",
-            "page": ""
+            "page": "",
+            "open_by_default": false
           }
         }
       },
