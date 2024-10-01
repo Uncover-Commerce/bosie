@@ -60,6 +60,7 @@
       id="Slider-Gallery-{{ section.id }}"
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
       role="list"
+      data-section-id="{{ section.id }}"
     >
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
@@ -130,19 +131,20 @@
         type="button"
         class="slider-button slider-button--prev"
         name="previous"
+        style="display: none;"
         aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
         {% render 'icon-caret' %}
       </button>
-      <div class="slider-counter caption">
-        <span class="slider-counter--current">1</span>
-        <span aria-hidden="true"> / </span>
-        <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        <span class="slider-counter--total">{{ media_count }}</span>
+      <div class="slider-counter gallery-slider-bosie">
+        {% for i in (1..media_count) %}
+          <span class="slider-counter__bar" data-index="{{ forloop.index }}">&nbsp;</span>
+        {% endfor %}
       </div>
       <button
         type="button"
         class="slider-button slider-button--next"
+        style="display: none;"
         name="next"
         aria-label="{{ 'general.slider.next_slide' | t }}"
       >

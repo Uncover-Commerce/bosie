@@ -174,6 +174,32 @@
   details[open] .accordion__icon .icon-minus {
     display: block;
   }
+
+  /* gallery slider */
+
+  .slider-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.8rem 0;
+  }
+
+  .slider-counter__bar {
+    width: 100%;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(var(--color-foreground), 0.4);
+    transition: background-color 0.2s ease;
+  }
+
+  .slider-counter__bar[aria-current='true'] {
+    background-color: rgba(var(--color-foreground), 1);
+  }
+
+  .slider-counter__bar--active {
+    background-color: rgba(var(--color-foreground), 1);
+  }
 {% endstyle %}
 
 <product-info
@@ -581,7 +607,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                  </s>
+                                  börd 
                                 </dd>
                               </dl>
                             {%- endif -%}
@@ -621,7 +647,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
-                                  </s>
+                                  börd 
                                 </dd>
                                 <dt class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
@@ -888,7 +914,7 @@
                             <div class="slider-buttons">
                               <button
                                 type="button"
-                                class="slider-button slider-button--prev"
+                                class="slider-button slider-button--prev visually-hidden"
                                 name="previous"
                                 aria-label="{{ 'general.slider.previous_slide' | t }}"
                               >
@@ -2451,4 +2477,118 @@
   function isMobile() {
     return window.innerWidth <= 768; // You can adjust this breakpoint as needed
   }
+
+  class ProductMediaGallery {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      this.slider = document.querySelector('.product__media-list');
+      if (!this.slider) {
+        console.log('Slider not found, retrying in 500ms');
+        setTimeout(() => this.init(), 500);
+        return;
+      }
+
+      console.log('Slider found:', this.slider);
+
+      this.sectionId = this.slider.closest('[data-section-id]')?.dataset.sectionId;
+      this.slides = this.slider.querySelectorAll('.product__media-item');
+      this.counterBars = document.querySelectorAll('.slider-counter__bar');
+
+      console.log('Section ID:', this.sectionId);
+      console.log('Slides:', this.slides.length);
+      console.log('Counter bars:', this.counterBars.length);
+
+      this.currentIndex = 0;
+      this.isScrolling = false;
+      this.touchStartX = 0;
+      this.touchEndX = 0;
+
+      this.updateSliderCounter = this.updateSliderCounter.bind(this);
+      this.handleTouchStart = this.handleTouchStart.bind(this);
+      this.handleTouchMove = this.handleTouchMove.bind(this);
+      this.handleTouchEnd = this.handleTouchEnd.bind(this);
+      this.handleScroll = this.handleScroll.bind(this);
+
+      this.slider.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+      this.slider.addEventListener('touchmove', this.handleTouchMove, { passive: true });
+      this.slider.addEventListener('touchend', this.handleTouchEnd);
+      this.slider.addEventListener('scroll', this.handleScroll);
+
+      // Add click event listeners to the counter bars
+      this.counterBars.forEach((bar, index) => {
+        bar.addEventListener('click', () => this.goToSlide(index));
+      });
+
+      // Initial update of the counter
+      this.updateSliderCounter(0);
+    }
+
+    handleTouchStart(e) {
+      this.touchStartX = e.touches[0].clientX;
+    }
+
+    handleTouchMove(e) {
+      this.touchEndX = e.touches[0].clientX;
+    }
+
+    handleTouchEnd() {
+      if (this.touchStartX - this.touchEndX > 50) {
+        // Swipe left
+        this.goToSlide(Math.min(this.currentIndex + 1, this.slides.length - 1));
+      } else if (this.touchEndX - this.touchStartX > 50) {
+        // Swipe right
+        this.goToSlide(Math.max(this.currentIndex - 1, 0));
+      }
+    }
+
+    handleScroll() {
+      if (!this.isScrolling) {
+        window.requestAnimationFrame(() => {
+          const scrollLeft = this.slider.scrollLeft;
+          const slideWidth = this.slides[0].offsetWidth;
+          const newIndex = Math.round(scrollLeft / slideWidth);
+          if (newIndex !== this.currentIndex) {
+            this.currentIndex = newIndex;
+            this.updateSliderCounter(this.currentIndex);
+          }
+          this.isScrolling = false;
+        });
+      }
+      this.isScrolling = true;
+    }
+
+    updateSliderCounter(index) {
+      this.counterBars.forEach((bar, i) => {
+        if (i === index) {
+          bar.setAttribute('aria-current', 'true');
+          bar.classList.add('slider-counter__bar--active');
+        } else {
+          bar.removeAttribute('aria-current');
+          bar.classList.remove('slider-counter__bar--active');
+        }
+      });
+
+      this.slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('is-active');
+        } else {
+          slide.classList.remove('is-active');
+        }
+      });
+    }
+
+    goToSlide(index) {
+      this.currentIndex = index;
+      this.updateSliderCounter(index);
+      this.slider.scrollLeft = index * this.slides[0].offsetWidth;
+    }
+  }
+
+  // Initialize the gallery
+  document.addEventListener('DOMContentLoaded', () => {
+    new ProductMediaGallery();
+  });
 {% endjavascript %}
