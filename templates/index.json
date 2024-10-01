@@ -45,7 +45,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
-        "video": "https://cdn.shopify.com/videos/c/o/v/7dd7991b1de7403abece900e2cca1040.mp4",
+        "video": "",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
@@ -114,7 +114,8 @@
             "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
             "title": "Mens",
             "link_text": "View Collection",
-            "link": "shopify://collections/mens"
+            "link": "shopify://collections/mens",
+            "overlay_opacity": 50
           }
         },
         "column_FYceUJ": {
@@ -123,7 +124,8 @@
             "image": "shopify://shop_images/bosieskyeslipover.jpg",
             "title": "Womens",
             "link_text": "View Collection",
-            "link": "shopify://collections/womens"
+            "link": "shopify://collections/womens",
+            "overlay_opacity": 50
           }
         }
       },
@@ -210,10 +212,10 @@
         "column_6PEjQW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/kellygreenshetland3.jpg",
             "title": "Winter Collection",
             "link_text": "View Collection",
-            "link": ""
+            "link": "",
+            "overlay_opacity": 50
           }
         },
         "column_iwzptJ": {
@@ -222,7 +224,8 @@
             "image": "shopify://shop_images/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
             "title": "Summer Collection",
             "link_text": "View Collection",
-            "link": ""
+            "link": "",
+            "overlay_opacity": 50
           }
         },
         "column_g78RqW": {
@@ -231,7 +234,8 @@
             "image": "shopify://shop_images/atlanticsprayblueshetland2.jpg",
             "title": "Holiday Collection",
             "link_text": "View Collection",
-            "link": ""
+            "link": "",
+            "overlay_opacity": 50
           }
         }
       },
@@ -256,7 +260,8 @@
             "image": "shopify://shop_images/royalvioletshetland2.jpg",
             "title": "The perfect gift  for any occasion",
             "link_text": "Shop Gift Vouchers",
-            "link": ""
+            "link": "",
+            "overlay_opacity": 50
           }
         }
       },
@@ -285,8 +290,7 @@
             "title": "Little Bosie",
             "rich_text": "<p>Lorem ipsum dolor sit amet consectetur. Ipsum et risus bibendum lectus. Arcu ut sollicitudin tortor odio aenean velit ultrices. Aliquet sollicitudin integer cursus sagittis cras et lorem congue in. </p>",
             "button_link": "/",
-            "button_text": "Shop the range",
-            "button_background": false
+            "button_text": "Shop the range"
           }
         },
         "image_6rfehf": {
