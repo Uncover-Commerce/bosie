@@ -2385,28 +2385,43 @@
 {% endschema %}
 
 {% javascript %}
+  // Debounce function to limit how often a function is called
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   // Function to move the element
   function moveMediaWrapper() {
     const mediaWrapper = document.querySelector('.product__media-wrapper');
-    const priceElement = document.querySelector(`[id^="price-"][id$="__main"]`); // Using the specific price element ID
+    const priceElement = document.querySelector(`[id^="price-"][id$="__main"]`);
     const productInfoWrapper = document.querySelector('.product__info-wrapper');
-    if (!mediaWrapper || !priceElement || !productInfoWrapper) return; // Exit if elements are not found
+    if (!mediaWrapper || !priceElement || !productInfoWrapper) return;
 
-    if (isMobile()) {
-      // Move media wrapper after the price element
+    if (window.innerWidth <= 768) { // Mobile breakpoint
       priceElement.parentNode.insertBefore(mediaWrapper, priceElement.nextSibling);
     } else {
-      // Move it back to its original position
       const productContainer = document.querySelector('.product');
       productContainer.insertBefore(mediaWrapper, productInfoWrapper);
     }
   }
 
+  // Debounced version of moveMediaWrapper
+  const debouncedMoveMediaWrapper = debounce(moveMediaWrapper, 250);
+
   // Call the function on page load
   document.addEventListener('DOMContentLoaded', moveMediaWrapper);
 
-  // Call the function when the window is resized
-  window.addEventListener('resize', moveMediaWrapper);
+  // Call the debounced function when the window is resized
+  window.addEventListener('resize', debouncedMoveMediaWrapper);
+
   function initSizeGuide() {
     const table = document.querySelector('.size-guide');
     const toggleContainer = document.getElementById('toggleContainer');
@@ -2472,11 +2487,6 @@
       variantSelects.appendChild(modalOpener);
     }
   });
-
-  // Function to check if the device is mobile
-  function isMobile() {
-    return window.innerWidth <= 768; // You can adjust this breakpoint as needed
-  }
 
   class ProductMediaGallery {
     constructor() {
