@@ -43,12 +43,12 @@
           "settings": {
             "title": "Collections",
             "linklist": "collections",
-            "image_1": "shopify:\/\/shop_images\/strawberrysherbetpinkshetland.jpg",
-            "logo_1": "shopify:\/\/shop_images\/blue-mogganes.svg",
+            "image_1": "shopify://shop_images/strawberrysherbetpinkshetland.jpg",
+            "logo_1": "shopify://shop_images/blue-mogganes.svg",
             "caption_1": "",
-            "link_1": "shopify:\/\/collections\/blue-mogganer-®",
-            "image_2": "shopify:\/\/shop_images\/oatmilkshetlandsweater1.jpg",
-            "logo_2": "shopify:\/\/shop_images\/harley-of-scotland.svg",
+            "link_1": "shopify://collections/blue-mogganer-®",
+            "image_2": "shopify://shop_images/oatmilkshetlandsweater1.jpg",
+            "logo_2": "shopify://shop_images/harley-of-scotland.svg",
             "caption_2": "",
             "link_2": ""
           }
@@ -58,18 +58,30 @@
           "settings": {
             "title": "Mens",
             "linklist": "mens",
-            "image_1": "shopify:\/\/shop_images\/medgreyshetlandsweater.jpg",
+            "image_1": "shopify://shop_images/medgreyshetlandsweater.jpg",
             "caption_1": "Sweaters",
-            "link_1": "shopify:\/\/collections\/shetland-collection",
-            "image_2": "shopify:\/\/shop_images\/bluetoonshetland.jpg",
+            "link_1": "shopify://collections/shetland-collection",
+            "image_2": "shopify://shop_images/bluetoonshetland.jpg",
             "caption_2": "Cardigans",
+            "link_2": ""
+          }
+        },
+        "menu_n8dy6w": {
+          "type": "menu",
+          "settings": {
+            "title": "womens",
+            "linklist": "womens",
+            "caption_1": "",
+            "link_1": "",
+            "caption_2": "",
             "link_2": ""
           }
         }
       },
       "block_order": [
         "menu_AXaVre",
-        "menu_UcYjX8"
+        "menu_UcYjX8",
+        "menu_n8dy6w"
       ],
       "settings": {
         "logo_position": "top-center",
