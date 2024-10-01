@@ -66,8 +66,8 @@ variant-selects {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-/*  margin: 0.7rem 0.5rem 0.2rem 0;*/
-/*  padding: 1rem 2rem;*/
+margin: 0.7rem 0.5rem 0.2rem 0;
+padding: 1rem 2rem;
 
   min-width: 4rem;
   min-height: 4rem;
