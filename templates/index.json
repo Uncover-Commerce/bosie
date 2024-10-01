@@ -179,7 +179,7 @@
             "content_type": "image",
             "block_text": "This is your text here.",
             "block_image": "shopify://shop_images/harley-of-scotland.svg",
-            "block_link": "/",
+            "block_link": "shopify://collections/harley-of-scotland",
             "link_text": "View Collection"
           }
         },
@@ -188,9 +188,10 @@
           "settings": {
             "image_one": "shopify://shop_images/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
             "image_two": "shopify://shop_images/strawberrysherbetpinkshetland2.jpg",
-            "content_type": "text",
+            "content_type": "image",
             "block_text": "This is your text here.",
-            "block_link": "/",
+            "block_image": "shopify://shop_images/blue-mogganes.svg",
+            "block_link": "shopify://collections/blue-mogganer",
             "link_text": "View Collection"
           }
         }
