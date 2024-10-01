@@ -847,6 +847,9 @@ Navigation Inversion
       elements.headerWrapperBosie.classList.add(classActions.remove[0]);
     }
   }
+    // Make setInvertedNavigation available globally
+    window.setInvertedNavigation = setInvertedNavigation;
+
 
   function addClassToSVG(element, className) {
     if (element && element.classList) {
@@ -885,9 +888,9 @@ Navigation Inversion
     }
   }
 
+  // Make setInvertedNavigation available globally
+  window.setInvertedNavigation = setInvertedNavigation;
 
-
- 
 {% endjavascript %}
 
 <script type="application/ld+json">
