@@ -1558,6 +1558,7 @@ l
 
 .custom_variant_colour_list {
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
 }
@@ -1566,6 +1567,7 @@ l
   width: 3rem;
   height: 3rem;
   margin-right: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 

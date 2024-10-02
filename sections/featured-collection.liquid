@@ -555,10 +555,10 @@
 
     init() {
       this.createProgressSegments();
+      this.determineInitialSlide();
       this.updateProgressBar();
       this.attachEventListeners();
       this.addSlideIndexes();
-      
     }
 
     createProgressSegments() {
@@ -628,9 +628,8 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const slideIndex = entry.target.dataset.slideIndex;
-            this.setCurrentSlide(parseInt(slideIndex, 10));
-            
+            const slideIndex = parseInt(entry.target.dataset.slideIndex, 10);
+            this.setCurrentSlide(slideIndex);
           }
         });
       }, options);
@@ -638,7 +637,6 @@
       const slides = this.slider.querySelectorAll('.slider__slide');
       slides.forEach((slide) => observer.observe(slide));
     }
-
 
     goToPrevSlide() {
       if (this.currentSlide > 1) {
@@ -657,7 +655,6 @@
     setCurrentSlide(slideNumber) {
       this.currentSlide = Math.max(1, Math.min(slideNumber, this.totalSlides));
       this.updateProgressBar();
-      
     }
 
     // Swipe handling
@@ -687,9 +684,31 @@
       this.touchStartX = null;
       this.touchEndX = null;
     }
+
+    determineInitialSlide() {
+      const visibleSlide = this.findVisibleSlide();
+      if (visibleSlide) {
+        const slideIndex = parseInt(visibleSlide.dataset.slideIndex, 10);
+        this.setCurrentSlide(slideIndex);
+      }
+    }
+
+    findVisibleSlide() {
+      const slides = this.slider.querySelectorAll('.slider__slide');
+      const sliderRect = this.slider.getBoundingClientRect();
+
+      for (const slide of slides) {
+        const slideRect = slide.getBoundingClientRect();
+        if (slideRect.left >= sliderRect.left && slideRect.right <= sliderRect.right) {
+          return slide;
+        }
+      }
+
+      return null;
+    }
   }
 
-  // Usage
+  // Initialize SliderProgress instances
   document.addEventListener('DOMContentLoaded', () => {
     const sliders = document.querySelectorAll('slider-component');
     sliders.forEach((slider) => {
