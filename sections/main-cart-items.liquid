@@ -82,8 +82,19 @@
 
               <tbody>
                 {%- for item in cart.items -%}
+                  {% assign hide_product = false %}
+
+                  {%- for property in item.properties -%}
+                    {%- assign property_first_char = property.first | slice: 0 -%}
+                    {%- if property.last != blank and property_first_char != '_' -%}
+                      {% if property.first == 'Product' %}
+                        {% assign hide_product = true %}
+                      {% endif %}
+                    {%- endif -%}
+                  {%- endfor -%}
+
                   <tr
-                    class="cart-item"
+                    class="cart-item {% if hide_product %} hidden {% endif %}"
                     id="CartItem-{{ item.index | plus: 1 }}"
                     data-index="{{ item.index | plus: 1 }}"
                   >
@@ -105,12 +116,8 @@
                     </td>
 
                     <td class="cart-item__details">
-                      Cart item ID: {{ item.key }}
-
                       {% assign related_product = item.product.metafields.custom.brushing_service.value %}
                       {% if related_product != blank %}
-                        Related product: {{ related_product.id }}
-
                         {% comment %} SEARCHING FOR RELATED PRODUCT {% endcomment %}
                         {% for related_item in cart.items %}
                           {% if related_item.properties.Product == item.title %}
@@ -119,7 +126,6 @@
                             {% assign brushing_product_key = related_item.key %}
                             {% assign related_product_index = related_item.index | plus: 1 %}
                             {% assign related_product_preset = related_item.properties.preset %}
-                            Related product key: {{ brushing_product_key }}
                           {% endif %}
                         {% endfor %}
                       {% endif %}
@@ -182,22 +188,24 @@
                           {%- for property in item.properties -%}
                             {%- assign property_first_char = property.first | slice: 0 -%}
                             {%- if property.last != blank and property_first_char != '_' -%}
-                              <div class="product-option">
-                                <dt>{{ property.first }}:</dt>
-                                <dd
-                                  {% if property.first == 'Product' %}
-                                    id="related-product-title"
-                                  {% endif %}
-                                >
-                                  {%- if property.last contains '/uploads/' -%}
-                                    <a href="{{ property.last }}" class="link" target="_blank">
-                                      {{ property.last | split: '/' | last }}
-                                    </a>
-                                  {%- else -%}
-                                    {{ property.last }}
-                                  {%- endif -%}
-                                </dd>
-                              </div>
+                              {% unless property.first == 'preset' %}
+                                <div class="product-option">
+                                  <dt>{{ property.first }}:</dt>
+                                  <dd
+                                    {% if property.first == 'Product' %}
+                                      id="related-product-title"
+                                    {% endif %}
+                                  >
+                                    {%- if property.last contains '/uploads/' -%}
+                                      <a href="{{ property.last }}" class="link" target="_blank">
+                                        {{ property.last | split: '/' | last }}
+                                      </a>
+                                    {%- else -%}
+                                      {{ property.last }}
+                                    {%- endif -%}
+                                  </dd>
+                                </div>
+                              {% endunless %}
                             {%- endif -%}
                           {%- endfor -%}
                         </dl>
