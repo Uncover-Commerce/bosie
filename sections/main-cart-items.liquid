@@ -6,16 +6,35 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+  .brushing-footer p {
+    padding-top: 2px;
+    margin: 0px;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+  .brushing-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .brushing-footer {
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 15px;
+    background-color: #e9cdc5;
+    padding: 16px 30px;
+    width: fit-content;
   }
 {%- endstyle -%}
 
@@ -221,6 +240,24 @@
                           </li>
                         {%- endfor -%}
                       </ul>
+
+                      {% if related_product != blank %}
+                        {% assign show_footer_message = false %}
+                        {%- for property in item.properties -%}
+                          {%- assign property_first_char = property.first | slice: 0 -%}
+                          {%- if property.last != blank and property_first_char != '_' -%}
+                            {% if property.first == 'brushingID' %}
+                              {% assign show_footer_message = true %}
+                            {% endif %}
+                          {%- endif -%}
+                        {%- endfor -%}
+
+                        {% if show_footer_message %}
+                          <div class="brushing-footer">
+                            <p class="brushing-link">{{ section.settings.brushing_footer_label }}</p>
+                          </div>
+                        {% endif %}
+                      {% endif %}
                     </td>
 
                     <td class="cart-item__totals right medium-hide large-up-hide">
@@ -570,6 +607,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "brushing_footer_label",
+      "label": "Brushing footer label",
+      "default": "Please note by adding this service this product cant be returned"
     }
   ]
 }
