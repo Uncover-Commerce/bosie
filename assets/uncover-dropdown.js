@@ -1,7 +1,9 @@
 class UncoverDropdown extends HTMLElement {
   constructor() {
     super();
+    this.currentProductID = null;
     this.btnEventListeners();
+    this.getProductID(true);
   }
 
   btnEventListeners() {
@@ -86,26 +88,48 @@ class UncoverDropdown extends HTMLElement {
   }
 
   updateProductPrice(price) {
-    const { productPrice, currencyFormat } = this.dropdownComponents();
-    const priceElements = document.querySelectorAll('.price-item--regular');
+    const { currencyFormat } = this.dropdownComponents();
 
+    const priceElements = document.querySelectorAll('.price-item--regular');
+    const priceSaleElement = document.querySelectorAll('.price-item--sale');
+
+    const currentVariantData = document.querySelector(`#variant-${this.currentProductID}`);
+
+    const variantPrice = currentVariantData.dataset.price;
+    const variantComparePrice = currentVariantData.dataset.compare;
+
+    //Revert to priginal product price
     if (price == null) {
-      priceElements.forEach((price) => {
-        price.textContent = formatMoney(productPrice, currencyFormat);
+      priceElements.forEach((priceElement) => {
+        if (variantComparePrice !== '') {
+          priceElement.textContent = formatMoney(Number(variantComparePrice), currencyFormat);
+        } else {
+          priceElement.textContent = formatMoney(Number(variantPrice), currencyFormat);
+        }
+      });
+      priceSaleElement.forEach((salePriceElement) => {
+        salePriceElement.textContent = formatMoney(variantPrice, currencyFormat);
       });
       return;
     }
 
-    let currentPrice = this.removeCurrencyFormat(productPrice);
-    currentPrice = this.removeDotsAndCommas(currentPrice);
-    let variantPrice = this.removeCurrencyFormat(price);
-
-    let totalPrice = Number(currentPrice) + Number(variantPrice);
+    //Update product price with brushing selected
+    let totalPrice = Number(variantPrice) + Number(this.removeCurrencyFormat(price));
     totalPrice = formatMoney(totalPrice, currencyFormat);
+    let comparePrice = formatMoney(
+      Number(variantComparePrice) + Number(this.removeCurrencyFormat(price)),
+      currencyFormat
+    );
 
     priceElements.forEach((price) => {
-      price.textContent = totalPrice;
+      price.textContent = variantComparePrice === '' ? totalPrice : comparePrice;
     });
+
+    if (variantComparePrice !== '') {
+      priceSaleElement.forEach((salePriceElement) => {
+        salePriceElement.textContent = totalPrice;
+      });
+    }
   }
 
   toggleDropdownNavigation(dropdownButton) {
@@ -149,6 +173,23 @@ class UncoverDropdown extends HTMLElement {
       newProductInput.value = productNote;
       productForm.appendChild(newProductInput);
     }
+  }
+
+  getProductID(initLoad = false) {
+    const productForm = document.querySelector('.product-form');
+
+    if (!productForm) return;
+
+    const updateProductID = () => {
+      const selectedVariant = productForm.querySelector('[name="id"]').value;
+      this.currentProductID = selectedVariant;
+    };
+
+    if (initLoad) {
+      updateProductID(); // Get the product ID on initial load if specified
+    }
+
+    productForm.addEventListener('change', updateProductID);
   }
 
   dropdownComponents() {

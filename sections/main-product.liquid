@@ -249,6 +249,18 @@
 <div id="cart-currency-symbol" data-symbol="{{ cart.currency.symbol }}"></div>
 <div id="product-price" data-price="{{ product.price }}"></div>
 
+{% if product.variants.size > 1 %}
+  <div id="product-variants">
+    {% for variant in product.variants %}
+      <div
+        id="variant-{{ variant.id }}"
+        data-price="{{ variant.price }}"
+        data-compare="{{ variant.compare_at_price }}"
+      ></div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
