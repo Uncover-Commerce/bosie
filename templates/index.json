@@ -260,7 +260,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/royalvioletshetland2.jpg",
-            "title": "The perfect gift  for any occasion",
+            "title": "The perfect gift for any occasion",
             "link_text": "Shop Gift Vouchers",
             "link": "shopify://products/bosie-gift-card-1",
             "overlay_opacity": 50
