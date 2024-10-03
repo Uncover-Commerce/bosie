@@ -53,6 +53,14 @@
             "page": "{{ product.metafields.custom.size_guide.value }}"
           }
         },
+        "brushing_service_AqmKH6": {
+          "type": "brushing_service",
+          "settings": {
+            "header": "Brushing Service",
+            "popup_label": "Brushing Level guide ›",
+            "footer_label": "Please note by adding this service this product cant be returned"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -130,6 +138,7 @@
         "caption",
         "price",
         "popup_nCnAEg",
+        "brushing_service_AqmKH6",
         "variant_picker",
         "custom_varrient_YeYrm4",
         "quantity_selector",
