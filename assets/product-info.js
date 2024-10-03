@@ -65,6 +65,8 @@ if (!customElements.get('product-info')) {
 
         this.resetProductFormState();
 
+        console.log('Updating product value!');
+
         const productUrl = target.dataset.productUrl || this.pendingRequestUrl || this.dataset.url;
         this.pendingRequestUrl = productUrl;
         const shouldSwapProduct = this.dataset.url !== productUrl;
@@ -127,6 +129,22 @@ if (!customElements.get('product-info')) {
           .then(() => {
             // set focus to last clicked option value
             document.querySelector(`#${targetId}`)?.focus();
+
+            const allProductPrices = document.querySelectorAll('.price-item--regular');
+            const brushingProduct = document.querySelector('#brushing-product');
+            const currencyFormat = document.getElementById('cart-currency-format').getAttribute('data-format');
+
+            if (allProductPrices.length > 0 && brushingProduct != null && brushingProduct.dataset.price != undefined) {
+              let currentPrice = allProductPrices[0].textContent;
+              let brushingProductPrice = brushingProduct.dataset.price;
+              currentPrice = currentPrice.replace(/[^\d.]/g, '');
+              currentPrice = currentPrice.replace(/[.,]/g, '');
+              let totalPrice = Number(currentPrice) + Number(brushingProductPrice);
+
+              allProductPrices.forEach((price) => {
+                price.textContent = formatMoney(totalPrice, currencyFormat);
+              });
+            }
           })
           .catch((error) => {
             if (error.name === 'AbortError') {

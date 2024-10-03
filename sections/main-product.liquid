@@ -199,8 +199,128 @@
 
   .slider-counter__bar--active {
     background-color: rgba(var(--color-foreground), 1);
+  .brushing-header {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brushing-header p {
+    font-size: 11px;
+    color: #1b2a36;
+  }
+  .brushing-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .brushing-footer {
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 15px;
+  }
+  .dropdown-button {
+    border: 1px solid #1b2a36;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .dropdown-button p,
+  .brushing-footer p {
+    padding-top: 2px;
+    margin: 0px;
+  }
+  .select-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .select-button p {
+    margin: 0;
+    padding: 0;
+  }
+  .selector-variant-1 {
+    background-color: #eeece6;
+  }
+  .selector-variant-2 {
+    background-color: #e3e3e0;
+  }
+  .hidden-dropdown {
+    display: none;
+  }
+  .dropdown-container {
+    position: relative;
+  }
+  .dropdown-content {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+  }
+  .dropdown-active-footer {
+    background-color: #e9cdc5;
+    padding: 16px 30px;
+  }
+  .brushing-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure modal is on top */
+  }
+
+  .brushing-modal {
+    width: 70%;
+    height: 70%;
+    background-color: white; /* Modal background */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brushing-exit-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .brushing-modal-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100% - 40px);
+    margin-top: 20px;
+    padding-right: 40px;
   }
 {% endstyle %}
+
+<div id="cart-currency-format" data-format="{{ shop.money_format }}"></div>
+<div id="cart-currency-symbol" data-symbol="{{ cart.currency.symbol }}"></div>
+<div id="product-price" data-price="{{ product.price }}"></div>
+
+{% if product.variants.size > 1 %}
+  <div id="product-variants">
+    {% for variant in product.variants %}
+      <div
+        id="variant-{{ variant.id }}"
+        data-price="{{ variant.price }}"
+        data-compare="{{ variant.compare_at_price }}"
+      ></div>
+    {% endfor %}
+  </div>
+{% endif %}
 
 <product-info
   id="MainProduct-{{ section.id }}"
@@ -245,6 +365,7 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'uncover-dropdown.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -275,6 +396,8 @@
       onload="this.media='all'"
     >
   {%- endif -%}
+
+  {% render 'uniqueid', product: product %}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
@@ -366,6 +489,7 @@
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
@@ -500,7 +624,82 @@
                 </div>
 
               {%- when 'brushing_service' -%}
-                <p>Brushing Service</p>
+                {% assign brushing_product = product.metafields.custom.brushing_service.value %}
+                {% if brushing_product != blank %}
+                  <div>
+                    {% comment %} Brushing header {% endcomment %}
+                    <div class="brushing-header">
+                      {% if block.settings.header != blank %}
+                        <p>{{ block.settings.header }}*</p>
+                      {% endif %}
+                      {% if block.settings.popup_label != blank %}
+                        <p class="brushing-link">{{ block.settings.popup_label }}</p>
+                      {% endif %}
+                    </div>
+
+                    {% comment %} Brushing dropdown {% endcomment %}
+                    <uncover-dropdown class="dropdown-container">
+                      <div
+                        id="brushing-product"
+                      ></div>
+                      <div class="dropdown-button">
+                        <p id="dropdown-title">Please select...</p>
+                        <div id="dropdown-arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512">
+                            <path
+                              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="dropdown-content hidden-dropdown">
+                        {% comment %} DEFAULT OPTION {% endcomment %}
+                        <div class="select-button selector-variant-1" data-title="NO BRUSHING" data-reset="true">
+                          <p>NO BRUSHING</p>
+                          <p>£N/A</p>
+                        </div>
+
+                        {% if brushing_product.variants.size > 1 %}
+                          {% for variant in brushing_product.variants %}
+                            {% assign mod_value = forloop.index | modulo: 2 %}
+                            {% if mod_value == 0 %}
+                              {% assign variant_class = 'selector-variant-1' %}
+                            {% else %}
+                              {% assign variant_class = 'selector-variant-2' %}
+                            {% endif %}
+                            <div
+                              class="select-button {{ variant_class }}"
+                              data-title="{{ variant.title }}"
+                              data-price="{{ variant.price | money }}"
+                              data-product="{{ variant.id }}"
+                              data-rawPrice="{{ variant.price }}"
+                            >
+                              <p>{{ variant.title }}</p>
+                              <p>+ {{ variant.price | money }}</p>
+                            </div>
+                          {% endfor %}
+                        {% else %}
+                          <div
+                            class="select-button selector-variant-2"
+                            data-title="{{ brushing_product.title }}"
+                            data-price="{{ brushing_product.price | money }}"
+                            data-rawPrice="{{ brushing_product.price }}"
+                            data-product="{{ brushing_product.selected_or_first_available_variant.id }}"
+                          >
+                            <p>{{ brushing_product.title }}</p>
+                            <p>+ {{ brushing_product.price | money }}</p>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </uncover-dropdown>
+
+                    {% comment %} Brushing footer {% endcomment %}
+                    {% if block.settings.footer_label != blank %}
+                      <div class="brushing-footer">
+                        <p class="brushing-link">{{ block.settings.footer_label }}</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -1043,7 +1242,58 @@
       {{ product | structured_data }}
     </script>
   </div>
+
+  {% for block in section.blocks %}
+    {% if block.type == 'brushing_service' %}
+      {% assign brushing_product = product.metafields.custom.brushing_service.value %}
+      {% if brushing_product != blank and brushing_product.description != blank %}
+        {% comment %} Brushing modal {% endcomment %}
+        <brushing-modal class="brushing-modal-wrapper hidden">
+          <div class="brushing-modal">
+            <div class="brushing-exit-button">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="20" height="20" fill="white"/>
+                <path d="M10.9122 10L17.5271 3.38501L16.615 2.47284L9.99999 9.08783L3.38501 2.47285L2.47284 3.38502L9.08782 10L2.47284 16.615L3.38501 17.5271L9.99999 10.9122L16.615 17.5272L17.5271 16.615L10.9122 10Z" fill="#2A3B4E"/>
+              </svg>
+            </div>
+
+            <div class="brushing-modal-content">
+              {{ brushing_product.description }}
+            </div>
+          </div>
+        </brushing-modal>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 </product-info>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    let allUniqueIDS = document.querySelectorAll('.presetId');
+    let uniqueID = `{{ product.id }}${makeid(6)}`;
+    allUniqueIDS.forEach((inputField) => {
+      inputField.value = uniqueID;
+    });
+  });
+
+  function makeid(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+</script>
 
 {% schema %}
 {
@@ -1121,7 +1371,27 @@
     {
       "type": "brushing_service",
       "name": "Brushing Service",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Heading",
+          "default": "Brushing Service"
+        },
+        {
+          "type": "text",
+          "id": "popup_label",
+          "label": "Popup label",
+          "default": "Brushing Level guide ›"
+        },
+        {
+          "type": "text",
+          "id": "footer_label",
+          "label": "Footer label",
+          "default": "Please note by adding this service this product cant be returned"
+        }
+      ]
     },
     {
       "type": "sku",
