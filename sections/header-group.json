@@ -71,10 +71,12 @@
           "settings": {
             "title": "Womens",
             "linklist": "womens",
+            "image_1": "shopify://shop_images/mushroom_brown_brushed_shetland_wool_beanie_hat_lambswool.jpg",
             "caption_1": "",
-            "link_1": "",
+            "link_1": "shopify://collections/womens",
+            "image_2": "shopify://shop_images/crabapple_green_west_coast_cardigan_lambswool_cardigan_bosie_knitwear.jpg",
             "caption_2": "",
-            "link_2": ""
+            "link_2": "shopify://collections/womens-voe-true-shetland"
           }
         }
       },
