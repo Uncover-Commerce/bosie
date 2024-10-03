@@ -117,7 +117,7 @@ if (!customElements.get('product-form')) {
           id: brushingProduct.dataset.id,
           quantity: quantity,
           properties: {
-            preset: presetId,
+            brushingID: presetId,
             Product: referenceTitle,
           },
         };

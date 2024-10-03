@@ -17,7 +17,7 @@ function removeNewItemsFromCart(id) {
       const updates = {};
       const products = data.items;
       const filteredProducts = products.filter((p) => {
-        if (p.properties.preset === id) {
+        if (p.properties.brushingID === id) {
           return p;
         }
       });

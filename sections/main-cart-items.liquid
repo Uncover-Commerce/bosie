@@ -125,7 +125,7 @@
                             {% assign raw_brushing_price = related_item.price %}
                             {% assign brushing_product_key = related_item.key %}
                             {% assign related_product_index = related_item.index | plus: 1 %}
-                            {% assign related_product_preset = related_item.properties.preset %}
+                            {% assign related_product_preset = related_item.properties.brushingID %}
                           {% endif %}
                         {% endfor %}
                       {% endif %}
@@ -188,7 +188,7 @@
                           {%- for property in item.properties -%}
                             {%- assign property_first_char = property.first | slice: 0 -%}
                             {%- if property.last != blank and property_first_char != '_' -%}
-                              {% unless property.first == 'preset' %}
+                              {% unless property.first == 'brushingID' %}
                                 <div class="product-option">
                                   <dt>{{ property.first }}:</dt>
                                   <dd
@@ -351,7 +351,7 @@
                           </div>
                           <cart-remove-button
                             id="Remove-{{ item.index | plus: 1 }}"
-                            data-product="{{ item.properties.preset }}"
+                            data-product="{{ item.properties.brushingID }}"
                             data-index="{{ item.index | plus: 1 }}"
                             {% if related_product_preset != blank %}
                               data-related-product="{{ related_product_preset }}"

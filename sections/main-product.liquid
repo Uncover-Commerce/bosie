@@ -1185,7 +1185,7 @@
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     let allUniqueIDS = document.querySelectorAll('.presetId');
-    let uniqueID = `{{ product.id }}${makeid(10)}`;
+    let uniqueID = `{{ product.id }}${makeid(6)}`;
     allUniqueIDS.forEach((inputField) => {
       inputField.value = uniqueID;
     });
@@ -1193,7 +1193,7 @@
 
   function makeid(length) {
     let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const characters = '0123456789';
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
