@@ -125,7 +125,7 @@
           "settings": {
             "heading": "Colour / Design Story",
             "icon": "none",
-            "content": "<p>French Red is a bright, cool toned, cherry red.</p>",
+            "content": "<p><strong>French Red</strong> is a bright, cool toned, cherry red.</p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
