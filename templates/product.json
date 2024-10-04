@@ -123,9 +123,9 @@
         "collapsible-row-3": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Colour/Design Story",
+            "heading": "Colour / Design Story",
             "icon": "none",
-            "content": "",
+            "content": "<p>French Red is a bright, cool toned, cherry red.</p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
