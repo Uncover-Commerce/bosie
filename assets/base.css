@@ -2118,9 +2118,6 @@ input[type='checkbox'] {
 .modal__toggle {
   list-style-type: none;
 }
-.modal__toggle::after {
-  content: 'search';
-}
 
 .modal__toggle-close {
   display: none;
@@ -2726,10 +2723,12 @@ menu-drawer + .header__search {
   align-items:center;
 }
 .search-text-b {
- 
   display: none;
 }
-
+.search_icons_wrapper::after {
+  content: 'search';
+  margin-left: 1.4rem;
+}
 @media screen and (min-width: 990px) {
   .search-text-b {
     text-transform: uppercase;
