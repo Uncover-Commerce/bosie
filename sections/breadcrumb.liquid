@@ -16,26 +16,31 @@
       margin: 0 auto;
     }
 
+  .breadcrumbs {
+    padding-inline: 0.4rem;
+    font-size: 9px;
+  }
+
+  @media screen and (min-width: 750px) {
     .breadcrumbs {
-      padding-inline: 0.4rem;
-      font-size: 9px;
-      @media screen and (min-width: 750px) {
-        font-size: 11px;
-      }
-  a {
+      font-size: 11px;
+    }
+  }
+
+  .breadcrumbs a {
     font-family: var(--font-heading-font-family);
-    font-weight: 400;
     color: var(--foreground-color);
-      font-weight: 400;
-      text-decoration: none;
-      }
-      .active-breadcrumb {
-      color: #ACACAC;
-      }
-      }
-      .breadcrumbs--last {
-        color: #ACACAC;
-      }
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .breadcrumbs .active-breadcrumb {
+    color: #ACACAC;
+  }
+
+  .breadcrumbs--last {
+    color: #ACACAC;
+  }
 {%- endstyle -%}
 
 <div
