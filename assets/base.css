@@ -2937,6 +2937,7 @@ details[open] > .header__submenu {
 }
 @media screen and (min-width: 990px) {
   .header__inline-menu {
+  display: flex;
   border-top: solid 1px #EEECE6;
   border-bottom: solid 1px #EEECE6;
 }
