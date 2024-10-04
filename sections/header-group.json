@@ -47,7 +47,6 @@
             "logo_1": "shopify://shop_images/blue-mogganes.svg",
             "caption_1": "",
             "link_1": "shopify://collections/blue-mogganer-®",
-            "image_2": "shopify://shop_images/oatmilkshetlandsweater1.jpg",
             "logo_2": "shopify://shop_images/harley-of-scotland.svg",
             "caption_2": "",
             "link_2": ""
@@ -58,10 +57,10 @@
           "settings": {
             "title": "Mens",
             "linklist": "mens",
-            "image_1": "shopify://shop_images/medgreyshetlandsweater.jpg",
+            "image_1": "shopify://shop_images/20230616_Bosie_29_0004.jpg",
             "caption_1": "Sweaters",
             "link_1": "shopify://collections/shetland-collection",
-            "image_2": "shopify://shop_images/bluetoonshetland.jpg",
+            "image_2": "shopify://shop_images/blue_mogganer_tiree_red_chunky_lighthouse_glenugie_nep_crew_neck_sweater_jumper.jpg",
             "caption_2": "Cardigans",
             "link_2": ""
           }
