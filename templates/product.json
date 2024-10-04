@@ -58,7 +58,7 @@
           "settings": {
             "header": "Brushing Service",
             "popup_label": "Brushing Level guide ›",
-            "footer_label": "Please note by adding this service this product cant be returned"
+            "footer_label": "Please note that by adding the brushing service, this product can not be returned."
           }
         },
         "variant_picker": {
