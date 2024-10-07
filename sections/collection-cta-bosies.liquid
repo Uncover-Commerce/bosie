@@ -128,22 +128,30 @@
               <div class="collection-cta-wrapper">
                 <div class="collection-cta-image">
                   {% if block.settings.image_one %}
-                    <img
-                      src="{{ block.settings.image_one | img_url: 'large' }}"
-                      alt="First Image"
-                      height="auto"
-                      width="auto"
-                    >
+                    {%- if block.settings.image_one != blank -%}
+                      <img
+                        src="{{ block.settings.image_one | img_url: 'large' }}"
+                        alt="First Image"
+                        height="auto"
+                        width="auto"
+                      >
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag }}
+                    {%- endif -%}
                   {% endif %}
                 </div>
                 <div class="collection-cta-text-image">
                   {% if block.settings.image_two %}
-                    <img
-                      src="{{ block.settings.image_two | img_url: 'large' }}"
-                      alt="Second Image"
-                      height="auto"
-                      width="auto"
-                    >
+                    {% if block.settings.image_two %}
+                      <img
+                        src="{{ block.settings.image_two | img_url: 'large' }}"
+                        alt="Second Image"
+                        height="auto"
+                        width="auto"
+                      >
+                    {%- else -%}
+                      {{ 'image' | placeholder_svg_tag }}
+                    {%- endif -%}
                   {% endif %}
                   {% if block.settings.content_type == 'text' %}
                     <p>{{ block.settings.block_text }}</p>
