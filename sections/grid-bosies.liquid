@@ -35,7 +35,7 @@
                 | default: 'Decorative image'
               }}
             {%- else -%}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg', 'aria-hidden="true"' }}
+              {{ 'image' | placeholder_svg_tag }}
             {%- endif -%}
           </div>
         {% when 'content' %}
@@ -78,7 +78,7 @@
                   | default: 'Decorative image'
                 }}
               {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg', 'aria-hidden="true"' }}
+                {{ 'image' | placeholder_svg_tag }}
               {%- endif -%}
             </div>
           {% when 'content' %}
@@ -155,7 +155,7 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.image-with-text.blocks.image.settings.image.label"
+          "label": "Image"
         }
       ]
     },

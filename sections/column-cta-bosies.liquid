@@ -16,21 +16,29 @@
   {% for block in section.blocks %}
     <div class="column-cta-column-b columns-{{ section.blocks.size }}">
       {% if section.blocks.size == 1 %}
-        <img
-          src="{{ block.settings.image | image_url: width: 1440 }}"
-          alt="{{ block.settings.title }}"
-          height="auto"
-          width="auto"
-          class="column-cta-image-b"
-        >
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 1440 }}"
+            alt="{{ block.settings.title }}"
+            height="auto"
+            width="auto"
+            class="column-cta-image-b"
+          >
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag }}
+        {%- endif -%}
       {% else %}
-        <img
-          src="{{ block.settings.image | image_url: width: 800 }}"
-          alt="{{ block.settings.title }}"
-          height="auto"
-          width="auto"
-          class="column-cta-image-b"
-        >
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            alt="{{ block.settings.title }}"
+            height="auto"
+            width="auto"
+            class="column-cta-image-b"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag }}
+        {%- endif -%}
       {% endif %}
       <div class="column-cta-overlay" style="opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};">
         &nbsp;
