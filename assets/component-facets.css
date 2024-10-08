@@ -1342,7 +1342,7 @@ input.mobile-facets__checkbox {
 .facets__price .field-currency{
   color: #1C2936;
   font-family: var(--font-menu-sub);
-  font-size: 13px;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 15.6px */
@@ -1350,15 +1350,15 @@ input.mobile-facets__checkbox {
   text-transform: uppercase;
 }
 
-#Mobile-Filter-Price-GTE::placeholder{
+.field__label-price{
   font-family: var(--font-menu-sub);
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 .field{
   color: #1C2936;
   font-family: var(--font-menu-sub);
-  font-size: 13px;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 15.6px */
