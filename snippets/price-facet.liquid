@@ -15,7 +15,7 @@
     data-min="0"
     data-max="{{ filter.range_max | money_without_currency }}"
   >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
+  <label class="field__label field__label-price" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
     {{- 'products.facets.from' | t -}}
   </label>
 </div>
