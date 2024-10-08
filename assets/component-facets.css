@@ -1350,6 +1350,11 @@ input.mobile-facets__checkbox {
   text-transform: uppercase;
 }
 
+#Mobile-Filter-Price-GTE::placeholder{
+  font-family: var(--font-menu-sub);
+  font-size: 13px;
+}
+
 .field{
   color: #1C2936;
   font-family: var(--font-menu-sub);
