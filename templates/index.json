@@ -174,7 +174,6 @@
         "image_text_block_GRcFbn": {
           "type": "image_text_block",
           "settings": {
-            "image_one": "shopify://shop_images/shamrockshakegreenshetland2.jpg",
             "image_two": "shopify://shop_images/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
             "content_type": "image",
             "block_text": "This is your text here.",
@@ -187,7 +186,6 @@
           "type": "image_text_block",
           "settings": {
             "image_one": "shopify://shop_images/winterwhiteshetland_ce0cf591-cdaf-4610-b635-b11b8b37c644.jpg",
-            "image_two": "shopify://shop_images/strawberrysherbetpinkshetland2.jpg",
             "content_type": "image",
             "block_text": "This is your text here.",
             "block_image": "shopify://shop_images/blue-mogganes.svg",
@@ -233,7 +231,6 @@
         "column_g78RqW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/atlanticsprayblueshetland2.jpg",
             "title": "Holiday Collection",
             "link_text": "View Collection",
             "link": "",
@@ -259,7 +256,6 @@
         "column_LAjnHe": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/royalvioletshetland2.jpg",
             "title": "The perfect gift for any occasion",
             "link_text": "Shop Gift Vouchers",
             "link": "shopify://products/bosie-gift-card-1",
@@ -283,7 +279,6 @@
         "image_PMTXrY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/shamrockshakegreenshetland2.jpg"
           }
         },
         "content_cxA3PL": {
@@ -310,8 +305,8 @@
       "settings": {
         "color_scheme": "",
         "full_width": false,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "trust_banner_bosies_kTnM6q": {
