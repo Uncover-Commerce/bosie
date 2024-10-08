@@ -112,7 +112,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
-            "title": "Mens",
+            "title": "Men",
             "link_text": "View Collection",
             "link": "shopify://collections/all-mens",
             "overlay_opacity": 50
@@ -122,7 +122,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/bosieskyeslipover.jpg",
-            "title": "Womens",
+            "title": "Women",
             "link_text": "View Collection",
             "link": "shopify://collections/womens",
             "overlay_opacity": 50
