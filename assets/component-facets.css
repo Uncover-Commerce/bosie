@@ -1353,6 +1353,7 @@ input.mobile-facets__checkbox {
 .field__label-price{
   font-family: var(--font-menu-sub);
   font-size: 1.3rem;
+  padding-top: 0.25rem;
 }
 
 .field{
