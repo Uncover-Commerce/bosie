@@ -17,16 +17,10 @@
         "padding_bottom": 100
       }
     },
-    "call_to_action_two_columns_Y7LCEA": {
+    "call_to_action_two_columns_XhVUrY": {
       "type": "call-to-action-two-columns",
       "blocks": {
-        "image_Y8n8FY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
-          }
-        },
-        "content_JNaMMA": {
+        "content_RHjmgm": {
           "type": "content",
           "settings": {
             "subtitle": "sub heading",
@@ -34,17 +28,23 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
             "section_link": ""
           }
+        },
+        "image_rtjF3y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+          }
         }
       },
       "block_order": [
-        "image_Y8n8FY",
-        "content_JNaMMA"
+        "content_RHjmgm",
+        "image_rtjF3y"
       ],
       "settings": {
         "color_scheme": "",
         "full_width": false,
         "reverse_layout": true,
-        "padding_top": 40,
+        "padding_top": 44,
         "padding_bottom": 52
       }
     },
@@ -173,7 +173,7 @@
   },
   "order": [
     "main",
-    "call_to_action_two_columns_Y7LCEA",
+    "call_to_action_two_columns_XhVUrY",
     "call_to_action_two_columns_hY4ePA",
     "meet_the_team_bosies_MQqWqp",
     "full_width_image_bosies_4UJNfr"
