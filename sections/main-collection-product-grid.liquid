@@ -182,8 +182,8 @@
 
             {%- if paginate.pages > 1 -%}
               <div class="load-more">
-                <button class="load-more_btn text-center mt-12 button button--primary" onclick="loadMoreProducts()">
-                  Load More
+                <button class="load-more_btn" onclick="loadMoreProducts()">
+                  Load More ({{ section.settings.products_per_page }})
                 </button>
                 <div
                   class="load-more_spinner hidden w-8 h-8 ml-auto mr-auto border-4 border-solid border-black border-t-gray-200 rounded-full animate-spin"

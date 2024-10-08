@@ -101,3 +101,22 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.load-more_btn{
+  color: #2A3B4E;
+  font-family: var(--font-menu-sub);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%; /* 11.374px */
+  letter-spacing: 0.11px;
+  text-transform: uppercase;
+  @media screen and (min-width: 750px) {
+  padding: 3rem 16rem;
+  width: auto;
+  }
+  background-color: transparent;
+  border: 1px solid #2A3B4E;
+  width: 100%;
+  padding: 3rem 0rem;
+  }
