@@ -257,8 +257,23 @@
     line-height: 103.4%;
     letter-spacing: 0.13px;
     text-transform: uppercase;
-    padding-bottom: 1.8rem;
-    border-bottom: 1px solid #f0eeea;
+    padding-bottom: 3.8rem;
     text-decoration: none;
+    position: relative; /* Add this */
+  }
+
+  .column-cta-column-b a::after {
+    content: '';
+    position: absolute;
+    bottom: 1.8rem; /* Match the padding-bottom */
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #f0eeea;
+    transition: width 0.3s ease; /* Smooth transition for width */
+  }
+
+  .column-cta-column-b a:hover::after {
+    width: 100%;
   }
 {% endstylesheet %}
