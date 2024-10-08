@@ -65,6 +65,10 @@
   margin-bottom: 2rem;
 }
 
+.bosie_field__input::placeholder{
+  color: #9ca1a7;
+}
+
 .bosie_contact__button{
   display: flex;
   justify-content: space-around;
