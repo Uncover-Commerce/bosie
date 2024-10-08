@@ -43,7 +43,7 @@
       "settings": {
         "color_scheme": "",
         "full_width": false,
-        "reverse_layout": false,
+        "reverse_layout": true,
         "padding_top": 40,
         "padding_bottom": 52
       }
@@ -123,7 +123,10 @@
       ],
       "settings": {
         "title": "Meet the Team",
-        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>"
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "full_width_image_bosies_4UJNfr": {
@@ -162,7 +165,6 @@
         "button_hEUqwV"
       ],
       "settings": {
-        "background_image": "shopify://shop_images/olivegreenmenshetlandshaggycardigan.jpg",
         "image_opacity": 100,
         "section_height": "large",
         "color_scheme": "accent-1"
