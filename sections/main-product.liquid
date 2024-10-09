@@ -205,6 +205,8 @@
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
   }
   .brushing-header p {
     font-size: 11px;
@@ -213,6 +215,7 @@
   .brushing-link {
     text-decoration: underline;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
   .brushing-footer {
     text-align: left;
@@ -225,9 +228,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     padding: 18px 20px;
     text-transform: uppercase;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
   .dropdown-button p,
   .brushing-footer p {
@@ -238,9 +244,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     padding: 18px 20px;
     text-transform: uppercase;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
   .select-button p {
     margin: 0;
@@ -262,6 +271,8 @@
     position: absolute;
     z-index: 1000;
     width: 100%;
+    left: 0;
+    right: 0;
   }
   .dropdown-active-footer {
     background-color: #e9cdc5;
@@ -276,34 +287,62 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure modal is on top */
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
   }
 
   .brushing-modal {
-    width: 70%;
-    height: 70%;
-    background-color: white; /* Modal background */
+    width: 90%;
+    height: 90%;
+    max-width: 70%;
+    max-height: 70%;
+    background-color: white;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
+    -webkit-overflow-scrolling: touch;
   }
 
   .brushing-exit-button {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
+    padding: 10px;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .brushing-modal-content {
     flex-grow: 1;
     overflow-y: auto;
-    max-height: calc(100% - 40px);
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100% - 60px);
     margin-top: 20px;
-    padding-right: 40px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .brushing-modal {
+      width: 95%;
+      height: 95%;
+      max-width: none;
+      max-height: none;
+    }
+
+    .brushing-exit-button {
+      top: 5px;
+      right: 5px;
+    }
+
+    .brushing-modal-content {
+      padding-right: 10px;
+    }
   }
 {% endstyle %}
 
@@ -818,6 +857,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
+                                    }
                                   </s>
                                 </dd>
                               </dl>
@@ -858,6 +898,7 @@
                                 <dd>
                                   <s class="variant-item__old-price">
                                     {{ variant_price_compare | money_with_currency }}
+                                    }
                                   </s>
                                 </dd>
                                 <dt class="visually-hidden">
