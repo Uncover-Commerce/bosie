@@ -124,30 +124,35 @@ predictive-search[loading] .predictive-search {
 }
 
 #predictive-search-results-products-list {
- gap:1rem; 
-
+  gap: 1rem; 
   display: flex;
   flex-wrap: wrap;
+
   @media screen and (min-width: 768px) {
     flex-wrap: nowrap;
-    gap:0;
-
+    gap: 0;
   }
+
   li {
     width: calc(50% - 0.5rem);
     @media screen and (min-width: 768px) {
       width: 100%;
     }
   }
+
   li:nth-child(n+5) {
-    display:none; /*- shopify hardcodes sending 10 results - this limits to 4 */
+    display: none; /*- shopify hardcodes sending 10 results - this limits to 4 */
   }
+
   /* New styles for less than 4 items in search results  */
-  &:has(li:nth-child(-n+3):last-child) li {
+  &:has(li:nth-child(-n+3):last-child) {
     @media screen and (min-width: 1440px) {
-      
-        width: min-content ;
-      
+      justify-content: flex-start;
+      gap: 2rem;
+
+      li {
+        width: calc(100% / 4); /* Distribute space evenly among 3 items */
+      }
     }
   }
 }
