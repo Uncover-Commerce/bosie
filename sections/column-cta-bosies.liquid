@@ -44,8 +44,10 @@
         &nbsp;
       </div>
       <div class="column-cta-wrapper-b">
-        <h3>{{ block.settings.title }}</h3>
-        <a href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
+        <h2 class="{% if block.settings.title 'any' %}any-text{% endif %}">{{ block.settings.title }}</h2>
+        <a href="{{ block.settings.link }}">
+          {{ block.settings.link_text }}
+        </a>
       </div>
     </div>
   {% endfor %}
@@ -236,7 +238,7 @@
     z-index: 1; /* Ensure content is above the overlay */
   }
 
-  .column-cta-column-b h3 {
+  .column-cta-column-b h2 {
     color: #fefff4;
     text-align: center;
     font-family: var(--font-heading-family-light);
@@ -275,5 +277,9 @@
 
   .column-cta-column-b a:hover::after {
     width: 100%;
+  }
+
+  .column-cta-column-b h2.any-link {
+    font-style: italic;
   }
 {% endstylesheet %}

@@ -24,14 +24,15 @@ async function loadMoreProducts() {
   load_more_spinner.style.display = 'none';
 
   const productgrid = nextPageDoc.getElementById('product-grid');
-  const new_products = productgrid.getElementsByClassName('grid__item');
-  const newUrl = document.getElementById('paginateNext');
-  const new_url = newUrl.dataset.nextUrl;
+  const new_products = Array.from(productgrid.getElementsByClassName('grid__item'));
+  const newUrl = nextPageDoc.getElementById('paginateNext');
+  const new_url = newUrl ? newUrl.dataset.nextUrl : null;
   if (new_url) {
     load_more_btn.style.display = 'flex';
+    next_url = new_url;
+  } else {
+    load_more_btn.style.display = 'none';
   }
-  next_url = new_url;
-  for (let i = 0; i < new_products.length; i++) {
-    products_on_page.appendChild(new_products[i]);
-  }
+
+  new_products.forEach((product) => products_on_page.appendChild(product));
 }
