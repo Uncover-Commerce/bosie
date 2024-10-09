@@ -465,6 +465,7 @@
 .banner__heading {
   font-family: var(--font-heading-family-light);
   margin-bottom: 0;
+  line-height: 90%;
 }
 
 .banner__box .banner__heading + * {
