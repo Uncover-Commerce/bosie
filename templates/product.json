@@ -53,14 +53,6 @@
             "page": "{{ product.metafields.custom.size_guide.value }}"
           }
         },
-        "brushing_service_AqmKH6": {
-          "type": "brushing_service",
-          "settings": {
-            "header": "Brushing Service",
-            "popup_label": "Brushing Level guide ›",
-            "footer_label": "Please note that by adding the brushing service, this product can not be returned."
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -71,6 +63,14 @@
         "custom_varrient_YeYrm4": {
           "type": "custom_varrient",
           "settings": {
+          }
+        },
+        "brushing_service_AqmKH6": {
+          "type": "brushing_service",
+          "settings": {
+            "header": "Brushing Service",
+            "popup_label": "Brushing Level guide ›",
+            "footer_label": "Please note that by adding the brushing service, this product can not be returned."
           }
         },
         "quantity_selector": {
@@ -127,9 +127,9 @@
         "caption",
         "price",
         "popup_nCnAEg",
-        "brushing_service_AqmKH6",
         "variant_picker",
         "custom_varrient_YeYrm4",
+        "brushing_service_AqmKH6",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_aPFVTh",
