@@ -211,10 +211,10 @@
         "column_6PEjQW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/blue_mogganer_diver_loden_green_ribbed_polo_geelong_sweater_jumper.jpg",
-            "title": "Winter Collection",
-            "link_text": "View Collection",
-            "link": "",
+            "image": "shopify://shop_images/dark_cranberry_burgundy_blue_mogganer_north_sea_chunky_seamless_supersoft_shetland_sweater_jumper3.jpg",
+            "title": "North Sea Knits",
+            "link_text": "Chunky fishermans workwear",
+            "link": "shopify://collections/blue-mogganer",
             "overlay_opacity": 50
           }
         },
