@@ -111,7 +111,7 @@
   }
   
   .banner--hero:not(.banner--adapt) {
-    min-height: 78rem;
+    min-height: 86rem;
   }
 
   .banner__content.banner__content--top-left {
