@@ -43,7 +43,7 @@
       "settings": {
         "color_scheme": "",
         "full_width": false,
-        "reverse_layout": true,
+        "reverse_layout": false,
         "padding_top": 44,
         "padding_bottom": 52
       }
@@ -74,7 +74,7 @@
       "settings": {
         "color_scheme": "",
         "full_width": false,
-        "reverse_layout": false,
+        "reverse_layout": true,
         "padding_top": 44,
         "padding_bottom": 52
       }
