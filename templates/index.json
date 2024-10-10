@@ -176,7 +176,7 @@
           "settings": {
             "image_two": "shopify://shop_images/MEDGREYSHETLAND_77b69805-d70d-4cb8-ad39-67b41c87dce8.jpg",
             "content_type": "image",
-            "block_text": "This is your text here.",
+            "block_text": "",
             "block_image": "shopify://shop_images/harley-of-scotland.svg",
             "block_link": "shopify://collections/harley-of-scotland",
             "link_text": "View Collection"
@@ -231,7 +231,8 @@
         "column_g78RqW": {
           "type": "column",
           "settings": {
-            "title": "Holiday Collection",
+            "image": "shopify://shop_images/bosie_blue_mogganer_mens_midnight_black_glacier_nordic_fairisle_lambswool_sweater4.jpg",
+            "title": "Christmas Collection",
             "link_text": "View Collection",
             "link": "",
             "overlay_opacity": 50
