@@ -257,10 +257,11 @@
         "column_LAjnHe": {
           "type": "column",
           "settings": {
-            "title": "The perfect gift for any occasion",
-            "link_text": "Shop Gift Vouchers",
-            "link": "shopify://products/bosie-gift-card-1",
-            "overlay_opacity": 50
+            "image": "shopify://shop_images/bosie_knitwear_harley_of_scotland_seamless_saddle_shoulder_women_s_shetland_sweater_jumper_ugie_pearl2.jpg",
+            "title": "The perfect gift for Winter",
+            "link_text": "Shop Classic Shetlands",
+            "link": "shopify://collections/shetland",
+            "overlay_opacity": 20
           }
         }
       },
