@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "breadcrumb_p8njEh": {
@@ -119,6 +119,17 @@
             "page": "",
             "open_by_default": false
           }
+        },
+        "collapsible_tab_fDKcPJ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Garment Composition",
+            "icon": "none",
+            "content": "{{ product.metafields.custom.colour_story_design_story | metafield_tag }}",
+            "custom_liquid": "",
+            "page": "",
+            "open_by_default": false
+          }
         }
       },
       "block_order": [
@@ -134,7 +145,8 @@
         "buy_buttons",
         "icon_with_text_aPFVTh",
         "collapsible-row-0",
-        "collapsible_tab_3y9PKE"
+        "collapsible_tab_3y9PKE",
+        "collapsible_tab_fDKcPJ"
       ],
       "settings": {
         "enable_sticky_info": true,
