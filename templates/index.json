@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -111,11 +111,11 @@
         "column_7VjFLf": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/20230616_Bosie_15_0005.jpg",
+            "image": "shopify://shop_images/white_blue_mogganer_submariner_polo_neck_sweater_bosie_knitwear.jpg",
             "title": "Men",
             "link_text": "View Collection",
             "link": "shopify://collections/all-mens",
-            "overlay_opacity": 50
+            "overlay_opacity": 20
           }
         },
         "column_FYceUJ": {
