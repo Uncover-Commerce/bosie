@@ -89,13 +89,25 @@
             "caption_2": "",
             "link_2": ""
           }
+        },
+        "menu_cWNNj4": {
+          "type": "menu",
+          "settings": {
+            "title": "Accessories",
+            "linklist": "accessories",
+            "caption_1": "",
+            "link_1": "",
+            "caption_2": "",
+            "link_2": ""
+          }
         }
       },
       "block_order": [
         "menu_AXaVre",
         "menu_UcYjX8",
         "menu_n8dy6w",
-        "menu_wA9DYb"
+        "menu_wA9DYb",
+        "menu_cWNNj4"
       ],
       "settings": {
         "logo_position": "top-center",
