@@ -141,6 +141,28 @@
             "page": "",
             "open_by_default": false
           }
+        },
+        "collapsible_tab_Y8ae7z": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Delivery",
+            "icon": "delivery",
+            "content": "",
+            "custom_liquid": "",
+            "page": "",
+            "open_by_default": false
+          }
+        },
+        "collapsible_tab_B6nwcT": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Returns",
+            "icon": "none",
+            "content": "",
+            "custom_liquid": "",
+            "page": "",
+            "open_by_default": false
+          }
         }
       },
       "block_order": [
@@ -158,7 +180,9 @@
         "collapsible-row-0",
         "collapsible_tab_fDKcPJ",
         "collapsible_tab_7xxqXt",
-        "collapsible_tab_3y9PKE"
+        "collapsible_tab_3y9PKE",
+        "collapsible_tab_Y8ae7z",
+        "collapsible_tab_B6nwcT"
       ],
       "settings": {
         "enable_sticky_info": false,
