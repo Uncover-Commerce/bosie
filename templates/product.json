@@ -113,7 +113,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Garment Composition",
-            "icon": "none",
+            "icon": "shirt",
             "content": "{{ product.metafields.custom.garment_composition | metafield_tag }}",
             "custom_liquid": "",
             "page": "",
@@ -124,7 +124,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Colour / Design Story",
-            "icon": "none",
+            "icon": "eye",
             "content": "{{ product.metafields.custom.colour_story_design_story | metafield_tag }}",
             "custom_liquid": "",
             "page": "",
@@ -135,8 +135,8 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Garment Care",
-            "icon": "none",
-            "content": "<p><strong>WASHING AND CARE INSTRUCTIONS</strong></p><p>Our knitwear can be dry cleaned, which is ultimately what we recommend.</p><p>If you prefer to wash at home, please hand wash only in cool to hand-warm water in a wool friendly detergent such as Woolite or Stergene (in the measurements specified on the bottle). Dry flat and gently reshape whilst still damp.</p><p>Please note wool does not need to be washed as much, because it naturally resists odour, moisture and bacteria. </p><p><strong>Remember…</strong></p><p><em>- Never machine wash</em></p><p><em>- Never hand wash in hot water</em></p><p><em>- Never wash in biological or non-wool detergent</em></p>",
+            "icon": "washing",
+            "content": "<p>Our knitwear can be dry cleaned, which is ultimately what we recommend.</p><p>If you prefer to wash at home, please hand wash only in cool to hand-warm water in a wool friendly detergent such as Woolite or Stergene (in the measurements specified on the bottle). </p><p>Dry flat and gently reshape whilst still damp.</p><p>Please note wool does not need to be washed as much, because it naturally resists odour, moisture and bacteria. </p><p><strong>Remember…</strong></p><p><em>- Never machine wash</em></p><p><em>- Never hand wash in hot water</em></p><p><em>- Never wash in biological or </em></p><p><em>non-wool detergent</em></p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
