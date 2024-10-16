@@ -158,7 +158,7 @@
           "settings": {
             "heading": "Returns",
             "icon": "box",
-            "content": "",
+            "content": "<p>test</p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
