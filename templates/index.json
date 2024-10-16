@@ -217,17 +217,6 @@
     "collection_cta_bosies_PFpQDR": {
       "type": "collection-cta-bosies",
       "blocks": {
-        "image_text_block_GRcFbn": {
-          "type": "image_text_block",
-          "settings": {
-            "image_two": "shopify://shop_images/bosie_knitwear_harley_of_scotland_seamless_saddle_shoulder_men_s_eton_collar_shetland_sweater_jumper_kelly_green.jpg",
-            "content_type": "image",
-            "block_text": "",
-            "block_image": "shopify://shop_images/harley-of-scotland.svg",
-            "block_link": "shopify://collections/harley-of-scotland",
-            "link_text": "View Collection"
-          }
-        },
         "image_text_block_P7xkE7": {
           "type": "image_text_block",
           "settings": {
@@ -238,11 +227,22 @@
             "block_link": "shopify://collections/blue-mogganer",
             "link_text": "View Collection"
           }
+        },
+        "image_text_block_GRcFbn": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/bosie_knitwear_harley_of_scotland_seamless_saddle_shoulder_men_s_eton_collar_shetland_sweater_jumper_kelly_green.jpg",
+            "content_type": "image",
+            "block_text": "",
+            "block_image": "shopify://shop_images/harley-of-scotland.svg",
+            "block_link": "shopify://collections/harley-of-scotland",
+            "link_text": "View Collection"
+          }
         }
       },
       "block_order": [
-        "image_text_block_GRcFbn",
-        "image_text_block_P7xkE7"
+        "image_text_block_P7xkE7",
+        "image_text_block_GRcFbn"
       ],
       "settings": {
         "color_scheme": "background-2",
