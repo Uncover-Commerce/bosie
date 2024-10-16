@@ -157,10 +157,10 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Returns",
-            "icon": "none",
+            "icon": "box",
             "content": "",
             "custom_liquid": "",
-            "page": "",
+            "page": "returns-portal-1",
             "open_by_default": false
           }
         }
