@@ -46,7 +46,7 @@
       "settings": {
         "image": "shopify://shop_images/atlantic_spray_eton_collar_shetland_harley_of_scotland_bosie_knitwear_beach.jpg",
         "video": "https://cdn.shopify.com/videos/c/o/v/e28b3c024dca44f5bdc463e111c5a7e4.mov",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 20,
         "image_height": "hero",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
