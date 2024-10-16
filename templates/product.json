@@ -145,20 +145,9 @@
         "collapsible_tab_Y8ae7z": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Delivery",
+            "heading": "Delivery & Returns",
             "icon": "delivery",
-            "content": "",
-            "custom_liquid": "",
-            "page": "",
-            "open_by_default": false
-          }
-        },
-        "collapsible_tab_B6nwcT": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Returns",
-            "icon": "box",
-            "content": "<p>test</p>",
+            "content": "<p>Here is the delivery information. </p><p><a href=\"/pages/delivery-returns\" target=\"_blank\" title=\"Delivery & Returns\">A link to our delivery and returns policy.</a></p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
@@ -181,8 +170,7 @@
         "collapsible_tab_fDKcPJ",
         "collapsible_tab_7xxqXt",
         "collapsible_tab_3y9PKE",
-        "collapsible_tab_Y8ae7z",
-        "collapsible_tab_B6nwcT"
+        "collapsible_tab_Y8ae7z"
       ],
       "settings": {
         "enable_sticky_info": false,
