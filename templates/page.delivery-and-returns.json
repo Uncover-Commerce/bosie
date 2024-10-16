@@ -11,13 +11,78 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_rzFjYt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YVcpVd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Delivery and Returns",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YVcpVd"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/atlantic_spray_harley_of_scotland_eton_collar_shetland_jumper_sweater_bosie_knitwear2_afa55795-6ab5-490f-8e3f-e67f8ba46832.jpg",
+        "video": "",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "faq_gJdGzL": {
+      "type": "faq",
+      "blocks": {
+        "faq_E8WKKL": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your returns policy",
+            "answer": "<p>Your answer goes here.</p>",
+            "open": false
+          }
+        },
+        "faq_KQdGLQ": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Your answer goes here.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_E8WKKL",
+        "faq_KQdGLQ"
+      ],
+      "settings": {
+        "title": "Delivery & Returns",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 100,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_banner_rzFjYt",
+    "faq_gJdGzL"
   ]
 }
