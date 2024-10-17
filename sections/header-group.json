@@ -84,7 +84,8 @@
           "settings": {
             "title": "Children",
             "linklist": "children",
-            "caption_1": "",
+            "image_1": "shopify://shop_images/little_bosie_yoke_tales_children_in_woods.jpg",
+            "caption_1": "Step into the woods",
             "link_1": "",
             "caption_2": "",
             "link_2": ""
