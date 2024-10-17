@@ -800,7 +800,7 @@ a.product__text {
   border-radius: var(--popup-corner-radius);
   background-color: rgb(var(--color-background));
   overflow: auto;
-  height: 80%;
+  /* height: 80%; */
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
