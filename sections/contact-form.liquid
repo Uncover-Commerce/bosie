@@ -95,7 +95,18 @@
           </small>
         {%- endif -%}
       </div>
-
+      <div class="bosies-field">
+        <label class="bosie_field__label" for="ContactForm-ordernumber">Order Number</label>
+        <input
+          class="bosie_field__input"
+          autocomplete="off"
+          type="text"
+          id="ContactForm-ordernumber"
+          name="contact[ordernumber]"
+          value=""
+          placeholder="Please enter your order number"
+        >
+      </div>
       <div class="bosies-field">
         <label class="bosie_field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
         <input
