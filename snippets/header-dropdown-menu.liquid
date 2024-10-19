@@ -55,21 +55,31 @@
                       {% assign image = 'image_' | append: i %}
                       {% assign logo = 'logo_' | append: i %}
                       {% assign caption = 'caption_' | append: i %}
-                      {% assign link = 'link_' | append: i %}
+                      {% assign image_link = 'image_link_' | append: i %}
                       {% if block.settings[image] != blank %}
                         <div class="image-box">
-                          <a href="{{ block.settings[link] }}">
-                            <div class="img-product-meta">
-                              <img src="{{block.settings[image] | img_url: '500x'}}" alt="image">
-                            </div>
-                            <div class="caption-logo">
-                              {% if block.settings[logo] != blank %}
-                                <img src="{{block.settings[logo] | img_url: '500x'}}">
-                              {% else %}
-                                <p class="caption-text">{{ block.settings[caption] }}</p>
-                              {% endif %}
-                            </div>
-                          </a>
+                          {% if block.settings[image_link] != blank %}
+                            <a href="{{ block.settings[image_link] }}">
+                          {% endif %}
+                          <div class="img-product-meta">
+                            <img
+                              src="{{ block.settings[image] | img_url: '500x' }}"
+                              alt="{{ block.settings[image].alt | escape }}"
+                            >
+                          </div>
+                          <div class="caption-logo">
+                            {% if block.settings[logo] != blank %}
+                              <img
+                                src="{{ block.settings[logo] | img_url: '500x' }}"
+                                alt="{{ block.settings[logo].alt | escape }}"
+                              >
+                            {% else %}
+                              <p class="caption-text">{{ block.settings[caption] }}</p>
+                            {% endif %}
+                          </div>
+                          {% if block.settings[link] != blank %}
+                            </a>
+                          {% endif %}
                         </div>
                       {% endif %}
                     {% endfor %}
