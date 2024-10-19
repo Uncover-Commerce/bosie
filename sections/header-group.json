@@ -46,11 +46,11 @@
             "image_1": "shopify://shop_images/charcoal_black_brushed_shetland_wool_beanie_hat_lambswool2.jpg",
             "logo_1": "shopify://shop_images/blue-mogganes.svg",
             "caption_1": "",
-            "link_1": "shopify://collections/blue-mogganer-®",
+            "image_link_1": "shopify://collections/blue-mogganer",
             "image_2": "shopify://shop_images/blue_mogganer_diver_navy_ribbed_polo_geelong_sweater_jumper4.jpg",
             "logo_2": "shopify://shop_images/harley-of-scotland.svg",
             "caption_2": "",
-            "link_2": ""
+            "image_link_2": "shopify://collections/mens-shetland-sweaters-and-cardigans-1"
           }
         },
         "menu_UcYjX8": {
@@ -60,10 +60,10 @@
             "linklist": "men",
             "image_1": "shopify://shop_images/midnight_black_blue_mogganer_north_sea_chunky_seamless_supersoft_shetland_sweater_jumper3.jpg",
             "caption_1": "Sweaters",
-            "link_1": "shopify://collections/shetland-collection",
+            "image_link_1": "",
             "image_2": "shopify://shop_images/hazlenut_brown_albert_superfine_geelong_lambswool_v_neck_cardigan3.jpg",
             "caption_2": "Cardigans",
-            "link_2": ""
+            "image_link_2": ""
           }
         },
         "menu_n8dy6w": {
@@ -73,10 +73,10 @@
             "linklist": "womens",
             "image_1": "shopify://shop_images/pecan_brown_land_girl_allover_fairisle_cardigan_collared_lambswool_bosie_knitwear.jpg",
             "caption_1": "",
-            "link_1": "shopify://collections/womens",
+            "image_link_1": "",
             "image_2": "shopify://shop_images/barra_gold_fairisle_Bosie_Crofter_Glenugie_Nep_fairisle_yoke_cardigan2_b73c4d11-7ce1-45e9-a828-bc1b724abf5c.jpg",
             "caption_2": "",
-            "link_2": "shopify://collections/womens-voe-true-shetland"
+            "image_link_2": ""
           }
         },
         "menu_wA9DYb": {
@@ -86,10 +86,10 @@
             "linklist": "children",
             "image_1": "shopify://shop_images/little_bosie_unisex_childrens_brushed_navy_wool_island_shetland_sweater_jumper.jpg",
             "caption_1": "Brushed Wool Island Sweaters",
-            "link_1": "shopify://collections/little-bosie-plain-childrens-knitwear",
+            "image_link_1": "",
             "image_2": "shopify://shop_images/little_bosie_peter_and_the_wolf_boy_and_girl.jpg",
             "caption_2": "Yoke Tales",
-            "link_2": "shopify://collections/childrens-fair-isle"
+            "image_link_2": ""
           }
         },
         "menu_cWNNj4": {
@@ -98,9 +98,9 @@
             "title": "Accessories",
             "linklist": "accessories",
             "caption_1": "",
-            "link_1": "",
+            "image_link_1": "",
             "caption_2": "",
-            "link_2": ""
+            "image_link_2": ""
           }
         }
       },
