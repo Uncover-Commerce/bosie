@@ -243,7 +243,7 @@
           "type": "image_text_block",
           "settings": {
             "image_one": "shopify://shop_images/little_bosie_starwberries_yoke_haar_blue.jpg",
-            "content_type": "image",
+            "content_type": "text",
             "block_text": "Little Bosie",
             "block_link": "shopify://collections/little-bosies",
             "link_text": "View Collection"
