@@ -238,11 +238,22 @@
             "block_link": "shopify://collections/harley-of-scotland",
             "link_text": "View Collection"
           }
+        },
+        "image_text_block_FXN6mx": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/little_bosie_yoke_tales_children_in_woods.jpg",
+            "content_type": "text",
+            "block_text": "This is your text here.",
+            "block_link": "shopify://collections/little-bosies",
+            "link_text": "View Collection"
+          }
         }
       },
       "block_order": [
         "image_text_block_P7xkE7",
-        "image_text_block_GRcFbn"
+        "image_text_block_GRcFbn",
+        "image_text_block_FXN6mx"
       ],
       "settings": {
         "color_scheme": "background-2",
