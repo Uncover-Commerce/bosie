@@ -243,6 +243,61 @@
     margin-top: 20px;
     padding-right: 40px;
   }
+  .modal-product-gallery {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .modal-product-gallery img {
+    object-fit: cover;
+    object-position: center;
+  }
+  .modal-gallery-col-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .modal-gallery-col-1 img,
+  .modal-gallery-col-2 img {
+    height: 321px;
+  }
+  .modal-gallery-col-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .modal-gallery-col-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .modal-gallery-col-3 img {
+    height: 256px;
+  }
+  .modal-product-gallery img {
+    width: 100%;
+  }
+  .brushing-modal-image-display {
+    position: relative;
+    z-index: 0;
+  }
+  .brushing-modal-iamge-title {
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: 989px) {
+    /* .modal-gallery-col-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .modal-gallery-col-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    } */
+    .modal-gallery-col-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .modal-gallery-col-2,
+    .modal-gallery-col-3 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
 {% endstyle %}
 
 <div id="cart-currency-format" data-format="{{ shop.money_format }}"></div>
@@ -1174,6 +1229,36 @@
 
             <div class="brushing-modal-content">
               {{ brushing_product.description }}
+
+              {% comment %}
+                DISPLAYING VARIANT IMAGES
+              {% endcomment %}
+
+              {% assign total_images = 0 %}
+
+              {% for variant in brushing_product.variants %}
+                {% if variant.image %}
+                  {% assign total_images = total_images | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+
+              {% unless total_images == 0 %}
+                <div class="modal-product-gallery {% if total_images >= 3 %} modal-gallery-col-3 {% else %} modal-gallery-col-{{ total_images }} {% endif %}">
+                  {% for variant in brushing_product.variants %}
+                    <div class="brushing-modal-image-display">
+                      {% if variant.image %}
+                        <img
+                          src="{{ variant.image.src | image_url }}"
+                          width="{{ variant.image.width }}"
+                          height="{{ variant.image.height }}"
+                          alt="{{ variant.title }}"
+                        >
+                        <h3 class="brushing-modal-iamge-title">{{ variant.title }}</h3>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endunless %}
             </div>
           </div>
         </brushing-modal>
