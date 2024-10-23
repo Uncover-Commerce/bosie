@@ -125,7 +125,7 @@
             "title": "Women",
             "link_text": "View Collection",
             "link": "shopify://collections/womens",
-            "overlay_opacity": 50
+            "overlay_opacity": 10
           }
         }
       },
