@@ -115,7 +115,7 @@
             "title": "Men",
             "link_text": "View Collection",
             "link": "shopify://collections/all-mens",
-            "overlay_opacity": 20
+            "overlay_opacity": 0
           }
         },
         "column_FYceUJ": {
@@ -125,7 +125,7 @@
             "title": "Women",
             "link_text": "View Collection",
             "link": "shopify://collections/womens",
-            "overlay_opacity": 10
+            "overlay_opacity": 0
           }
         }
       },
