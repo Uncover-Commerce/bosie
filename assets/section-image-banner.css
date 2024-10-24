@@ -449,7 +449,6 @@
       font-family: var(--font-menu-sub);
       font-size: 14px;
       line-height: 103.4%; /* 17.578px */
-      letter-spacing: 3.06px;
       text-transform: uppercase;
         @media screen and (min-width: 750px) {
         font-size:17px;
