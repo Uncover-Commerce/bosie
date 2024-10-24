@@ -305,6 +305,7 @@
         "image_PMTXrY": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/little_bosie_childrens_knitwear_woods.jpg"
           }
         },
         "content_cxA3PL": {
