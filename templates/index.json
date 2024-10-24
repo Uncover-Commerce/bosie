@@ -154,6 +154,17 @@
             "link_text": "View Collection"
           }
         },
+        "image_text_block_QtHTVD": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/shamrock_shake_skye_fairisle_sweater_bosie_knitwear_beach.jpg",
+            "content_type": "image",
+            "block_text": "VIEW FAIR ISLE COLLECTION",
+            "block_image": "shopify://shop_images/logo-bosie.svg",
+            "block_link": "shopify://collections/bosie-heritage",
+            "link_text": "View Fair Isle Collection"
+          }
+        },
         "image_text_block_GRcFbn": {
           "type": "image_text_block",
           "settings": {
@@ -175,24 +186,13 @@
             "block_link": "shopify://collections/little-bosies",
             "link_text": "View Collection"
           }
-        },
-        "image_text_block_QtHTVD": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify://shop_images/shamrock_shake_skye_fairisle_sweater_bosie_knitwear_beach.jpg",
-            "content_type": "image",
-            "block_text": "VIEW FAIR ISLE COLLECTION",
-            "block_image": "shopify://shop_images/logo-bosie.svg",
-            "block_link": "shopify://collections/bosie-heritage",
-            "link_text": "View Fair Isle Collection"
-          }
         }
       },
       "block_order": [
         "image_text_block_P7xkE7",
+        "image_text_block_QtHTVD",
         "image_text_block_GRcFbn",
-        "image_text_block_FXN6mx",
-        "image_text_block_QtHTVD"
+        "image_text_block_FXN6mx"
       ],
       "settings": {
         "color_scheme": "background-2",
