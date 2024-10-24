@@ -180,9 +180,9 @@
           "type": "image_text_block",
           "settings": {
             "image_one": "shopify://shop_images/shamrock_shake_skye_fairisle_sweater_bosie_knitwear_beach.jpg",
-            "image_two": "shopify://shop_images/logo-bosie.svg",
             "content_type": "image",
             "block_text": "VIEW FAIR ISLE COLLECTION",
+            "block_image": "shopify://shop_images/logo-bosie.svg",
             "block_link": "shopify://collections/womens-fair-isle-heritage-scottish-knitwear",
             "link_text": "View Fair Isle Collection"
           }
