@@ -262,7 +262,6 @@ a.product__text {
   font-style: normal;
   font-weight: 300;
   line-height: 110%; /* 40.7px */
-  letter-spacing: -0.74px;
     @media screen and (min-width: 750px) {
   font-size: 3.7rem;
     

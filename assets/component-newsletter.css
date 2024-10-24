@@ -15,7 +15,6 @@
   font-family: var(--font-heading-family-light);
   font-size: 2.7rem;
   line-height: 103%; /* 27.81px */
-  letter-spacing: -0.54px;
 }
 
 @media screen and (min-width: 750px) {
