@@ -140,67 +140,6 @@
         "padding_bottom": 0
       }
     },
-    "collection_cta_bosies_PFpQDR": {
-      "type": "collection-cta-bosies",
-      "blocks": {
-        "image_text_block_P7xkE7": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify://shop_images/blue_mogganer_northeaster_fairisle_yoke_unyed_british_wool_sweater_jumper.jpg",
-            "content_type": "image",
-            "block_text": "This is your text here.",
-            "block_image": "shopify://shop_images/blue-mogganes.svg",
-            "block_link": "shopify://collections/blue-mogganer",
-            "link_text": "View Collection"
-          }
-        },
-        "image_text_block_QtHTVD": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify://shop_images/shamrock_shake_skye_fairisle_sweater_bosie_knitwear_beach.jpg",
-            "content_type": "image",
-            "block_text": "VIEW FAIR ISLE COLLECTION",
-            "block_image": "shopify://shop_images/logo-bosie.svg",
-            "block_link": "shopify://collections/bosie-heritage",
-            "link_text": "View Fair Isle Collection"
-          }
-        },
-        "image_text_block_GRcFbn": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify://shop_images/atlantic_spray_eton_collar_shetland_harley_of_scotland_bosie_knitwear_beach_3a85aeed-d249-4b99-81a7-dfb1646cca7e.jpg",
-            "content_type": "image",
-            "block_text": "",
-            "block_image": "shopify://shop_images/harley-of-scotland.svg",
-            "block_link": "shopify://collections/harley-of-scotland",
-            "link_text": "View Collection"
-          }
-        },
-        "image_text_block_FXN6mx": {
-          "type": "image_text_block",
-          "settings": {
-            "image_one": "shopify://shop_images/little_bosie_girl_picking_berries_in_strawberries_sweater.jpg",
-            "content_type": "image",
-            "block_text": "",
-            "block_image": "shopify://shop_images/Bosie_logo.svg",
-            "block_link": "shopify://collections/little-bosies",
-            "link_text": "View Collection"
-          }
-        }
-      },
-      "block_order": [
-        "image_text_block_P7xkE7",
-        "image_text_block_QtHTVD",
-        "image_text_block_GRcFbn",
-        "image_text_block_FXN6mx"
-      ],
-      "settings": {
-        "color_scheme": "background-2",
-        "full_width": false,
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
     "column_cta_bosies_wKVRqp": {
       "type": "column-cta-bosies",
       "blocks": {
@@ -275,6 +214,67 @@
         "padding_bottom": 72
       }
     },
+    "collection_cta_bosies_PFpQDR": {
+      "type": "collection-cta-bosies",
+      "blocks": {
+        "image_text_block_P7xkE7": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/blue_mogganer_northeaster_fairisle_yoke_unyed_british_wool_sweater_jumper.jpg",
+            "content_type": "image",
+            "block_text": "This is your text here.",
+            "block_image": "shopify://shop_images/blue-mogganes.svg",
+            "block_link": "shopify://collections/blue-mogganer",
+            "link_text": "View Collection"
+          }
+        },
+        "image_text_block_QtHTVD": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/shamrock_shake_skye_fairisle_sweater_bosie_knitwear_beach.jpg",
+            "content_type": "image",
+            "block_text": "VIEW FAIR ISLE COLLECTION",
+            "block_image": "shopify://shop_images/logo-bosie.svg",
+            "block_link": "shopify://collections/bosie-heritage",
+            "link_text": "View Fair Isle Collection"
+          }
+        },
+        "image_text_block_GRcFbn": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/atlantic_spray_eton_collar_shetland_harley_of_scotland_bosie_knitwear_beach_3a85aeed-d249-4b99-81a7-dfb1646cca7e.jpg",
+            "content_type": "image",
+            "block_text": "",
+            "block_image": "shopify://shop_images/harley-of-scotland.svg",
+            "block_link": "shopify://collections/harley-of-scotland",
+            "link_text": "View Collection"
+          }
+        },
+        "image_text_block_FXN6mx": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/little_bosie_girl_picking_berries_in_strawberries_sweater.jpg",
+            "content_type": "image",
+            "block_text": "",
+            "block_image": "shopify://shop_images/Bosie_logo.svg",
+            "block_link": "shopify://collections/little-bosies",
+            "link_text": "View Collection"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_P7xkE7",
+        "image_text_block_QtHTVD",
+        "image_text_block_GRcFbn",
+        "image_text_block_FXN6mx"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "column_cta_bosies_3nCed9": {
       "type": "column-cta-bosies",
       "blocks": {
@@ -311,8 +311,8 @@
           "type": "content",
           "settings": {
             "title": "Little Bosie",
-            "rich_text": "<p>Lorem ipsum dolor sit amet consectetur. Ipsum et risus bibendum lectus. Arcu ut sollicitudin tortor odio aenean velit ultrices. Aliquet sollicitudin integer cursus sagittis cras et lorem congue in. </p>",
-            "button_link": "/",
+            "rich_text": "<p>Children's knitwear knitted seamlessly in Scotland in soft and luxury Lambswools, perfect for young skin. Inspired by the innocence of rural Scottish childhood.</p>",
+            "button_link": "shopify://collections/little-bosies",
             "button_text": "Shop the range"
           }
         },
@@ -378,9 +378,9 @@
     "trust_banner_bosies_LDCmM3",
     "quote_bosies_C3VXgd",
     "column_cta_bosies_JhGeby",
-    "collection_cta_bosies_PFpQDR",
     "column_cta_bosies_wKVRqp",
     "featured_collection_Rq3Ymp",
+    "collection_cta_bosies_PFpQDR",
     "column_cta_bosies_3nCed9",
     "grid_bosies_Kh6hX8",
     "trust_banner_bosies_kTnM6q"
