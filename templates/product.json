@@ -86,6 +86,12 @@
             "show_gift_card_recipient": true
           }
         },
+        "custom_liquid_aPQwVf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<a class=\"klaviyo-bis-trigger\" href=\"#\">Notify Me When Available</a>"
+          }
+        },
         "icon_with_text_aPFVTh": {
           "type": "icon-with-text",
           "settings": {
@@ -165,6 +171,7 @@
         "brushing_service_AqmKH6",
         "quantity_selector",
         "buy_buttons",
+        "custom_liquid_aPQwVf",
         "icon_with_text_aPFVTh",
         "collapsible-row-0",
         "collapsible_tab_fDKcPJ",
