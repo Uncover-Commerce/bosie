@@ -147,7 +147,7 @@
           "settings": {
             "heading": "Delivery & Returns",
             "icon": "delivery",
-            "content": "<p><a href=\"/pages/delivery-returns\" target=\"_blank\" title=\"Delivery & Returns\"><strong>Read our Delivery and Returns Policy</strong></a></p>",
+            "content": "<p><a href=\"/pages/delivery-returns\" target=\"_blank\" title=\"Delivery & Returns\">Read our Delivery and Returns Policy here</a></p>",
             "custom_liquid": "",
             "page": "",
             "open_by_default": false
