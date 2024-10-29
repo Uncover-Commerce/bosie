@@ -88,6 +88,14 @@
             "answer": "<p>Custom brushed items are not returnable even for exchange.</p>",
             "open": false
           }
+        },
+        "faq_iHHGie": {
+          "type": "faq",
+          "settings": {
+            "question": "What if I don't want to use the Returns Portal?",
+            "answer": "<p>You are entitled to use your own method of return if you</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -95,7 +103,8 @@
         "faq_3xe77E",
         "faq_KQdGLQ",
         "faq_W9adnx",
-        "faq_dyXtzr"
+        "faq_dyXtzr",
+        "faq_iHHGie"
       ],
       "settings": {
         "title": "",
