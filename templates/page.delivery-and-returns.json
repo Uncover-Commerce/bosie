@@ -112,6 +112,14 @@
             "answer": "<p>After it passes inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 14 working days of receipt of your returned goods.</p>",
             "open": false
           }
+        },
+        "faq_WVLE9U": {
+          "type": "faq",
+          "settings": {
+            "question": "Duty and Taxes",
+            "answer": "<p>It is a legal requirement that we declare the full value of the goods on all packages destined outside the UK, and shipments may be subject to import tax, which are levied once a shipment reaches your country. Any charges for International customs clearance must be borne by the customer; unfortunately we have no control over these charges and cannot predict what they may be. If you have paid import duty for goods received, and subsequently return the goods to us, it should be possible for you to claim a refund of duties from your local Customs authority. To do this, you will need to show them proof of duty paid and proof of export (e.g. certificate of posting) when claiming your refund. Should you have any further queries on duties payable/refundable, please contact your local Customs authority.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -122,7 +130,8 @@
         "faq_drWq74",
         "faq_3xe77E",
         "faq_Y8my7i",
-        "faq_W9adnx"
+        "faq_W9adnx",
+        "faq_WVLE9U"
       ],
       "settings": {
         "title": "",
