@@ -108,8 +108,8 @@
         "faq_3xe77E": {
           "type": "faq",
           "settings": {
-            "question": "UK Returns",
-            "answer": "<p>Please insert your original  delivery note and post via a tracked method to:</p><p><strong>Returns Department, </strong></p><p><strong>Bosie Knitwear, C/O Harley, </strong></p><p><strong>44 - 46 Queen Street, Peterhead, </strong></p><p><strong>SCOTLAND, AB42 1TR</strong></p><p>Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer and when sending an item back to us, we strongly recommend using a trackable shipping method so you can prove and track the status of your return shipment. We regret that we can not refund goods that go missing on return.</p>",
+            "question": "Free UK Returns",
+            "answer": "<p>We are now happy to offer free UK returns. Please visit our <a href=\"/pages/returns-portal-1\" target=\"_blank\" title=\"Returns Portal\">Returns Portal</a> to action.</p>",
             "open": false
           }
         },
