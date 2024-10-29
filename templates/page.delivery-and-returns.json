@@ -24,18 +24,17 @@
           "type": "heading",
           "settings": {
             "heading": "Delivery and Returns",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         }
       },
       "block_order": [
         "heading_YVcpVd"
       ],
-      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/atlantic_spray_harley_of_scotland_eton_collar_shetland_jumper_sweater_bosie_knitwear2_afa55795-6ab5-490f-8e3f-e67f8ba46832.jpg",
         "video": "",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 20,
         "image_height": "small",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
@@ -53,8 +52,8 @@
         "faq_E8WKKL": {
           "type": "faq",
           "settings": {
-            "question": "What is your returns policy",
-            "answer": "<p>Your answer goes here.</p>",
+            "question": "View our returns policy",
+            "answer": "<p>You may return your purchase within 14 days of recorded receipt of goods <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a> The returned merchandise must be in new, unused, and unworn condition with garment tags still attached and in good condition. The garments must also not have any aroma, creasing that wasn't present in the original fold or signs of wear. If you fail to take reasonable care of the goods Bosie Knitwear reserve the right not to accept their return. Bosie Knitwear will refund your purchase price to you in full within 7 days of the receipt of your returned and inspected goods. Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer  and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
             "open": false
           }
         },
@@ -72,7 +71,7 @@
         "faq_KQdGLQ"
       ],
       "settings": {
-        "title": "Delivery & Returns",
+        "title": "",
         "color_scheme": "",
         "full_width": false,
         "padding_top": 100,
