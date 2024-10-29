@@ -57,6 +57,14 @@
             "open": false
           }
         },
+        "faq_drWq74": {
+          "type": "faq",
+          "settings": {
+            "question": "Preparing your item for return",
+            "answer": "<p>Your answeIf you choose to return any items, please ensure all original tags/labels are still attatched and in tact. </p><p>Please fold the items neatly in the returns packaging. Bunching them up and posting back in disarray may damage the fibres.</p><p>Please ensure to return the items in packaging that keeps them secure and protected. </p><p>If any of the previous requirements are not met we may be unable to accept the return request.r goes here.</p>",
+            "open": false
+          }
+        },
         "faq_3xe77E": {
           "type": "faq",
           "settings": {
@@ -84,27 +92,19 @@
         "faq_dyXtzr": {
           "type": "faq",
           "settings": {
-            "question": "Non Refundable Status of Custom Brushed Items",
-            "answer": "<p>Custom brushed items are not returnable even for exchange. Any custom-brushed items returned will be at the customers loss.</p>",
-            "open": false
-          }
-        },
-        "faq_drWq74": {
-          "type": "faq",
-          "settings": {
-            "question": "Preparing your item for return",
-            "answer": "<p>Your answeIf you choose to return any items, please ensure all original tags/labels are still attatched and in tact. </p><p>Please fold the items neatly in the returns packaging. Bunching them up and posting back in disarray may damage the fibres.</p><p>Please ensure to return the items in packaging that keeps them secure and protected. </p><p>If any of the previous requirements are not met we may be unable to accept the return request.r goes here.</p>",
+            "question": "Non refundable status of bespoke custom brushed Items",
+            "answer": "<p>Bespoke custom brushed items are not returnable even for exchange. Any custom-brushed items returned will be at the customers loss.</p>",
             "open": false
           }
         }
       },
       "block_order": [
         "faq_E8WKKL",
+        "faq_drWq74",
         "faq_3xe77E",
         "faq_Y8my7i",
         "faq_W9adnx",
-        "faq_dyXtzr",
-        "faq_drWq74"
+        "faq_dyXtzr"
       ],
       "settings": {
         "title": "",
