@@ -84,7 +84,7 @@
         "faq_dyXtzr": {
           "type": "faq",
           "settings": {
-            "question": "What items are non returnable?",
+            "question": "Non Refundable Status of Custom Brushed Items",
             "answer": "<p>Custom brushed items are not returnable even for exchange. Any custom-brushed items returned will be at the customers loss.</p>",
             "open": false
           }
