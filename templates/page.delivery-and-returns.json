@@ -65,14 +65,6 @@
             "open": false
           }
         },
-        "faq_qdVLCi": {
-          "type": "faq",
-          "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Your answer goes here.</p>",
-            "open": false
-          }
-        },
         "faq_WVLE9U": {
           "type": "faq",
           "settings": {
@@ -81,10 +73,18 @@
             "open": false
           }
         },
+        "faq_qdVLCi": {
+          "type": "faq",
+          "settings": {
+            "question": "USA Duty and Taxes",
+            "answer": "<p>The USA is tax and duty free if the order is under $800.</p>",
+            "open": false
+          }
+        },
         "faq_eDTxWB": {
           "type": "faq",
           "settings": {
-            "question": "EU Duty and VAT",
+            "question": "EU VAT Post Brexit",
             "answer": "<p>EU customers post-Brexit are fully responsible for any VAT incurred upon the purchased item’s entry into their country. Bosie LTD is not liable to pay this for you. Any refusal to pay the appropriate VAT once the item is in your country will be considered breach of contract and we will deduct any costs for return of goods refused by the customer from their refund. Please note you should only be charged VAT not duty as Bosie Ltd makes the garments we are selling you, thus they are single origin. A statement of declaration of this is clearly included on all shipping documentation along with our EORI number. </p>",
             "open": false
           }
@@ -141,8 +141,8 @@
       "block_order": [
         "faq_6cFVkN",
         "faq_QPynNj",
-        "faq_qdVLCi",
         "faq_WVLE9U",
+        "faq_qdVLCi",
         "faq_eDTxWB",
         "faq_E8WKKL",
         "faq_dyXtzr",
