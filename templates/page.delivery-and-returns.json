@@ -96,6 +96,14 @@
             "answer": "<p>Custom brushed items are not returnable even for exchange due to their bespoke customisation, outwith our inventory. </p>",
             "open": false
           }
+        },
+        "faq_6cFVkN": {
+          "type": "faq",
+          "settings": {
+            "question": "UK Delivery",
+            "answer": "<p><strong>UK Insured & Tracked Delivery - </strong>£8.95 per order. Allow 1-3 days for delivery.es here.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -104,7 +112,8 @@
         "faq_3xe77E",
         "faq_Y8my7i",
         "faq_W9adnx",
-        "faq_dyXtzr"
+        "faq_dyXtzr",
+        "faq_6cFVkN"
       ],
       "settings": {
         "title": "",
