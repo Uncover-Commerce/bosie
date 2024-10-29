@@ -60,7 +60,7 @@
         "faq_3xe77E": {
           "type": "faq",
           "settings": {
-            "question": "What is your question?",
+            "question": "UK Returns",
             "answer": "<p>Your answer goes here.</p>",
             "open": false
           }
@@ -68,17 +68,9 @@
         "faq_Y8my7i": {
           "type": "faq",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Your answer goes here.</p>",
+            "question": "International Returns",
+            "answer": "<p>Please explicitly mark the item as a ‘RETURN OF PURCHASED GOODS’ and clearly mark RETURNS DEPARTMENT at the top of the address. </p><p>If the items are not identified clearly as RETURN OF PURCHASED GOODS’ and addressed to ‘RETURNS DEPARTMENT’ we will not be able to accept the return.</p><p>Please note as per our terms and conditions, that the cost of return is paid by the customer.</p><p><strong>*RETURN OF PURCHASED GOODS*</strong></p><p><strong>Returns Department, </strong></p><p><strong>Bosie Knitwear, C/O Harley, </strong></p><p><strong>44 - 46 Queen Street, Peterhead, </strong></p><p><strong>SCOTLAND, AB42 1TR</strong></p>",
             "open": false
-          }
-        },
-        "faq_KQdGLQ": {
-          "type": "faq",
-          "settings": {
-            "question": "How do I return?",
-            "answer": "<p>If you would like to use our Returns Portal you can do so <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a></p><p><strong>Please Note:  The cost of returning goods via the Returns Portal will be covered by the customer and deducted from the refund of the original price of goods upon receipt of the items.</strong></p>",
-            "open": true
           }
         },
         "faq_W9adnx": {
@@ -102,7 +94,6 @@
         "faq_E8WKKL",
         "faq_3xe77E",
         "faq_Y8my7i",
-        "faq_KQdGLQ",
         "faq_W9adnx",
         "faq_dyXtzr"
       ],
