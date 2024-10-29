@@ -99,8 +99,9 @@
           "settings": {
             "title": "Accessories",
             "linklist": "accessories",
-            "caption_1": "",
-            "image_link_1": "",
+            "image_1": "shopify://shop_images/cummon_mustard_shaggy_shetland_brushed_wool_beanie_hat_bosie_knitwear.jpg",
+            "caption_1": "Brushed Shetland Hats",
+            "image_link_1": "shopify://collections/hats-1",
             "caption_2": "",
             "image_link_2": ""
           }
