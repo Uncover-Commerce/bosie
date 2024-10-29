@@ -61,8 +61,8 @@
           "type": "faq",
           "settings": {
             "question": "How do I return?",
-            "answer": "<p>Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer and deducted from the refund. and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
-            "open": false
+            "answer": "<p>Please use our Returns Portal here.</p><p>The cost of returning goods will be covered by the customer and deducted from the refund upon receipt of the items.</p>",
+            "open": true
           }
         },
         "faq_W9adnx": {
