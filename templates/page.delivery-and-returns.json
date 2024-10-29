@@ -61,7 +61,7 @@
           "type": "faq",
           "settings": {
             "question": "International Delivery",
-            "answer": "<p><strong>Worldwide DHL Express Courier is used for all International Orders.</strong> The price will be viewable just prior to checkout, once you have typed in your address for postage as It varies for every country. </p><p><strong>Please note:</strong> It is a legal requirement that we declare the full value of the goods on all packages destined outside the UK, and shipments may be subject to import tax, which are levied once a shipment reaches your country. Any charges for International customs clearance must be borne by the customer; unfortunately we have no control over these charges and cannot predict what they may be. If you have paid import duty for goods received, and subsequently return the goods to us, it should be possible for you to claim a refund of duties from your local Customs authority. To do this, you will need to show them proof of duty paid and proof of export (e.g. certificate of posting) when claiming your refund. Should you have any further queries on duties payable/refundable, please contact your local Customs authority. </p>",
+            "answer": "<p><strong>Worldwide DHL Express Courier is used for all International Orders.</strong> The price will be viewable just prior to checkout, once you have typed in your address for postage as It varies for every country. </p><p>Delivery by DHL Express Worldwide Courier is usually 1-3 days but can be more for remote areas.</p>",
             "open": false
           }
         },
