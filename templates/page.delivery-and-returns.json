@@ -120,6 +120,14 @@
             "answer": "<p>After it passes inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 14 working days of receipt of your returned goods.</p>",
             "open": false
           }
+        },
+        "faq_eDTxWB": {
+          "type": "faq",
+          "settings": {
+            "question": "EU Duty and VAT",
+            "answer": "<p>EU customers post-Brexit are fully responsible for any VAT incurred upon the purchased item’s entry into their country. Bosie LTD is not liable to pay this for you. Any refusal to pay the appropriate VAT once the item is in your country will be considered breach of contract and we will deduct any costs for return of goods refused by the customer from their refund. Please note you should only be charged VAT not duty as Bosie Ltd makes the garments we are selling you, thus they are single origin. A statement of declaration of this is clearly included on all shipping documentation along with our EORI number. </p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -131,7 +139,8 @@
         "faq_drWq74",
         "faq_3xe77E",
         "faq_Y8my7i",
-        "faq_W9adnx"
+        "faq_W9adnx",
+        "faq_eDTxWB"
       ],
       "settings": {
         "title": "",
