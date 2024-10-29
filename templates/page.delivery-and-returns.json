@@ -52,8 +52,8 @@
         "faq_E8WKKL": {
           "type": "faq",
           "settings": {
-            "question": "Returns Period",
-            "answer": "<p>You may return your purchase within 14 days of recorded receipt of goods. The returned merchandise must be in new, unused, and unworn condition with garment tags still attached and in good condition. The garments must also not have any aroma, creasing that wasn't present in the original fold or signs of wear. If you fail to take reasonable care of the goods Bosie Knitwear reserve the right not to accept their return. Bosie Knitwear will refund your purchase price to you in full within 7 days of the receipt of your returned and inspected goods. Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer  and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
+            "question": "What is the Returns Period?",
+            "answer": "<p>You may return your purchase within 14 days of recorded receipt of goods. The returned merchandise must be in new, unused, and unworn condition with garment tags still attached and in good condition. The garments must also not have any aroma, creasing that wasn't present in the original folding or signs of wear. If you fail to take reasonable care of the goods Bosie Knitwear reserve the right not to accept their return. </p><p> Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer  and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
             "open": false
           }
         },
@@ -69,7 +69,7 @@
           "type": "faq",
           "settings": {
             "question": "When will I get my refund?",
-            "answer": "<p>You will be refunded to the original method of payment within 14 days of receipt of the return.</p>",
+            "answer": "<p>Bosie Knitwear will refund your purchase price to the original method of payment within 10 days of receipt of your returned goods post inspection.</p>",
             "open": true
           }
         }
