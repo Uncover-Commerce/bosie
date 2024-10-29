@@ -104,6 +104,14 @@
             "answer": "<p>After it passes inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 7 working days of receipt of your returned goods.</p>",
             "open": false
           }
+        },
+        "faq_QPynNj": {
+          "type": "faq",
+          "settings": {
+            "question": "International Delivery",
+            "answer": "<p>Your answe<strong>Worldwide DHL Express Courier is used for all International Orders</strong> and you will see the price prior to checkout, once you have typed in your address for postage as It varies for every country. It is approximately £27 plus £1 per extra item for the USA. Delivery is usually 2 days to the USA and EU ranging up to 4 for Australasia. International shipping is at a flat rate, it does not increase with size of order unless you choose duties and taxes prepaid.r goes here.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -113,7 +121,8 @@
         "faq_drWq74",
         "faq_3xe77E",
         "faq_Y8my7i",
-        "faq_W9adnx"
+        "faq_W9adnx",
+        "faq_QPynNj"
       ],
       "settings": {
         "title": "",
