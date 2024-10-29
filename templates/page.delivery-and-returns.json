@@ -77,7 +77,7 @@
           "type": "faq",
           "settings": {
             "question": "How do I return?",
-            "answer": "<p>If you would like to use our Returns Portal you can do so <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a></p><p><strong>Please Note:  The cost of returning goods via the Returns Portal will be covered by the customer and deducted from the refund upon receipt of the items.</strong></p>",
+            "answer": "<p>If you would like to use our Returns Portal you can do so <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a></p><p><strong>Please Note:  The cost of returning goods via the Returns Portal will be covered by the customer and deducted from the refund of the original price of goods upon receipt of the items.</strong></p>",
             "open": true
           }
         },
