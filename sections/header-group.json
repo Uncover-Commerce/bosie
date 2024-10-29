@@ -109,7 +109,7 @@
           "type": "menu",
           "settings": {
             "title": "about-us",
-            "linklist": "",
+            "linklist": "about-us",
             "caption_1": "",
             "image_link_1": "",
             "caption_2": "",
