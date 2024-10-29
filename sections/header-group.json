@@ -104,6 +104,17 @@
             "caption_2": "",
             "image_link_2": ""
           }
+        },
+        "menu_UqGXiX": {
+          "type": "menu",
+          "settings": {
+            "title": "about-us",
+            "linklist": "",
+            "caption_1": "",
+            "image_link_1": "",
+            "caption_2": "",
+            "image_link_2": ""
+          }
         }
       },
       "block_order": [
@@ -111,7 +122,8 @@
         "menu_UcYjX8",
         "menu_n8dy6w",
         "menu_wA9DYb",
-        "menu_cWNNj4"
+        "menu_cWNNj4",
+        "menu_UqGXiX"
       ],
       "settings": {
         "logo_position": "top-center",
