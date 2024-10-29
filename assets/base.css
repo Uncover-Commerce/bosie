@@ -2928,8 +2928,8 @@ details[open] > .header__submenu {
   font-family: var(--font-menu-sub);
   font-weight: 500;
   width: 100%;
-  border-top: solid 0px #EEECE6;
-  border-bottom: solid 0px #EEECE6;
+  border-top: solid 0px #eeece63d;
+  border-bottom: solid 0px #eeece63d;
   justify-content: center;
 
 
@@ -2937,8 +2937,8 @@ details[open] > .header__submenu {
 @media screen and (min-width: 990px) {
   .header__inline-menu {
   display: flex;
-  border-top: solid 1px #EEECE6;
-  border-bottom: solid 1px #EEECE6;
+  border-top: solid 1px #eeece63d;
+  border-bottom: solid 1px #eeece63d;
 }
 }
 
