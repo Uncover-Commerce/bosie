@@ -109,7 +109,7 @@
           "type": "faq",
           "settings": {
             "question": "Preparing your item for return",
-            "answer": "<p>Your answeIf you choose to return any items, please ensure all original tags/labels are still attatched and in tact. </p><p>Please fold the items neatly in the returns packaging. Bunching them up and posting back in disarray may damage the fibres.</p><p>Please ensure to return the items in packaging that keeps them secure and protected. </p><p>If any of the previous requirements are not met we may be unable to accept the return request.r goes here.</p>",
+            "answer": "<p>Should you choose to return any items, please ensure all original tags/labels are still attatched and in tact. </p><p>Please fold the items neatly in the returns packaging. Bunching them up and posting back in disarray may damage the fibres.</p><p>Please ensure to return the items in packaging that keeps them secure and protected. </p><p>If any of the previous requirements are not met we may be unable to accept the return request.</p>",
             "open": false
           }
         },
@@ -125,7 +125,7 @@
           "type": "faq",
           "settings": {
             "question": "International Returns",
-            "answer": "<p>Please insert your original  delivery note and explicitly mark the item as a <strong>‘RETURN OF PURCHASED GOODS’</strong> and clearly mark <strong>RETURNS DEPARTMENT</strong> at the top of the address. </p><p>If the items are not identified clearly as RETURN OF PURCHASED GOODS’ and addressed to ‘RETURNS DEPARTMENT’ we will not be able to accept the return.</p><p><strong>*RETURN OF PURCHASED GOODS*</strong></p><p><strong>Returns Department, </strong></p><p><strong>Bosie Knitwear, C/O Harley, </strong></p><p><strong>44 - 46 Queen Street, Peterhead, </strong></p><p><strong>SCOTLAND, AB42 1TR</strong></p><p>Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer  and when sending an item back to us, we strongly recommend using a trackable shippin g method so you can prove and track the status of your return shipment. We can not refund goods that go missing on return.</p>",
+            "answer": "<p>Please insert your original  delivery note and explicitly mark the item as a <strong>‘RETURN OF PURCHASED GOODS’</strong> and clearly mark <strong>RETURNS DEPARTMENT</strong> at the top of the address. </p><p>Please note if the above is not written we will not be able to accept the return.</p><p>Address for return:</p><p><strong>*RETURN OF PURCHASED GOODS*</strong></p><p><strong>Returns Department, </strong></p><p><strong>Bosie Knitwear, C/O Harley, </strong></p><p><strong>44 - 46 Queen Street, Peterhead, </strong></p><p><strong>SCOTLAND, AB42 1TR</strong></p><p>Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer  and when sending an item back to us, we strongly recommend using a trackable shippin g method so you can prove and track the status of your return shipment. We can not refund goods that go missing on return.</p>",
             "open": false
           }
         },
