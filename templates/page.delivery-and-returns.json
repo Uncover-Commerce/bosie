@@ -72,21 +72,12 @@
             "answer": "<p>After inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 7 working days of receipt of your returned goods.</p>",
             "open": true
           }
-        },
-        "faq_qgLXAV": {
-          "type": "faq",
-          "settings": {
-            "question": "How do i make an International Return?",
-            "answer": "<p>Your answer goes here.Please note proof of postage is not proof of delivery. The cost of returning goods will be covered by the customer and deducted from the refund. and when sending an item back to us, we strongly recommend using a trackable shipping method so you can be absolutely sure the items get returned to us and so you can track the status of your return shipment. We can not refund goods that go missing on return.</p>",
-            "open": false
-          }
         }
       },
       "block_order": [
         "faq_E8WKKL",
         "faq_KQdGLQ",
-        "faq_W9adnx",
-        "faq_qgLXAV"
+        "faq_W9adnx"
       ],
       "settings": {
         "title": "",
