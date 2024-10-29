@@ -65,11 +65,19 @@
             "open": false
           }
         },
+        "faq_Y8my7i": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Your answer goes here.</p>",
+            "open": false
+          }
+        },
         "faq_KQdGLQ": {
           "type": "faq",
           "settings": {
             "question": "How do I return?",
-            "answer": "<p>If you would like to use our Returns Portal you can do so <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a></p><p><strong>Please Note:  </strong>The cost of returning goods via the Returns Portal will be covered by the customer and deducted from the refund upon receipt of the items.</p>",
+            "answer": "<p>If you would like to use our Returns Portal you can do so <a href=\"/pages/returns-portal-1\" title=\"Returns Portal\">here.</a></p><p><strong>Please Note:  The cost of returning goods via the Returns Portal will be covered by the customer and deducted from the refund upon receipt of the items.</strong></p>",
             "open": true
           }
         },
@@ -93,6 +101,7 @@
       "block_order": [
         "faq_E8WKKL",
         "faq_3xe77E",
+        "faq_Y8my7i",
         "faq_KQdGLQ",
         "faq_W9adnx",
         "faq_dyXtzr"
