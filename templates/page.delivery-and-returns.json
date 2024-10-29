@@ -57,6 +57,14 @@
             "open": true
           }
         },
+        "faq_3xe77E": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Your answer goes here.</p>",
+            "open": false
+          }
+        },
         "faq_KQdGLQ": {
           "type": "faq",
           "settings": {
@@ -70,14 +78,24 @@
           "settings": {
             "question": "When will I get my refund?",
             "answer": "<p>After it passes inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 7 working days of receipt of your returned goods.</p>",
-            "open": true
+            "open": false
+          }
+        },
+        "faq_dyXtzr": {
+          "type": "faq",
+          "settings": {
+            "question": "What items are non returnable?",
+            "answer": "<p>Custom brushed items are not returnable even for exchange.</p>",
+            "open": false
           }
         }
       },
       "block_order": [
         "faq_E8WKKL",
+        "faq_3xe77E",
         "faq_KQdGLQ",
-        "faq_W9adnx"
+        "faq_W9adnx",
+        "faq_dyXtzr"
       ],
       "settings": {
         "title": "",
