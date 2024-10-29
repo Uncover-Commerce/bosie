@@ -57,6 +57,14 @@
             "open": false
           }
         },
+        "faq_QPynNj": {
+          "type": "faq",
+          "settings": {
+            "question": "International Delivery",
+            "answer": "<p><strong>Worldwide DHL Express Courier is used for all International Orders.</strong> The price will be viewable just prior to checkout, once you have typed in your address for postage as It varies for every country. </p><p><strong>Please note:</strong> It is a legal requirement that we declare the full value of the goods on all packages destined outside the UK, and shipments may be subject to import tax, which are levied once a shipment reaches your country. </p>",
+            "open": false
+          }
+        },
         "faq_E8WKKL": {
           "type": "faq",
           "settings": {
@@ -104,25 +112,17 @@
             "answer": "<p>After it passes inspection, Bosie Knitwear will refund your purchase price to the original method of payment within 7 working days of receipt of your returned goods.</p>",
             "open": false
           }
-        },
-        "faq_QPynNj": {
-          "type": "faq",
-          "settings": {
-            "question": "International Delivery",
-            "answer": "<p><strong>Worldwide DHL Express Courier is used for all International Orders.</strong> The price will be viewable just prior to checkout, once you have typed in your address for postage as It varies for every country. </p>",
-            "open": false
-          }
         }
       },
       "block_order": [
         "faq_6cFVkN",
+        "faq_QPynNj",
         "faq_E8WKKL",
         "faq_dyXtzr",
         "faq_drWq74",
         "faq_3xe77E",
         "faq_Y8my7i",
-        "faq_W9adnx",
-        "faq_QPynNj"
+        "faq_W9adnx"
       ],
       "settings": {
         "title": "",
