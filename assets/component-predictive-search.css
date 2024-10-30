@@ -115,9 +115,11 @@ predictive-search[loading] .predictive-search {
 }
 
 .predictive-search__heading {
+  font-family: var(--font-menu-sub);
   margin: 0;
   padding: 1.5rem 0 0.75rem;
   color: #1C2936;
+
 }
 #predictive-search-results {
   padding: 1rem 2rem;
