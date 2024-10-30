@@ -12,7 +12,8 @@
 }
 
 .search__button {
-  right: var(--inputs-border-width);
+  /* right: var(--inputs-border-width); */
+  right: 1rem;
   top: var(--inputs-border-width);
 }
 
