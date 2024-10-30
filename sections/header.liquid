@@ -28,17 +28,27 @@
 
   }
   
-
+main {
+  /* when inverted-body is applied smoothy transion top and margin-bottom */
+  transition: margin-bottom 1s ease-in-out;
+  transition: top 1s ease-in-out;
+  top: 0;
+  margin-bottom: 0;
+  }
   .inverted-body {
     position: relative;
     top: -100px;
     margin-bottom: -100px;
+    transition: margin-bottom 1s ease-in-out;
   }
 
   @media screen and (min-width: 990px) {
     .inverted-body {
     top: -150px;
     margin-bottom: -150px;
+    transition: margin-bottom 1s ease-in-out;
+    transition: top 1s ease-in-out;
+
   }
   }
 
@@ -834,7 +844,7 @@ Navigation Inversion
       elements.chevronNavs.forEach(icon => addClassToSVG(icon, classActions.add[3]));
       elements.headerWrapperBosie.classList.remove(classActions.remove[0]);
     } else {
-      elements.mainContent.classList.remove(classActions.add[0]);
+      // elements.mainContent.classList.remove(classActions.add[0]); do not remove inverted-body class
       elements.headerWrapper.classList.remove(classActions.add[1]);
       elements.searchText.classList.remove(classActions.add[2]);
       elements.menuItems.forEach(item => item.classList.remove(classActions.add[2]));
