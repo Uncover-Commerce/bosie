@@ -392,19 +392,28 @@
         return;
       }
 
+      function getVisibleSlideCount() {
+        // Check if we're on mobile (max-width: 749px matches the CSS media query)
+        return window.innerWidth <= 749 ? 1 : 4;
+      }
+
       function updateIndicator() {
         const scrollPosition = slider.scrollLeft;
         const slideWidth = slides[0].offsetWidth;
+        const visibleSlides = getVisibleSlideCount();
         const currentIndex = Math.round(scrollPosition / slideWidth);
 
         indicatorSegments.forEach((segment, index) => {
-          if (index <= currentIndex) {
-            segment.classList.add('active');
+          // On desktop, mark indicators as active for all visible slides
+          if (visibleSlides > 1) {
+            // Calculate if this indicator falls within the currently visible slides
+            const isVisible = index >= currentIndex && index < (currentIndex + visibleSlides);
+            segment.classList.toggle('active', isVisible);
           } else {
-            segment.classList.remove('active');
+            // On mobile, only mark the current slide's indicator as active
+            segment.classList.toggle('active', index === currentIndex);
           }
         });
-
       }
 
       function scrollToSlide(index) {
@@ -416,13 +425,18 @@
       }
 
       function handlePrevClick() {
+        const visibleSlides = getVisibleSlideCount();
         const currentIndex = Math.round(slider.scrollLeft / slides[0].offsetWidth);
+        // Move one slide at a time, but don't go below 0
         scrollToSlide(Math.max(currentIndex - 1, 0));
       }
 
       function handleNextClick() {
+        const visibleSlides = getVisibleSlideCount();
         const currentIndex = Math.round(slider.scrollLeft / slides[0].offsetWidth);
-        scrollToSlide(Math.min(currentIndex + 1, slides.length - 1));
+        // Move one slide at a time, but don't exceed maximum slides
+        const maxSlideIndex = slides.length - visibleSlides;
+        scrollToSlide(Math.min(currentIndex + 1, maxSlideIndex));
       }
 
       // Initial setup
@@ -430,12 +444,20 @@
 
       // Event listeners
       slider.addEventListener('scroll', updateIndicator);
-      window.addEventListener('resize', updateIndicator);
+      window.addEventListener('resize', () => {
+        // Update indicators when window is resized (switching between mobile/desktop)
+        updateIndicator();
+      });
       prevButton.addEventListener('click', handlePrevClick);
       nextButton.addEventListener('click', handleNextClick);
 
       indicatorSegments.forEach((segment, index) => {
-        segment.addEventListener('click', () => scrollToSlide(index));
+        segment.addEventListener('click', () => {
+          const visibleSlides = getVisibleSlideCount();
+          // Ensure we don't scroll past the last set of visible slides
+          const maxSlideIndex = slides.length - visibleSlides;
+          scrollToSlide(Math.min(index, maxSlideIndex));
+        });
       });
 
       // Update periodically to catch any missed updates
