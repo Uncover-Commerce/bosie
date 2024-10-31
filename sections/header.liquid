@@ -894,6 +894,10 @@ Navigation Inversion
   // Make setInvertedNavigation available globally
   window.setInvertedNavigation = setInvertedNavigation;
 
+  // Hover on inverted navigation set to remove inverted navigation
+  document.querySelector('.header-wrapper-bosie').addEventListener('mouseover', removeInvertedNav);
+  document.querySelector('.header-wrapper-bosie').addEventListener('mouseout', invertNav);
+
 {% endjavascript %}
 
 <script type="application/ld+json">
