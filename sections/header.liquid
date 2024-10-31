@@ -838,7 +838,7 @@ Navigation Inversion
       elements.headerWrapperBosie.classList.remove(classActions.remove[0]);
     } else {
       elements.mainContent.classList.remove(classActions.add[0]); 
-      // elements.headerWrapper.classList.remove(classActions.add[1]);
+      elements.headerWrapper.classList.remove(classActions.add[1]);
       elements.searchText.classList.remove(classActions.add[2]);
       elements.menuItems.forEach(item => item.classList.remove(classActions.add[2]));
       removeClassFromSVG(elements.headerLogo, classActions.add[3]);
@@ -904,6 +904,9 @@ Navigation Inversion
   }
 
   function removeInvertedNav() {
+    if (document.querySelector('.inverted-navigation')) {
+      setInvertedNavigation(false);
+    }
     
   }
 
