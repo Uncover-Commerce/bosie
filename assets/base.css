@@ -1367,7 +1367,7 @@ button.shopify-payment-button__button--unbranded {
   --border-opacity: var(--buttons-border-opacity);
 }
 
-.button--secondary:hover {
+.product-form__submit.button--secondary:hover {
   background-color: #3c4140;
   color: #FFF;
   transition: background-color 0.3s ease-in-out;
