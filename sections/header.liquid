@@ -837,8 +837,8 @@ Navigation Inversion
       elements.chevronNavs.forEach(icon => addClassToSVG(icon, classActions.add[3]));
       elements.headerWrapperBosie.classList.remove(classActions.remove[0]);
     } else {
-      // elements.mainContent.classList.remove(classActions.add[0]); do not remove inverted-body class
-      elements.headerWrapper.classList.remove(classActions.add[1]);
+      elements.mainContent.classList.remove(classActions.add[0]); 
+      // elements.headerWrapper.classList.remove(classActions.add[1]);
       elements.searchText.classList.remove(classActions.add[2]);
       elements.menuItems.forEach(item => item.classList.remove(classActions.add[2]));
       removeClassFromSVG(elements.headerLogo, classActions.add[3]);
@@ -847,7 +847,7 @@ Navigation Inversion
       removeClassFromSVG(elements.accountIcon, classActions.add[3]);
       removeClassFromSVG(elements.cartIcon, classActions.add[3]);
       elements.chevronNavs.forEach(icon => removeClassFromSVG(icon, classActions.add[3]));
-      elements.headerWrapperBosie.classList.add(classActions.remove[0]);
+      // elements.headerWrapperBosie.classList.add(classActions.remove[0]);
     }
   }
     // Make setInvertedNavigation available globally
