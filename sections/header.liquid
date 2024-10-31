@@ -885,18 +885,36 @@ Navigation Inversion
     }
   }
 
+  // Navigation hover set to remove inverted navigation
+  let navigationHover = false;
+  function setNavigationHover() {
+    navigationHover = true;
+    console.log('nav hover set to: ' + navigationHover);
+    setInvertedNavigation(false);
+    document.getElementById('MainContent').classList.add('fill-inverted-background');
+  }
+  function removeNavigationHover() {
+    navigationHover = false;
+    console.log('nav hover set to: ' + navigationHover);
+    
+  }
+  
+  if (navigationHover) {
+    removeInvertedNav();
+  }
+
   function removeInvertedNav() {
-    if (document.querySelector('.inverted-navigation')) {
-      setInvertedNavigation(false);
-    }
+    
   }
 
   // Make setInvertedNavigation available globally
   window.setInvertedNavigation = setInvertedNavigation;
 
   // Hover on inverted navigation set to remove inverted navigation
-  document.querySelector('.header-wrapper-bosie').addEventListener('mouseover', removeInvertedNav);
-  document.querySelector('.header-wrapper-bosie').addEventListener('mouseout', invertNav);
+  document.querySelector('.header-wrapper-bosie').addEventListener('mouseover', setNavigationHover);
+  document.querySelector('.header-wrapper-bosie').addEventListener('mouseout', removeNavigationHover);
+
+ 
 
 {% endjavascript %}
 
