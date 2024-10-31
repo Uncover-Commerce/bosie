@@ -52,7 +52,7 @@
       align-items: center;
       margin: 0 2rem;
       max-width: 917px;
-     margin: 0 auto;
+      margin: 1rem auto 4rem auto;
       /* @media screen and (min-width: 750px) {
         display: none;
       } */
@@ -379,7 +379,7 @@
       const indicatorSegments = document.querySelectorAll('.slider-indicator__segment');
       const prevButton = document.querySelector('.slider-control--prev');
       const nextButton = document.querySelector('.slider-control--next');
-      
+
       if (!slider || indicatorSegments.length === 0 || !prevButton || !nextButton) {
         console.error('Slider elements not found');
         return;
