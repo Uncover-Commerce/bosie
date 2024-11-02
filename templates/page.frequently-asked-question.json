@@ -19,6 +19,14 @@
     "faq_JTnaWw": {
       "type": "faq",
       "blocks": {
+        "faq_xhE64p": {
+          "type": "faq",
+          "settings": {
+            "question": "What is Shetland 'Shaggy Brushing'?",
+            "answer": "<p>It is when the newly knitted Shetlands are carefully and evenly brushed using natural<br/>spinning teasels (a type of thistle) with a vintage (because they don't make<br/>them like they used to) brushing machine. Some people just prefer the fit,<br/>texture, look and handle of a brushed garment, but the classic 'shaggy'<br/>Shetland also became an iconic look favoured by historical persons of note such<br/>as President John F Kennedy, Steve McQueen and the classic American 'Ivy<br/>League' style, which rose to prominence in the 1950's and 60's. My family’s<br/>company who makes our Shetlands has made them since the 1930's, it is a<br/>timeless and classic style.</p>",
+            "open": false
+          }
+        },
         "faq_CYXeNa": {
           "type": "faq",
           "settings": {
@@ -34,20 +42,12 @@
             "answer": "<p>Brushing is a service of labour using unique brushing tools which cannot be recouped once expended. Each thistle (yes we brush them with real giant thistles) must be maintained and frequently replaced to ensure the integrity of the brushing which is a labour intensive and time consuming procedure. </p><p>Brushing a Shetland also alters the garment irrevocably outwith our normal inventory. Therefore a custom brushed garment is completely non returnable, even for exchange. If you are unsure you will be keeping the Shetland, please order an unbrushed Shetland to try first, which you then can return if you would prefer it brushed.</p>",
             "open": false
           }
-        },
-        "faq_xhE64p": {
-          "type": "faq",
-          "settings": {
-            "question": "What is Shetland 'Shaggy Brushing'?",
-            "answer": "<p>It is when the newly knitted Shetlands are carefully and evenly brushed using natural<br/>spinning teasels (a type of thistle) with a vintage (because they don't make<br/>them like they used to) brushing machine. Some people just prefer the fit,<br/>texture, look and handle of a brushed garment, but the classic 'shaggy'<br/>Shetland also became an iconic look favoured by historical persons of note such<br/>as President John F Kennedy, Steve McQueen and the classic American 'Ivy<br/>League' style, which rose to prominence in the 1950's and 60's. My family’s<br/>company who makes our Shetlands has made them since the 1930's, it is a<br/>timeless and classic style.</p>",
-            "open": false
-          }
         }
       },
       "block_order": [
+        "faq_xhE64p",
         "faq_CYXeNa",
-        "faq_tUWpNz",
-        "faq_xhE64p"
+        "faq_tUWpNz"
       ],
       "settings": {
         "title": "Brushing Questions",
