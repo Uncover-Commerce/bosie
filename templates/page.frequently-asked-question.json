@@ -42,12 +42,21 @@
             "answer": "<p>Brushing is a service of labour using unique brushing tools which cannot be recouped once expended. Each thistle (yes we brush them with real giant thistles) must be maintained and frequently replaced to ensure the integrity of the brushing which is a labour intensive and time consuming procedure. </p><p>Brushing a Shetland also alters the garment irrevocably outwith our normal inventory. Therefore a custom brushed garment is completely non returnable, even for exchange. If you are unsure you will be keeping the Shetland, please order an unbrushed Shetland to try first, which you then can return if you would prefer it brushed.</p>",
             "open": false
           }
+        },
+        "faq_NKgHEK": {
+          "type": "faq",
+          "settings": {
+            "question": "Can any garment be brushed?",
+            "answer": "<p>Only the cassic Shetland character wool can be brushed which we list as ‘Supersoft Lambswool’ . We cannot brush cardigans or any Shetland garment with buttons attatched. You will know which garment can be brushed, because it will have the add-on available for the product as you buy.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
         "faq_xhE64p",
         "faq_CYXeNa",
-        "faq_tUWpNz"
+        "faq_tUWpNz",
+        "faq_NKgHEK"
       ],
       "settings": {
         "title": "Brushing Questions",
