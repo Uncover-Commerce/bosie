@@ -174,7 +174,7 @@
           "type": "faq",
           "settings": {
             "question": "Can I modify or cancel my order after it has been placed?",
-            "answer": "<p>No, because of the way our system works you cannot cancel or modify an order, however you can return them for refund.</p>",
+            "answer": "<p>No, because of the way our system works you cannot cancel or modify an order, however you can return them for refund if unbrushed.</p>",
             "open": false
           }
         },
