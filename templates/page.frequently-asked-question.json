@@ -124,14 +124,6 @@
             "answer": "<p>No unfortunately due to our items being knitted there are not fabric samples we can cut off and provide.</p>",
             "open": false
           }
-        },
-        "faq_hQzURh": {
-          "type": "faq",
-          "settings": {
-            "question": "How accurate are the colours shown to real life?",
-            "answer": "<p>Your answer goes here.</p>",
-            "open": false
-          }
         }
       },
       "block_order": [
@@ -141,8 +133,7 @@
         "faq_p4H3Ak",
         "faq_G9rqc7",
         "faq_AAPViz",
-        "faq_KwKbMH",
-        "faq_hQzURh"
+        "faq_KwKbMH"
       ],
       "settings": {
         "title": "General",
