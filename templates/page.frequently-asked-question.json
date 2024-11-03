@@ -217,7 +217,7 @@
           "type": "faq",
           "settings": {
             "question": "How much does shipping cost?",
-            "answer": "<p>This is calculated automatically upon checkout so you will be able to see the amount just prior to purchase completion.</p>",
+            "answer": "<p>This is variable depending on location and calculated automatically upon checkout so you will be able to see the amount just prior to purchase completion.</p>",
             "open": false
           }
         },
