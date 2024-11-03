@@ -317,7 +317,7 @@
           "type": "faq",
           "settings": {
             "question": "What are your customer service hours?",
-            "answer": "<p>Email 8-4 Monday to Friday</p><p>Telephone 1-4 Monday to Friday</p>",
+            "answer": "<p><strong>Email </strong>8am-4pm Monday to Friday</p><p><strong>Telephone </strong>1pm-4pm Monday to Friday</p>",
             "open": false
           }
         }
