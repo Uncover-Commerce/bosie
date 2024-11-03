@@ -233,7 +233,7 @@
           "type": "faq",
           "settings": {
             "question": "Can I track my order?",
-            "answer": "<p>Yes, just click on the tracking number you were sent with your order shipment confirmation.</p>",
+            "answer": "<p>Yes, just click on the tracking number you were sent with your order shipment confirmation.</p><p>Please bear in mind that we email the tracking number before your product is collected by the courier, so it may not show as shipped until a working day later.</p>",
             "open": false
           }
         },
