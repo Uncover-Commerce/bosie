@@ -272,19 +272,11 @@
             "open": false
           }
         },
-        "faq_8V4rzf": {
-          "type": "faq",
-          "settings": {
-            "question": "How do I return an item?",
-            "answer": "<p>TBD</p>",
-            "open": false
-          }
-        },
         "faq_AyUbnt": {
           "type": "faq",
           "settings": {
             "question": "Can I exchange an item for a different size or colour?",
-            "answer": "<p>We do not offer exchanges but you can return and reorder with a reduced rate of shipping.</p>",
+            "answer": "<p>We do not offer exchanges but you can return and reorder with a reduced rate of shipping. To do this contact us <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">here </a>with your original order number.</p>",
             "open": false
           }
         },
@@ -299,7 +291,6 @@
       },
       "block_order": [
         "faq_9e9PCq",
-        "faq_8V4rzf",
         "faq_AyUbnt",
         "faq_V7HYgW"
       ],
