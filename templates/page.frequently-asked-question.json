@@ -150,7 +150,7 @@
           "type": "faq",
           "settings": {
             "question": "How do I place an order?",
-            "answer": "<p>To add an item to your cart, select your desired product on the Bosie store, choose any options like size or colour, and click \"Add to Cart.\" You can then review your cart by clicking the cart icon, where you’ll be able to adjust quantities or remove items if needed. Once you're ready, click \"Checkout\" to start the process.</p><p>At checkout, simply enter your email, shipping address, and payment details. Double-check your order to make sure everything is correct, then click \"Place Order.\" You’ll receive a confirmation both on-screen and via email with all your order details and next steps.</p>",
+            "answer": "<p>To add an item to your cart, select your desired product on the Bosie store, choose any options like size, colour or brushing where applicable, and click \"Add to Cart.\" You can then review your cart by clicking the cart icon, where you’ll be able to adjust quantities or remove items if needed. Once you're ready, click \"Checkout\" to start the process.</p><p>At checkout, simply enter your email, shipping address, and payment details. Double-check your order to make sure everything is correct, then click \"Place Order.\" You’ll receive a confirmation both on-screen and via email with all your order details and next steps.</p>",
             "open": false
           }
         },
