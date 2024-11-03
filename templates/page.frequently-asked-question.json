@@ -148,6 +148,14 @@
             "answer": "<p>Yes, absolutely all our products are 100% locally made with care, here in the North-East of Scotland by a nearly century-old knitting company founded by my great-grandfather in 1929. The wool used to make the vast majority of our garments is also spun locally, in Scotland.</p>",
             "open": false
           }
+        },
+        "faq_fNn9zk": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>This is why it is extremely important to wash your purchase carefully and take to be dry cleaned if you are not confident. All washing instructions are sewn into the the seams of each garment. Once purchased, it is the customers responsibility to wash and dry as specified. Unfortunately we cannot accept responsibility for how the garment is treated after purchase and we do not offer any reshaping or resizing services as these are impossible when a garment has shrunk. </p><p>We also cannot predict the amount of pilling that occurs as this depends on how the garment is worn, how the garment is washed, and what the water type is like in your area, please note however, pilling generally lessens with wear. goes here.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -160,7 +168,8 @@
         "faq_KwKbMH",
         "faq_rmDiMi",
         "faq_WDGn6J",
-        "faq_G8eEcy"
+        "faq_G8eEcy",
+        "faq_fNn9zk"
       ],
       "settings": {
         "title": "General",
