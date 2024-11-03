@@ -89,7 +89,7 @@
           "type": "faq",
           "settings": {
             "question": "How do I determine the right size for me?",
-            "answer": "<p>Use the size charts shown in the description of the applicable item.</p>",
+            "answer": "<p>Click on the size chart at the top right of the size variants you choose for the product.</p>",
             "open": false
           }
         },
