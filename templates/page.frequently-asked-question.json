@@ -69,6 +69,22 @@
     "faq_CJDqYx": {
       "type": "faq",
       "blocks": {
+        "faq_G8eEcy": {
+          "type": "faq",
+          "settings": {
+            "question": "Are all your products really made in Scotland?",
+            "answer": "<p>Yes, absolutely all our products are 100% locally made with care, here in the North-East of Scotland by a nearly century-old knitting company founded by my great-grandfather in 1929. The wool used to make the vast majority of our garments is also spun locally, in Scotland.</p>",
+            "open": false
+          }
+        },
+        "faq_WDGn6J": {
+          "type": "faq",
+          "settings": {
+            "question": "Is your Shetland wool authentic Shetland wool?",
+            "answer": "<p>Yes. All our Shetland wool is the classic Shetland-character yarn our knitters have used for nearly 100 years. </p><p>Our Voe 'Everest' and ‘Sherpa’ Shetland sweaters are made from the undyed fleece of actual Shetland sheep and literally spun in the Shetland Isles. They are the ones to choose if it is important to you to buy ‘Shetland-origin’. Being undyed they are also supremely eco-friendly and it's impossible not to feel their authentic rustic charm, when wearing.</p><p>However the type of shetland you will want if you are looking for a 'classic shetland sweater' is the Harley of Scotland seamless saddle shouldered supersoft lambswool sweater or cardigan or Bosie Luxury Shetland, which has a hint of cashmere.</p>",
+            "open": false
+          }
+        },
         "faq_38PeVC": {
           "type": "faq",
           "settings": {
@@ -109,6 +125,14 @@
             "open": false
           }
         },
+        "faq_fNn9zk": {
+          "type": "faq",
+          "settings": {
+            "question": "I've accidentally shrunk my pure wool garment! Can I send it back to be resized, reshaped or exchanged?",
+            "answer": "<p>This is why it is extremely important to wash your purchase carefully and take to be dry cleaned if you are not confident. All washing instructions are sewn into the the seams of each garment. Once purchased, it is the customers responsibility to wash and dry as specified. Unfortunately we cannot accept responsibility for how the garment is treated after purchase and we do not offer any reshaping or resizing services as these are impossible when a garment has shrunk. </p><p>We also cannot predict the amount of pilling that occurs as this depends on how the garment is worn, how the garment is washed, and what the water type is like in your area, please note however, pilling generally lessens with wear. goes here.</p>",
+            "open": false
+          }
+        },
         "faq_AAPViz": {
           "type": "faq",
           "settings": {
@@ -128,48 +152,24 @@
         "faq_rmDiMi": {
           "type": "faq",
           "settings": {
-            "question": "What Ply (thickness) is the garment?",
+            "question": "What Ply (thickness) is the garment I am viewing, it doesn't say?",
             "answer": "<p>Unless specifically specified as chunky, or a higher or lower ply, the garment will be 2 ply. This is our preferred ply as we tend to find customers are delighted with the fact it keeps them warm, without overheating. For colder seasons and climates, check out our very popular <a href=\"/collections/blue-mogganer\" target=\"_blank\" title=\"Blue Mogganer\">Blue Mogganer Fishermans </a>workwear collection, inspired by our town's historical North Sea Fishermen, which are mostly thicker and insulate beautifully.</p>",
-            "open": false
-          }
-        },
-        "faq_WDGn6J": {
-          "type": "faq",
-          "settings": {
-            "question": "Is your Shetland wool authentic Shetland wool?",
-            "answer": "<p>Yes. All our Shetland wool is the classic Shetland-character yarn our knitters have used for nearly 100 years. </p><p>Our Voe 'Everest' and ‘Sherpa’ Shetland sweaters are made from the undyed fleece of actual Shetland sheep and literally spun in the Shetland Isles. They are the ones to choose if it is important to you to buy ‘Shetland-origin’. Being undyed they are also supremely eco-friendly and it's impossible not to feel their authentic rustic charm, when wearing.</p><p>However the type of shetland you will want if you are looking for a 'classic shetland sweater' is the Harley of Scotland seamless saddle shouldered supersoft lambswool sweater or cardigan or Bosie Luxury Shetland, which has a hint of cashmere.</p>",
-            "open": false
-          }
-        },
-        "faq_G8eEcy": {
-          "type": "faq",
-          "settings": {
-            "question": "Are all your products really made in Scotland?",
-            "answer": "<p>Yes, absolutely all our products are 100% locally made with care, here in the North-East of Scotland by a nearly century-old knitting company founded by my great-grandfather in 1929. The wool used to make the vast majority of our garments is also spun locally, in Scotland.</p>",
-            "open": false
-          }
-        },
-        "faq_fNn9zk": {
-          "type": "faq",
-          "settings": {
-            "question": "I've accidentally shrunk my pure wool garment! Can I send it back to be resized, reshaped or exchanged?",
-            "answer": "<p>This is why it is extremely important to wash your purchase carefully and take to be dry cleaned if you are not confident. All washing instructions are sewn into the the seams of each garment. Once purchased, it is the customers responsibility to wash and dry as specified. Unfortunately we cannot accept responsibility for how the garment is treated after purchase and we do not offer any reshaping or resizing services as these are impossible when a garment has shrunk. </p><p>We also cannot predict the amount of pilling that occurs as this depends on how the garment is worn, how the garment is washed, and what the water type is like in your area, please note however, pilling generally lessens with wear. goes here.</p>",
             "open": false
           }
         }
       },
       "block_order": [
+        "faq_G8eEcy",
+        "faq_WDGn6J",
         "faq_38PeVC",
         "faq_xVthRR",
         "faq_7ca9Wq",
         "faq_p4H3Ak",
         "faq_G9rqc7",
+        "faq_fNn9zk",
         "faq_AAPViz",
         "faq_KwKbMH",
-        "faq_rmDiMi",
-        "faq_WDGn6J",
-        "faq_G8eEcy",
-        "faq_fNn9zk"
+        "faq_rmDiMi"
       ],
       "settings": {
         "title": "General",
