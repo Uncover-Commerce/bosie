@@ -182,7 +182,7 @@
           "type": "faq",
           "settings": {
             "question": "Do you offer gift cards or certificates?",
-            "answer": "<p>Yes, you can view our gift card options here. </p>",
+            "answer": "<p>Yes, you can view our gift card options <a href=\"/products/bosie-gift-card-1\" target=\"_blank\" title=\"Bosie Gift Card\">here. </a></p>",
             "open": false
           }
         }
