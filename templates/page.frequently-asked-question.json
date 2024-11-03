@@ -113,7 +113,7 @@
           "type": "faq",
           "settings": {
             "question": "Do you have a physical store I can visit?",
-            "answer": "<p>No, sorry to keep the costs down and enable a better price for our customers around the world we only sell directly online.</p>",
+            "answer": "<p>To keep the costs down and enable a better price for our customers around the world we only sell directly online.</p>",
             "open": false
           }
         },
