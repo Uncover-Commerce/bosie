@@ -209,7 +209,7 @@
           "type": "faq",
           "settings": {
             "question": "Where do you ship to?",
-            "answer": "<p>Worldwide.</p>",
+            "answer": "<p>We ship worldwide.</p>",
             "open": false
           }
         },
