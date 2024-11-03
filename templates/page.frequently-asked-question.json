@@ -124,6 +124,14 @@
             "answer": "<p>No unfortunately due to our items being knitted there are not fabric samples we can cut off and provide.</p>",
             "open": false
           }
+        },
+        "faq_rmDiMi": {
+          "type": "faq",
+          "settings": {
+            "question": "What Ply (thickness) is the garment?",
+            "answer": "<p>Unless specifically specified as chunky, or a higher or lower ply, the garment will be 2 ply. This is our preferred ply as we tend to find customers are delighted with the fact it keeps them warm, without overheating. For colder seasons and climates, check out our very popular Blue Mogganer Fishermans workwear collection, inspired by our town's historical North Sea Fishermen, which are mostly thicker and insulate beautifully.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -133,7 +141,8 @@
         "faq_p4H3Ak",
         "faq_G9rqc7",
         "faq_AAPViz",
-        "faq_KwKbMH"
+        "faq_KwKbMH",
+        "faq_rmDiMi"
       ],
       "settings": {
         "title": "General",
