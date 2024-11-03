@@ -140,6 +140,14 @@
             "answer": "<p>Yes. All our Shetland wool is the classic Shetland-character yarn our knitters have used for nearly 100 years. </p><p>Our Voe 'Everest' and ‘Sherpa’ Shetland sweaters are made from the undyed fleece of actual Shetland sheep and literally spun in the Shetland Isles. They are the ones to choose if it is important to you to buy ‘Shetland-origin’. Being undyed they are also supremely eco-friendly and it's impossible not to feel their authentic rustic charm, when wearing.</p><p>However the type of shetland you will want if you are looking for a 'classic shetland sweater' is the Harley of Scotland seamless saddle shouldered supersoft lambswool sweater or cardigan or Bosie Luxury Shetland, which has a hint of cashmere.</p>",
             "open": false
           }
+        },
+        "faq_G8eEcy": {
+          "type": "faq",
+          "settings": {
+            "question": "Are all your products really made in Scotland?",
+            "answer": "<p>Yes, absolutely all our products are 100% locally made with care, here in the North-East of Scotland by a nearly century-old knitting company founded by my great-grandfather in 1929. The wool used to make the vast majority of our garments is also spun locally, in Scotland.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -151,7 +159,8 @@
         "faq_AAPViz",
         "faq_KwKbMH",
         "faq_rmDiMi",
-        "faq_WDGn6J"
+        "faq_WDGn6J",
+        "faq_G8eEcy"
       ],
       "settings": {
         "title": "General",
