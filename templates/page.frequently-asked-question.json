@@ -158,7 +158,7 @@
           "type": "faq",
           "settings": {
             "question": "What payment methods do you accept?",
-            "answer": "<p>We accept various payment methods which can be selected at checkout. </p>",
+            "answer": "<p>We accept various convenient payment methods which can be selected at checkout. </p>",
             "open": false
           }
         },
