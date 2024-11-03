@@ -225,7 +225,7 @@
           "type": "faq",
           "settings": {
             "question": "How long will it take for my order to arrive?",
-            "answer": "<p>TBD</p>",
+            "answer": "<p>UK - 1 to 2 days</p><p>USA - 2 to 3 days</p><p>Europe - 1 to 3 days</p><p>Rest of World - 2 to 5 days</p>",
             "open": false
           }
         },
