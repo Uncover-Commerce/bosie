@@ -233,7 +233,7 @@
           "type": "faq",
           "settings": {
             "question": "Can I track my order?",
-            "answer": "<p>Yes click on the tracking number you were sent with your order confirmation.</p>",
+            "answer": "<p>Yes, just click on the tracking number you were sent with your order shipment confirmation.</p>",
             "open": false
           }
         },
