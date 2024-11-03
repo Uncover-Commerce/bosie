@@ -309,7 +309,7 @@
           "type": "faq",
           "settings": {
             "question": "How can I contact customer support?",
-            "answer": "<p>You can phone us Monday to Friday between 1pm and 4pm or for a quicker reply email us at orders@bosie.co for current order enquiries or enquiries@bosie.co for general enquiries.</p>",
+            "answer": "<p>Contact us <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">here.</a></p>",
             "open": false
           }
         },
