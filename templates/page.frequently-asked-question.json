@@ -241,7 +241,7 @@
           "type": "faq",
           "settings": {
             "question": "What should I do if my order is delayed or lost?",
-            "answer": "<p>Click on the tracking number to see the order status. All deliveries are strictly recorded. If the item has not been recorded as delivered and is lost please contact us on  orders@bosie.co and we will chase it up for you.</p>",
+            "answer": "<p>Click on the tracking number to see the order status. All deliveries are strictly recorded by our Courier. If the item has not been recorded as delivered and is still lost 28 days after shipping please contact us on  orders@bosie.co and we will chase it up for you.</p><p>Please note DHL considers an item lost after 28 days from the date of sending so only then would we consider it lost, however, please be assured that this occurrence is extremely rare and we fully insure all packages for it, so no cost would be incurred by the customer.</p>",
             "open": false
           }
         }
