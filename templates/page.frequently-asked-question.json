@@ -27,6 +27,14 @@
             "open": false
           }
         },
+        "faq_cGfR3Y": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I see examples of the different brushing levels?",
+            "answer": "<p>You can view the different brushing levels <a href=\"/pages/brushing-level-guide\" target=\"_blank\" title=\"Brushing Level Guide\">here</a></p>",
+            "open": false
+          }
+        },
         "faq_CYXeNa": {
           "type": "faq",
           "settings": {
@@ -50,22 +58,14 @@
             "answer": "<p>Only the cassic Shetland character wool can be brushed, which we list as ‘Supersoft Lambswool’ . We cannot brush cardigans or any Shetland garment with buttons attatched. You will know which garment can be brushed, because it will have the add-on service available for the product as you buy.</p>",
             "open": false
           }
-        },
-        "faq_cGfR3Y": {
-          "type": "faq",
-          "settings": {
-            "question": "Can i see examples of the different brushing levels?",
-            "answer": "<p>You can view the different brushing levels <a href=\"/pages/brushing-level-guide\" target=\"_blank\" title=\"Brushing Level Guide\">here</a></p>",
-            "open": false
-          }
         }
       },
       "block_order": [
         "faq_xhE64p",
+        "faq_cGfR3Y",
         "faq_CYXeNa",
         "faq_tUWpNz",
-        "faq_NKgHEK",
-        "faq_cGfR3Y"
+        "faq_NKgHEK"
       ],
       "settings": {
         "title": "Brushing",
