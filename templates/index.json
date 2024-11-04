@@ -261,6 +261,15 @@
             "link_text": "View Collection"
           }
         },
+        "image_text_block_UY8c7M": {
+          "type": "image_text_block",
+          "settings": {
+            "content_type": "text",
+            "block_text": "This is your text here.",
+            "block_link": "/",
+            "link_text": "View Collection"
+          }
+        },
         "image_text_block_ywBMWE": {
           "type": "image_text_block",
           "settings": {
@@ -277,6 +286,7 @@
         "image_text_block_QtHTVD",
         "image_text_block_GRcFbn",
         "image_text_block_FXN6mx",
+        "image_text_block_UY8c7M",
         "image_text_block_ywBMWE"
       ],
       "settings": {
