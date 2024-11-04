@@ -260,13 +260,24 @@
             "block_link": "shopify://collections/little-bosies",
             "link_text": "View Collection"
           }
+        },
+        "image_text_block_ywBMWE": {
+          "type": "image_text_block",
+          "settings": {
+            "image_one": "shopify://shop_images/ecru_mens_harley_of_scotland_todd_and_duncan_cashmere_cable_sweater.jpg",
+            "content_type": "image",
+            "block_text": "Harley x Todd and Duncan",
+            "block_link": "/",
+            "link_text": "View Collection"
+          }
         }
       },
       "block_order": [
         "image_text_block_P7xkE7",
         "image_text_block_QtHTVD",
         "image_text_block_GRcFbn",
-        "image_text_block_FXN6mx"
+        "image_text_block_FXN6mx",
+        "image_text_block_ywBMWE"
       ],
       "settings": {
         "color_scheme": "background-2",
