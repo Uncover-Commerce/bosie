@@ -266,9 +266,9 @@
           "settings": {
             "image_one": "shopify://shop_images/ecru_mens_harley_of_scotland_todd_and_duncan_cashmere_cable_sweater.jpg",
             "content_type": "image",
-            "block_text": "Harley x Todd and Duncan",
+            "block_text": "",
             "block_link": "/",
-            "link_text": "View Collection"
+            "link_text": "Harley x Todd and Duncan"
           }
         }
       },
