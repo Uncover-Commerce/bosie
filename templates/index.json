@@ -266,7 +266,8 @@
           "settings": {
             "image_one": "shopify://shop_images/ecru_mens_harley_of_scotland_todd_and_duncan_cashmere_cable_sweater.jpg",
             "content_type": "text",
-            "block_text": "Harley x Todd and Duncan Cashmere",
+            "block_text": "",
+            "block_image": "shopify://shop_images/bosie-harley.svg",
             "block_link": "shopify://collections/harley-x-todd-and-duncan-cashmere",
             "link_text": "View Collection"
           }
