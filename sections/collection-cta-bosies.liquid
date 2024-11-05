@@ -428,101 +428,126 @@
     let currentIndex = 0;
     let startX, startY, diffX, diffY;
     let isThrottled = false;
+    let touchStartTime;
 
-    function updateCarousel() {
+    function updateCarousel(smooth = true) {
       const slideWidth = slides[0].getBoundingClientRect().width;
+
+      // Add or remove smooth transition
+      track.style.transition = smooth ? 'transform 0.5s ease' : 'none';
       track.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
 
-      // Update progress bar fill width based on the current slide index
+      // Update progress bar
       const progressPercentage = ((currentIndex + 1) / slides.length) * 100;
       progressFill.style.width = `${progressPercentage}%`;
     }
 
-    function handleNextButtonClick() {
-      if (isThrottled) return; // Prevent multiple rapid clicks
+    function moveToSlide(index) {
+      if (isThrottled) return;
       isThrottled = true;
 
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0; // Loop back to the start
+      currentIndex = index;
+
+      // Handle loop conditions
+      if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      } else if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
       }
+
       updateCarousel();
 
-      // Throttle button clicks
       setTimeout(() => {
         isThrottled = false;
       }, 500);
+    }
+
+    function handleNextButtonClick() {
+      moveToSlide(currentIndex + 1);
     }
 
     function handlePrevButtonClick() {
-      if (isThrottled) return; // Prevent multiple rapid clicks
-      isThrottled = true;
-
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = slides.length - 1; // Loop back to the end
-      }
-      updateCarousel();
-
-      // Throttle button clicks
-      setTimeout(() => {
-        isThrottled = false;
-      }, 500);
+      moveToSlide(currentIndex - 1);
     }
 
-    // Event listeners for buttons
-    nextButton.addEventListener('click', handleNextButtonClick);
-    prevButton.addEventListener('click', handlePrevButtonClick);
+    // Touch event handlers
+    function handleTouchStart(e) {
+      const touch = e.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      diffX = 0;
+      diffY = 0;
+      touchStartTime = new Date().getTime();
 
-    // Improved touch event handling
-    track.addEventListener(
-      'touchstart',
-      (e) => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        diffX = 0;
-        diffY = 0;
-      },
-      { passive: true }
-    );
+      // Disable transition during touch
+      track.style.transition = 'none';
+    }
 
-    track.addEventListener(
-      'touchmove',
-      (e) => {
-        if (e.touches.length > 1) {
-          return; // Ignore multi-touch
-        }
-        diffX = e.touches[0].clientX - startX;
-        diffY = e.touches[0].clientY - startY;
+    function handleTouchMove(e) {
+      if (!startX || e.touches.length > 1) return;
 
-        // Prevent vertical scrolling when swiping horizontally
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-          e.preventDefault();
-        }
-      },
-      { passive: false }
-    );
+      const touch = e.touches[0];
+      diffX = touch.clientX - startX;
+      diffY = touch.clientY - startY;
 
-    track.addEventListener('touchend', (e) => {
-      const threshold = 50; // Minimum distance to trigger swipe
-      const restraint = 100; // Maximum vertical distance allowed
-      const allowedTime = 300; // Maximum time allowed for swipe
+      // Prevent vertical scrolling when swiping horizontally
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        e.preventDefault();
 
-      if (Math.abs(diffX) > threshold && Math.abs(diffY) < restraint) {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        const currentTransform = -slideWidth * currentIndex;
+        track.style.transform = `translateX(${currentTransform + diffX}px)`;
+      }
+    }
+
+    function handleTouchEnd() {
+      if (!startX) return;
+
+      const touchEndTime = new Date().getTime();
+      const touchDuration = touchEndTime - touchStartTime;
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const threshold = slideWidth * 0.25; // 25% of slide width
+      const velocity = Math.abs(diffX) / touchDuration;
+
+      // Re-enable transition
+      track.style.transition = 'transform 0.5s ease';
+
+      if (Math.abs(diffX) > threshold || velocity > 0.5) {
         if (diffX > 0) {
           handlePrevButtonClick();
         } else {
           handleNextButtonClick();
         }
+      } else {
+        // Stay on current slide if swipe wasn't far enough
+        updateCarousel();
       }
+
+      // Reset touch values
+      startX = null;
+      diffX = 0;
+    }
+
+    // Event listeners
+    nextButton.addEventListener('click', handleNextButtonClick);
+    prevButton.addEventListener('click', handlePrevButtonClick);
+
+    // Touch events with passive option for better performance
+    track.addEventListener('touchstart', handleTouchStart, { passive: true });
+    track.addEventListener('touchmove', handleTouchMove, { passive: false });
+    track.addEventListener('touchend', handleTouchEnd);
+    track.addEventListener('touchcancel', handleTouchEnd);
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updateCarousel(false);
+      }, 100);
     });
 
-    // Update carousel when the window is resized
-    window.addEventListener('resize', updateCarousel);
-
-    // Initialize the carousel
+    // Initialize carousel
     updateCarousel();
   });
 </script>
