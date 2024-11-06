@@ -24,7 +24,7 @@
         "heading_dRyX7G"
       ],
       "settings": {
-        "image": "shopify://shop_images/bosie_knitwear_superfine_merino_lambswool.jpg",
+        "image": "shopify://shop_images/bosie_knitwear_sustainability.jpg",
         "video": "",
         "image_overlay_opacity": 20,
         "image_height": "large",
@@ -43,7 +43,7 @@
       "settings": {
         "show_title": true,
         "padding_top": 52,
-        "padding_bottom": 52
+        "padding_bottom": 84
       }
     }
   },
