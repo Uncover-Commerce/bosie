@@ -2984,6 +2984,12 @@ details[open] > .header__submenu {
   color: rgba(var(--color-foreground), 0.75);
   
 }
+@media screen and (max-width: 1174px) {
+
+.header__menu-item {
+  padding: 2.2rem 0.8rem;
+  }
+  }
 .header__menu-item svg {
   margin-left: 0.8rem;
 }
