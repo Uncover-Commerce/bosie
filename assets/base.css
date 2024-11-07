@@ -3900,6 +3900,6 @@ line-height: 150%; /* 21px */
 
 /* KLAYVIO */
 .oos-bosies{
-  margin-top:1rem;
-  width: 100%;
+  margin-top:1rem !important;
+  width: 100% !important;
 }
