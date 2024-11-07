@@ -388,18 +388,19 @@
                           </div>
                           <cart-remove-button
                             id="Remove-{{ item.index | plus: 1 }}"
-                            data-product="{{ item.properties.brushingID }}"
+                            data-product="{{ item.key }}"
                             data-index="{{ item.index | plus: 1 }}"
-                            {% if related_product_preset != blank %}
+                            {% if related_product_preset != '' %}
                               data-related-product="{{ related_product_preset }}"
                             {% endif %}
+                            {% assign related_product_preset = '' %}
                           >
-                            <a
+                            <span
                               class="button button--tertiary"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                             >
                               {% render 'icon-remove' %}
-                            </a>
+                            </span>
                           </cart-remove-button>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}

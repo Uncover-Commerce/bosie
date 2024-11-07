@@ -4,45 +4,56 @@ class CartRemoveButton extends HTMLElement {
 
     this.addEventListener('click', (event) => {
       event.preventDefault();
-      removeNewItemsFromCart(this.dataset.product);
+      //This product contains Brushing option which also needs to be removed
+      if (this.dataset.relatedProduct != null || this.dataset.relatedProduct != undefined) {
+        removeNewItemsFromCart(this.dataset.product, this.dataset.relatedProduct);
+      } else {
+        removeNewItemsFromCart(this.dataset.product);
+      }
     });
   }
 }
 
 // Function to remove specific items from the cart
-function removeNewItemsFromCart(id) {
-  fetch('/cart.js')
-    .then((res) => res.json())
-    .then((data) => {
-      const updates = {};
-      const products = data.items;
-      const filteredProducts = products.filter((p) => {
-        if (p.properties.brushingID === id) {
-          return p;
-        }
-      });
-      filteredProducts.forEach((product) => {
-        updates[product.variant_id] = 0;
-      });
-
-      performTheUpdateToRemoveFromCart(updates);
-    })
-    .catch((err) => console.error(err));
+function removeNewItemsFromCart(productID, relatedProduct = false) {
+  //Remove current product and related product (Brushing ID)
+  if (relatedProduct) {
+    fetch('/cart.js')
+      .then((res) => res.json())
+      .then((data) => {
+        const products = data.items;
+        const filteredProductIds = products.filter((p) => p.properties.brushingID === relatedProduct).map((p) => p.id);
+        console.log(filteredProductIds);
+        performTheUpdateToRemoveFromCart(filteredProductIds);
+      })
+      .catch((err) => console.error(err));
+  } else {
+    console.log('Remove single product!');
+    performTheUpdateToRemoveFromCart(productID.split());
+  }
 }
 
-function performTheUpdateToRemoveFromCart(updateDate) {
-  fetch('/cart/update.js', {
+function performTheUpdateToRemoveFromCart(itemsArray) {
+  const updates = itemsArray.reduce((acc, itemKey) => {
+    acc[itemKey] = 0;
+    return acc;
+  }, {});
+
+  fetch(window.Shopify.routes.root + 'cart/update.js', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ updates: { ...updateDate } }),
+    body: JSON.stringify({ updates }),
   })
     .then((response) => response.json())
-    .then((data) => {
+    .then((cart) => {
+      //TODO: Update UI
       location.reload();
     })
-    .catch((error) => console.error('Error updating cart:', error));
+    .catch((error) => {
+      console.error('Error removing items:', error);
+    });
 }
 
 customElements.define('cart-remove-button', CartRemoveButton);
