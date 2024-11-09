@@ -40,9 +40,8 @@
     },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
-        "show_title": false,
+        "show_title": true,
         "padding_top": 52,
         "padding_bottom": 52
       }
