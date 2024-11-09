@@ -15,7 +15,7 @@
         "heading_dRyX7G": {
           "type": "heading",
           "settings": {
-            "heading": "Sustainability",
+            "heading": "",
             "heading_size": "h0"
           }
         }
@@ -41,7 +41,7 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "show_title": true,
+        "show_title": false,
         "padding_top": 52,
         "padding_bottom": 52
       }
