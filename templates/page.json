@@ -15,8 +15,8 @@
         "heading_dRyX7G": {
           "type": "heading",
           "settings": {
-            "heading": "",
-            "heading_size": "h0"
+            "heading": "Bosie Knitwear",
+            "heading_size": "hxxl"
           }
         }
       },
@@ -40,6 +40,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "show_title": false,
         "padding_top": 52,
