@@ -15,8 +15,8 @@
         "heading_dRyX7G": {
           "type": "heading",
           "settings": {
-            "heading": "Bosie Knitwear",
-            "heading_size": "hxxl"
+            "heading": "Sustainability",
+            "heading_size": "h0"
           }
         }
       },
@@ -24,7 +24,7 @@
         "heading_dRyX7G"
       ],
       "settings": {
-        "image": "shopify://shop_images/bosie_knitwear_banner_beach.jpg",
+        "image": "shopify://shop_images/bosie_knitwear_sweater_under_pebbles.jpg",
         "video": "",
         "image_overlay_opacity": 20,
         "image_height": "large",
