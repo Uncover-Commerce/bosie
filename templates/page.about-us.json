@@ -148,13 +148,13 @@
         "richtext_CGafqp": {
           "type": "richtext",
           "settings": {
-            "text": "<p>Is it me your looking for</p>"
+            "text": "<p>Is it me</p>"
           }
         },
         "button_hEUqwV": {
           "type": "button",
           "settings": {
-            "button_label": "FAQ's",
+            "button_label": "Your're looking for",
             "button_link": "shopify://pages/faqs"
           }
         }
