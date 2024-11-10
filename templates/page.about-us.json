@@ -54,14 +54,14 @@
         "image_RLLPag": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/puppy-at-the-beach.jpg"
+            "image": "shopify://shop_images/julietanddadnorway.jpg"
           }
         },
         "content_tyHna8": {
           "type": "content",
           "settings": {
-            "subtitle": "sub heading",
-            "title": "Our Story",
+            "subtitle": "Provenance and Heritage",
+            "title": "Our Ethos",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
             "section_link": ""
           }
