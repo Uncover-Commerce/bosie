@@ -154,8 +154,8 @@
         "button_hEUqwV": {
           "type": "button",
           "settings": {
-            "button_label": "I can see it in your eyes",
-            "button_link": ""
+            "button_label": "FAQ's",
+            "button_link": "shopify://pages/faqs"
           }
         }
       },
