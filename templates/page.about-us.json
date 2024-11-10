@@ -11,9 +11,8 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
-        "show_title": false,
+        "show_title": true,
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -24,9 +23,9 @@
         "content_RHjmgm": {
           "type": "content",
           "settings": {
-            "subtitle": "",
+            "subtitle": "A Family Heritage",
             "title": "Our Story",
-            "text": "<p><strong>Hi I’m Juliet, the founder of Bosie Knitwear.  </strong></p><p><strong>My immediate family has been in the North East of Scotland knitting industry since the late 1920’s, prior to that they were Fisher Folk, so I grew up around traditional Scottish textiles, Fishermen’s workwear and Fair Isle knitting heritage.  From research trips with my Father to Shetland and the Fair Isle in the 1980’s via the St Clair ferry, to working with my hands in his textile workshop in my teens and early twenties, it has been an ever present and enjoyable focus in my life, made all the stronger by my blood bond to it. In 2001 I embarked upon a degree in Textiles at Grays School of Art, Aberdeen where I specialized in Knitting and Printmaking, graduating in 2005 with 1st class honours.</strong></p><p><strong>I started Bosie to provide my own particular range of knitwear designs, with extremely high standards, genuine pride in my product, sustainability and high attention to detail. Being rooted in Scottish heritage, my hope is to provide garments with a fresh and varied style, always committing to pure new wool, authentic provenance and the finest of quality.</strong></p><p></p>",
+            "text": "<p><strong>Hi I’m Juliet, the founder of Bosie Knitwear.  </strong></p><p><strong>My immediate family has been in the North East of Scotland knitting industry started by my Grandfather in 1929. Prior to that, our lineage were Fisher Folk, so me and my sisters grew up around traditional Scottish textiles, Fishermen’s workwear and Fair Isle knitting heritage.  From research trips with our Father to Shetland and the Fair Isle in the 1980’s via the St Clair ferry.  From working with my hands in his textile Mill in my teens and early twenties, it has been an ever present and enjoyable focus in my life, made all the stronger by my familial ties to it. With a strong interest in the creative arts, In 2001 I embarked upon a degree in Textiles at Grays School of Art, Aberdeen where I specialized in Knitting and Printmaking, graduating in 2005 with 1st class honours.</strong></p><p><strong>I started Bosie to provide my own particular range of knitwear, knitted by my family, with extremely high standards, genuine pride in our product, sustainability and high attention to detail. Being robustly rooted in Scottish heritage, my hope is to provide garments with a fresh and varied style, always committing to pure new wool, authentic provenance and the finest of quality.</strong></p><p></p>",
             "section_link": ""
           }
         },
@@ -122,6 +121,7 @@
         "team_member_dGwaLR",
         "team_member_MKygan"
       ],
+      "disabled": true,
       "settings": {
         "title": "Meet the Team",
         "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet cursus sem, ac mattis justo fermentum a. Aliquam arcu leo, venenatis at dapibus lobortis, iaculis sed tellus. Morbi eu posuere lacus, eu sodales purus. Nunc sagittis finibus lacus, ac porttitor massa maximus ac.</p>",
