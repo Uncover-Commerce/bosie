@@ -111,8 +111,9 @@
           "settings": {
             "title": "About Us",
             "linklist": "about-us",
-            "caption_1": "",
-            "image_link_1": "",
+            "image_1": "shopify://shop_images/462467518_10234595823816747_5887382577990406906_n.jpg",
+            "caption_1": "Our Story",
+            "image_link_1": "shopify://pages/our-story",
             "caption_2": "",
             "image_link_2": ""
           }
