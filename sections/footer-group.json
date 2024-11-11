@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -16,8 +16,7 @@
       "blocks": {
         "svg_XpKtaA": {
           "type": "svg",
-          "settings": {
-          }
+          "settings": {}
         },
         "newsletter_hM9xcU": {
           "type": "newsletter",
@@ -37,7 +36,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Company",
-            "menu": "company"
+            "menu": ""
           }
         },
         "social_currency_xFfgHp": {
@@ -68,9 +67,15 @@
         "padding_top": 80,
         "padding_bottom": 36
       }
+    },
+    "dhl_returns_NcVT9E": {
+      "type": "dhl-returns",
+      "disabled": true,
+      "settings": {}
     }
   },
   "order": [
-    "footer"
+    "footer",
+    "dhl_returns_NcVT9E"
   ]
 }
