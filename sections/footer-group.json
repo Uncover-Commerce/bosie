@@ -70,7 +70,6 @@
     },
     "dhl_returns_NcVT9E": {
       "type": "dhl-returns",
-      "disabled": true,
       "settings": {}
     }
   },
