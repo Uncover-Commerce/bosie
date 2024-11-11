@@ -51,10 +51,6 @@
         novalidate: 'novalidate',
         data-type: 'add-to-cart-form'
       -%}
-        {% if product.metafields.custom.brushing_service.value != blank %}
-          {% render 'uniqueid', product: product %}
-        {% endif %}
-
         <input
           type="hidden"
           name="id"

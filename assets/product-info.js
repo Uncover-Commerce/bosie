@@ -65,8 +65,6 @@ if (!customElements.get('product-info')) {
 
         this.resetProductFormState();
 
-        console.log('Updating product value!');
-
         const productUrl = target.dataset.productUrl || this.pendingRequestUrl || this.dataset.url;
         this.pendingRequestUrl = productUrl;
         const shouldSwapProduct = this.dataset.url !== productUrl;
