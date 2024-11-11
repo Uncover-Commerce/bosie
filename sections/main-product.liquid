@@ -605,6 +605,8 @@
                 </div>
 
               {%- when 'brushing_service' -%}
+                <div id="product-form-id" data-form="{{ product_form_id }}"></div>
+
                 {% assign brushing_product = product.metafields.custom.brushing_service.value %}
                 {% if brushing_product != blank %}
                   <div>
@@ -680,8 +682,6 @@
                       </div>
                     {% endif %}
                   </div>
-
-                  {% render 'uniqueid', product: product %}
                 {% endif %}
               {%- when 'sku' -%}
                 <p
@@ -1266,28 +1266,6 @@
     {% endif %}
   {% endfor %}
 </product-info>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    let allUniqueIDS = document.querySelectorAll('.presetId');
-    let uniqueID = `{{ product.id }}${makeid(6)}`;
-    allUniqueIDS.forEach((inputField) => {
-      inputField.value = uniqueID;
-    });
-  });
-
-  function makeid(length) {
-    let result = '';
-    const characters = '0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-  }
-</script>
 
 {% schema %}
 {

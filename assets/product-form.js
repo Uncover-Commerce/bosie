@@ -63,7 +63,11 @@ if (!customElements.get('product-form')) {
               return;
             } else if (!this.cart) {
               const brushingProduct = document.getElementById('brushing-product');
-              if (brushingProduct != null && brushingProduct.dataset.price != undefined) {
+              if (
+                brushingProduct != null &&
+                brushingProduct.dataset.price !== '' &&
+                brushingProduct.dataset.price !== undefined
+              ) {
                 this.handleBrushingProduct(brushingProduct, response.title);
                 return;
               }

@@ -40,6 +40,8 @@ class UncoverDropdown extends HTMLElement {
     let dropdownArrow = mainContainer.querySelector('#dropdown-arrow');
     let brushingFooter = document.querySelector('.brushing-footer');
 
+    const productFormID = document.getElementById('product-form-id');
+
     if (dropdownArrow.querySelector('p') != null) {
       dropdownArrow.querySelector('p').remove();
     }
@@ -59,7 +61,11 @@ class UncoverDropdown extends HTMLElement {
 
       this.updateProductNote(`${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`);
       this.updateProductPrice(optionRawPrice);
+
+      console.log('Add preset now!');
     } else {
+      console.log('Remove preset now!');
+
       dropdownArrow.querySelector('svg').style.display = 'block';
 
       brushingProduct.dataset.price = '';
@@ -79,6 +85,8 @@ class UncoverDropdown extends HTMLElement {
         brushingFooter.classList.remove('dropdown-active-footer');
       }
     }
+
+    this.handlePresetIdInput(optionPrice != null, productFormID);
 
     //Update main option price and title
     dropdownTItle.textContent = optionTitle;
@@ -212,6 +220,37 @@ class UncoverDropdown extends HTMLElement {
       currencySymbol,
       productPrice,
     };
+  }
+
+  handlePresetIdInput(state, formID) {
+    const existingInputs = document.querySelectorAll(`.presetId`);
+    const productForm = document.getElementById(`${formID.dataset.form}`);
+    if (state) {
+      // If state is true, add the input only if none exists
+      if (existingInputs.length === 0) {
+        const input = document.createElement('input');
+        input.className = 'presetId';
+        input.type = 'hidden';
+        input.name = 'properties[brushingID]';
+        input.value = `${this.makeid(6)}`;
+        productForm.appendChild(input);
+      }
+    } else {
+      // If state is false, remove all existing inputs with the class
+      existingInputs.forEach((input) => input.remove());
+    }
+  }
+
+  makeid(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
   }
 }
 
