@@ -72,10 +72,26 @@
       "type": "dhl-returns",
       "disabled": true,
       "settings": {}
+    },
+    "173150486655dd65a6": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_verified_badge_Whkpaw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_verified_badge_Whkpaw"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "footer",
-    "dhl_returns_NcVT9E"
+    "dhl_returns_NcVT9E",
+    "173150486655dd65a6"
   ]
 }
