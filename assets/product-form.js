@@ -19,6 +19,7 @@ if (!customElements.get('product-form')) {
 
       onSubmitHandler(evt) {
         evt.preventDefault();
+
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
@@ -62,16 +63,17 @@ if (!customElements.get('product-form')) {
               this.error = true;
               return;
             } else if (!this.cart) {
-              const brushingProduct = document.getElementById('brushing-product');
-              if (
-                brushingProduct != null &&
-                brushingProduct.dataset.price !== '' &&
-                brushingProduct.dataset.price !== undefined
-              ) {
-                this.handleBrushingProduct(brushingProduct, response.title);
-                return;
-              }
               window.location = window.routes.cart_url;
+              return;
+            }
+
+            const brushingProduct = document.getElementById('brushing-product');
+            if (
+              brushingProduct != null &&
+              brushingProduct.dataset.price !== '' &&
+              brushingProduct.dataset.price !== undefined
+            ) {
+              this.handleBrushingProduct(brushingProduct, response.title);
               return;
             }
 
