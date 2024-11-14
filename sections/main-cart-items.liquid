@@ -136,7 +136,7 @@
 
                     <td class="cart-item__details">
                       {% assign related_product = item.product.metafields.custom.brushing_service.value %}
-                      {% if related_product != blank %}
+                      {% if related_product != blank or related_product != '' %}
                         {% comment %} SEARCHING FOR RELATED PRODUCT {% endcomment %}
                         {% for related_item in cart.items %}
                           {% if related_item.properties.Product == item.title %}
@@ -161,7 +161,7 @@
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
                           <s class="cart-item__old-price product-option">
-                            {% if brushing_price != blank %}
+                            {% if brushing_price != blank or brushing_price != '' %}
                               {{- item.original_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_price | money -}}
@@ -176,7 +176,7 @@
                         </div>
                       {%- else -%}
                         <div class="product-option">
-                          {% if brushing_price != blank %}
+                          {% if brushing_price != blank or brushing_price != '' %}
                             {{- item.original_price | plus: raw_brushing_price | money -}}
                           {% else %}
                             {{ item.original_price | money }}
@@ -270,7 +270,7 @@
                             </dt>
                             <dd>
                               <s class="cart-item__old-price price price--end">
-                                {% if brushing_price != blank %}
+                                {% if brushing_price != blank and show_footer_message %}
                                   {{- item.original_price | plus: brushing_price | money -}}
                                 {% else %}
                                   {{- item.original_price | money -}}
@@ -281,7 +281,7 @@
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {% if brushing_price != blank %}
+                              {% if brushing_price != blank and show_footer_message %}
                                 {{- item.final_line_price | plus: brushing_price | money -}}
                               {% else %}
                                 {{- item.final_line_price | money -}}
@@ -290,7 +290,7 @@
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {% if brushing_price != blank %}
+                            {% if brushing_price != blank and show_footer_message %}
                               {{- item.original_line_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_line_price | money -}}
@@ -520,7 +520,7 @@
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {% if brushing_price != blank %}
+                              {% if brushing_price != blank and show_footer_message %}
                                 {{ item.final_line_price | plus: brushing_price | money }}
                               {% else %}
                                 {{ item.final_line_price | money }}
@@ -529,7 +529,7 @@
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {% if brushing_price != blank %}
+                            {% if brushing_price != blank and show_footer_message %}
                               {{- item.original_line_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_line_price | money -}}
