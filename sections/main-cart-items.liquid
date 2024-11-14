@@ -136,15 +136,17 @@
 
                     <td class="cart-item__details">
                       {% assign related_product = item.product.metafields.custom.brushing_service.value %}
+
                       {% if related_product != blank or related_product != '' %}
                         {% comment %} SEARCHING FOR RELATED PRODUCT {% endcomment %}
                         {% for related_item in cart.items %}
-                          {% if related_item.properties.Product == item.title %}
+                          {% if related_item.properties.brushingID == item.properties.brushingID %}
                             {% assign brushing_price = related_item.price | times: item.quantity %}
                             {% assign raw_brushing_price = related_item.price %}
                             {% assign brushing_product_key = related_item.key %}
                             {% assign related_product_index = related_item.index | plus: 1 %}
                             {% assign related_product_preset = related_item.properties.brushingID %}
+                            {% break %}
                           {% endif %}
                         {% endfor %}
                       {% endif %}
@@ -162,6 +164,7 @@
                           </span>
                           <s class="cart-item__old-price product-option">
                             {% if brushing_price != blank or brushing_price != '' %}
+                              Brushing price: {{ brushing_price }}
                               {{- item.original_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_price | money -}}
@@ -177,6 +180,7 @@
                       {%- else -%}
                         <div class="product-option">
                           {% if brushing_price != blank or brushing_price != '' %}
+                            Brushing price: {{ brushing_price }}
                             {{- item.original_price | plus: raw_brushing_price | money -}}
                           {% else %}
                             {{ item.original_price | money }}
