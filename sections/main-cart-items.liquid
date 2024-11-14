@@ -112,6 +112,16 @@
                     {%- endif -%}
                   {%- endfor -%}
 
+                  {% assign show_footer_message = false %}
+                  {%- for property in item.properties -%}
+                    {%- assign property_first_char = property.first | slice: 0 -%}
+                    {%- if property.last != blank and property_first_char != '_' -%}
+                      {% if property.first == 'Brushing' %}
+                        {% assign show_footer_message = true %}
+                      {% endif %}
+                    {%- endif -%}
+                  {%- endfor -%}
+
                   <tr
                     class="cart-item {% if hide_product %} hidden {% endif %}"
                     id="CartItem-{{ item.index | plus: 1 }}"
@@ -163,7 +173,7 @@
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
                           <s class="cart-item__old-price product-option">
-                            {% if brushing_price != blank or brushing_price != '' %}
+                            {% if brushing_price != blank and show_footer_message %}
                               {{- item.original_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_price | money -}}
@@ -178,7 +188,7 @@
                         </div>
                       {%- else -%}
                         <div class="product-option">
-                          {% if brushing_price != blank or brushing_price != '' %}
+                          {% if brushing_price != blank and show_footer_message %}
                             {{- item.original_price | plus: raw_brushing_price | money -}}
                           {% else %}
                             {{ item.original_price | money }}
@@ -244,16 +254,6 @@
                       </ul>
 
                       {% if related_product != blank %}
-                        {% assign show_footer_message = false %}
-                        {%- for property in item.properties -%}
-                          {%- assign property_first_char = property.first | slice: 0 -%}
-                          {%- if property.last != blank and property_first_char != '_' -%}
-                            {% if property.first == 'Brushing' %}
-                              {% assign show_footer_message = true %}
-                            {% endif %}
-                          {%- endif -%}
-                        {%- endfor -%}
-
                         {% if show_footer_message %}
                           <div class="brushing-footer">
                             <p class="brushing-link">{{ section.settings.brushing_footer_label }}</p>
