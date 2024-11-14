@@ -228,6 +228,9 @@ class CartItems extends HTMLElement {
     try {
       const response = await fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } });
       const state = await response.text();
+
+      window.location.reload();
+
       const parsedState = JSON.parse(state);
 
       const quantityElement =
