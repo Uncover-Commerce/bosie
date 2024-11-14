@@ -164,7 +164,6 @@
                           </span>
                           <s class="cart-item__old-price product-option">
                             {% if brushing_price != blank or brushing_price != '' %}
-                              Brushing price: {{ brushing_price }}
                               {{- item.original_price | plus: brushing_price | money -}}
                             {% else %}
                               {{- item.original_price | money -}}
@@ -180,7 +179,6 @@
                       {%- else -%}
                         <div class="product-option">
                           {% if brushing_price != blank or brushing_price != '' %}
-                            Brushing price: {{ brushing_price }}
                             {{- item.original_price | plus: raw_brushing_price | money -}}
                           {% else %}
                             {{ item.original_price | money }}
