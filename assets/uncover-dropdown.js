@@ -55,9 +55,9 @@ class UncoverDropdown extends HTMLElement {
       }
       brushingProduct.dataset.price = optionRawPrice;
       brushingProduct.dataset.id = optionID;
-      brushingProduct.dataset.note = `${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`;
+      brushingProduct.dataset.note = `${optionTitle}`;
 
-      this.updateProductNote(`${optionTitle} (+ ${formatMoney(optionRawPrice, currencyFormat)})`);
+      this.updateProductNote(`${optionTitle}`);
       this.updateProductPrice(optionRawPrice);
     } else {
       dropdownArrow.querySelector('svg').style.display = 'block';
