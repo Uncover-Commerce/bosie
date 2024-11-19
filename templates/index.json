@@ -401,6 +401,49 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "rich_text_FJDFyr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GDR9MM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bosie Black Friday Offers",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_UNHLM7": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Our Black Friday Archive offers available from Wednesday 20th November.</p>"
+          }
+        },
+        "button_UKRhLH": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GDR9MM",
+        "text_UNHLM7",
+        "button_UKRhLH"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -414,6 +457,7 @@
     "column_cta_bosies_3nCed9",
     "grid_bosies_Kh6hX8",
     "trust_banner_bosies_kTnM6q",
-    "17315155000ec8afe0"
+    "17315155000ec8afe0",
+    "rich_text_FJDFyr"
   ]
 }
