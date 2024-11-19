@@ -414,16 +414,15 @@
         },
         "text_UNHLM7": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "<p>Our Black Friday Archive offers available from Wednesday 20th November.</p>"
+            "text": "<h2>Our Black Friday Archive offers are available from Wednesday 20th November at 5pm</h2>"
           }
         },
         "button_UKRhLH": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "SHOP",
+            "button_link": "shopify://collections/bosie-knitwear-black-friday-offers",
             "button_style_secondary": false,
             "button_label_2": "",
             "button_link_2": "",
