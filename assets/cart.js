@@ -22,7 +22,7 @@ function removeNewItemsFromCart(productID, relatedProduct = false) {
       .then((res) => res.json())
       .then((data) => {
         const products = data.items;
-        const filteredProductIds = products.filter((p) => p.properties.brushingID === relatedProduct).map((p) => p.id);
+        const filteredProductIds = products.filter((p) => p.properties.brushingID === relatedProduct).map((p) => p.key);
         performTheUpdateToRemoveFromCart(filteredProductIds);
       })
       .catch((err) => console.error(err));
