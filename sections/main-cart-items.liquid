@@ -101,16 +101,17 @@
 
               <tbody>
                 {%- for item in cart.items -%}
-                  {% assign hide_product = false %}
-
-                  {%- for property in item.properties -%}
-                    {%- assign property_first_char = property.first | slice: 0 -%}
-                    {%- if property.last != blank and property_first_char != '_' -%}
-                      {% if property.first == 'Product' %}
-                        {% assign hide_product = true %}
-                      {% endif %}
-                    {%- endif -%}
-                  {%- endfor -%}
+                  {% comment %}
+                    {% assign hide_product = false %}
+                    {%- for property in item.properties -%}
+                      {%- assign property_first_char = property.first | slice: 0 -%}
+                      {%- if property.last != blank and property_first_char != '_' -%}
+                        {% if property.first == 'Product' %}
+                          {% assign hide_product = true %}
+                        {% endif %}
+                      {%- endif -%}
+                    {%- endfor -%}
+                  {% endcomment %}
 
                   {% assign show_footer_message = false %}
                   {%- for property in item.properties -%}
@@ -123,7 +124,7 @@
                   {%- endfor -%}
 
                   <tr
-                    class="cart-item {% if hide_product %} hidden {% endif %}"
+                    class="cart-item"
                     id="CartItem-{{ item.index | plus: 1 }}"
                     data-index="{{ item.index | plus: 1 }}"
                   >
@@ -151,10 +152,7 @@
                         {% comment %} SEARCHING FOR RELATED PRODUCT {% endcomment %}
                         {% for related_item in cart.items %}
                           {% if related_item.properties.brushingID == item.properties.brushingID %}
-                            {% assign brushing_price = related_item.price | times: item.quantity %}
-                            {% assign raw_brushing_price = related_item.price %}
                             {% assign brushing_product_key = related_item.key %}
-                            {% assign related_product_index = related_item.index | plus: 1 %}
                             {% assign related_product_preset = related_item.properties.brushingID %}
                             {% break %}
                           {% endif %}
@@ -173,11 +171,7 @@
                             {{ 'products.product.price.regular_price' | t }}
                           </span>
                           <s class="cart-item__old-price product-option">
-                            {% if brushing_price != blank and show_footer_message %}
-                              {{- item.original_price | plus: brushing_price | money -}}
-                            {% else %}
-                              {{- item.original_price | money -}}
-                            {% endif %}
+                            {{- item.original_price | money -}}
                           </s>
                           <span class="visually-hidden">
                             {{ 'products.product.price.sale_price' | t }}
@@ -188,11 +182,7 @@
                         </div>
                       {%- else -%}
                         <div class="product-option">
-                          {% if brushing_price != blank and show_footer_message %}
-                            {{- item.original_price | plus: raw_brushing_price | money -}}
-                          {% else %}
-                            {{ item.original_price | money }}
-                          {% endif %}
+                          {{ item.original_price | money }}
                         </div>
                       {%- endif -%}
 
@@ -272,31 +262,19 @@
                             </dt>
                             <dd>
                               <s class="cart-item__old-price price price--end">
-                                {% if brushing_price != blank and show_footer_message %}
-                                  {{- item.original_price | plus: brushing_price | money -}}
-                                {% else %}
-                                  {{- item.original_price | money -}}
-                                {% endif %}
+                                {{- item.original_price | money -}}
                               </s>
                             </dd>
                             <dt class="visually-hidden">
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {% if brushing_price != blank and show_footer_message %}
-                                {{- item.final_line_price | plus: brushing_price | money -}}
-                              {% else %}
-                                {{- item.final_line_price | money -}}
-                              {% endif %}
+                              {{- item.final_line_price | money -}}
                             </dd>
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {% if brushing_price != blank and show_footer_message %}
-                              {{- item.original_line_price | plus: brushing_price | money -}}
-                            {% else %}
-                              {{- item.original_line_price | money -}}
-                            {% endif %}
+                            {{- item.original_line_price | money -}}
                           </span>
                         {%- endif -%}
 
@@ -522,20 +500,12 @@
                               {{ 'products.product.price.sale_price' | t }}
                             </dt>
                             <dd class="price price--end">
-                              {% if brushing_price != blank and show_footer_message %}
-                                {{ item.final_line_price | plus: brushing_price | money }}
-                              {% else %}
-                                {{ item.final_line_price | money }}
-                              {% endif %}
+                              {{ item.final_line_price | money }}
                             </dd>
                           </dl>
                         {%- else -%}
                           <span class="price price--end">
-                            {% if brushing_price != blank and show_footer_message %}
-                              {{- item.original_line_price | plus: brushing_price | money -}}
-                            {% else %}
-                              {{- item.original_line_price | money -}}
-                            {% endif %}
+                            {{- item.original_line_price | money -}}
                           </span>
                         {%- endif -%}
 
