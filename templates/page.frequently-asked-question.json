@@ -195,6 +195,14 @@
             "answer": "<p>Unless specifically specified as chunky, or a higher or lower ply, the garment will be 2 ply. This is our preferred ply as we tend to find customers are delighted with the fact it keeps them warm, without overheating. For colder seasons and climates, check out our very popular <a href=\"/collections/blue-mogganer\" target=\"_blank\" title=\"Blue Mogganer\">Blue Mogganer Fishermans </a>workwear collection, inspired by our town's historical North Sea Fishermen, which are mostly thicker and insulate beautifully.</p>",
             "open": false
           }
+        },
+        "faq_mVtCaf": {
+          "type": "faq",
+          "settings": {
+            "question": "The colour is not identical to how i see it on screen, why?",
+            "answer": "<p>This is because with different computer operating systems, displays, settings and depending on whether the garment is in daylight or indoor light, colours may vary. We do include a colour dot (within the colour seletion panel) which shows clearly the overall hue of the garment.  We also have a detailed description of the colour on most products. You are welcome to return any garment if the colour does not suit but we can not give any compensation should you decide to keep the garment. Please note however you will not be able to do this with items that have had a brushing treatment added to the purchase, so we recommend, if you ae particular about colour, order in the unbrushed versions so you can return if need be.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -208,7 +216,8 @@
         "faq_fNn9zk",
         "faq_AAPViz",
         "faq_KwKbMH",
-        "faq_rmDiMi"
+        "faq_rmDiMi",
+        "faq_mVtCaf"
       ],
       "settings": {
         "title": "General",
