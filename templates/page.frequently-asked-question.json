@@ -269,6 +269,14 @@
             "answer": "<p>Yes, you can view our gift card options <a href=\"/products/bosie-gift-card-1\" target=\"_blank\" title=\"Bosie Gift Card\">here. </a></p>",
             "open": false
           }
+        },
+        "faq_QMMAgW": {
+          "type": "faq",
+          "settings": {
+            "question": "How is Vat / Duty charged?",
+            "answer": "<p><strong>UK VAT</strong> is included in the price shown. </p><p><strong>*For international customers the UK VAT will be automatically deducted at checkout upon entry of an international delivery address.*</strong></p><p><strong>EU and Worldwide customers.</strong></p><p>Since Brexit, all parcels to Europe now undergo customs inspection and will have local taxes and duty applied by customs authorities in the country of delivery. These are set by each recipient country and are outwith our control. Be aware you may end up paying up to 40% of your original purchase price on these extra fees. These fees have to be paid locally prior to your parcel being delivered. Bosie LTD T/A Bosie Knitwear is not legally responsible for paying these.</p><p><strong>USA Customers</strong></p><p>Single orders under $800 incur no duty upon entry into America.</p><p></p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -276,7 +284,8 @@
         "faq_pBnhDF",
         "faq_YQzwJy",
         "faq_DyPph3",
-        "faq_PR7CMn"
+        "faq_PR7CMn",
+        "faq_QMMAgW"
       ],
       "settings": {
         "title": "Ordering and Payment",
