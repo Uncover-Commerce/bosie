@@ -238,14 +238,6 @@
             "open": false
           }
         },
-        "faq_QMMAgW": {
-          "type": "faq",
-          "settings": {
-            "question": "How is Vat / Duty charged?",
-            "answer": "<p><strong>UK VAT</strong> of 20% is included in the price shown. </p><p><strong>International Customers Please Note : </strong>The UK VAT of 20% will be automatically deducted at checkout from the price shown upon entry of an international delivery address.</p><p><strong>EU and Worldwide customers.</strong></p><p>Since Brexit, all parcels to Europe now undergo customs inspection and will have local taxes and duty applied by customs authorities in the country of delivery. These are set differently by each recipient country and are outwith our control. Be aware you may end up paying up to 40% of your original purchase price on these extra fees. These fees have to be paid locally prior to your parcel being delivered. Bosie LTD T/A Bosie Knitwear is not legally responsible for paying these for you.</p><p><strong>USA Customers</strong></p><p>Single orders under $800 incur no duty upon entry into America.</p><p></p>",
-            "open": false
-          }
-        },
         "faq_pBnhDF": {
           "type": "faq",
           "settings": {
@@ -277,15 +269,23 @@
             "answer": "<p>Yes, you can view our gift card options <a href=\"/products/bosie-gift-card-1\" target=\"_blank\" title=\"Bosie Gift Card\">here. </a></p>",
             "open": false
           }
+        },
+        "faq_QMMAgW": {
+          "type": "faq",
+          "settings": {
+            "question": "How is Vat / Duty charged?",
+            "answer": "<p><strong>UK VAT</strong> of 20% is included in the price shown. </p><p><strong>International Customers Please Note : </strong>The UK VAT of 20% will be automatically deducted at checkout from the price shown upon entry of an international delivery address.</p><p><strong>EU and Worldwide customers.</strong></p><p>Since Brexit, all parcels to Europe now undergo customs inspection and will have local taxes and duty applied by customs authorities in the country of delivery. These are set differently by each recipient country and are outwith our control. Be aware you may end up paying up to 40% of your original purchase price on these extra fees. These fees have to be paid locally prior to your parcel being delivered. Bosie LTD T/A Bosie Knitwear is not legally responsible for paying these for you.</p><p><strong>USA Customers</strong></p><p>Single orders under $800 incur no duty upon entry into America.</p><p></p>",
+            "open": false
+          }
         }
       },
       "block_order": [
         "faq_x76QGn",
-        "faq_QMMAgW",
         "faq_pBnhDF",
         "faq_YQzwJy",
         "faq_DyPph3",
-        "faq_PR7CMn"
+        "faq_PR7CMn",
+        "faq_QMMAgW"
       ],
       "settings": {
         "title": "Ordering and Payment",
@@ -337,6 +337,14 @@
             "answer": "<p>Click on the tracking number to see the order status. All deliveries are strictly recorded by our Courier. If the item has not been recorded as delivered and is still lost 28 days after shipping please contact us on  orders@bosie.co and we will chase it up for you.</p><p>Please note DHL considers an item lost after 28 days from the date of sending so only then would we consider it lost, however, please be assured that this occurrence is extremely rare and we fully insure all packages for it, so no cost would be incurred by the customer.</p>",
             "open": false
           }
+        },
+        "faq_AMmPgT": {
+          "type": "faq",
+          "settings": {
+            "question": "What VAT / Duty will i pay?",
+            "answer": "<p>Your <strong>UK VAT</strong> of 20% is included in the price shown. </p><p><strong>International Customers Please Note : </strong>The UK VAT of 20% will be automatically deducted at checkout from the price shown upon entry of an international delivery address.</p><p><strong>EU and Worldwide customers.</strong></p><p>Since Brexit, all parcels to Europe now undergo customs inspection and will have local taxes and duty applied by customs authorities in the country of delivery. These are set differently by each recipient country and are outwith our control. Be aware you may end up paying up to 40% of your original purchase price on these extra fees. These fees have to be paid locally prior to your parcel being delivered. Bosie LTD T/A Bosie Knitwear is not legally responsible for paying these for you.</p><p><strong>USA Customers</strong></p><p>Single orders under $800 incur no duty upon entry into America.answer goes here.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -344,7 +352,8 @@
         "faq_ytJPLz",
         "faq_VGpWcN",
         "faq_86nwca",
-        "faq_XNUm4w"
+        "faq_XNUm4w",
+        "faq_AMmPgT"
       ],
       "settings": {
         "title": "Shipping and Delivery",
