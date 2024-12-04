@@ -336,6 +336,14 @@
             "answer": "<p>Click on the tracking number to see the order status. All deliveries are strictly recorded by our Courier. If the item has not been recorded as delivered and is still lost 28 days after shipping please contact us on  orders@bosie.co and we will chase it up for you.</p><p>Please note DHL considers an item lost after 28 days from the date of sending so only then would we consider it lost, however, please be assured that this occurrence is extremely rare and we fully insure all packages for it, so no cost would be incurred by the customer.</p>",
             "open": false
           }
+        },
+        "faq_4WxP6A": {
+          "type": "faq",
+          "settings": {
+            "question": "The colour is not identical to how i see it on screen, why?",
+            "answer": "<p>We try very hard to photograph our garments to show our products as clearly as possible. However sometimes This is because with different computer operating systems, resolutions, displays, settings and depending on whether the garment is in daylight or indoor light, colours may vary very slightly. </p><p>To help you decide, we do include a colour dot (within the colour selection panel) which shows clearly the overall hue of the garment.  We also have a detailed written description of the colour on most products. </p><p>You can return most garments if the colour does not suit but we can not give any compensation should you decide to keep the garment. </p><p>Please note however you will not be able to return items that have had a brushing treatment added to the purchase, so we recommend, if you are very particular about colour, order in the unbrushed versions so you can return if need be.</p>",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -344,7 +352,8 @@
         "faq_ytJPLz",
         "faq_VGpWcN",
         "faq_86nwca",
-        "faq_XNUm4w"
+        "faq_XNUm4w",
+        "faq_4WxP6A"
       ],
       "settings": {
         "title": "Shipping and Delivery",
