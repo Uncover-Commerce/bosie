@@ -26,6 +26,13 @@
             "heading_size": "hxxl"
           }
         },
+        "text_4H7RPP": {
+          "type": "text",
+          "settings": {
+            "text": "LAST ORDER DATES FOR CHRISTMAS POSTING; <strong>UK</strong> - 20 DECEMBER, <strong>USA</strong> - 18 DECEMBER, <strong>EU</strong> - 18 DECEMBER, <strong>AUSTRALIA & NZ </strong>- 15 DECEMBER, <strong>REST OF WORLD </strong>- 11 DECEMBER",
+            "text_style": "body"
+          }
+        },
         "button": {
           "type": "buttons",
           "settings": {
@@ -41,6 +48,7 @@
       "block_order": [
         "subtitle_eHFi7b",
         "heading",
+        "text_4H7RPP",
         "button"
       ],
       "settings": {
