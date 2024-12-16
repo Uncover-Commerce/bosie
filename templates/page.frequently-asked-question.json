@@ -198,9 +198,18 @@
         },
         "faq_mVtCaf": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "question": "The colour is not identical to how i see it on screen, why?",
             "answer": "<p>As with all online companies, we try very hard to photograph our garments to show our products as clearly as possible. However sometimes with different computers, resolutions, displays, settings and depending on whether the garment is in daylight or indoor light, colours may vary very slightly. </p><p>To help you decide, we do include a colour dot (within the colour selection panel) which shows clearly the overall hue of the garment. You have to click on this dot to choose your garment so you can't miss it.</p><p>We also have a detailed written description of the colour on most products. </p><p>You can return most garments if the colour does not suit but we can not give any compensation should you decide to keep the garment, and it is not considered a fault.</p><p><strong>Please note however you will not be able to return items that have had a brushing treatment added to the purchase* so we recommend, if you are very particular about colour, order in the unbrushed versions so you can return if need be.</strong></p><p><strong>* This does not apply to items sold brushed as standard.</strong></p>",
+            "open": false
+          }
+        },
+        "faq_hPpbjn": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I obtain yarn for repairing my garment?",
+            "answer": "<p>Yes we can offer this via an order system, to do this please email orders@bosie.co with the email title 'Yarn Procurement'</p>",
             "open": false
           }
         }
@@ -217,7 +226,8 @@
         "faq_AAPViz",
         "faq_KwKbMH",
         "faq_rmDiMi",
-        "faq_mVtCaf"
+        "faq_mVtCaf",
+        "faq_hPpbjn"
       ],
       "settings": {
         "title": "General",
