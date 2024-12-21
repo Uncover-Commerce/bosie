@@ -26,6 +26,13 @@
             "heading_size": "hxxl"
           }
         },
+        "text_zRMNRM": {
+          "type": "text",
+          "settings": {
+            "text": "We are now on Christmas annual leave. All orders submitted, order queries and general enquiries will be actioned / responded to after our return on 6 January. Wishing all our customers a joyful Christmas and ll the best for 2025.",
+            "text_style": "body"
+          }
+        },
         "button": {
           "type": "buttons",
           "settings": {
@@ -41,6 +48,7 @@
       "block_order": [
         "subtitle_eHFi7b",
         "heading",
+        "text_zRMNRM",
         "button"
       ],
       "settings": {
