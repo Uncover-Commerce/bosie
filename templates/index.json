@@ -401,6 +401,21 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "17377266368de09b6b": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_medals_Y9NVhg": {
+          "type": "shopify://apps/judge-me-reviews/blocks/medals/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_medals_Y9NVhg"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -414,6 +429,7 @@
     "column_cta_bosies_3nCed9",
     "grid_bosies_Kh6hX8",
     "trust_banner_bosies_kTnM6q",
-    "17315155000ec8afe0"
+    "17315155000ec8afe0",
+    "17377266368de09b6b"
   ]
 }
