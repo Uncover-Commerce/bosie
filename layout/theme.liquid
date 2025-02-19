@@ -419,5 +419,9 @@
         },
       });
     </script>
+
+    {% if settings.cart_drawer_shipping_bar_enable %}
+      <script src="{{ 'shipping-bar.js' | asset_url }}" defer></script>
+    {% endif %}
   </body>
 </html>
